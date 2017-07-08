@@ -76,7 +76,7 @@ class ScheduleListView extends React.Component {
     renderCompanyHeader() {
         return <View/>
     }
-    
+
     render() {
         return (
             <PureListView

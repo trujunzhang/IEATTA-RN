@@ -29,15 +29,10 @@
  */
 import React, {Component} from 'react'
 import {
-    Text,
-    TouchableOpacity,
     View,
-    Image,
-    ScrollView,
+    Text,
     StyleSheet,
     ListView,
-    Navigator,
-    StatusBar,
     Dimensions
 } from 'react-native'
 
@@ -88,9 +83,11 @@ class PureListView extends React.Component {
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
         });
 
+        const _dataSource = cloneWithData(dataSource, props.data)
+        // debugger
         this.state = {
             contentHeight: 0,
-            dataSource: cloneWithData(dataSource, props.data),
+            dataSource: _dataSource
         };
 
         (this: any).renderFooter = this.renderFooter.bind(this);

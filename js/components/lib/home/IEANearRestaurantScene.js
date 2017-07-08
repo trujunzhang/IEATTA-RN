@@ -92,18 +92,21 @@ let foodSections =
 
 
 class IEANearRestaurantScene extends Component {
+    _innerRef: ?PureListView;
 
     constructor(props) {
         super(props);
+
+        this._innerRef = null;
 
         let dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2,
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2
         });
 
-        this.state = {
-            dataSource: dataSource.cloneWithRowsAndSections(foodSections)
-        }
+        // this.state = {
+        //     dataSource: dataSource.cloneWithRowsAndSections(foodSections)
+        // }
     }
 
     renderRow = (item: Object,
@@ -146,20 +149,33 @@ class IEANearRestaurantScene extends Component {
         )
     }
 
+    renderEmptyList() {
+        return (
+            <View></View>
+        )
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
                 <View style={{backgroundColor: 'transparent', height: 44}}/>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
-                    <ListView
-                        dataSource={this.state.dataSource}
+                    <PureListView
+                        ref={this.storeInnerRef.bind(this)}
+                        data={foodSections}
                         renderRow={this.renderRow.bind(this)}
-                        renderFooter={this.renderFooter.bind(this)}
-                        renderSectionHeader={this.renderSectionHeader}
+                        renderSectionHeader={this.renderSectionHeader.bind(this)}
+                        {...(this.props /* flow can't guarantee the shape of props */)}
+                        renderEmptyList={this.renderEmptyList.bind(this)}
                     />
                 </View>
             </View>
         )
+    }
+
+
+    storeInnerRef(ref: ?PureListView) {
+        this._innerRef = ref;
     }
 }
 
