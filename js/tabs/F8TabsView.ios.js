@@ -30,7 +30,7 @@ const F8InfoView = require('F8InfoView')
 const F8MapView = require('F8MapView')
 const F8NotificationsView = require('F8NotificationsView')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
-const NearRestaurantScene = require('../components/lib/home/NearRestaurantScene')
+const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
 const MyScheduleView = require('./schedule/MyScheduleView')
 
 const React = require('React')
@@ -83,7 +83,7 @@ class F8TabsView extends React.Component {
                     onPress={this.onTabSelect.bind(this, 'my-schedule')}
                     icon={require('./schedule/img/my-schedule-icon.png')}
                     selectedIcon={require('./schedule/img/my-schedule-icon-active.png')}>
-                    <NearRestaurantScene
+                    <IEANearRestaurantScene
                         navigator={this.props.navigator}
                         onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />

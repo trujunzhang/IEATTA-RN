@@ -58,7 +58,7 @@ import Svg, {
     Use,
     Defs,
     Stop
-} from 'react-native-svg';
+} from 'react-native-svg'
 
 
 const {

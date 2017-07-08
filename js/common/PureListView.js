@@ -23,16 +23,29 @@
  */
 'use strict';
 
-let ListView = require('ListView');
-let Dimensions = require('Dimensions');
-let Platform = require('Platform');
-let StyleSheet = require('StyleSheet');
-let React = require('React');
-let View = require('View');
 
-type Rows = Array<Object>;
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    Text,
+    TouchableOpacity,
+    View,
+    Image,
+    ScrollView,
+    StyleSheet,
+    ListView,
+    Navigator,
+    StatusBar,
+    Dimensions
+} from 'react-native'
+
+const Platform = require('Platform')
+
+type Rows = Array<Object>
 type RowsAndSections = {
-    [sectionID: string]: Object;
+    [sectionID: string]: Object
 };
 
 export type Data = Rows | RowsAndSections;
@@ -151,4 +164,4 @@ let styles = StyleSheet.create({
     },
 });
 
-module.exports = PureListView;
+module.exports = PureListView

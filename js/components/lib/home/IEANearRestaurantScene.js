@@ -42,15 +42,16 @@ import {
     Dimensions
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General;
+const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 
+let PureListView = require('../../../common/PureListView');
 
 const {
     MENU_ITEM_ADD_A_RESTAURANT,
     MENU_ITEM_SEARCH_RESTAURANTS,
     MENU_ITEM_MANAGE_FRIENDS,
     MENU_ITEM_READ_REVIEWS
-} = require('../lib/constants').default
+} = require('../../../lib/constants').default
 
 const RestaurantItem = require('./RestaurantItem')
 const RestaurantHomeListItem = require('./RestaurantHomeListItem')
@@ -81,7 +82,7 @@ let foodSections =
                 icon: "M21 6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6zm-5.88 10.428l-3.16-1.938-3.05 2.01.59-3.457L7 10.596l3.457-.505L11.96 6.5l1.582 3.59 3.458.506-2.5 2.447.62 3.385z"
             }
         ],
-        'Hot New Businesses Nearby': [
+        'Restaurants Nearby': [
             {name: "Lettuce", category: "Vegetable"},
             {name: "Lettuce", category: "Vegetable"},
             {name: "Lettuce", category: "Vegetable"},
@@ -90,7 +91,7 @@ let foodSections =
     }
 
 
-class NearRestaurantScene extends Component {
+class IEANearRestaurantScene extends Component {
 
     constructor(props) {
         super(props);
@@ -118,7 +119,7 @@ class NearRestaurantScene extends Component {
 
     renderSectionHeader(sectionData, sectionTitle) {
         if (sectionTitle === 'categories') {
-            return (<View style={{height: 24}}/>)
+            return (<View style={{height: 4}}/>)
         }
         return (
             <View style={{marginTop: 25, height: 36}}>
@@ -162,4 +163,4 @@ class NearRestaurantScene extends Component {
     }
 }
 
-module.exports = NearRestaurantScene
+module.exports = IEANearRestaurantScene
