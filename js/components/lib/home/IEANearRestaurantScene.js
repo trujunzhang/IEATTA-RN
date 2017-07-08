@@ -153,7 +153,6 @@ class IEANearRestaurantScene extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <View style={{backgroundColor: 'transparent', height: 44}}/>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
                     <PureListView
                         ref={this.storeInnerRef.bind(this)}
