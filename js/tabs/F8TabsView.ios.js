@@ -30,6 +30,7 @@ const F8InfoView = require('F8InfoView')
 const F8MapView = require('F8MapView')
 const F8NotificationsView = require('F8NotificationsView')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
+const NearRestaurantScene = require('../components/lib/home/NearRestaurantScene')
 const MyScheduleView = require('./schedule/MyScheduleView')
 
 const React = require('React')
@@ -82,7 +83,7 @@ class F8TabsView extends React.Component {
                     onPress={this.onTabSelect.bind(this, 'my-schedule')}
                     icon={require('./schedule/img/my-schedule-icon.png')}
                     selectedIcon={require('./schedule/img/my-schedule-icon-active.png')}>
-                    <MyScheduleView
+                    <NearRestaurantScene
                         navigator={this.props.navigator}
                         onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />
@@ -103,15 +104,6 @@ class F8TabsView extends React.Component {
                     icon={require('./notifications/img/notifications-icon.png')}
                     selectedIcon={require('./notifications/img/notifications-icon-active.png')}>
                     <F8NotificationsView navigator={this.props.navigator}/>
-                </TabBarItemIOS>
-                <TabBarItemIOS
-                    title="Info"
-                    selected={this.props.tab === 'info'}
-                    onPress={this.onTabSelect.bind(this, 'info')}
-                    icon={require('./info/img/info-icon.png')}
-                    selectedIcon={require('./info/img/info-icon-active.png')}>
-                    {/*<F8NotificationsView navigator={this.props.navigator}/>*/}
-                    <F8InfoView navigator={this.props.navigator}/>
                 </TabBarItemIOS>
             </TabBarIOS>
         );
