@@ -23,24 +23,24 @@
  */
 'use strict';
 
-let EmptySchedule = require('./EmptySchedule');
-let FilterHeader = require('./FilterHeader');
-let FilterSessions = require('./filterSessions');
-let ListContainer = require('ListContainer');
-let Navigator = require('Navigator');
-let React = require('React');
-let Platform = require('Platform');
-let F8DrawerLayout = require('F8DrawerLayout');
-let ScheduleListView = require('./ScheduleListView');
-let FilterScreen = require('../../filter/FilterScreen');
+const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
+const FilterHeader = require('../../../tabs/schedule/FilterHeader')
+const FilterSessions = require('../../../tabs/schedule/filterSessions')
+const ListContainer = require('ListContainer')
+const Navigator = require('Navigator')
+const React = require('React')
+const Platform = require('Platform')
+const F8DrawerLayout = require('F8DrawerLayout')
+const ScheduleListView = require('../../../tabs/schedule/ScheduleListView')
+const FilterScreen = require('../../../filter/FilterScreen')
 
-let {connect} = require('react-redux');
-let {switchDay} = require('../../actions');
+const {connect} = require('react-redux')
+const {switchDay} = require('../../../actions')
 
-import type {Session} from '../../../reducers/sessions';
+import type {Session} from '../../../reducers/sessions'
 
 // TODO: Move from reselect to memoize?
-let {createSelector} = require('reselect');
+const {createSelector} = require('reselect')
 
 const data = createSelector(
     (store) => store.sessions,
