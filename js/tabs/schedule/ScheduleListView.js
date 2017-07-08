@@ -84,7 +84,7 @@ class ScheduleListView extends React.Component {
                 data={this.state.todaySessions}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderCompanyHeader.bind(this)}
-                {...(this.props: any /* flow can't guarantee the shape of props */)}
+                {...(this.props /* flow can't guarantee the shape of props */)}
                 renderEmptyList={this.renderEmptyList.bind(this)}
             />
         );

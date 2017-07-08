@@ -66,7 +66,7 @@ const {
     MENU_ITEM_SEARCH_RESTAURANTS,
     MENU_ITEM_MANAGE_FRIENDS,
     MENU_ITEM_READ_REVIEWS
-} = require('../lib/constants').default
+} = require('../../../lib/constants').default
 
 
 const CategoriesRowHeight = 50

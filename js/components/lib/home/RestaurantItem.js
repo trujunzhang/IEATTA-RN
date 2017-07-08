@@ -45,7 +45,7 @@ const {width, height} = Dimensions.get('window')
 const RestaurantRowHeight = 84
 const RestaurantAvatorWidth = 80
 
-const IEAStarIcon = require('../common/IEAStarIcon').default
+const IEAStarIcon = require('../../../common/IEAStarIcon').default
 
 class RestaurantItem extends Component {
 

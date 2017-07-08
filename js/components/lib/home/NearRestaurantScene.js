@@ -52,17 +52,10 @@ const {
     MENU_ITEM_READ_REVIEWS
 } = require('../lib/constants').default
 
-const RestaurantItem = require('../components/lib/home/RestaurantItem')
-const RestaurantHomeListItem = require('../components/lib/home/RestaurantHomeListItem')
+const RestaurantItem = require('./RestaurantItem')
+const RestaurantHomeListItem = require('./RestaurantHomeListItem')
 
 // debugger
-
-let food = [
-    {name: "Lettuce", category: "Vegetable"},
-    {name: "Apple", category: "Fruit"},
-    {name: "Orange", category: "Fruit"},
-    {name: "Potato", category: "Vegetable"}
-]
 
 let foodSections =
     {
@@ -97,7 +90,7 @@ let foodSections =
     }
 
 
-class SectionsListViewScene extends Component {
+class NearRestaurantScene extends Component {
 
     constructor(props) {
         super(props);
@@ -107,27 +100,9 @@ class SectionsListViewScene extends Component {
             sectionHeaderHasChanged: (s1, s2) => s1 !== s2
         });
 
-        // let foodArrayToMap = this.convertFoodArrayToMap()
-        let cloneWithRowsAndSections = dataSource.cloneWithRowsAndSections(foodSections)
         this.state = {
-            dataSource: cloneWithRowsAndSections
+            dataSource: dataSource.cloneWithRowsAndSections(foodSections)
         }
-    }
-
-    convertFoodArrayToMap() {
-        let foodCategoryMap = {}; // Create the blank map
-        food.forEach(function (foodItem) {
-            if (!foodCategoryMap[foodItem.category]) {
-                // Create an entry in the map for the category if it hasn't yet been created
-                foodCategoryMap[foodItem.category] = [];
-            }
-
-            foodCategoryMap[foodItem.category].push(foodItem);
-
-        });
-
-        return foodCategoryMap;
-
     }
 
     renderRow = (item: Object,
@@ -138,7 +113,6 @@ class SectionsListViewScene extends Component {
         if (sectionID === 'categories') {
             return (<RestaurantHomeListItem item={item}/>)
         }
-        // debugger
         return (<RestaurantItem item={item}/>)
     }
 
@@ -188,4 +162,4 @@ class SectionsListViewScene extends Component {
     }
 }
 
-module.exports = SectionsListViewScene
+module.exports = NearRestaurantScene
