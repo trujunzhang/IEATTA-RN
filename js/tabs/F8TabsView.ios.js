@@ -25,23 +25,23 @@
 
 'use strict';
 
-let F8Colors = require('F8Colors');
-let F8InfoView = require('F8InfoView');
-let F8MapView = require('F8MapView');
-let F8NotificationsView = require('F8NotificationsView');
-let GeneralScheduleView = require('./schedule/GeneralScheduleView');
-let MyScheduleView = require('./schedule/MyScheduleView');
+const F8Colors = require('F8Colors')
+const F8InfoView = require('F8InfoView')
+const F8MapView = require('F8MapView')
+const F8NotificationsView = require('F8NotificationsView')
+const GeneralScheduleView = require('./schedule/GeneralScheduleView')
+const MyScheduleView = require('./schedule/MyScheduleView')
 
-let React = require('React');
-let TabBarIOS = require('TabBarIOS');
-let TabBarItemIOS = require('TabBarItemIOS');
-let Navigator = require('Navigator');
-let unseenNotificationsCount = require('./notifications/unseenNotificationsCount');
+const React = require('React')
+const TabBarIOS = require('TabBarIOS')
+const TabBarItemIOS = require('TabBarItemIOS')
+const Navigator = require('Navigator')
+const unseenNotificationsCount = require('./notifications/unseenNotificationsCount')
 
-let {switchTab} = require('../actions');
-let {connect} = require('react-redux');
+const {switchTab} = require('../actions')
+const {connect} = require('react-redux')
 
-import type {Tab, Day} from '../reducers/navigation';
+import type {Tab, Day} from '../reducers/navigation'
 
 class F8TabsView extends React.Component {
     props: {
