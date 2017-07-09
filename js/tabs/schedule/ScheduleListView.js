@@ -97,7 +97,14 @@ class ScheduleListView extends React.Component {
     }
 
     render() {
-        const todaySessions = []
+        const todaySessions = [
+            {
+                'title': 'section1'
+            },
+            {
+                'title': 'section2'
+            }
+        ]
 
         return (
             <PureListView

@@ -25,21 +25,18 @@
 
 'use strict';
 
-let F8Colors = require('F8Colors');
-let React = require('React');
-let Platform = require('Platform');
-let StyleSheet = require('StyleSheet');
-let {Text} = require('F8Text');
-let TouchableOpacity = require('TouchableOpacity');
-let View = require('View');
-let Image = require('Image');
-let ToolbarAndroid = require('ToolbarAndroid');
-
-import Icon from 'react-native-vector-icons/FontAwesome'
+var F8Colors = require('F8Colors');
+var React = require('React');
+var Platform = require('Platform');
+var StyleSheet = require('StyleSheet');
+var { Text } = require('F8Text');
+var TouchableOpacity = require('TouchableOpacity');
+var View = require('View');
+var Image = require('Image');
+var ToolbarAndroid = require('ToolbarAndroid');
 
 export type Layout =
     'default'      // Use platform defaults (icon on Android, text on iOS)
-    | 'vectorIcon'   // Always use vector icon
     | 'icon'         // Always use icon
     | 'title';       // Always use title
 
@@ -142,7 +139,7 @@ class F8HeaderIOS extends React.Component {
         return (
             <View style={[styles.header, this.props.style]}>
                 <View style={styles.leftItem}>
-                    <ItemWrapperIOS color={itemsColor} item={leftItem}/>
+                    <ItemWrapperIOS color={itemsColor} item={leftItem} />
                 </View>
                 <View
                     accessible={true}
@@ -152,7 +149,7 @@ class F8HeaderIOS extends React.Component {
                     {content}
                 </View>
                 <View style={styles.rightItem}>
-                    <ItemWrapperIOS color={itemsColor} item={rightItem}/>
+                    <ItemWrapperIOS color={itemsColor} item={rightItem} />
                 </View>
             </View>
         );
@@ -175,19 +172,14 @@ class ItemWrapperIOS extends React.Component {
         let content;
         const {title, icon, layout, onPress} = item;
 
-        if (layout === 'vectorIcon') {
-            content = <Icon name={icon}
-                            size={20}
-                            style={{backgroundColor: 'transparent', color: 'white'}}/>
-        }
-        else if (layout !== 'icon' && title) {
+        if (layout !== 'icon' && title) {
             content = (
                 <Text style={[styles.itemText, {color}]}>
                     {title.toUpperCase()}
                 </Text>
             );
         } else if (icon) {
-            content = <Image source={icon} style={{width: 24, height: 24}} resizeMode="cover"/>;
+            content = <Image source={icon} />;
         }
 
         return (
@@ -203,10 +195,10 @@ class ItemWrapperIOS extends React.Component {
 }
 
 
-let STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 20 : 25;
-let HEADER_HEIGHT = Platform.OS === 'ios' ? 44 + STATUS_BAR_HEIGHT : 56 + STATUS_BAR_HEIGHT;
+var STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 20 : 25;
+var HEADER_HEIGHT = Platform.OS === 'ios' ? 44 + STATUS_BAR_HEIGHT : 56 + STATUS_BAR_HEIGHT;
 
-let styles = StyleSheet.create({
+var styles = StyleSheet.create({
     toolbarContainer: {
         paddingTop: STATUS_BAR_HEIGHT,
     },
@@ -263,7 +255,7 @@ Header.__cards__ = (define) => {
         onPress: () => alert('Filter button pressed!'),
     };
 
-    define('Simple', () => <Header title="Hello, world"/>);
+    define('Simple', () => <Header title="Hello, world" />);
     define('With items', () => (
         <Header
             title="Default"

@@ -229,9 +229,9 @@ class RestaurantListContainer extends React.Component {
         if (Platform.OS === 'android') {
             return <View />;
         }
-        if (this.props.parallaxContent) {
-            return this.props.parallaxContent;
-        }
+        // if (this.props.parallaxContent) {
+        //     return this.props.parallaxContent;
+        // }
         return (
             <Text style={styles.parallaxText}>
                 {this.props.title}
