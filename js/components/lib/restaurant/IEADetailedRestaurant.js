@@ -26,7 +26,7 @@
 const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
 const FilterHeader = require('../../../tabs/schedule/FilterHeader')
 const FilterSessions = require('../../../tabs/schedule/filterSessions')
-const ListContainer = require('ListContainer')
+const TabsListContainer = require('TabsListContainer')
 const Navigator = require('Navigator')
 const React = require('React')
 const Platform = require('Platform')
@@ -86,7 +86,7 @@ class IEADetailedRestaurant extends React.Component {
         }];
 
         const content = (
-            <ListContainer
+            <TabsListContainer
                 title="Schedule"
                 selectedSegment={this.props.day - 1}
                 onSegmentChange={this.switchDay}
@@ -101,7 +101,7 @@ class IEADetailedRestaurant extends React.Component {
                     renderEmptyList={this.renderEmptyList}
                     navigator={this.props.navigator}
                 />
-            </ListContainer>
+            </TabsListContainer>
         );
 
         if (Platform.OS === 'ios') {

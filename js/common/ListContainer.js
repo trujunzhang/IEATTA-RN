@@ -24,19 +24,19 @@
  */
 'use strict';
 
-let Animated = require('Animated');
-let NativeModules = require('NativeModules');
-let Dimensions = require('Dimensions');
-let F8Header = require('F8Header');
-let F8SegmentedControl = require('F8SegmentedControl');
-let ParallaxBackground = require('ParallaxBackground');
-let React = require('React');
-let ReactNative = require('react-native');
-let {Text} = require('F8Text');
-let ViewPager = require('./ViewPager');
-let Platform = require('Platform');
+const Animated = require('Animated');
+const NativeModules = require('NativeModules');
+const Dimensions = require('Dimensions');
+const F8Header = require('F8Header');
+const F8SegmentedControl = require('F8SegmentedControl');
+const ParallaxBackground = require('ParallaxBackground');
+const React = require('React');
+const ReactNative = require('react-native');
+const {Text} = require('F8Text');
+const ViewPager = require('./ViewPager');
+const Platform = require('Platform');
 
-let {
+const {
     ActivityIndicatorIOS,
     ProgressBarAndroid,
     StyleSheet,
@@ -72,8 +72,8 @@ const ActivityIndicator = Platform.OS === 'ios'
     ? ActivityIndicatorIOS
     : ProgressBarAndroid;
 
-let Relay = require('react-relay');
-let RelayRenderer = require('react-relay/lib/RelayRenderer.js');
+const Relay = require('react-relay');
+const RelayRenderer = require('react-relay/lib/RelayRenderer.js');
 
 class MainRoute extends Relay.Route {
 }
