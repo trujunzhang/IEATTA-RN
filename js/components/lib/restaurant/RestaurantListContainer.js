@@ -20,30 +20,40 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- * @providesModule TabsListContainer
+ * @providesModule ListContainer
  */
 'use strict';
 
-let Animated = require('Animated');
-let NativeModules = require('NativeModules');
-let Dimensions = require('Dimensions');
-let F8Header = require('F8Header');
-let F8SegmentedControl = require('F8SegmentedControl');
-let ParallaxBackground = require('ParallaxBackground');
-let React = require('React');
-let ReactNative = require('react-native');
-let {Text} = require('F8Text');
-let ViewPager = require('./ViewPager');
-let Platform = require('Platform');
 
-let {
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
     ActivityIndicatorIOS,
     ProgressBarAndroid,
-    StyleSheet,
+    Text,
+    TouchableOpacity,
     View,
-} = ReactNative;
+    Image,
+    ScrollView,
+    StyleSheet,
+    ListView,
+    Navigator,
+    StatusBar,
+    Platform,
+    Dimensions
+} from 'react-native'
 
-import type {Item as HeaderItem} from 'F8Header';
+const Animated = require('Animated')
+const NativeModules = require('NativeModules')
+const F8Header = require('F8Header')
+const F8SegmentedControl = require('F8SegmentedControl')
+const ParallaxBackground = require('ParallaxBackground')
+const ReactNative = require('react-native')
+const ViewPager = require('../../../common/ViewPager')
+
+import type {Item as HeaderItem} from 'F8Header'
 
 type Props = {
     title: string;
@@ -66,15 +76,14 @@ type State = {
     stickyHeaderHeight: number;
 };
 
-// const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
-const EMPTY_CELL_HEIGHT = 60;
+const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
 const ActivityIndicator = Platform.OS === 'ios'
     ? ActivityIndicatorIOS
     : ProgressBarAndroid;
 
-let Relay = require('react-relay');
-let RelayRenderer = require('react-relay/lib/RelayRenderer.js');
+const Relay = require('react-relay');
+const RelayRenderer = require('react-relay/lib/RelayRenderer.js');
 
 class MainRoute extends Relay.Route {
 }
@@ -112,7 +121,7 @@ class RelayLoading extends React.Component {
     }
 }
 
-class TabsListContainer extends React.Component {
+class RestaurantListContainer extends React.Component {
     props: Props;
     state: State;
     _refs: Array<any>;
@@ -136,8 +145,6 @@ class TabsListContainer extends React.Component {
             stickyHeaderHeight: 0,
         };
 
-        // console.log("Tabs List Container: " + JSON.stringify(this.state));
-
         (this: any).renderFakeHeader = this.renderFakeHeader.bind(this);
         (this: any).handleStickyHeaderLayout = this.handleStickyHeaderLayout.bind(this);
         (this: any).handleShowMenu = this.handleShowMenu.bind(this);
@@ -146,6 +153,17 @@ class TabsListContainer extends React.Component {
     }
 
     render() {
+        let leftItem = this.props.leftItem;
+        if (!leftItem && Platform.OS === 'android') {
+            leftItem = {
+                title: 'Menu',
+                icon: this.context.hasUnreadNotifications
+                    ? require('./img/hamburger-unread.png')
+                    : require('./img/hamburger.png'),
+                onPress: this.handleShowMenu,
+            };
+        }
+
         const segments = [];
         const content = React.Children.map(this.props.children, (child, idx) => {
             segments.push(child.props.title);
@@ -174,14 +192,35 @@ class TabsListContainer extends React.Component {
                         selectionColor={this.props.selectedSectionColor}
                         onChange={this.handleSelectSegment}
                     />
+                    {stickyHeader}
                 </View>
             );
         }
+        // TODO: Bind to ViewPager animation
+        const backgroundShift = segments.length === 1
+            ? 0
+            : this.state.idx / (segments.length - 1);
 
         return (
             <View style={styles.container}>
-                <View style={{height: 50, backgroundColor: this.props.backgroundColor}}>
-                    {this.renderFloatingStickyHeader(stickyHeader)}
+                <View style={styles.headerWrapper}>
+                    <ParallaxBackground
+                        minHeight={this.state.stickyHeaderHeight + F8Header.height}
+                        maxHeight={EMPTY_CELL_HEIGHT + this.state.stickyHeaderHeight + F8Header.height}
+                        offset={this.state.anim}
+                        backgroundImage={this.props.backgroundImage}
+                        backgroundShift={backgroundShift}
+                        backgroundColor={this.props.backgroundColor}>
+                        {this.renderParallaxContent()}
+                    </ParallaxBackground>
+                    <F8Header
+                        title={this.props.title}
+                        leftItem={leftItem}
+                        rightItem={this.props.rightItem}
+                        extraItems={this.props.extraItems}>
+                        {this.renderHeaderTitle()}
+                    </F8Header>
+                    {this.renderFixedStickyHeader(stickyHeader)}
                 </View>
                 <ViewPager
                     count={segments.length}
@@ -189,6 +228,7 @@ class TabsListContainer extends React.Component {
                     onSelectedIndexChange={this.handleSelectSegment}>
                     {content}
                 </ViewPager>
+                {this.renderFloatingStickyHeader(stickyHeader)}
             </View>
         );
     }
@@ -197,10 +237,35 @@ class TabsListContainer extends React.Component {
         if (Platform.OS === 'android') {
             return <View />;
         }
+        if (this.props.parallaxContent) {
+            return this.props.parallaxContent;
+        }
         return (
             <Text style={styles.parallaxText}>
                 {this.props.title}
             </Text>
+        );
+    }
+
+    renderHeaderTitle(): ?ReactElement {
+        if (Platform.OS === 'android') {
+            return null;
+        }
+        let transform;
+        if (!this.props.parallaxContent) {
+            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            transform = {
+                opacity: this.state.anim.interpolate({
+                    inputRange: [distance - 20, distance],
+                    outputRange: [0, 1],
+                    extrapolate: 'clamp',
+                })
+            };
+        }
+        return (
+            <Animated.Text style={[styles.headerTitle, transform]}>
+                {this.props.title}
+            </Animated.Text>
         );
     }
 
@@ -238,6 +303,9 @@ class TabsListContainer extends React.Component {
     }
 
     renderFloatingStickyHeader(stickyHeader: ?ReactElement) {
+        if (!stickyHeader || Platform.OS !== 'ios') {
+            return;
+        }
         let opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
         let transform;
 
@@ -332,12 +400,11 @@ let styles = StyleSheet.create({
         letterSpacing: -1,
     },
     stickyHeader: {
-        flex: 1
-        // position: 'absolute',
-        // top: F8Header.height,
-        // left: 0,
-        // right: 0,
+        position: 'absolute',
+        top: F8Header.height,
+        left: 0,
+        right: 0,
     },
 });
 
-module.exports = TabsListContainer;
+module.exports = RestaurantListContainer

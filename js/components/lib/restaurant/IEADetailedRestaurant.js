@@ -23,19 +23,33 @@
  */
 'use strict';
 
+
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    Text,
+    TouchableOpacity,
+    View,
+    Image,
+    ScrollView,
+    StyleSheet,
+    ListView,
+    Navigator,
+    StatusBar,
+    Platform,
+    Dimensions
+} from 'react-native'
+
 const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
 const FilterHeader = require('../../../tabs/schedule/FilterHeader')
 const FilterSessions = require('../../../tabs/schedule/filterSessions')
-const TabsListContainer = require('TabsListContainer')
-const Navigator = require('Navigator')
-const React = require('React')
-const Platform = require('Platform')
+const RestaurantListContainer = require('./RestaurantListContainer')
 const F8DrawerLayout = require('F8DrawerLayout')
 const ScheduleListView = require('../../../tabs/schedule/ScheduleListView')
 const FilterScreen = require('../../../filter/FilterScreen')
 
-const {connect} = require('react-redux')
-const {switchDay} = require('../../../actions')
 
 import type {Session} from '../../../reducers/sessions'
 
@@ -86,7 +100,7 @@ class IEADetailedRestaurant extends React.Component {
         }];
 
         const content = (
-            <TabsListContainer
+            <RestaurantListContainer
                 title="Schedule"
                 selectedSegment={this.props.day - 1}
                 onSegmentChange={this.switchDay}
@@ -101,7 +115,7 @@ class IEADetailedRestaurant extends React.Component {
                     renderEmptyList={this.renderEmptyList}
                     navigator={this.props.navigator}
                 />
-            </TabsListContainer>
+            </RestaurantListContainer>
         );
 
         if (Platform.OS === 'ios') {
@@ -144,6 +158,8 @@ class IEADetailedRestaurant extends React.Component {
     switchDay(page) {
     }
 }
+
+const {connect} = require('react-redux')
 
 function select(store) {
     return {
