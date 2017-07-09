@@ -23,10 +23,29 @@
  */
 'use strict';
 
+
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    Text,
+    TouchableOpacity,
+    View,
+    Image,
+    ScrollView,
+    StyleSheet,
+    ListView,
+    Navigator,
+    StatusBar,
+    Platform,
+    Dimensions
+} from 'react-native'
+
+
 let F8SessionCell = require('F8SessionCell');
 let FilterSessions = require('./filterSessions');
-let Navigator = require('Navigator');
-let React = require('React');
+// let Navigator = require('Navigator');
 let SessionsSectionHeader = require('./SessionsSectionHeader');
 let PureListView = require('../../common/PureListView');
 let groupSessions = require('./groupSessions');
@@ -78,16 +97,18 @@ class ScheduleListView extends React.Component {
     }
 
     render() {
+        const todaySessions = []
+
         return (
             <PureListView
                 ref={this.storeInnerRef.bind(this)}
-                data={this.state.todaySessions}
+                data={todaySessions}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderCompanyHeader.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
                 renderEmptyList={this.renderEmptyList.bind(this)}
             />
-        );
+        )
     }
 
     renderSectionHeader(sectionData: any, sectionID: string) {
