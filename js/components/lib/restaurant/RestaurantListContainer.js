@@ -219,7 +219,7 @@ class RestaurantListContainer extends React.Component {
                     </F8Header>
                     {this.renderFixedStickyHeader(stickyHeader)}
                 </View>
-                    {content}
+                {content}
                 {this.renderFloatingStickyHeader(stickyHeader)}
             </View>
         );
@@ -243,9 +243,9 @@ class RestaurantListContainer extends React.Component {
         if (Platform.OS === 'android') {
             return null;
         }
-        var transform;
+        let transform;
         if (!this.props.parallaxContent) {
-            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
             transform = {
                 opacity: this.state.anim.interpolate({
                     inputRange: [distance - 20, distance],
@@ -298,13 +298,13 @@ class RestaurantListContainer extends React.Component {
         if (!stickyHeader || Platform.OS !== 'ios') {
             return;
         }
-        var opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
-        var transform;
+        const opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
+        let transform;
 
         // If native pinning is not available, fallback to Animated
         if (!NativeModules.F8Scrolling) {
-            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
-            var translateY = this.state.anim.interpolate({
+            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            let translateY = this.state.anim.interpolate({
                 inputRange: [0, distance],
                 outputRange: [distance, 0],
                 extrapolateRight: 'clamp',
@@ -342,7 +342,7 @@ class RestaurantListContainer extends React.Component {
 
         if (this.state.idx !== prevState.idx ||
             this.state.stickyHeaderHeight !== prevState.stickyHeaderHeight) {
-            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            const distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
 
             if (this._refs[prevState.idx] && this._refs[prevState.idx].getScrollResponder) {
                 const oldScrollViewTag = ReactNative.findNodeHandle(
