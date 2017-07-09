@@ -157,9 +157,6 @@ class RestaurantListContainer extends React.Component {
         if (!leftItem && Platform.OS === 'android') {
             leftItem = {
                 title: 'Menu',
-                icon: this.context.hasUnreadNotifications
-                    ? require('./img/hamburger-unread.png')
-                    : require('./img/hamburger.png'),
                 onPress: this.handleShowMenu,
             };
         }
