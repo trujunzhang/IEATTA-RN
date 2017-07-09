@@ -30,9 +30,6 @@
  */
 import React, {Component} from 'react'
 import {
-    ActivityIndicatorIOS,
-    ProgressBarAndroid,
-    Text,
     TouchableOpacity,
     View,
     Image,
@@ -42,18 +39,20 @@ import {
     Navigator,
     StatusBar,
     Platform,
+    ActivityIndicatorIOS,
     Dimensions
 } from 'react-native'
 
-const Animated = require('Animated')
-const NativeModules = require('NativeModules')
-const F8Header = require('F8Header')
-const F8SegmentedControl = require('F8SegmentedControl')
-const ParallaxBackground = require('ParallaxBackground')
-const ReactNative = require('react-native')
-const ViewPager = require('../../../common/ViewPager')
+const Animated = require('Animated');
+const NativeModules = require('NativeModules');
+const F8Header = require('F8Header');
+const F8SegmentedControl = require('F8SegmentedControl');
+const ParallaxBackground = require('ParallaxBackground');
+const ReactNative = require('react-native');
+const {Text} = require('F8Text');
+const ViewPager = require('../../../common/ViewPager');
 
-import type {Item as HeaderItem} from 'F8Header'
+import type {Item as HeaderItem} from 'F8Header';
 
 type Props = {
     title: string;
@@ -78,6 +77,7 @@ type State = {
 
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
+const ProgressBarAndroid = require('ProgressBarAndroid');
 const ActivityIndicator = Platform.OS === 'ios'
     ? ActivityIndicatorIOS
     : ProgressBarAndroid;
@@ -153,7 +153,7 @@ class RestaurantListContainer extends React.Component {
     }
 
     render() {
-        let leftItem = this.props.leftItem;
+        var leftItem = this.props.leftItem;
         if (!leftItem && Platform.OS === 'android') {
             leftItem = {
                 title: 'Menu',
@@ -248,9 +248,9 @@ class RestaurantListContainer extends React.Component {
         if (Platform.OS === 'android') {
             return null;
         }
-        let transform;
+        var transform;
         if (!this.props.parallaxContent) {
-            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
             transform = {
                 opacity: this.state.anim.interpolate({
                     inputRange: [distance - 20, distance],
@@ -303,13 +303,13 @@ class RestaurantListContainer extends React.Component {
         if (!stickyHeader || Platform.OS !== 'ios') {
             return;
         }
-        let opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
-        let transform;
+        var opacity = this.state.stickyHeaderHeight === 0 ? 0 : 1;
+        var transform;
 
         // If native pinning is not available, fallback to Animated
         if (!NativeModules.F8Scrolling) {
-            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
-            let translateY = this.state.anim.interpolate({
+            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            var translateY = this.state.anim.interpolate({
                 inputRange: [0, distance],
                 outputRange: [distance, 0],
                 extrapolateRight: 'clamp',
@@ -347,7 +347,7 @@ class RestaurantListContainer extends React.Component {
 
         if (this.state.idx !== prevState.idx ||
             this.state.stickyHeaderHeight !== prevState.stickyHeaderHeight) {
-            let distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
+            var distance = EMPTY_CELL_HEIGHT - this.state.stickyHeaderHeight;
 
             if (this._refs[prevState.idx] && this._refs[prevState.idx].getScrollResponder) {
                 const oldScrollViewTag = ReactNative.findNodeHandle(
@@ -378,13 +378,29 @@ class RestaurantListContainer extends React.Component {
     }
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
     },
-    headerWrapper: {},
-    listView: {},
+    headerWrapper: {
+        // android: {
+        //     elevation: 2,
+        //     backgroundColor: 'transparent',
+        //     // FIXME: elevation doesn't seem to work without setting border
+        //     borderRightWidth: 1,
+        //     marginRight: -1,
+        //     borderRightColor: 'transparent',
+        // }
+    },
+    listView: {
+        // ios: {
+        backgroundColor: 'transparent',
+        // },
+        // android: {
+        //     backgroundColor: 'white',
+        // }
+    },
     headerTitle: {
         color: 'white',
         fontWeight: 'bold',
@@ -404,4 +420,4 @@ let styles = StyleSheet.create({
     },
 });
 
-module.exports = RestaurantListContainer
+module.exports = RestaurantListContainer;
