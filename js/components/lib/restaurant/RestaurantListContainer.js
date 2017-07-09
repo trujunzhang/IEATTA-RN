@@ -219,12 +219,7 @@ class RestaurantListContainer extends React.Component {
                     </F8Header>
                     {this.renderFixedStickyHeader(stickyHeader)}
                 </View>
-                <ViewPager
-                    count={segments.length}
-                    selectedIndex={this.state.idx}
-                    onSelectedIndexChange={this.handleSelectSegment}>
                     {content}
-                </ViewPager>
                 {this.renderFloatingStickyHeader(stickyHeader)}
             </View>
         );
