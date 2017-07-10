@@ -30,7 +30,7 @@ class PhotoGrid extends React.Component {
         }
     }
 
-    buildRows(items, itemsPerRow = 3) {
+    buildRows(items, itemsPerRow = 300) {
         return items.reduce((rows, item, idx) => {
             // If a full row is filled create a new row array
             if (idx % itemsPerRow === 0 && idx > 0) rows.push([]);
@@ -64,7 +64,7 @@ class PhotoGrid extends React.Component {
 
         return (
             <View style={[styles.row, {marginBottom: adjustedMargin}]}>
-                { items.map(item => this.props.renderItem(item, itemWidth)) }
+                { items.map(item => this.props.renderRow(item, itemWidth)) }
                 { itemsPerRow - items.length > 0 && <View style={{width: itemWidth * (itemsPerRow - items.length)}}/>}
             </View>
         )

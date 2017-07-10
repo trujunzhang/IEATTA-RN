@@ -40,7 +40,8 @@ font-weight: bold;
 
 const data = reactNativeCSS`
 war-contribution-container {
-    border-right: 1px solid #ccc;
+        border: 1px solid #ccc;
+    border-width: 1px 0;
 }
 
   `;
