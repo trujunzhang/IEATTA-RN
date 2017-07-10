@@ -47,12 +47,9 @@ const F8SessionCell = require('F8SessionCell')
 const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
 let PureListView = require('../../../../common/PureListView')
 
-const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
-const RLListViewHeaderView = require('./RLListViewHeaderView')
-
 type Props = {
     day: number;
-    sessions: Array<Session>;
+    sessions: Array;
     navigator: Navigator;
     renderEmptyList?: (day: number) => ReactElement;
 };
@@ -104,7 +101,6 @@ class RestaurantPhotoHorizonView extends React.Component {
             <PureListView
                 ref={this.storeInnerRef.bind(this)}
                 data={todaySessions}
-                renderTopHeader={this.renderTopHeaderView.bind(this)}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderSectionHeader.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
@@ -121,14 +117,6 @@ class RestaurantPhotoHorizonView extends React.Component {
                 session={session}
             />
         )
-    }
-
-    renderTopHeaderView(): ?ReactElement {
-        return (
-            <StaticContainer>
-                <RLListViewHeaderView/>
-            </StaticContainer>
-        );
     }
 
     renderEmptyList(): ?ReactElement {
