@@ -95,7 +95,9 @@ class EventsListView extends React.Component {
             {'title': 'section3'},
             {'title': 'section4'},
             {'title': 'section5'},
-            {'title': 'section6'}
+            {'title': 'section6'},
+            {'title': 'section7'},
+            {'title': 'section8'}
         ]
 
         return (
