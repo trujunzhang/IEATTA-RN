@@ -27,10 +27,36 @@ class RLListViewHeaderView extends Component {
         this.state = this.initialState = {};
     }
 
+    renderTopReviewAction() {
+        return (
+            <View>
+
+            </View>
+        )
+    }
+
+    renderButtonsAction() {
+        return (
+            <View>
+
+            </View>
+        )
+    }
+
+
+    renderAction() {
+        return (
+            <View>
+                {this.renderTopReviewAction()}
+                {this.renderButtonsAction()}
+            </View>
+        )
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
-
+                {this.renderAction()}
             </View>
         )
     }
