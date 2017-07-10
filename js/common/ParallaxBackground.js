@@ -103,10 +103,11 @@ class ParallaxBackground extends React.Component {
             <Animated.View style={[styles.container, {height, backgroundColor}]}>
                 {this.renderBackgroundImage()}
                 <View style={{
-                    flex:1,
+                    flex: 1,
                     width: width,
                     justifyContent: 'flex-end',
-                    paddingBottom: 80
+                    // backgroundColor: 'blue',
+                    // paddingBottom: 40
                 }}>
                     {this.renderContent()}
                 </View>
@@ -114,6 +115,11 @@ class ParallaxBackground extends React.Component {
         );
     }
 
+    /**
+     * ref: https://www.reddit.com/r/reactnative/comments/56ur4f/problem_with_background_image_parent_texticon/
+     * @note: problem with background image parent + text/icon children + opacity
+     * @returns {XML}
+     */
     renderBackgroundImage(): ?ReactElement {
         const {minHeight, maxHeight, offset} = this.props,
             backgroundImage = {url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/o.jpg'}
@@ -153,7 +159,7 @@ class ParallaxBackground extends React.Component {
             <Animated.Image
                 source={backgroundImage}
                 style={[{
-                    flex: 1
+                    position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.35
                 }, transforms]}
             />
         )

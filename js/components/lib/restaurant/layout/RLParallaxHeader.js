@@ -63,12 +63,14 @@ class RLParallaxHeader extends Component {
         const {item} = this.props
         return (
             <View style={{
-                flexDirection: 'column',
                 flex: 1,
+                flexDirection: 'column',
                 width: width,
-                backgroundColor: 'transparent',
+                // backgroundColor: 'red',
                 paddingLeft: 10,
                 paddingRight: 10,
+                justifyContent: 'flex-end',
+                paddingBottom: 80
             }}>
                 <Text style={{
                     width: width,
