@@ -2,8 +2,7 @@ import tap from 'babel-tap';
 import expect from 'expect';
 import reactNativeCSS from '../src/index';
 
-tap.test('Parse CSS', (t) => {
-  const data = reactNativeCSS`
+const data_Restaurant_list = reactNativeCSS`
    section-title {
     font-weight: normal;
     color: #666;
@@ -36,12 +35,17 @@ font-weight: bold;
     font-size: 14px;
     line-height: 1.28571em;
     color: #333;
-}
+}  `;
 
+
+const data = reactNativeCSS`
+war-contribution-container {
+    border-top: 1px solid #ccc;
+}
   `;
 
+tap.test('Parse CSS', (t) => {
   console.log('data: ' + JSON.stringify(data));
-
   t.end();
 });
 

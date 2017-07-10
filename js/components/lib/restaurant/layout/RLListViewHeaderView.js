@@ -29,7 +29,18 @@ class RLListViewHeaderView extends Component {
 
     renderTopReviewAction() {
         return (
-            <View>
+            <View style={{
+                flexDirection: 'column',
+                alignItems: 'center'
+            }}>
+                <IEAStarIcon width={132} height={24}/>
+                <Text style={{
+                    marginLeft: 4,
+                    fontSize: 12,
+                    marginTop: 8,
+                    color: "#999",
+                    height: 32
+                }}>{" Tap a star to start your review... "}</Text>
 
             </View>
         )
@@ -55,7 +66,13 @@ class RLListViewHeaderView extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={{
+                flex: 1,
+                borderTopWidth: 1,
+                borderTopColor: "#ccc",
+                height: 90,
+                backgroundColor: 'white'
+            }}>
                 {this.renderAction()}
             </View>
         )
