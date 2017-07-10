@@ -47,9 +47,9 @@ const FilterHeader = require('../../../tabs/schedule/FilterHeader')
 const FilterSessions = require('../../../tabs/schedule/filterSessions')
 const RestaurantListContainer = require('./RestaurantListContainer')
 const F8DrawerLayout = require('F8DrawerLayout')
-const ScheduleListView = require('../../../tabs/schedule/ScheduleListView')
 const FilterScreen = require('../../../filter/FilterScreen')
 
+const EventsListView = require('./layout/EventsListView')
 
 import type {Session} from '../../../reducers/sessions'
 
@@ -68,7 +68,6 @@ type Props = {
     sessions: Array<Session>;
     navigator: Navigator;
     logOut: () => void;
-    switchDay: (day: number) => void;
 };
 
 class IEADetailedRestaurant extends React.Component {
@@ -78,8 +77,6 @@ class IEADetailedRestaurant extends React.Component {
     constructor(props) {
         super(props);
 
-        (this: any).renderEmptyList = this.renderEmptyList.bind(this);
-        (this: any).switchDay = this.switchDay.bind(this);
         (this: any).openFilterScreen = this.openFilterScreen.bind(this);
         (this: any).renderNavigationView = this.renderNavigationView.bind(this);
     }
@@ -103,22 +100,19 @@ class IEADetailedRestaurant extends React.Component {
             displayName: 'Jiangnan Cuisine',
             address: '3420 Balboa St, San Francisco'
         }
+        const events = []
 
         const content = (
             <RestaurantListContainer
                 item={item}
                 title={item.displayName}
                 selectedSegment={this.props.day - 1}
-                onSegmentChange={this.switchDay}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
                 stickyHeader={filterHeader}
                 rightItem={filterItem}>
-                <ScheduleListView
-                    title="Day 1"
-                    day={1}
-                    sessions={sessions}
-                    renderEmptyList={this.renderEmptyList}
+                <EventsListView
+                    events={events}
                     navigator={this.props.navigator}
                 />
             </RestaurantListContainer>
@@ -144,14 +138,6 @@ class IEADetailedRestaurant extends React.Component {
         return <FilterScreen onClose={() => this._drawer && this._drawer.closeDrawer()}/>;
     }
 
-    renderEmptyList(day: number) {
-        return (
-            <EmptySchedule
-                title={`No sessions on day ${day} match the filter`}
-                text="Check the schedule for the other day or remove the filter."
-            />
-        );
-    }
 
     openFilterScreen() {
         if (Platform.OS === 'ios') {
@@ -159,9 +145,6 @@ class IEADetailedRestaurant extends React.Component {
         } else {
             this._drawer && this._drawer.openDrawer();
         }
-    }
-
-    switchDay(page) {
     }
 }
 
