@@ -41,7 +41,7 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
-
+const {width, height} = Dimensions.get('window')
 
 let F8SessionCell = require('F8SessionCell');
 let PureListView = require('../../../../common/PureListView');
@@ -84,6 +84,19 @@ class EventsListView extends React.Component {
         return <View/>
     }
 
+    renderEventHeaderView() {
+        // debugger
+        return (
+            <View style={{
+                width: width,
+                height: 12345,
+                backgroundColor: 'yellow'
+            }}>
+
+            </View>
+        )
+    }
+
     render() {
         const todaySessions = [
             {
@@ -98,6 +111,7 @@ class EventsListView extends React.Component {
             <PureListView
                 ref={this.storeInnerRef.bind(this)}
                 data={todaySessions}
+                renderHeader={this.renderEventHeaderView.bind(this)}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderSectionHeader.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
