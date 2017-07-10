@@ -174,7 +174,7 @@ class RestaurantListContainer extends React.Component {
                 style: styles.listView,
                 showsVerticalScrollIndicator: false,
                 scrollEventThrottle: 16,
-                contentInset: {bottom: 49, top: 0},
+                contentInset: {bottom: 20, top: 0},
                 automaticallyAdjustContentInsets: false,
                 renderHeader: this.renderFakeHeader,
                 scrollsToTop: idx === this.state.idx,

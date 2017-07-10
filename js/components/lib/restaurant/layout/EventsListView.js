@@ -126,10 +126,13 @@ class EventsListView extends React.Component {
     renderTopHeaderView(): ?ReactElement {
         return (
             <StaticContainer>
-                <EmptySchedule
-                    title={`No sessions on day match the filter`}
-                    text="Check the schedule for the other day or remove the filter."
-                />
+                <View style={{
+                    width: width,
+                    height: 10,
+                    backgroundColor: 'yellow'
+                }}>
+
+                </View>
             </StaticContainer>
         );
     }
