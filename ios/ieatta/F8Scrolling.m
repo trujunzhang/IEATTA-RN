@@ -11,8 +11,12 @@
 #import <CoreGraphics/CoreGraphics.h>
 
 #import "F8Scrolling.h"
-#import "RCTUIManager.h"
-#import "RCTScrollView.h"
+
+#import <React/RCTUIManager.h>
+#import <React/RCTScrollView.h>
+
+// #import "RCTUIManager.h"
+// #import "RCTScrollView.h"
 
 @interface F8Scrolling () {
   NSMapTable *_pinnedViews;

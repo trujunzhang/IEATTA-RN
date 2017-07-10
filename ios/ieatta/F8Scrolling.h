@@ -8,7 +8,10 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "RCTBridgeModule.h"
+
+#import <React/RCTBridgeModule.h>
+
+//#import "RCTBridgeModule.h"
 
 @interface F8Scrolling : NSObject <RCTBridgeModule, UIScrollViewDelegate>
 
