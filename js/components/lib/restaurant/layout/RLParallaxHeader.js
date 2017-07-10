@@ -15,8 +15,10 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 const {width, height} = Dimensions.get('window')
+
+const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
+
 
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
 
@@ -65,7 +67,7 @@ class RLParallaxHeader extends Component {
                 flex: 1,
                 justifyContent: 'flex-end',
                 width: width,
-                // backgroundColor: 'red',
+                backgroundColor: 'transparent',
                 paddingBottom: TotalNavHeight + 20,
                 paddingLeft: 10,
                 paddingRight: 10,
@@ -90,17 +92,7 @@ class RLParallaxHeader extends Component {
      * @returns {XML}
      */
     render() {
-        return (
-            <View style={{flex: 1}}>
-                <Image
-                    source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/o.jpg'}}
-                    style={{
-                        position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.35
-                    }} resizeMode="cover">
-                </Image>
-                {this.renderContent()}
-            </View>
-        )
+        return this.renderContent()
     }
 
 }
