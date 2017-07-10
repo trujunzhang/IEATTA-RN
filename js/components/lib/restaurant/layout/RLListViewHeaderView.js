@@ -18,6 +18,8 @@ import {
 const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 const {width, height} = Dimensions.get('window')
 
+const F8Button = require('F8Button')
+
 import LinearGradient from 'react-native-linear-gradient'
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
 const RestaurantPhotoHorizonView = require('./RestaurantPhotoHorizonView')
@@ -150,6 +152,23 @@ class RLListViewHeaderView extends Component {
         )
     }
 
+    renderSeeAllPhotosButton() {
+        return (
+            <F8Button
+                style={{
+                    marginTop: 10,
+                    marginLeft: 20,
+                    width: width - 60,
+                    height: 43,
+                }}
+                caption="See all photos"
+                onPress={() => {
+
+                }}
+            />
+        )
+    }
+
     render() {
         return (
             <View style={{
@@ -162,11 +181,17 @@ class RLListViewHeaderView extends Component {
                 <View style={{
                     marginTop: 30,
                     marginBottom: 30,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    paddingTop: 10,
+                    paddingBottom: 10,
                     width: width,
                     height: 175,
+                    flexDirection: 'column',
                     backgroundColor: 'blue'
                 }}>
                     <RestaurantPhotoHorizonView/>
+                    {this.renderSeeAllPhotosButton()}
                 </View>
             </View>
         )

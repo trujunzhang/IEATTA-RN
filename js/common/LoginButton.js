@@ -23,12 +23,12 @@
  */
 'use strict';
 
-const React = require('react');
-const {StyleSheet} = require('react-native');
-const F8Button = require('F8Button');
+const React = require('react')
+const {StyleSheet} = require('react-native')
+const F8Button = require('F8Button')
 
-const { logInWithFacebook } = require('../actions');
-const {connect} = require('react-redux');
+const { logInWithFacebook } = require('../actions')
+const {connect} = require('react-redux')
 
 class LoginButton extends React.Component {
   props: {
@@ -67,12 +67,12 @@ class LoginButton extends React.Component {
     }
 
     return (
-      <F8Button
-        style={[styles.button, this.props.style]}
-        icon={require('../login/img/f-logo.png')}
-        caption="Log in with Facebook"
-        onPress={() => this.logIn()}
-      />
+        <F8Button
+            style={[styles.button, this.props.style]}
+            icon={require('../login/img/f-logo.png')}
+            caption="Log in with Facebook"
+            onPress={() => this.logIn()}
+        />
     );
   }
 
