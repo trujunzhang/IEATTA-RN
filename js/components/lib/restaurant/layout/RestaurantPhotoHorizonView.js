@@ -110,11 +110,13 @@ class RestaurantPhotoHorizonView extends React.Component {
     }
 
 
-    renderRow(session: any, day: number) {
+    renderRow(photo: any) {
         return (
-            <F8SessionCell
-                onPress={() => this.openSession(session, day)}
-                session={session}
+            <Image style={{
+                width: 100,
+                height: 100,
+            }}
+                   source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}
             />
         )
     }

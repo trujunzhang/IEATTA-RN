@@ -188,7 +188,7 @@ class RLListViewHeaderView extends Component {
                     width: width,
                     height: 175,
                     flexDirection: 'column',
-                    backgroundColor: 'blue'
+                    // backgroundColor: 'blue'
                 }}>
                     <RestaurantPhotoHorizonView/>
                     {this.renderSeeAllPhotosButton()}
