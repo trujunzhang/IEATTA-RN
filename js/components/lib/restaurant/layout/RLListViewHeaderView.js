@@ -158,6 +158,15 @@ class RLListViewHeaderView extends Component {
                 backgroundColor: 'white'
             }}>
                 {this.renderAction()}
+                <View style={{
+                    marginTop:30,
+                    marginBottom:30,
+                    width:width,
+                    height:175,
+                    backgroundColor:'blue'
+                }}>
+
+                </View>
             </View>
         )
     }
