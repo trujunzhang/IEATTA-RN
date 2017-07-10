@@ -84,14 +84,14 @@ class RestaurantPhotoHorizonView extends React.Component {
 
     render() {
         const photos = [
-            {'title': 'section1'},
-            {'title': 'section2'},
-            {'title': 'section3'},
-            {'title': 'section4'},
-            {'title': 'section5'},
-            {'title': 'section6'},
-            {'title': 'section7'},
-            {'title': 'section8'}
+            {'title': 'section1', id: '1'},
+            {'title': 'section2', id: '2'},
+            {'title': 'section3', id: '3'},
+            {'title': 'section4', id: '4'},
+            {'title': 'section5', id: '5'},
+            {'title': 'section6', id: '6'},
+            {'title': 'section7', id: '7'},
+            {'title': 'section8', id: '8'}
         ]
 
         return (
@@ -110,13 +110,15 @@ class RestaurantPhotoHorizonView extends React.Component {
 
     renderRow(photo: any) {
         return (
-            <Image style={{
-                width: 100,
-                height: 100,
-                borderRadius: 4,
-                marginRight: 6
-            }}
-                   source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}
+            <Image
+                key={photo.id}
+                style={{
+                    width: 100,
+                    height: 100,
+                    borderRadius: 4,
+                    marginRight: 6
+                }}
+                source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}
             />
         )
     }

@@ -156,13 +156,18 @@ class RLListViewHeaderView extends Component {
     renderSeeAllPhotosButton() {
         return (
             <F8Button
+                type="photos"
                 style={{
                     marginTop: 10,
-                    marginLeft: 20,
-                    width: width - 60,
                     height: 43,
+                    backgroundColor: '#41c532'
                 }}
                 caption="See all photos"
+                captionStyle={{
+                    color: '#FFF',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                }}
                 onPress={() => {
 
                 }}

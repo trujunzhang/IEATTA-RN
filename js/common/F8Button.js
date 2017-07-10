@@ -77,7 +77,7 @@ class F8Button extends React.Component {
             content = (
                 <View style={[styles.button, border]}>
                     {icon}
-                    <Text style={[styles.caption, styles.secondaryCaption]}>
+                    <Text style={[styles.caption, styles.secondaryCaption,this.props.captionStyle]}>
                         {caption}
                     </Text>
                 </View>

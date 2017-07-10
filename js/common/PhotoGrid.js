@@ -64,7 +64,7 @@ class PhotoGrid extends React.Component {
 
         return (
             <View style={[styles.row, {marginBottom: adjustedMargin}]}>
-                { items.map(item => this.props.renderRow(item, itemWidth)) }
+                { items.map((item, index) => this.props.renderRow(item, itemWidth)) }
                 { itemsPerRow - items.length > 0 && <View style={{width: itemWidth * (itemsPerRow - items.length)}}/>}
             </View>
         )
