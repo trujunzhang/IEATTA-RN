@@ -90,6 +90,8 @@ class PureListView extends React.Component {
             dataSource: _dataSource
         };
 
+
+        (this: any).renderHeader = this.renderHeader.bind(this);
         (this: any).renderFooter = this.renderFooter.bind(this);
         (this: any).onContentSizeChange = this.onContentSizeChange.bind(this);
     }
@@ -106,6 +108,7 @@ class PureListView extends React.Component {
         const {contentInset} = this.props;
         const bottom = contentInset.bottom +
             Math.max(0, this.props.minContentHeight - this.state.contentHeight);
+
         return (
             <ListView
                 initialListSize={10}
@@ -113,12 +116,13 @@ class PureListView extends React.Component {
                 {...this.props}
                 ref="listview"
                 dataSource={this.state.dataSource}
+                renderHeader={this.renderHeader}
                 renderFooter={this.renderFooter}
                 contentInset={{bottom, top: contentInset.top}}
                 onContentSizeChange={this.onContentSizeChange}
                 enableEmptySections={true}
             />
-        );
+        )
     }
 
     onContentSizeChange(contentWidth: number, contentHeight: number) {
@@ -133,6 +137,10 @@ class PureListView extends React.Component {
 
     getScrollResponder(): any {
         return this.refs.listview.getScrollResponder();
+    }
+
+    renderHeader(): ?ReactElement {
+        return this.props.renderTopHeader && this.props.renderTopHeader();
     }
 
     renderFooter(): ?ReactElement {

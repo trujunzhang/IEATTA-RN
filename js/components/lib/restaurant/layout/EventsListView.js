@@ -43,8 +43,12 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-let F8SessionCell = require('F8SessionCell');
-let PureListView = require('../../../../common/PureListView');
+const F8SessionCell = require('F8SessionCell')
+const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
+let PureListView = require('../../../../common/PureListView')
+
+const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
+const RLListViewHeaderView = require('./RLListViewHeaderView')
 
 type Props = {
     day: number;
@@ -84,18 +88,17 @@ class EventsListView extends React.Component {
         return <View/>
     }
 
-    renderEventHeaderView() {
-        // debugger
-        return (
-            <View style={{
-                width: width,
-                height: 12345,
-                backgroundColor: 'yellow'
-            }}>
-
-            </View>
-        )
-    }
+    //
+    // _renderHeader() {
+    //     debugger
+    //     return (
+    //         <StaticContainer>
+    //             <View style={{height: 50, backgroundColor: 'red'}}>
+    //                 <Text>{"wanghao"}</Text>
+    //             </View>
+    //         </StaticContainer>
+    //     )
+    // }
 
     render() {
         const todaySessions = [
@@ -111,7 +114,7 @@ class EventsListView extends React.Component {
             <PureListView
                 ref={this.storeInnerRef.bind(this)}
                 data={todaySessions}
-                renderHeader={this.renderEventHeaderView.bind(this)}
+                renderTopHeader={this.renderTopHeaderView.bind(this)}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderSectionHeader.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
@@ -126,6 +129,15 @@ class EventsListView extends React.Component {
             <F8SessionCell
                 onPress={() => this.openSession(session, day)}
                 session={session}
+            />
+        );
+    }
+
+    renderTopHeaderView(): ?ReactElement {
+        return (
+            <EmptySchedule
+                title={`No sessions on day match the filter`}
+                text="Check the schedule for the other day or remove the filter."
             />
         );
     }

@@ -24,28 +24,28 @@
  */
 'use strict';
 
-let EmptySchedule = require('../schedule/EmptySchedule');
-let Linking = require('Linking');
-let PushNUXModal = require('./PushNUXModal');
-let PureListView = require('../../common/PureListView');
-let React = require('React');
-let Platform = require('Platform');
-let ActionSheetIOS = require('ActionSheetIOS');
-let ListContainer = require('ListContainer');
-let NotificationCell = require('./NotificationCell');
-let RateSessionsCell = require('./RateSessionsCell');
-let allNotifications = require('./allNotifications');
-let View = require('View');
-let findSessionByURI = require('findSessionByURI');
-let { connect } = require('react-redux');
-let {
+const EmptySchedule = require('../schedule/EmptySchedule')
+const Linking = require('Linking')
+const PushNUXModal = require('./PushNUXModal')
+const PureListView = require('../../common/PureListView')
+const React = require('React')
+const Platform = require('Platform')
+const ActionSheetIOS = require('ActionSheetIOS')
+const ListContainer = require('ListContainer')
+const NotificationCell = require('./NotificationCell')
+const RateSessionsCell = require('./RateSessionsCell')
+const allNotifications = require('./allNotifications')
+const View = require('View')
+const findSessionByURI = require('findSessionByURI')
+const { connect } = require('react-redux')
+const {
   turnOnPushNotifications,
   skipPushNotifications,
   TEST_MENU,
-} = require('../../actions');
-let {testMenuEnabled, version} = require('../../env');
+} = require('../../actions')
+const {testMenuEnabled, version} = require('../../env')
 
-let { createSelector } = require('reselect');
+const { createSelector } = require('reselect')
 
 const data = createSelector(
   allNotifications,

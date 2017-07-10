@@ -90,6 +90,9 @@ class RLListViewHeaderView extends Component {
      * @returns {XML}
      */
     render() {
+
+        debugger
+
         return (
             <View style={{flex: 1}}>
                 <Image
