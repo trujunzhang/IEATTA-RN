@@ -25,14 +25,14 @@
 
 'use strict';
 
-let F8Colors = require('F8Colors');
-let Image = require('Image');
+const F8Colors = require('F8Colors')
+const Image = require('Image')
 import LinearGradient from 'react-native-linear-gradient'
-let React = require('React');
-let StyleSheet = require('StyleSheet');
-let {Text} = require('F8Text');
-let TouchableOpacity = require('TouchableOpacity');
-let View = require('View');
+const React = require('React')
+const StyleSheet = require('StyleSheet')
+const {Text} = require('F8Text')
+const TouchableOpacity = require('TouchableOpacity')
+const View = require('View')
 
 class F8Button extends React.Component {
     props: {
