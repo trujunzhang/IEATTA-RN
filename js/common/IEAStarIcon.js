@@ -60,7 +60,7 @@ class IEAStarIcon extends Component {
                 height: iconHeight
             }}
             resizeMode="cover"
-            source={require(`../images/stars/${iconType}/star${rate}.png`)}
+            source={require(`./stars/${iconType}/star${rate}.png`)}
         />)
     }
 }
