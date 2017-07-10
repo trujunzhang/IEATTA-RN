@@ -44,20 +44,8 @@ import {
 const {width, height} = Dimensions.get('window')
 
 import Svg, {
-    Circle,
-    Ellipse,
     G,
-    LinearGradient,
-    RadialGradient,
-    Line,
     Path,
-    Polygon,
-    Polyline,
-    Rect,
-    Symbol,
-    Use,
-    Defs,
-    Stop
 } from 'react-native-svg'
 
 
@@ -77,7 +65,6 @@ class RestaurantHomeListItem extends Component {
         super(props);
 
     }
-
 
     renderIcon() {
         const {item} = this.props,

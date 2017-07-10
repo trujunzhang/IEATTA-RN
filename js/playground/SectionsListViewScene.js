@@ -151,6 +151,7 @@ class SectionsListViewScene extends Component {
                 <Text style={
                     {
                         height: 36,
+                        fontSize: 21,
                         fontWeight: "normal",
                         color: "#666",
                         paddingTop: 5,
@@ -158,7 +159,6 @@ class SectionsListViewScene extends Component {
                         paddingLeft: 10,
                         paddingRight: 10,
                         marginBottom: 0,
-                        fontSize: 21,
                     }
                 }>{sectionTitle}</Text>
             </View>
