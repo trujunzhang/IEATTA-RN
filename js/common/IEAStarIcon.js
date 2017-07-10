@@ -49,6 +49,7 @@ class IEAStarIcon extends Component {
     }
 
     render() {
+        const {iconType, rate} = this.props
         return (<Image
             style={{
                 width: 102,
