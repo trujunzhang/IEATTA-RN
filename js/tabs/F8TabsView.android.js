@@ -179,14 +179,14 @@ class F8TabsView extends React.Component {
 
     renderContent() {
         switch (this.props.tab) {
-            case 'schedule':
+            case 'houseback':
                 return (
                     <GeneralScheduleView
                         navigator={this.props.navigator}
                     />
                 );
 
-            case 'my-schedule':
+            case 'box':
                 return (
                     <MyScheduleView
                         navigator={this.props.navigator}
@@ -194,13 +194,13 @@ class F8TabsView extends React.Component {
                     />
                 );
 
-            case 'map':
+            case 'list':
                 return <F8MapView />;
 
-            case 'notifications':
+            case 'manuser':
                 return <F8NotificationsView navigator={this.props.navigator}/>;
 
-            case 'info':
+            case 'conversation':
                 return <F8InfoView navigator={this.props.navigator}/>;
         }
         throw new Error(`Unknown tab ${this.props.tab}`);

@@ -23,25 +23,25 @@
  */
 'use strict';
 
-const React = require('react');
-const F8Header = require('F8Header');
-const F8Colors = require('F8Colors');
-const TopicItem = require('./TopicItem');
-const F8Button = require('F8Button');
-let ItemsWithSeparator = require('../common/ItemsWithSeparator');
+const React = require('react')
+const F8Header = require('F8Header')
+const F8Colors = require('F8Colors')
+const TopicItem = require('./TopicItem')
+const F8Button = require('F8Button')
+let ItemsWithSeparator = require('../common/ItemsWithSeparator')
 
 const {
     Animated,
     View,
     StyleSheet,
     ScrollView,
-} = require('react-native');
+} = require('react-native')
 
-const shallowEqual = require('fbjs/lib/shallowEqual');
+const shallowEqual = require('fbjs/lib/shallowEqual')
 const {
     applyTopicsFilter,
-} = require('../actions');
-const {connect} = require('react-redux');
+} = require('../actions')
+const {connect} = require('react-redux')
 
 class FilterScreen extends React.Component {
     props: {
@@ -91,7 +91,7 @@ class FilterScreen extends React.Component {
             inputRange: [0, 1],
             outputRange: [-100, 0],
         });
-        let topics = this.props.topics.map((topic, ii) => (
+        let topics = (this.props.topics || []).map((topic, ii) => (
             <TopicItem
                 key={topic}
                 topic={topic}
@@ -136,7 +136,7 @@ class FilterScreen extends React.Component {
                     />
                 </Animated.View>
             </View>
-        );
+        )
     }
 
     toggleTopic(topic: string, value: boolean) {
@@ -162,7 +162,7 @@ class FilterScreen extends React.Component {
     }
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#1B3B79',
@@ -181,7 +181,7 @@ let styles = StyleSheet.create({
         padding: 8,
         backgroundColor: '#1B3B79',
     },
-});
+})
 
 function select(store) {
     return {
@@ -192,4 +192,4 @@ function select(store) {
     };
 }
 
-module.exports = connect(select)(FilterScreen);
+module.exports = connect(select)(FilterScreen)
