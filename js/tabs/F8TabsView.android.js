@@ -45,7 +45,7 @@ const MyScheduleView = require('./schedule/MyScheduleView')
 const unseenNotificationsCount = require('./notifications/unseenNotificationsCount')
 
 const {switchTab, logOutWithPrompt} = require('../actions')
-const {connect} = require('react-redux')
+
 
 import type {Tab} from '../reducers/navigation'
 
@@ -224,7 +224,9 @@ class F8TabsView extends React.Component {
 F8TabsView.childContextTypes = {
     openDrawer: React.PropTypes.func,
     hasUnreadNotifications: React.PropTypes.number,
-};
+}
+
+const {connect} = require('react-redux')
 
 function select(store) {
     return {
@@ -232,7 +234,7 @@ function select(store) {
         day: store.navigation.day,
         user: store.user,
         notificationsBadge: unseenNotificationsCount(store) + store.surveys.length,
-    };
+    }
 }
 
 function actions(dispatch) {
@@ -272,4 +274,4 @@ let styles = StyleSheet.create({
     },
 });
 
-module.exports = connect(select, actions)(F8TabsView);
+module.exports = connect(select, actions)(F8TabsView)
