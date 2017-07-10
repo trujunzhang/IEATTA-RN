@@ -20,6 +20,7 @@ const {width, height} = Dimensions.get('window')
 
 import LinearGradient from 'react-native-linear-gradient'
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
+const RestaurantPhotoHorizonView = require('./RestaurantPhotoHorizonView')
 
 import Svg, {
     G,
@@ -159,13 +160,13 @@ class RLListViewHeaderView extends Component {
             }}>
                 {this.renderAction()}
                 <View style={{
-                    marginTop:30,
-                    marginBottom:30,
-                    width:width,
-                    height:175,
-                    backgroundColor:'blue'
+                    marginTop: 30,
+                    marginBottom: 30,
+                    width: width,
+                    height: 175,
+                    backgroundColor: 'blue'
                 }}>
-
+                    <RestaurantPhotoHorizonView/>
                 </View>
             </View>
         )
