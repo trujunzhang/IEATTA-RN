@@ -82,8 +82,10 @@ const ActivityIndicator = Platform.OS === 'ios'
     ? ActivityIndicatorIOS
     : ProgressBarAndroid;
 
-const Relay = require('react-relay');
-const RelayRenderer = require('react-relay/lib/RelayRenderer.js');
+const Relay = require('react-relay')
+const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
+
+const RLParallaxHeader = require('./layout/RLParallaxHeader')
 
 class MainRoute extends Relay.Route {
 }
@@ -153,7 +155,7 @@ class RestaurantListContainer extends React.Component {
     }
 
     render() {
-        var leftItem = this.props.leftItem;
+        let leftItem = this.props.leftItem;
         if (!leftItem && Platform.OS === 'android') {
             leftItem = {
                 title: 'Menu',
@@ -229,14 +231,10 @@ class RestaurantListContainer extends React.Component {
         if (Platform.OS === 'android') {
             return <View />;
         }
-        // if (this.props.parallaxContent) {
-        //     return this.props.parallaxContent;
-        // }
-        return (
-            <Text style={styles.parallaxText}>
-                {this.props.title}
-            </Text>
-        );
+        if (this.props.parallaxContent) {
+            return this.props.parallaxContent
+        }
+        return (<RLParallaxHeader item={this.props.item}/>)
     }
 
     renderHeaderTitle(): ?ReactElement {
@@ -252,7 +250,7 @@ class RestaurantListContainer extends React.Component {
                     outputRange: [0, 1],
                     extrapolate: 'clamp',
                 })
-            };
+            }
         }
         return (
             <Animated.Text style={[styles.headerTitle, transform]}>

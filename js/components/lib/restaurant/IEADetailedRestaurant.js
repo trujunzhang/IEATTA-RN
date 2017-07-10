@@ -99,9 +99,15 @@ class IEADetailedRestaurant extends React.Component {
             title: "wanghao"
         }];
 
+        const item = {
+            displayName: 'Jiangnan Cuisine',
+            address: '3420 Balboa St, San Francisco'
+        }
+
         const content = (
             <RestaurantListContainer
-                title="Schedule"
+                item={item}
+                title={item.displayName}
                 selectedSegment={this.props.day - 1}
                 onSegmentChange={this.switchDay}
                 backgroundColor="#5597B8"
