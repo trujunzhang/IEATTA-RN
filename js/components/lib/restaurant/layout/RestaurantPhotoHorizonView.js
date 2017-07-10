@@ -83,7 +83,7 @@ class RestaurantPhotoHorizonView extends React.Component {
     }
 
     render() {
-        const todaySessions = [
+        const photos = [
             {'title': 'section1'},
             {'title': 'section2'},
             {'title': 'section3'},
@@ -97,7 +97,10 @@ class RestaurantPhotoHorizonView extends React.Component {
         return (
             <PhotoGrid
                 ref={this.storeInnerRef.bind(this)}
-                data={todaySessions}
+                data={photos}
+                horizontal={true}
+                itemsPerRow={photos.length}
+                itemMargin={6}
                 renderRow={this.renderRow.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
                 renderEmptyList={this.renderEmptyList.bind(this)}
