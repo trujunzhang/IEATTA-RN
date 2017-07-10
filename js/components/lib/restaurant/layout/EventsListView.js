@@ -88,26 +88,14 @@ class EventsListView extends React.Component {
         return <View/>
     }
 
-    //
-    // _renderHeader() {
-    //     debugger
-    //     return (
-    //         <StaticContainer>
-    //             <View style={{height: 50, backgroundColor: 'red'}}>
-    //                 <Text>{"wanghao"}</Text>
-    //             </View>
-    //         </StaticContainer>
-    //     )
-    // }
-
     render() {
         const todaySessions = [
-            {
-                'title': 'section1'
-            },
-            {
-                'title': 'section2'
-            }
+            {'title': 'section1'},
+            {'title': 'section2'},
+            {'title': 'section3'},
+            {'title': 'section4'},
+            {'title': 'section5'},
+            {'title': 'section6'}
         ]
 
         return (
@@ -130,15 +118,17 @@ class EventsListView extends React.Component {
                 onPress={() => this.openSession(session, day)}
                 session={session}
             />
-        );
+        )
     }
 
     renderTopHeaderView(): ?ReactElement {
         return (
-            <EmptySchedule
-                title={`No sessions on day match the filter`}
-                text="Check the schedule for the other day or remove the filter."
-            />
+            <StaticContainer>
+                <EmptySchedule
+                    title={`No sessions on day match the filter`}
+                    text="Check the schedule for the other day or remove the filter."
+                />
+            </StaticContainer>
         );
     }
 
