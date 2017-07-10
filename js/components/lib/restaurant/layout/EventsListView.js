@@ -99,7 +99,7 @@ class EventsListView extends React.Component {
                 ref={this.storeInnerRef.bind(this)}
                 data={todaySessions}
                 renderRow={this.renderRow.bind(this)}
-                renderSectionHeader={this.renderCompanyHeader.bind(this)}
+                renderSectionHeader={this.renderSectionHeader.bind(this)}
                 {...(this.props /* flow can't guarantee the shape of props */)}
                 renderEmptyList={this.renderEmptyList.bind(this)}
             />
