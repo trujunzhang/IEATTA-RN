@@ -192,16 +192,15 @@ class RLListViewHeaderView extends Component {
                     paddingRight: 10,
                     paddingTop: 10,
                     paddingBottom: 10
-                },
-                    {// shadow
-                        borderTopWidth: 1,
-                        borderBottomWidth: 1,
-                        borderLeftWidth: 0,
-                        borderRightWidth: 0,
-                        borderWidth: 1,
-                        borderStyle: "solid",
-                        borderColor: "#ccc"
-                    }]}>
+                }, {// shadow
+                    borderTopWidth: 1,
+                    borderBottomWidth: 1,
+                    borderLeftWidth: 0,
+                    borderRightWidth: 0,
+                    borderWidth: 1,
+                    borderStyle: "solid",
+                    borderColor: "#ccc"
+                }]}>
                     <RestaurantPhotoHorizonView/>
                     {this.renderSeeAllPhotosButton()}
                 </View>
