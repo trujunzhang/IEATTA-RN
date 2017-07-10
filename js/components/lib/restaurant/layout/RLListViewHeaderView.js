@@ -84,15 +84,7 @@ class RLListViewHeaderView extends Component {
         )
     }
 
-    /**
-     * ref: https://www.reddit.com/r/reactnative/comments/56ur4f/problem_with_background_image_parent_texticon/
-     * @note: problem with background image parent + text/icon children + opacity
-     * @returns {XML}
-     */
     render() {
-
-        debugger
-
         return (
             <View style={{flex: 1}}>
                 <Image
