@@ -25,29 +25,29 @@
 
 'use strict';
 
-let F8InfoView = require('F8InfoView');
-let F8Colors = require('F8Colors');
-let F8MapView = require('F8MapView');
-let F8NotificationsView = require('F8NotificationsView');
-let React = require('React');
-let Navigator = require('Navigator');
-let F8DrawerLayout = require('F8DrawerLayout');
-let View = require('View');
-let StyleSheet = require('StyleSheet');
-let TouchableOpacity = require('TouchableOpacity');
-let Image = require('Image');
-let {Text} = require('F8Text');
-let MenuItem = require('./MenuItem');
-let LoginButton = require('../common/LoginButton');
-let ProfilePicture = require('../common/ProfilePicture');
-let GeneralScheduleView = require('./schedule/GeneralScheduleView');
-let MyScheduleView = require('./schedule/MyScheduleView');
-let unseenNotificationsCount = require('./notifications/unseenNotificationsCount');
+const F8InfoView = require('F8InfoView')
+const F8Colors = require('F8Colors')
+const F8MapView = require('F8MapView')
+const F8NotificationsView = require('F8NotificationsView')
+const React = require('React')
+const Navigator = require('Navigator')
+const F8DrawerLayout = require('F8DrawerLayout')
+const View = require('View')
+const StyleSheet = require('StyleSheet')
+const TouchableOpacity = require('TouchableOpacity')
+const Image = require('Image')
+const {Text} = require('F8Text')
+const MenuItem = require('./MenuItem')
+const LoginButton = require('../common/LoginButton')
+const ProfilePicture = require('../common/ProfilePicture')
+const GeneralScheduleView = require('./schedule/GeneralScheduleView')
+const MyScheduleView = require('./schedule/MyScheduleView')
+const unseenNotificationsCount = require('./notifications/unseenNotificationsCount')
 
-let {switchTab, logOutWithPrompt} = require('../actions');
-let {connect} = require('react-redux');
+const {switchTab, logOutWithPrompt} = require('../actions')
+const {connect} = require('react-redux')
 
-import type {Tab} from '../reducers/navigation';
+import type {Tab} from '../reducers/navigation'
 
 class F8TabsView extends React.Component {
     props: {
