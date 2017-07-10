@@ -54,13 +54,15 @@ class IEAStarIcon extends Component {
             iconWidth = this.props.width || 102,
             iconHeight = this.props.height || 18
 
+        // source={require(`./stars/${iconType}/star${rate}.png`)}
+
         return (<Image
             style={{
                 width: iconWidth,
                 height: iconHeight
             }}
             resizeMode="cover"
-            source={require(`./stars/${iconType}/star${rate}.png`)}
+            source={require('./stars/large/star1.png')}
         />)
     }
 }
