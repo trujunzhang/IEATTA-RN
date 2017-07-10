@@ -209,7 +209,7 @@ class RestaurantListContainer extends React.Component {
                         offset={this.state.anim}
                         backgroundImage={this.props.backgroundImage}
                         backgroundShift={backgroundShift}
-                        backgroundColor={this.props.backgroundColor}>
+                        backgroundColor={'#f5f5f5'}>
                         {this.renderParallaxContent()}
                     </ParallaxBackground>
                     <F8Header
