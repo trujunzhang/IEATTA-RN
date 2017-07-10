@@ -59,16 +59,14 @@ class RLParallaxHeader extends Component {
         )
     }
 
-    renderContent() {
+    render() {
         const {item} = this.props
         return (
             <View style={{
                 flexDirection: 'column',
                 flex: 1,
-                justifyContent: 'flex-end',
                 width: width,
                 backgroundColor: 'transparent',
-                paddingBottom: TotalNavHeight + 20,
                 paddingLeft: 10,
                 paddingRight: 10,
             }}>
@@ -86,14 +84,6 @@ class RLParallaxHeader extends Component {
         )
     }
 
-    /**
-     * ref: https://www.reddit.com/r/reactnative/comments/56ur4f/problem_with_background_image_parent_texticon/
-     * @note: problem with background image parent + text/icon children + opacity
-     * @returns {XML}
-     */
-    render() {
-        return this.renderContent()
-    }
 
 }
 

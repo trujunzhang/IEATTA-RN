@@ -92,8 +92,6 @@ class ParallaxBackground extends React.Component {
     render(): ReactElement {
         const {minHeight, maxHeight, offset, backgroundColor} = this.props
 
-        // debugger
-
         const buffer = 10; // To reduce visual lag when scrolling
         const height = offset.interpolate({
             inputRange: [0, maxHeight - minHeight],
@@ -104,7 +102,14 @@ class ParallaxBackground extends React.Component {
         return (
             <Animated.View style={[styles.container, {height, backgroundColor}]}>
                 {this.renderBackgroundImage()}
-                {this.renderContent()}
+                <View style={{
+                    flex:1,
+                    width: width,
+                    justifyContent: 'flex-end',
+                    paddingBottom: 80
+                }}>
+                    {this.renderContent()}
+                </View>
             </Animated.View>
         );
     }
@@ -117,12 +122,13 @@ class ParallaxBackground extends React.Component {
             return null;
         }
 
-        // const source = resolveAssetSource(backgroundImage);
-        // if (!source) {
-        //     return null;
-        // }
+        const source = resolveAssetSource(backgroundImage);
+        if (!source) {
+            return null;
+        }
         // const {width} = source;
-        const width = SCREEN_WIDTH
+        // const width = SCREEN_WIDTH
+        const width = 750
         const translateX = this.state.shift.interpolate({
             inputRange: [0, 1],
             outputRange: [0, SCREEN_WIDTH - width],
