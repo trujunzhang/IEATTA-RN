@@ -28,15 +28,22 @@ class RLListViewHeaderView extends Component {
     }
 
     renderTopReviewAction() {
+        const reviewPanelWidth = width * 0.9
         return (
             <View style={{
                 flexDirection: 'column',
-                alignItems: 'center'
+                alignItems: 'center',
+                width: reviewPanelWidth,
+                height: 90,
+                paddingTop: 15,
+                paddingBottom: 18,
+                borderBottomWidth: 1,
+                borderBottomColor: "#ccc",
+                // backgroundColor: 'red'
             }}>
                 <IEAStarIcon width={132} height={24}/>
                 <Text style={{
-                    marginLeft: 4,
-                    fontSize: 12,
+                    fontSize: 14,
                     marginTop: 8,
                     color: "#999",
                     height: 32
@@ -48,7 +55,9 @@ class RLListViewHeaderView extends Component {
 
     renderButtonsAction() {
         return (
-            <View>
+            <View style={{
+                height: 300
+            }}>
 
             </View>
         )
@@ -57,7 +66,10 @@ class RLListViewHeaderView extends Component {
 
     renderAction() {
         return (
-            <View>
+            <View style={{
+                flexDirection: 'column',
+                alignItems: 'center'
+            }}>
                 {this.renderTopReviewAction()}
                 {this.renderButtonsAction()}
             </View>
@@ -70,7 +82,7 @@ class RLListViewHeaderView extends Component {
                 flex: 1,
                 borderTopWidth: 1,
                 borderTopColor: "#ccc",
-                height: 90,
+                height: 300,
                 backgroundColor: 'white'
             }}>
                 {this.renderAction()}
