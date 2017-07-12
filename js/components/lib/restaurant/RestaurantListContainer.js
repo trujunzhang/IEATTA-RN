@@ -79,8 +79,6 @@ const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
 const RelayLoading = require('../../../common/RelayLoading')
 
-const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
-
 
 class RestaurantListContainer extends React.Component {
     props: Props;
@@ -193,7 +191,10 @@ class RestaurantListContainer extends React.Component {
         if (this.props.parallaxContent) {
             return this.props.parallaxContent
         }
-        return (<RLRestaurantParallaxHeader item={this.props.item}/>)
+        if (this.props.renderParallaxHeader) {
+            return this.props.renderParallaxHeader()
+        }
+        return null
     }
 
     renderHeaderTitle(): ?ReactElement {

@@ -49,6 +49,8 @@ const RestaurantListContainer = require('./RestaurantListContainer')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../../filter/FilterScreen')
 
+const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
+
 const EventsListView = require('./layout/EventsListView')
 
 import type {Session} from '../../../reducers/sessions'
@@ -108,6 +110,9 @@ class IEADetailedRestaurant extends React.Component {
                 title={item.displayName}
                 backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
                 selectedSegment={this.props.day - 1}
+                renderParallaxHeader={(e) => {
+                    return (<RLRestaurantParallaxHeader item={item}/>)
+                }}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
                 stickyHeader={filterHeader}
