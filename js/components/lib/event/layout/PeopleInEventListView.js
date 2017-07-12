@@ -41,7 +41,6 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
-const {width, height} = Dimensions.get('window')
 
 const F8SessionCell = require('F8SessionCell')
 const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
