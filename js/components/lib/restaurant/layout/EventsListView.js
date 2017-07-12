@@ -126,9 +126,15 @@ class EventsListView extends React.Component {
     renderTopHeaderView(): ?ReactElement {
         return (
             <StaticContainer>
-                <RLRestaurantListViewHeaderView/>
+                <View style={{
+                    flex: 1,
+                    marginTop: 200,
+                    backgroundColor: 'yellow'
+                }}>
+                    <RLRestaurantListViewHeaderView/>
+                </View>
             </StaticContainer>
-        );
+        )
     }
 
     renderEmptyList(): ?ReactElement {
