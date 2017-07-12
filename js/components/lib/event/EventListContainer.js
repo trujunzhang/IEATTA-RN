@@ -192,7 +192,7 @@ class EventListContainer extends React.Component {
                     </F8Header>
                     {this.renderFixedStickyHeader(stickyHeader)}
                 </View>
-                {content}
+                {/*{content}*/}
                 {this.renderFloatingStickyHeader(stickyHeader)}
             </View>
         );

@@ -106,7 +106,6 @@ class IEADetailedEvent extends React.Component {
             <EventListContainer
                 item={item}
                 title={item.displayName}
-                selectedSegment={this.props.day - 1}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
                 stickyHeader={filterHeader}

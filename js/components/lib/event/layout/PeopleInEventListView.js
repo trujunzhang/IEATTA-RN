@@ -41,13 +41,14 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
+const {width, height} = Dimensions.get('window')
 
 const F8SessionCell = require('F8SessionCell')
 const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
 let PureListView = require('../../../../common/PureListView')
 
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
-const RLEventListViewHeaderView = require('./RLEventListViewHeaderView')
+const RLListViewHeaderView = require('./RLListViewHeaderView')
 
 type Props = {
     day: number;
@@ -60,7 +61,7 @@ type State = {
     todaySessions: Array;
 };
 
-class PeopleInEventListView extends React.Component {
+class EventsListView extends React.Component {
     props: Props;
     state: State;
     _innerRef: ?PureListView;
@@ -125,7 +126,7 @@ class PeopleInEventListView extends React.Component {
     renderTopHeaderView(): ?ReactElement {
         return (
             <StaticContainer>
-                <RLEventListViewHeaderView/>
+                <RLListViewHeaderView/>
             </StaticContainer>
         );
     }
@@ -160,4 +161,4 @@ class PeopleInEventListView extends React.Component {
     }
 }
 
-module.exports = PeopleInEventListView
+module.exports = EventsListView
