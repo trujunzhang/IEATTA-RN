@@ -25,16 +25,31 @@
 
 'use strict';
 
+
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    Text,
+    TouchableOpacity,
+    View,
+    Image,
+    ScrollView,
+    StyleSheet,
+    StatusBar,
+    Navigator,
+    Dimensions
+} from 'react-native'
+
+
 const F8Colors = require('F8Colors')
 const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
 const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
 const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
 
-const React = require('React')
 const TabBarIOS = require('TabBarIOS')
 const TabBarItemIOS = require('TabBarItemIOS')
-const Navigator = require('Navigator')
-const unseenNotificationsCount = require('./notifications/unseenNotificationsCount')
 
 const {switchTab} = require('../actions')
 const {connect} = require('react-redux')
@@ -105,7 +120,6 @@ function select(store) {
     return {
         tab: store.navigation.tab,
         day: store.navigation.day,
-        notificationsBadge: unseenNotificationsCount(store) + store.surveys.length,
     }
 }
 
