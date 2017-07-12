@@ -25,26 +25,40 @@
 
 'use strict';
 
+
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    TouchableOpacity,
+    View,
+    Image,
+    ScrollView,
+    StyleSheet,
+    StatusBar,
+    Navigator,
+    Dimensions
+} from 'react-native'
+
+
 const F8InfoView = require('F8InfoView')
 const F8Colors = require('F8Colors')
 const F8MapView = require('F8MapView')
 const F8NotificationsView = require('F8NotificationsView')
-const React = require('React')
-const Navigator = require('Navigator')
 const F8DrawerLayout = require('F8DrawerLayout')
-const View = require('View')
-const StyleSheet = require('StyleSheet')
-const TouchableOpacity = require('TouchableOpacity')
-const Image = require('Image')
 const {Text} = require('F8Text')
 const MenuItem = require('./MenuItem')
 const LoginButton = require('../common/LoginButton')
 const ProfilePicture = require('../common/ProfilePicture')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
 const MyScheduleView = require('./schedule/MyScheduleView')
-const unseenNotificationsCount = require('./notifications/unseenNotificationsCount')
 
 const {switchTab, logOutWithPrompt} = require('../actions')
+
+const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
+const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
+const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
 
 
 import type {Tab} from '../reducers/navigation'
@@ -233,7 +247,6 @@ function select(store) {
         tab: store.navigation.tab,
         day: store.navigation.day,
         user: store.user,
-        notificationsBadge: unseenNotificationsCount(store) + store.surveys.length,
     }
 }
 
