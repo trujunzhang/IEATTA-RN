@@ -20,7 +20,7 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- * @providesModule ListContainer
+ * @providesModule EventListContainer
  */
 'use strict';
 
@@ -86,7 +86,7 @@ const ActivityIndicator = Platform.OS === 'ios'
 const Relay = require('react-relay')
 const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
-const RLParallaxHeader = require('./layout/RLParallaxHeader')
+const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
 
 class MainRoute extends Relay.Route {
 }
@@ -205,7 +205,7 @@ class EventListContainer extends React.Component {
         if (this.props.parallaxContent) {
             return this.props.parallaxContent
         }
-        return (<RLParallaxHeader item={this.props.item}/>)
+        return (<RLEventParallaxHeader item={this.props.item}/>)
     }
 
     renderHeaderTitle(): ?ReactElement {

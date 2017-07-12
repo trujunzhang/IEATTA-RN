@@ -20,7 +20,7 @@
  * DEALINGS IN THE SOFTWARE
  *
  * @flow
- * @providesModule ListContainer
+ * @providesModule RestaurantListContainer
  */
 'use strict';
 

@@ -24,14 +24,14 @@
  */
 'use strict';
 
-let CommonQuestions = require('./CommonQuestions');
-let LinksList = require('./LinksList');
-let ListContainer = require('ListContainer');
-let PureListView = require('../../common/PureListView');
-let React = require('React');
-let Relay = require('react-relay');
-let View = require('View');
-let WiFiDetails = require('./WiFiDetails');
+const CommonQuestions = require('./CommonQuestions')
+const LinksList = require('./LinksList')
+const ListContainer = require('ListContainer')
+const PureListView = require('../../common/PureListView')
+const React = require('React')
+const Relay = require('react-relay')
+const View = require('View')
+const WiFiDetails = require('./WiFiDetails')
 
 
 const POLICIES_LINKS = [{

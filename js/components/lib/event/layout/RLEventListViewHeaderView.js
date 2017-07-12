@@ -15,7 +15,6 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 const {width, height} = Dimensions.get('window')
 
 const F8Button = require('F8Button')

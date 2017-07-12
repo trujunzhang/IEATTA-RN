@@ -26,15 +26,9 @@
 'use strict';
 
 const F8Colors = require('F8Colors')
-const F8InfoView = require('F8InfoView')
-const F8MapView = require('F8MapView')
-const F8NotificationsView = require('F8NotificationsView')
-const GeneralScheduleView = require('./schedule/GeneralScheduleView')
 const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
 const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
 const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
-
-const MyScheduleView = require('./schedule/MyScheduleView')
 
 const React = require('React')
 const TabBarIOS = require('TabBarIOS')
@@ -101,17 +95,8 @@ class F8TabsView extends React.Component {
                         navigator={this.props.navigator}
                     />
                 </TabBarItemIOS>
-                <TabBarItemIOS
-                    title="Notifications"
-                    selected={this.props.tab === 'notifications'}
-                    onPress={this.onTabSelect.bind(this, 'notifications')}
-                    badge={this.props.notificationsBadge || null}
-                    icon={require('./notifications/img/notifications-icon.png')}
-                    selectedIcon={require('./notifications/img/notifications-icon-active.png')}>
-                    <F8NotificationsView navigator={this.props.navigator}/>
-                </TabBarItemIOS>
             </TabBarIOS>
-        );
+        )
     }
 
 }
@@ -121,13 +106,13 @@ function select(store) {
         tab: store.navigation.tab,
         day: store.navigation.day,
         notificationsBadge: unseenNotificationsCount(store) + store.surveys.length,
-    };
+    }
 }
 
 function actions(dispatch) {
     return {
         onTabSelect: (tab) => dispatch(switchTab(tab)),
-    };
+    }
 }
 
-module.exports = connect(select, actions)(F8TabsView);
+module.exports = connect(select, actions)(F8TabsView)
