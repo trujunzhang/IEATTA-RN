@@ -106,27 +106,28 @@ class ParallaxBackground extends React.Component {
         const translateX = this.state.shift.interpolate({
             inputRange: [0, 1],
             outputRange: [0, SCREEN_WIDTH - width],
-            extrapolate: 'clamp',
+            extrapolate: 'clamp'
         });
 
         const length = maxHeight - minHeight;
         const translateY = offset.interpolate({
             inputRange: [0, length / 2, length],
             outputRange: [0, -length / 2, -length / 1.5],
-            extrapolate: 'clamp',
+            extrapolate: 'clamp'
         });
         // Sometimes image width is smaller than device's width
         const initialScale = Math.max(SCREEN_WIDTH / width * 2 - 1, 1);
         const scale = offset.interpolate({
             inputRange: [-length, 0],
             outputRange: [2, initialScale],
-            extrapolateRight: 'clamp',
+            extrapolateRight: 'clamp'
         });
-        const transforms = {transform: [{translateX}, {translateY}, {scale}]};
+        const transforms = {transform: [{translateX}, {translateY}, {scale}]}
+        const bgStyle = {opacity: 0.55}
         return (
             <Animated.Image
                 source={backgroundImage}
-                style={transforms}
+                style={[transforms, bgStyle]}
             />
         );
     }
