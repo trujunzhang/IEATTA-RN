@@ -22,7 +22,6 @@ const F8Button = require('F8Button')
 
 import LinearGradient from 'react-native-linear-gradient'
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
-const RestaurantPhotoHorizonView = require('./RestaurantPhotoHorizonView')
 
 import Svg, {
     G,
@@ -185,30 +184,6 @@ class RLEventListViewHeaderView extends Component {
             }}>
                 {this.renderActions()}
 
-                <View style={[{ // className="island island--light"
-                    width: width,
-                    height: 175,
-                    flexDirection: 'column',
-                    backgroundColor: 'white'
-                }, {// Padding and Margin
-                    marginTop: 30,
-                    marginBottom: 30,
-                    paddingLeft: 10,
-                    paddingRight: 10,
-                    paddingTop: 10,
-                    paddingBottom: 10
-                }, {// shadow
-                    borderTopWidth: 1,
-                    borderBottomWidth: 1,
-                    borderLeftWidth: 0,
-                    borderRightWidth: 0,
-                    borderWidth: 1,
-                    borderStyle: "solid",
-                    borderColor: "#ccc"
-                }]}>
-                    <RestaurantPhotoHorizonView/>
-                    {this.renderSeeAllPhotosButton()}
-                </View>
             </View>
         )
     }

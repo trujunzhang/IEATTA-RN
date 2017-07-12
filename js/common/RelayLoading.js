@@ -21,8 +21,6 @@ import {
 const Relay = require('react-relay')
 const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
-const RLParallaxHeader = require('./layout/RLParallaxHeader')
-
 class MainRoute extends Relay.Route {
 }
 MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
