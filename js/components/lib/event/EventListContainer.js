@@ -86,12 +86,12 @@ const ActivityIndicator = Platform.OS === 'ios'
 const Relay = require('react-relay')
 const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
-const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
+const RLParallaxHeader = require('./layout/RLParallaxHeader')
 
-// class MainRoute extends Relay.Route {
-// }
-// MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
-// MainRoute.routeName = 'MainRoute';
+class MainRoute extends Relay.Route {
+}
+MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
+MainRoute.routeName = 'MainRoute';
 
 
 class EventListContainer extends React.Component {
@@ -205,7 +205,7 @@ class EventListContainer extends React.Component {
         if (this.props.parallaxContent) {
             return this.props.parallaxContent
         }
-        return (<RLEventParallaxHeader item={this.props.item}/>)
+        return (<RLParallaxHeader item={this.props.item}/>)
     }
 
     renderHeaderTitle(): ?ReactElement {

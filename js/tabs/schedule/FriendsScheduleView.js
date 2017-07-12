@@ -23,26 +23,26 @@
  */
 'use strict';
 
-let Navigator = require('Navigator');
-let ProfilePicture = require('../../common/ProfilePicture');
-let React = require('React');
-let EmptySchedule = require('./EmptySchedule');
-let FilterSessions = require('./filterSessions');
-let ListContainer = require('ListContainer');
-let ScheduleListView = require('./ScheduleListView');
+const Navigator = require('Navigator')
+const ProfilePicture = require('../../common/ProfilePicture')
+const React = require('React')
+const EmptySchedule = require('./EmptySchedule')
+const FilterSessions = require('./filterSessions')
+const ListContainer = require('ListContainer')
+const ScheduleListView = require('./ScheduleListView')
 
-let { connect } = require('react-redux');
+const { connect } = require('react-redux')
 
-import type {Session} from '../../reducers/sessions';
-import type {FriendsSchedule} from '../../reducers/friendsSchedules';
+import type {Session} from '../../reducers/sessions'
+import type {FriendsSchedule} from '../../reducers/friendsSchedules'
 
-let { createSelector } = require('reselect');
+const { createSelector } = require('reselect')
 
 type Props = {
-  sessions: Array<Session>;
-  friend: FriendsSchedule;
-  navigator: Navigator;
-};
+  sessions: Array<Session>
+  friend: FriendsSchedule
+  navigator: Navigator
+}
 
 class FriendsScheduleView extends React.Component {
   props: Props;

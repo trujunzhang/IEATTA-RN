@@ -46,7 +46,7 @@ import {
 const Platform = require('Platform');
 const BackAndroid = require('BackAndroid');
 const F8TabsView = require('F8TabsView');
-const FriendsScheduleView = require('./tabs/schedule/FriendsScheduleView');
+// const FriendsScheduleView = require('./tabs/schedule/FriendsScheduleView');
 const FilterScreen = require('./filter/FilterScreen');
 const LoginModal = require('./login/LoginModal');
 const SessionsCarousel = require('./tabs/schedule/SessionsCarousel');
@@ -147,14 +147,14 @@ let F8Navigator = React.createClass({
                 <FilterScreen navigator={navigator}/>
             );
         }
-        if (route.friend) {
-            return (
-                <FriendsScheduleView
-                    friend={route.friend}
-                    navigator={navigator}
-                />
-            );
-        }
+        // if (route.friend) {
+        //     return (
+        //         <FriendsScheduleView
+        //             friend={route.friend}
+        //             navigator={navigator}
+        //         />
+        //     );
+        // }
         if (route.login) {
             return (
                 <LoginModal
