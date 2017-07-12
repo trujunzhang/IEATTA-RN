@@ -110,6 +110,21 @@ class RestaurantPhotoHorizonView extends React.Component {
 
     renderRow(photo: any) {
         return (
+                <View style={{
+                    width: 100,
+                    height: 100,
+                    borderRadius: 4,
+                    marginRight: 6,
+                    backgroundColor:'yellow'
+                }}>
+
+            </View>
+
+        )
+    }
+
+    renderRowxxx(photo: any) {
+        return (
             <Image
                 key={photo.id}
                 style={{

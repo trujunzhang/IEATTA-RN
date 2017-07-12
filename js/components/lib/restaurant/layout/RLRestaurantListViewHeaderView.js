@@ -108,7 +108,7 @@ class RLRestaurantListViewHeaderView extends Component {
                     borderBottomWidth: 1,
                     borderBottomColor: "#ccc",
                     flexDirection: 'row',
-                    alignItems: 'center',
+                    alignItems: 'center'
                 }}>
 
                 {this.renderButtonItem(threeButtons[0])}
