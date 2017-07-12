@@ -129,12 +129,11 @@ class ListContainer extends React.Component {
     _pinned: any;
 
     static defaultProps = {
-        selectedSectionColor: 'white',
+        selectedSectionColor: 'white'
     };
 
     static contextTypes = {
-        openDrawer: React.PropTypes.func,
-        hasUnreadNotifications: React.PropTypes.number,
+        openDrawer: React.PropTypes.func
     };
 
     constructor(props: Props) {
@@ -143,7 +142,7 @@ class ListContainer extends React.Component {
         this.state = {
             idx: this.props.selectedSegment || 0,
             anim: new Animated.Value(0),
-            stickyHeaderHeight: 0,
+            stickyHeaderHeight: 0
         };
 
         (this: any).renderFakeHeader = this.renderFakeHeader.bind(this);
@@ -158,10 +157,8 @@ class ListContainer extends React.Component {
         if (!leftItem && Platform.OS === 'android') {
             leftItem = {
                 title: 'Menu',
-                icon: this.context.hasUnreadNotifications
-                    ? require('./img/hamburger-unread.png')
-                    : require('./img/hamburger.png'),
-                onPress: this.handleShowMenu,
+                icon: require('./img/hamburger.png'),
+                onPress: this.handleShowMenu
             };
         }
 
