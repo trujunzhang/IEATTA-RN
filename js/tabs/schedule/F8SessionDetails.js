@@ -320,7 +320,7 @@ function select(store, props) {
     isLoggedIn: store.user.isLoggedIn,
     sharedSchedule: store.user.sharedSchedule,
     sessionURLTemplate: store.config.sessionURLTemplate,
-    topics: store.topics,
+    topics: [],
     friendsGoing,
     map,
   };

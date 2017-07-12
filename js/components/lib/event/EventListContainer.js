@@ -94,7 +94,7 @@ MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
 MainRoute.routeName = 'MainRoute';
 
 
-class RestaurantListContainer extends React.Component {
+class EventListContainer extends React.Component {
     props: Props;
     state: State;
     _refs: Array<any>;
@@ -131,7 +131,7 @@ class RestaurantListContainer extends React.Component {
             leftItem = {
                 title: 'Menu',
                 onPress: this.handleShowMenu,
-            };
+            }
         }
 
         const segments = [];
@@ -384,4 +384,4 @@ const styles = StyleSheet.create({
     },
 });
 
-module.exports = RestaurantListContainer;
+module.exports = EventListContainer

@@ -32,6 +32,8 @@ const F8NotificationsView = require('F8NotificationsView')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
 const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
 const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
+const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
+
 const MyScheduleView = require('./schedule/MyScheduleView')
 
 const React = require('React')
@@ -95,7 +97,9 @@ class F8TabsView extends React.Component {
                     onPress={this.onTabSelect.bind(this, 'map')}
                     icon={require('./maps/img/maps-icon.png')}
                     selectedIcon={require('./maps/img/maps-icon-active.png')}>
-                    <F8MapView />
+                    <IEADetailedEvent
+                        navigator={this.props.navigator}
+                    />
                 </TabBarItemIOS>
                 <TabBarItemIOS
                     title="Notifications"
