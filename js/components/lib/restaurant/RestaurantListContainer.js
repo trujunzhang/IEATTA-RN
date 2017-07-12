@@ -86,7 +86,7 @@ const ActivityIndicator = Platform.OS === 'ios'
 const Relay = require('react-relay')
 const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
-const RLParallaxHeader = require('./layout/RLParallaxHeader')
+const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
 
 class MainRoute extends Relay.Route {
 }
@@ -205,7 +205,7 @@ class RestaurantListContainer extends React.Component {
         if (this.props.parallaxContent) {
             return this.props.parallaxContent
         }
-        return (<RLParallaxHeader item={this.props.item}/>)
+        return (<RLRestaurantParallaxHeader item={this.props.item}/>)
     }
 
     renderHeaderTitle(): ?ReactElement {

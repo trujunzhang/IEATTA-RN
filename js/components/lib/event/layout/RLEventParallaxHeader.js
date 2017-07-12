@@ -22,7 +22,7 @@ const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
 
-class RLParallaxHeader extends Component {
+class RLEventParallaxHeader extends Component {
 
     constructor(props, context) {
         super(props);
@@ -90,5 +90,5 @@ class RLParallaxHeader extends Component {
 }
 
 
-module.exports = RLParallaxHeader
+module.exports = RLEventParallaxHeader
 

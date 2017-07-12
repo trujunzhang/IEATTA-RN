@@ -29,7 +29,7 @@ import Svg, {
     Path,
 } from 'react-native-svg'
 
-class RLListViewHeaderView extends Component {
+class RLRestaurantListViewHeaderView extends Component {
 
     constructor(props, context) {
         super(props);
@@ -216,5 +216,5 @@ class RLListViewHeaderView extends Component {
 }
 
 
-module.exports = RLListViewHeaderView
+module.exports = RLRestaurantListViewHeaderView
 
