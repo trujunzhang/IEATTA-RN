@@ -195,21 +195,21 @@ class F8TabsView extends React.Component {
         switch (this.props.tab) {
             case 'houseback':
                 return (
-                    <GeneralScheduleView
+                    <IEADetailedRestaurant
                         navigator={this.props.navigator}
                     />
                 );
 
             case 'box':
                 return (
-                    <MyScheduleView
+                    <IEANearRestaurantScene
                         navigator={this.props.navigator}
                         onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />
                 );
 
             case 'list':
-                return <F8MapView />;
+                return <IEADetailedEvent navigator={this.props.navigator}/>
 
             case 'manuser':
                 return <F8NotificationsView navigator={this.props.navigator}/>;
