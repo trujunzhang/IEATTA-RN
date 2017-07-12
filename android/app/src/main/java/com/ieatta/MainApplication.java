@@ -11,6 +11,7 @@ import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
+import com.horcrux.svg.SvgPackage;
 import com.ocetnik.timer.BackgroundTimerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -37,6 +38,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNSimpleAlertDialogPackage(),
             new RNSendIntentPackage(),
             new MapsPackage(),
+            new SvgPackage(),
             new LinearGradientPackage(),
             new ReactNativeI18n(),
             new RNDeviceInfo(),

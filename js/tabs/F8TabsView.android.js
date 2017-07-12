@@ -193,14 +193,14 @@ class F8TabsView extends React.Component {
 
     renderContent() {
         switch (this.props.tab) {
-            case 'houseback':
+            case 'schedule':
                 return (
                     <IEADetailedRestaurant
                         navigator={this.props.navigator}
                     />
                 );
 
-            case 'box':
+            case 'mapxxx':
                 return (
                     <IEANearRestaurantScene
                         navigator={this.props.navigator}
@@ -208,7 +208,7 @@ class F8TabsView extends React.Component {
                     />
                 );
 
-            case 'list':
+            case 'map':
                 return <IEADetailedEvent navigator={this.props.navigator}/>
 
             case 'manuser':
