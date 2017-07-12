@@ -42,10 +42,11 @@ import {
     Dimensions
 } from 'react-native'
 
+const ListContainer = require('../../../common/ListContainer')
+
 const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
 const FilterHeader = require('../../../tabs/schedule/FilterHeader')
 const FilterSessions = require('../../../tabs/schedule/filterSessions')
-const RestaurantListContainer = require('./RestaurantListContainer')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../../filter/FilterScreen')
 
@@ -105,7 +106,7 @@ class IEADetailedRestaurant extends React.Component {
         const events = []
 
         const content = (
-            <RestaurantListContainer
+            <ListContainer
                 item={item}
                 title={item.displayName}
                 backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
@@ -121,7 +122,7 @@ class IEADetailedRestaurant extends React.Component {
                     events={events}
                     navigator={this.props.navigator}
                 />
-            </RestaurantListContainer>
+            </ListContainer>
         );
 
         if (Platform.OS === 'ios') {
