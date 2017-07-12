@@ -88,10 +88,10 @@ const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
 const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
 
-class MainRoute extends Relay.Route {
-}
-MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
-MainRoute.routeName = 'MainRoute';
+// class MainRoute extends Relay.Route {
+// }
+// MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
+// MainRoute.routeName = 'MainRoute';
 
 
 class EventListContainer extends React.Component {

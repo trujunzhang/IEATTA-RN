@@ -131,7 +131,7 @@ class IEADetailedEvent extends React.Component {
                 renderNavigationView={this.renderNavigationView}>
                 {content}
             </F8DrawerLayout>
-        );
+        )
     }
 
     renderNavigationView() {

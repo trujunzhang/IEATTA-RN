@@ -384,4 +384,4 @@ const styles = StyleSheet.create({
     },
 });
 
-module.exports = RestaurantListContainer;
+module.exports = RestaurantListContainer
