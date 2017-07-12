@@ -44,7 +44,7 @@ class RLRestaurantParallaxHeader extends Component {
                 <Text style={{
                     marginLeft: 4,
                     fontSize: 12,
-                    color: "#666"
+                    color: "#ccc"
                 }}>{"30 reviews"}</Text>
             </View>
         )
@@ -53,7 +53,10 @@ class RLRestaurantParallaxHeader extends Component {
     renderBottom() {
         const {item} = this.props
         return (
-            <Text>
+                <Text style={{
+                    fontSize: 12,
+                    color: "white"
+                }}>
                 {item.address}
             </Text>
         )
@@ -78,7 +81,7 @@ class RLRestaurantParallaxHeader extends Component {
                     fontSize: 24,
                     fontWeight: 'bold',
                     letterSpacing: -1,
-                    color: '#333'
+                    color: 'white'
                 }}>{item.displayName}</Text>
                 {this.renderMiddle()}
                 {this.renderBottom()}
