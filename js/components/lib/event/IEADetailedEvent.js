@@ -50,6 +50,8 @@ const FilterSessions = require('../../../tabs/schedule/filterSessions')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../../filter/FilterScreen')
 
+const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
+
 const PeopleInEventListView = require('./layout/PeopleInEventListView')
 
 import type {Session} from '../../../reducers/sessions'
@@ -104,11 +106,15 @@ class IEADetailedEvent extends React.Component {
         const events = []
 
         const content = (
-            <ListContainer
+                <ListContainer
                 item={item}
                 title={item.displayName}
+                backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
+                renderParallaxHeader={(e) => {
+                    return (<RLEventParallaxHeader item={item}/>)
+                }}
                 stickyHeader={filterHeader}
                 rightItem={filterItem}>
                 <PeopleInEventListView

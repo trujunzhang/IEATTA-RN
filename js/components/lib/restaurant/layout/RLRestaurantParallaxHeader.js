@@ -66,7 +66,7 @@ class RLRestaurantParallaxHeader extends Component {
                 flex: 1,
                 flexDirection: 'column',
                 width: width,
-                // backgroundColor: 'red',
+                //backgroundColor: 'red',
                 paddingLeft: 10,
                 paddingRight: 10,
                 justifyContent: 'flex-end',
