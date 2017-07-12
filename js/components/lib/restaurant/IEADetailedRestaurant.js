@@ -94,11 +94,6 @@ class IEADetailedRestaurant extends React.Component {
             ? <FilterHeader />
             : null;
 
-        // let sessions = this.props.sessions;
-        let sessions = [{
-            title: "wanghao"
-        }];
-
         const item = {
             displayName: 'Jiangnan Cuisine',
             address: '3420 Balboa St, San Francisco'
@@ -109,7 +104,7 @@ class IEADetailedRestaurant extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
+                backgroundImage={require('../../sample/348s.jpg')}
                 selectedSegment={this.props.day - 1}
                 renderParallaxHeader={(e) => {
                     return (<RLRestaurantParallaxHeader item={item}/>)

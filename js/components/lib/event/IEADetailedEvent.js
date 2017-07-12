@@ -106,10 +106,10 @@ class IEADetailedEvent extends React.Component {
         const events = []
 
         const content = (
-                <ListContainer
+            <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
+                backgroundImage={require('../../sample/348s.jpg')}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
                 renderParallaxHeader={(e) => {
