@@ -128,8 +128,7 @@ class EventsListView extends React.Component {
             <StaticContainer>
                 <View style={{
                     flex: 1,
-                    marginTop: 200,
-                    backgroundColor: 'yellow'
+                    marginTop: 200
                 }}>
                     <RLRestaurantListViewHeaderView/>
                 </View>

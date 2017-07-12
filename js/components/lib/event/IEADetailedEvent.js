@@ -42,10 +42,11 @@ import {
     Dimensions
 } from 'react-native'
 
+const ListContainer = require('../../../common/ListContainer')
+
 const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
 const FilterHeader = require('../../../tabs/schedule/FilterHeader')
 const FilterSessions = require('../../../tabs/schedule/filterSessions')
-const EventListContainer = require('./EventListContainer')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../../filter/FilterScreen')
 
@@ -103,7 +104,7 @@ class IEADetailedEvent extends React.Component {
         const events = []
 
         const content = (
-            <EventListContainer
+            <ListContainer
                 item={item}
                 title={item.displayName}
                 backgroundColor="#5597B8"
@@ -114,7 +115,7 @@ class IEADetailedEvent extends React.Component {
                     events={events}
                     navigator={this.props.navigator}
                 />
-            </EventListContainer>
+            </ListContainer>
         );
 
         if (Platform.OS === 'ios') {
