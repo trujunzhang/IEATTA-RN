@@ -14,9 +14,16 @@ import {
     ListView,
     Navigator,
     StatusBar,
+    ActivityIndicatorIOS,
     Platform,
     Dimensions
 } from 'react-native'
+
+const ProgressBarAndroid = require('ProgressBarAndroid');
+
+const ActivityIndicator = Platform.OS === 'ios'
+    ? ActivityIndicatorIOS
+    : ProgressBarAndroid;
 
 const Relay = require('react-relay')
 const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
@@ -57,3 +64,5 @@ class RelayLoading extends React.Component {
         return React.cloneElement(child, {...this.props, ...props});
     }
 }
+
+module.exports = RelayLoading

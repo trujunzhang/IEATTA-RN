@@ -78,20 +78,8 @@ type State = {
 const EMPTY_CELL_HEIGHT = Dimensions.get('window').height > 600 ? 200 : 150;
 
 const RelayLoading = require('../../../common/RelayLoading')
-const ProgressBarAndroid = require('ProgressBarAndroid');
-const ActivityIndicator = Platform.OS === 'ios'
-    ? ActivityIndicatorIOS
-    : ProgressBarAndroid;
-
-const Relay = require('react-relay')
-const RelayRenderer = require('react-relay/lib/RelayRenderer.js')
 
 const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
-
-class MainRoute extends Relay.Route {
-}
-MainRoute.queries = {viewer: () => Relay.QL`query { viewer }`};
-MainRoute.routeName = 'MainRoute';
 
 
 class RestaurantListContainer extends React.Component {

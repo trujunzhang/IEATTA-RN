@@ -48,7 +48,7 @@ const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
 let PureListView = require('../../../../common/PureListView')
 
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
-const RLListViewHeaderView = require('./RLListViewHeaderView')
+const RLEventListViewHeaderView = require('./RLEventListViewHeaderView')
 
 type Props = {
     day: number;
@@ -126,7 +126,7 @@ class EventsListView extends React.Component {
     renderTopHeaderView(): ?ReactElement {
         return (
             <StaticContainer>
-                <RLListViewHeaderView/>
+                <RLEventListViewHeaderView/>
             </StaticContainer>
         );
     }
