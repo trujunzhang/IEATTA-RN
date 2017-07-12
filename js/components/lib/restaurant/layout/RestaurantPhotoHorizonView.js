@@ -133,7 +133,7 @@ class RestaurantPhotoHorizonView extends React.Component {
                     borderRadius: 4,
                     marginRight: 6
                 }}
-                source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}
+            source={require('../../../sample/ms.jpg')}
             />
         )
     }
