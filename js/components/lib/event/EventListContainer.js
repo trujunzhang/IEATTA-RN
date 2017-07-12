@@ -227,7 +227,7 @@ class EventListContainer extends React.Component {
             <Animated.Text style={[styles.headerTitle, transform]}>
                 {this.props.title}
             </Animated.Text>
-        );
+        )
     }
 
     handleScroll(idx: number, e: any) {
