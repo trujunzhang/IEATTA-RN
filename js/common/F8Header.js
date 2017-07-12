@@ -25,15 +25,15 @@
 
 'use strict';
 
-var F8Colors = require('F8Colors');
-var React = require('React');
-var Platform = require('Platform');
-var StyleSheet = require('StyleSheet');
-var { Text } = require('F8Text');
-var TouchableOpacity = require('TouchableOpacity');
-var View = require('View');
-var Image = require('Image');
-var ToolbarAndroid = require('ToolbarAndroid');
+const F8Colors = require('F8Colors')
+const React = require('React')
+const Platform = require('Platform')
+const StyleSheet = require('StyleSheet')
+const {Text} = require('F8Text')
+const TouchableOpacity = require('TouchableOpacity')
+const View = require('View')
+const Image = require('Image')
+const ToolbarAndroid = require('ToolbarAndroid')
 
 export type Layout =
     'default'      // Use platform defaults (icon on Android, text on iOS)
@@ -139,7 +139,7 @@ class F8HeaderIOS extends React.Component {
         return (
             <View style={[styles.header, this.props.style]}>
                 <View style={styles.leftItem}>
-                    <ItemWrapperIOS color={itemsColor} item={leftItem} />
+                    <ItemWrapperIOS color={itemsColor} item={leftItem}/>
                 </View>
                 <View
                     accessible={true}
@@ -149,7 +149,7 @@ class F8HeaderIOS extends React.Component {
                     {content}
                 </View>
                 <View style={styles.rightItem}>
-                    <ItemWrapperIOS color={itemsColor} item={rightItem} />
+                    <ItemWrapperIOS color={itemsColor} item={rightItem}/>
                 </View>
             </View>
         );
@@ -179,7 +179,7 @@ class ItemWrapperIOS extends React.Component {
                 </Text>
             );
         } else if (icon) {
-            content = <Image source={icon} />;
+            content = <Image source={icon}/>;
         }
 
         return (
@@ -255,7 +255,7 @@ Header.__cards__ = (define) => {
         onPress: () => alert('Filter button pressed!'),
     };
 
-    define('Simple', () => <Header title="Hello, world" />);
+    define('Simple', () => <Header title="Hello, world"/>);
     define('With items', () => (
         <Header
             title="Default"

@@ -106,6 +106,7 @@ class IEADetailedRestaurant extends React.Component {
             <RestaurantListContainer
                 item={item}
                 title={item.displayName}
+                backgroundImage={require('../../../tabs/schedule/img/schedule-background.png')}
                 selectedSegment={this.props.day - 1}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"

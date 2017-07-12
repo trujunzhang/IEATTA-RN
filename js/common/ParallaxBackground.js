@@ -25,27 +25,13 @@
 
 'use strict';
 
-/**
- * The components needed from React
- */
-import React, {Component} from 'react'
-import {
-    TouchableOpacity,
-    View,
-    Image,
-    ScrollView,
-    StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
-    Text,
-    Platform,
-    Dimensions
-} from 'react-native'
-const {width, height} = Dimensions.get('window')
-
 const Animated = require('Animated')
 const resolveAssetSource = require('resolveAssetSource')
+const React = require('React')
+const StyleSheet = require('StyleSheet')
+const View = require('View')
+const Image = require('Image')
+const Dimensions = require('Dimensions')
 
 // TODO: Remove this magic numbers
 const HEIGHT = Dimensions.get('window').height > 600
@@ -90,8 +76,7 @@ class ParallaxBackground extends React.Component {
     }
 
     render(): ReactElement {
-        const {minHeight, maxHeight, offset, backgroundColor} = this.props
-
+        const {minHeight, maxHeight, offset, backgroundColor} = this.props;
         const buffer = 10; // To reduce visual lag when scrolling
         const height = offset.interpolate({
             inputRange: [0, maxHeight - minHeight],
@@ -102,28 +87,13 @@ class ParallaxBackground extends React.Component {
         return (
             <Animated.View style={[styles.container, {height, backgroundColor}]}>
                 {this.renderBackgroundImage()}
-                <View style={{
-                    flex: 1,
-                    width: width,
-                    justifyContent: 'flex-end',
-                    // backgroundColor: 'blue',
-                    // paddingBottom: 40
-                }}>
-                    {this.renderContent()}
-                </View>
+                {this.renderContent()}
             </Animated.View>
         );
     }
 
-    /**
-     * ref: https://www.reddit.com/r/reactnative/comments/56ur4f/problem_with_background_image_parent_texticon/
-     * @note: problem with background image parent + text/icon children + opacity
-     * @returns {XML}
-     */
     renderBackgroundImage(): ?ReactElement {
-        const {minHeight, maxHeight, offset} = this.props,
-            backgroundImage = {url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/o.jpg'}
-
+        const {backgroundImage, minHeight, maxHeight, offset} = this.props;
         if (!backgroundImage) {
             return null;
         }
@@ -132,9 +102,7 @@ class ParallaxBackground extends React.Component {
         if (!source) {
             return null;
         }
-        // const {width} = source;
-        // const width = SCREEN_WIDTH
-        const width = 750
+        const {width} = source;
         const translateX = this.state.shift.interpolate({
             inputRange: [0, 1],
             outputRange: [0, SCREEN_WIDTH - width],
@@ -158,11 +126,9 @@ class ParallaxBackground extends React.Component {
         return (
             <Animated.Image
                 source={backgroundImage}
-                style={[{
-                    position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.35
-                }, transforms]}
+                style={transforms}
             />
-        )
+        );
     }
 
     renderContent(): ?ReactElement {
@@ -215,4 +181,4 @@ const styles = StyleSheet.create({
 });
 
 
-module.exports = ParallaxBackground;
+module.exports = ParallaxBackground
