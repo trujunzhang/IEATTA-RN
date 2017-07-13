@@ -68,7 +68,7 @@ class RLEventParallaxHeader extends Component {
                     // fontWeight: 'bold',
                     // backgroundColor: 'blue'
                 }}>
-                    {item.address}
+                    {item.restaurantName}
                 </Text>
             </View>
         )

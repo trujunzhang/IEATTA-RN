@@ -18,6 +18,7 @@ import {
 const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 const {width, height} = Dimensions.get('window')
 
+const F8Colors = require('F8Colors')
 const F8Button = require('F8Button')
 
 import LinearGradient from 'react-native-linear-gradient'
@@ -181,7 +182,7 @@ class RLRestaurantListViewHeaderView extends Component {
                 flex: 1,
                 borderTopWidth: 1,
                 borderTopColor: "#ccc",
-                backgroundColor: '#f5f5f5'
+                backgroundColor: F8Colors.controllerViewColor
             }}>
                 {this.renderActions()}
 

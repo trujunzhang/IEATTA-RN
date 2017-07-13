@@ -98,7 +98,8 @@ class IEADetailedEvent extends React.Component {
 
         const item = {
             displayName: "Boba Princess' VIP Affair",
-            address: "Carl's Jr"
+            restaurantName: "Carl's Jr",
+            address: "Carl's Jr., 708 S Broadway, Los Angeles, CA 90014, USA"
         }
         const events = []
 
@@ -112,8 +113,9 @@ class IEADetailedEvent extends React.Component {
                 renderParallaxHeader={(e) => {
                     return (<RLEventParallaxHeader item={item}/>)
                 }}
-                >
+            >
                 <PeopleInEventListView
+                    item={item}
                     events={events}
                     navigator={this.props.navigator}
                 />
