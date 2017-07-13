@@ -35,75 +35,81 @@ class RLEventListViewHeaderView extends Component {
         this.state = this.initialState = {};
     }
 
-    renderTopReviewAction() {
-        const {item} = this.props
-        const reviewPanelWidth = width * 0.9
+    renderAddress() {
+        const {item} = this.props,
+            address = item.address || '',
+            rows = address.split(',')
+
         return (
-            <View style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: reviewPanelWidth,
-                height: 90,
+            <View style={[{
+                flexDirection: 'row',
+                // backgroundColor: 'red'
+            }, {
                 paddingTop: 15,
                 paddingBottom: 18,
+                marginLeft: 8,
+            }, {
                 borderBottomWidth: 1,
-                borderBottomColor: "#ccc",
-                // backgroundColor: 'red'
-            }}>
-                <Text style={{
-                    fontSize: 14,
-                    marginTop: 8,
-                    color: "#999",
-                    height: 32
-                }}>{item.address}</Text>
+                borderBottomColor: "#ccc"
+            }]}>
+                <Svg width="24" height="24">
+                    <Path fill="#666"
+                          d="M12 2C8.13 2 5 5.13 5 9c0 2.61 1.43 4.88 3.54 6.08L12 22l3.46-6.92A6.987 6.987 0 0 0 19 9c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </Svg>
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    marginLeft: 8
+                }}>
+                    {rows.map((item, index) => {
+                        return <Text
+                            key={index}
+                            style={{
+                                fontSize: 14,
+                                color: "black"
+                            }}>{item}</Text>
+                    })}
+                </View>
 
             </View>
         )
     }
 
-    renderAddress() {
-        return (
-            <View style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                backgroundColor: 'white'
-            }}>
-                {this.renderTopReviewAction()}
-            </View>
-        )
-    }
 
-    renderSeeAllPhotosButton() {
-        return (
-            <F8Button
-                type="photos"
-                style={{
-                    marginTop: 10,
-                    height: 43,
-                    backgroundColor: '#41c532'
-                }}
-                caption="See all photos"
-                captionStyle={{
-                    color: '#FFF',
-                    fontSize: 12,
-                    fontWeight: 'bold'
-                }}
-                onPress={() => {
-
-                }}
-            />
-        )
-    }
-
+    /**
+     * layout:
+     *    @div: className="clearfix layout-block layout-a event-details_cards-container top-shelf_overlap column--responsive"
+     *       @@div: className="event-details_info-card card card--horizontal"
+     * @returns {XML}
+     */
     render() {
         return (
-            <View style={{
+            <View style={[{
                 flex: 1,
-                borderTopWidth: 1,
-                borderTopColor: "#ccc",
+                width: width
+            }, {
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }, {
                 backgroundColor: F8Colors.controllerViewColor
-            }}>
-                {this.renderAddress()}
+            }]}>
+                <View style={[ // className="event-details_info-card card card--horizontal"
+                    {
+                        width: width - 30,
+                        backgroundColor: 'white',
+                    }, {
+                        borderRadius: 4,
+                        borderWidth: 1,
+                        borderStyle: "solid",
+                        borderColor: "#e6e6e6"
+                    }, {
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }
+                ]}>
+                    {this.renderAddress()}
+                </View>
 
             </View>
         )

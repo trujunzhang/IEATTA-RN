@@ -54,7 +54,7 @@ class RLEventParallaxHeader extends Component {
                 flexDirection: 'column'
             }}>
                 <Text style={{
-                    color: '#FFF',
+                    color: 'black',
                     fontSize: 24,
                     fontWeight: 'bold'
                 }}>

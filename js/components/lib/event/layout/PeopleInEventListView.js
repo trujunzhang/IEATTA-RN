@@ -128,7 +128,7 @@ class EventsListView extends React.Component {
             <StaticContainer>
                 <View style={{
                     flex: 1,
-                    marginTop: 200,
+                    marginTop: 120,
                 }}>
                     <RLEventListViewHeaderView item={this.props.item}/>
                 </View>

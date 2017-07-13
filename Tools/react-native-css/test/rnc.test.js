@@ -39,8 +39,10 @@ font-weight: bold;
 
 
 const data = reactNativeCSS`
-war-contribution-container {
-        border-radius: 4px;
+.card {
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    background: white;
 }
 
   `;

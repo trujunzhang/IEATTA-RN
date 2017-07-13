@@ -51,8 +51,9 @@ const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../../filter/FilterScreen')
 
 const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
-
 const PeopleInEventListView = require('./layout/PeopleInEventListView')
+
+const F8Colors = require('F8Colors')
 
 import type {Session} from '../../../reducers/sessions'
 
@@ -107,8 +108,7 @@ class IEADetailedEvent extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundImage={require('../../../common/parallax/info-background.png')}
-                backgroundColor="#5597B8"
+                backgroundColor={F8Colors.controllerViewColor}
                 selectedSectionColor="#51CDDA"
                 renderParallaxHeader={(e) => {
                     return (<RLEventParallaxHeader item={item}/>)
