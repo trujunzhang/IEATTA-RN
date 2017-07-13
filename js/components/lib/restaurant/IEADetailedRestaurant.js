@@ -105,7 +105,6 @@ class IEADetailedRestaurant extends React.Component {
                 item={item}
                 title={item.displayName}
                 backgroundImage={require('../../sample/348s.jpg')}
-                selectedSegment={this.props.day - 1}
                 renderParallaxHeader={(e) => {
                     return (<RLRestaurantParallaxHeader item={item}/>)
                 }}

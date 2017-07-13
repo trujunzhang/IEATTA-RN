@@ -109,7 +109,7 @@ class IEADetailedEvent extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundImage={require('../../sample/348s.jpg')}
+                backgroundImage={require('../../../common/parallax/info-background.png')}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
                 renderParallaxHeader={(e) => {
