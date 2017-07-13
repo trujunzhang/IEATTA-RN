@@ -30,55 +30,72 @@ class RLEventParallaxHeader extends Component {
      * className:'biz-rating biz-rating-large clearfix'
      * @returns {XML}
      */
-    renderMiddle() {
+    renderLeft() {
+        return (
+            <Image style={{
+                width: 60,
+                height: 60,
+                borderRadius: 4,
+                marginRight: 16,
+            }}
+                   source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}/>
+        )
+    }
+
+    renderRight() {
+        // const {item} = this.props
+        const item = {
+            displayName: "UYE: Boba Princess' VIP Affair @ Tea Lyfe",
+            address: "Carl's Jr"
+        }
         return (
             <View style={{
-                height: 28,
-                flexDirection: 'row',
-                alignItems: 'center',
+                flex: 1,
+                flexDirection: 'column'
             }}>
-                <IEAStarIcon/>
                 <Text style={{
-                    marginLeft: 4,
-                    fontSize: 12,
-                    color: "#666"
-                }}>{"30 reviews"}</Text>
+                    color: '#FFF',
+                    fontSize: 24,
+                    fontWeight: 'bold'
+                }}>
+                    {item.displayName}
+                </Text>
+                <Text style={{
+                    marginTop: 8,
+                    color: '#0073bb',
+                    height: 24,
+                    fontSize: 14,
+                    // fontWeight: 'bold',
+                    // backgroundColor: 'blue'
+                }}>
+                    {item.address}
+                </Text>
             </View>
         )
     }
 
-    renderBottom() {
-        const {item} = this.props
-        return (
-            <Text>
-                {item.address}
-            </Text>
-        )
-    }
-
+    /**
+     * className="event-details_header ysection"
+     * @returns {XML}
+     */
     render() {
         const {item} = this.props
         return (
-            <View style={{
+            <View style={{ // className="arrange arrange--12"
                 flex: 1,
                 flexDirection: 'column',
                 width: width,
+                height: 120,
                 // backgroundColor: 'red',
-                paddingLeft: 10,
-                paddingRight: 10,
-                justifyContent: 'flex-end',
+                paddingLeft: 12,
+                paddingRight: 12,
+                justifyContent: 'center',
                 paddingBottom: 80
             }}>
-                <Text style={{
-                    width: width,
-                    height: 36,
-                    fontSize: 24,
-                    fontWeight: 'bold',
-                    letterSpacing: -1,
-                    color: '#333'
-                }}>{item.displayName}</Text>
-                {this.renderMiddle()}
-                {this.renderBottom()}
+                <View style={{height: 120, flexDirection: 'row'}}>
+                    {this.renderLeft()}
+                    {this.renderRight()}
+                </View>
             </View>
         )
     }
