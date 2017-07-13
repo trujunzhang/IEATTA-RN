@@ -43,11 +43,11 @@ class RLEventParallaxHeader extends Component {
     }
 
     renderRight() {
-        // const {item} = this.props
-        const item = {
-            displayName: "UYE: Boba Princess' VIP Affair @ Tea Lyfe",
-            address: "Carl's Jr"
-        }
+        const {item} = this.props
+        // const item = {
+        //     displayName: "UYE: Boba Princess' VIP Affair @ Tea Lyfe",
+        //     address: "Carl's Jr"
+        // }
         return (
             <View style={{
                 flex: 1,

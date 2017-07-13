@@ -90,9 +90,6 @@ class IEADetailedEvent extends React.Component {
             onPress: this.openFilterScreen,
         };
 
-        const filterHeader = Object.keys(this.props.filter).length > 0
-            ? <FilterHeader />
-            : null;
 
         // let sessions = this.props.sessions;
         let sessions = [{
@@ -100,8 +97,8 @@ class IEADetailedEvent extends React.Component {
         }];
 
         const item = {
-            displayName: 'Jiangnan Cuisine',
-            address: '3420 Balboa St, San Francisco'
+            displayName: "Boba Princess' VIP Affair",
+            address: "Carl's Jr"
         }
         const events = []
 
@@ -115,8 +112,7 @@ class IEADetailedEvent extends React.Component {
                 renderParallaxHeader={(e) => {
                     return (<RLEventParallaxHeader item={item}/>)
                 }}
-                stickyHeader={filterHeader}
-                rightItem={filterItem}>
+                >
                 <PeopleInEventListView
                     events={events}
                     navigator={this.props.navigator}
