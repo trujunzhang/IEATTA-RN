@@ -198,7 +198,7 @@ class RLEventListViewHeaderView extends Component {
             <View style={[{
                 flex: 1,
                 width: width,
-                marginBottom: 15
+                paddingBottom: 15
             }, {
                 flexDirection: 'row',
                 alignItems: 'center',
