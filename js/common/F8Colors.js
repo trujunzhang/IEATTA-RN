@@ -56,6 +56,7 @@ function colorForTopic(count: number, index: number): string {
 
 module.exports = {
     controllerViewColor: '#f5f5f5',
+    appTextColor: '#333',
     primaryColor: '#eebb09',
     screenBGColor: '#1a1e23',
     actionText: '#3FB4CF',

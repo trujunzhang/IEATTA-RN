@@ -66,7 +66,7 @@ class RLEventListViewHeaderView extends Component {
                             key={index}
                             style={{
                                 fontSize: 14,
-                                color: "black"
+                                color: F8Colors.appTextColor
                             }}>{item}</Text>
                     })}
                 </View>
@@ -75,6 +75,117 @@ class RLEventListViewHeaderView extends Component {
         )
     }
 
+    renderFrom() {
+        return (
+            <View style={[{
+                flexDirection: 'row',
+                alignItems: 'center'
+            }]}>
+                <Text style={[{
+                    fontWeight: "bold",
+                    fontSize: 14,
+                    color: "black"
+                }, {
+                    marginRight: 6
+                }]}>{"From:"}</Text>
+                <Text style={{
+                    fontSize: 14,
+                    color: F8Colors.appTextColor
+                }}>{"Monday, May 18, 7:00 pm"}</Text>
+            </View>
+        )
+    }
+
+    renderEnd() {
+        return (
+            <View style={[{
+                flexDirection: 'row',
+                alignItems: 'center'
+            }]}>
+                <Text style={[{
+                    fontWeight: "bold",
+                    fontSize: 14,
+                    color: "black"
+                }, {
+                    marginRight: 6
+                }]}>{"To:"}</Text>
+                <Text style={{
+                    fontSize: 14,
+                    color: F8Colors.appTextColor
+                }}>{"Monday, May 18, 7:00 pm"}</Text>
+            </View>
+        )
+    }
+
+    renderEventDate() {
+        const {item} = this.props,
+            address = item.address || '',
+            rows = address.split(',')
+
+        return (
+            <View style={[{
+                flexDirection: 'row',
+                // backgroundColor: 'red'
+            }, {
+                paddingTop: 15,
+                paddingBottom: 18,
+                marginLeft: 8,
+            }, {
+                borderBottomWidth: 1,
+                borderBottomColor: "#ccc"
+            }]}>
+                <Svg width="24" height="24">
+                    <Path fill="#666"
+                          d="M18 21H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3 1 1 0 0 1 2 0h8a1 1 0 0 1 2 0 3 3 0 0 1 3 3v12a3 3 0 0 1-3 3zm1-13H5v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V8zm-6 5h4v4h-4v-4z"/>
+                </Svg>
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    marginLeft: 8
+                }}>
+                    {this.renderFrom()}
+                    {this.renderEnd()}
+                </View>
+
+            </View>
+        )
+    }
+
+
+    renderWhat() {
+        const {item} = this.props,
+            address = item.address || '',
+            rows = address.split(',')
+
+        return (
+            <View style={[{
+                flexDirection: 'column',
+                // backgroundColor: 'red'
+            }, {
+                paddingTop: 15,
+                paddingBottom: 18,
+                marginLeft: 8,
+            }]}>
+                <Text style={[
+                    {
+                        fontWeight: 'bold',
+                        fontSize: 14,
+                        color: "#d32323"
+                    }
+                ]}>{'What/Why:'}</Text>
+                <Text style={[
+                    {
+                        fontSize: 14,
+                        color: F8Colors.appTextColor
+                    }, {
+                        marginTop: 4,
+                        marginBottom: 4,
+                    }
+                ]}>{'If you DID NOT receive a Confirmation message from Donna T, we apologize for not being able to accommodate your RSVP. Hope you can come to the next future local gig. Thanks for all your excitement and support!'}</Text>
+
+            </View>
+        )
+    }
 
     /**
      * layout:
@@ -86,7 +197,8 @@ class RLEventListViewHeaderView extends Component {
         return (
             <View style={[{
                 flex: 1,
-                width: width
+                width: width,
+                marginBottom: 15
             }, {
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -101,14 +213,14 @@ class RLEventListViewHeaderView extends Component {
                     }, {
                         borderRadius: 4,
                         borderWidth: 1,
-                        borderStyle: "solid",
                         borderColor: "#e6e6e6"
                     }, {
                         flexDirection: 'column',
-                        alignItems: 'center'
                     }
                 ]}>
                     {this.renderAddress()}
+                    {this.renderEventDate()}
+                    {this.renderWhat()}
                 </View>
 
             </View>
