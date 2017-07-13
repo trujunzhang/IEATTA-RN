@@ -112,8 +112,7 @@ class IEADetailedEvent extends React.Component {
                 selectedSectionColor="#51CDDA"
                 renderParallaxHeader={(e) => {
                     return (<RLEventParallaxHeader item={item}/>)
-                }}
-            >
+                }}>
                 <PeopleInEventListView
                     item={item}
                     events={events}

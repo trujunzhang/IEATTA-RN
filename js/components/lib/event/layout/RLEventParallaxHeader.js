@@ -64,9 +64,7 @@ class RLEventParallaxHeader extends Component {
                     marginTop: 8,
                     color: '#0073bb',
                     height: 24,
-                    fontSize: 14,
-                    // fontWeight: 'bold',
-                    // backgroundColor: 'blue'
+                    fontSize: 14
                 }}>
                     {item.restaurantName}
                 </Text>
@@ -79,20 +77,21 @@ class RLEventParallaxHeader extends Component {
      * @returns {XML}
      */
     render() {
-        const {item} = this.props
         return (
-            <View style={{ // className="arrange arrange--12"
-                flex: 1,
-                flexDirection: 'column',
-                width: width,
-                height: 120,
-                // backgroundColor: 'red',
-                paddingLeft: 12,
-                paddingRight: 12,
-                justifyContent: 'center',
-                paddingBottom: 80
-            }}>
-                <View style={{height: 120, flexDirection: 'row'}}>
+            <View style={[// className="arrange arrange--12"
+                {
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    // backgroundColor: 'red',
+                }, {
+                    width: width,
+                    paddingLeft: 12,
+                    paddingRight: 12,
+                    // paddingBottom: 80
+                }
+            ]}>
+                <View style={{height: 100, flexDirection: 'row'}}>
                     {this.renderLeft()}
                     {this.renderRight()}
                 </View>
