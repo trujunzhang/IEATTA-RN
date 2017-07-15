@@ -18,6 +18,10 @@
 * React Native Easy Grid
    [https://github.com/GeekyAnts/react-native-easy-grid]
 
+* react-native-fs
+  Native filesystem access for react-native
+  [https://github.com/itinance/react-native-fs]
+
 
 * Debug Tools
 ** reactotron
