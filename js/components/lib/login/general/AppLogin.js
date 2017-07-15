@@ -33,7 +33,7 @@ const {
     LOGIN,
     REGISTER,
     FORGOT_PASSWORD
-} = require('../lib/constants').default
+} = require('../../../../lib/constants').default
 
 const {logInWithPassword, timeout} = require('../actions');
 

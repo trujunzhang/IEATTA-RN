@@ -49,10 +49,31 @@ const LoginButton = require('./LoginButton')
 const {skipLogin} = require('../../../actions')
 const {connect} = require('react-redux')
 
+const AppLogin = require('./general/AppLogin')
+const AppRegister = require('./general/AppRegister')
+
+const {
+    LOGIN_FORM_TYPE_MAIN,
+    LOGIN_FORM_TYPE_LOGIN,
+    LOGIN_FORM_TYPE_REGISTER
+} = require('../../../lib/constants').default
+
 class LoginScreen extends React.Component {
     state = {
         anim: new Animated.Value(0),
-    };
+    }
+
+    constructor(props, context) {
+        super(props)
+
+        this.state = this.initialState = {
+            formType: LOGIN_FORM_TYPE_MAIN,
+        }
+    }
+
+    toggleForm(formType) {
+        this.setState({formType: formType})
+    }
 
     componentDidMount() {
         Animated.timing(this.state.anim, {toValue: 3000, duration: 3000}).start();
@@ -101,16 +122,28 @@ class LoginScreen extends React.Component {
         )
     }
 
-    logInViaEmail() {
+    renderContent() {
+        const {formType} = this.state
+        switch (formType) {
+            case LOGIN_FORM_TYPE_MAIN:
+                return this.renderMainUI()
+            case LOGIN_FORM_TYPE_LOGIN:
+                return (
+                    <AppLogin toggleEvent={this.toggleForm.bind(this)}
+                              actions={this.props.actions}/>
+                )
+            case LOGIN_FORM_TYPE_REGISTER:
+                return (
+                    <AppRegister toggleEvent={this.toggleForm.bind(this)}
+                                 actions={this.props.actions}/>
+                )
+        }
     }
 
-    renderContent() {
+    renderMainUI() {
         return (
             <Animated.View style={[styles.section, styles.last, this.fadeIn(2500, 20)]}>
-                <View style={{
-                    flexDirection: 'row',
-                    alignItems: 'center'
-                }}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
                     <F8Button
                         contentStyle={[{
                             flex: 2,
@@ -245,4 +278,4 @@ const styles = StyleSheet.create({
     },
 });
 
-module.exports = connect()(LoginScreen);
+module.exports = connect()(LoginScreen)
