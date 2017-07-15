@@ -128,14 +128,12 @@ class LoginScreen extends React.Component {
             case LOGIN_FORM_TYPE_MAIN:
                 return this.renderMainUI()
             case LOGIN_FORM_TYPE_LOGIN:
-                return (
-                    <AppLogin toggleEvent={this.toggleForm.bind(this)}
-                              actions={this.props.actions}/>
+                return (<AppLogin toggleEvent={this.toggleForm.bind(this)}
+                                  actions={this.props.actions}/>
                 )
             case LOGIN_FORM_TYPE_REGISTER:
-                return (
-                    <AppRegister toggleEvent={this.toggleForm.bind(this)}
-                                 actions={this.props.actions}/>
+                return (<AppRegister toggleEvent={this.toggleForm.bind(this)}
+                                     actions={this.props.actions}/>
                 )
         }
     }
