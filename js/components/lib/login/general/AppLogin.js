@@ -94,6 +94,4 @@ function select(store) {
     };
 }
 
-
-export default connect(select)(AppLogin)
-module.exports = connect(select)(AppLogin);
+module.exports = connect(select)(AppLogin)
