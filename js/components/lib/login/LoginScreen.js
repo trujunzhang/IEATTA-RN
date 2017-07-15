@@ -60,15 +60,8 @@ const {
 
 class LoginScreen extends React.Component {
     state = {
+        formType: LOGIN_FORM_TYPE_MAIN,
         anim: new Animated.Value(0),
-    }
-
-    constructor(props, context) {
-        super(props)
-
-        this.state = this.initialState = {
-            formType: LOGIN_FORM_TYPE_MAIN,
-        }
     }
 
     toggleForm(formType) {
@@ -165,6 +158,7 @@ class LoginScreen extends React.Component {
                         backgroundColors={["#fff", "#f7f7f7"]}
                         caption="Log In"
                         source="Modal"
+                        onPress={() => this.toggleForm(LOGIN_FORM_TYPE_LOGIN)}
                     />
                     <F8Button
                         contentStyle={[{
@@ -189,6 +183,7 @@ class LoginScreen extends React.Component {
                         backgroundColors={["#d90007", "#c91400"]}
                         caption="Sign Up"
                         source="Modal"
+                        onPress={() => this.toggleForm(LOGIN_FORM_TYPE_REGISTER)}
                     />
                 </View>
                 <F8Button
