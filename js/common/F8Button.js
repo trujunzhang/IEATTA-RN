@@ -60,8 +60,8 @@ class F8Button extends React.Component {
             if (this.props.disabled === true) {
                 colors = ['#ccc', '#ccc'];
             }
-            if (this.props.backgroundColor) {
-                colors = [this.props.backgroundColor, this.props.backgroundColor]
+            if (this.props.backgroundColors) {
+                colors = this.props.backgroundColors
             }
             let containStyle = [styles.button, styles.primaryButton, this.props.contentStyle];
             let childStyle = [styles.caption, styles.primaryCaption, this.props.textStyle];

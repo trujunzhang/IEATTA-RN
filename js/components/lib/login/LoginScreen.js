@@ -116,7 +116,7 @@ class LoginScreen extends React.Component {
                             flex: 2,
                             marginRight: 8
                         }}
-                        backgroundColor="#ccc"
+                        backgroundColors={["#fff", "#f7f7f7"]}
                         caption="Log In"
                         source="Modal"
                     />
@@ -125,6 +125,7 @@ class LoginScreen extends React.Component {
                             flex: 2,
                             marginLeft: 8
                         }}
+                        backgroundColors={["#fff", "#f7f7f7"]}
                         caption="Sign Up"
                         source="Modal"
                     />
