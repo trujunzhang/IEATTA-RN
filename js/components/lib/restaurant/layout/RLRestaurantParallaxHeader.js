@@ -6,18 +6,12 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Text,
     Platform,
     Dimensions
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
-
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 
 
 const IEAStarIcon = require('../../../../common/IEAStarIcon').default
@@ -53,10 +47,10 @@ class RLRestaurantParallaxHeader extends Component {
     renderBottom() {
         const {item} = this.props
         return (
-                <Text style={{
-                    fontSize: 12,
-                    color: "white"
-                }}>
+            <Text style={{
+                fontSize: 12,
+                color: "white"
+            }}>
                 {item.address}
             </Text>
         )

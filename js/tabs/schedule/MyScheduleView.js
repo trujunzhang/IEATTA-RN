@@ -23,33 +23,32 @@
  */
 'use strict';
 
-let EmptySchedule = require('./EmptySchedule');
-let F8Button = require('F8Button');
-let FilterSessions = require('./filterSessions');
-let ListContainer = require('ListContainer');
-let LoginButton = require('../../common/LoginButton');
-let Navigator = require('Navigator');
-let ProfilePicture = require('../../common/ProfilePicture');
-let React = require('React');
-let PureListView = require('../../common/PureListView');
-let ScheduleListView = require('./ScheduleListView');
-let FriendsListView = require('./FriendsListView');
+const EmptySchedule = require('./EmptySchedule')
+const F8Button = require('F8Button')
+const FilterSessions = require('./filterSessions')
+const ListContainer = require('ListContainer')
+const Navigator = require('Navigator')
+const ProfilePicture = require('../../common/ProfilePicture')
+const React = require('React')
+const PureListView = require('../../common/PureListView')
+const ScheduleListView = require('./ScheduleListView')
+const FriendsListView = require('./FriendsListView')
 
-let {connect} = require('react-redux');
+const {connect} = require('react-redux')
 
-let {
+const {
     logOutWithPrompt,
     switchTab,
     switchDay,
     loadFriendsSchedules,
-} = require('../../actions');
+} = require('../../actions')
 
-import type {Session} from '../../reducers/sessions';
-import type {FriendsSchedule} from '../../reducers/friendsSchedules';
-import type {State as User} from '../../reducers/user';
-import type {State as Schedule} from '../../reducers/schedule';
+import type {Session} from '../../reducers/sessions'
+import type {FriendsSchedule} from '../../reducers/friendsSchedules'
+import type {State as User} from '../../reducers/user'
+import type {State as Schedule} from '../../reducers/schedule'
 
-let {createSelector} = require('reselect');
+const {createSelector} = require('reselect')
 
 
 type Props = {

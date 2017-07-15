@@ -40,6 +40,7 @@ const configActions = require('./config');
 const surveyActions = require('./surveys');
 const testActions = require('./test');
 const installationActions = require('./installation');
+const golbalActions = require('./global').default
 
 module.exports = {
     ...loginActions,
@@ -58,4 +59,5 @@ module.exports = {
     ...parseActions,
     ...navigationActions,
     ...installationActions,
+    ...golbalActions
 };

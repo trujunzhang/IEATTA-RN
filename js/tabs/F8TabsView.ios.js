@@ -35,13 +35,9 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    StatusBar,
-    Navigator,
     Dimensions
 } from 'react-native'
-
 
 const F8Colors = require('F8Colors')
 

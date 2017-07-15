@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
     Dimensions,
     TextInput

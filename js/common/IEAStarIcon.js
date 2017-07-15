@@ -31,11 +31,7 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Dimensions
 } from 'react-native'
 import F8Colors from 'F8Colors'

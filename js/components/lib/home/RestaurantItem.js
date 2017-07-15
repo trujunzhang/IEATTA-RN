@@ -34,11 +34,7 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Dimensions
 } from 'react-native'
 const {width, height} = Dimensions.get('window')

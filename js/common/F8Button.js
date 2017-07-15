@@ -56,7 +56,7 @@ class F8Button extends React.Component {
         let content;
         if (this.props.type === 'primary') {
             let backgroundColor = this.props.backgroundColor ? this.props.backgroundColor : '#eebb09';
-            let colors = [backgroundColor, backgroundColor];
+            let colors = ['#6A6AD5', '#6F86D9']
             if (this.props.disabled === true) {
                 colors = ['#ccc', '#ccc'];
             }
@@ -77,7 +77,7 @@ class F8Button extends React.Component {
             content = (
                 <View style={[styles.button, border]}>
                     {icon}
-                    <Text style={[styles.caption, styles.secondaryCaption,this.props.captionStyle]}>
+                    <Text style={[styles.caption, styles.secondaryCaption, this.props.captionStyle]}>
                         {caption}
                     </Text>
                 </View>
@@ -105,7 +105,7 @@ class F8Button extends React.Component {
 
 const HEIGHT = 50;
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         height: HEIGHT,
         // borderRadius: HEIGHT / 2,
@@ -116,7 +116,7 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        //paddingHorizontal: 40,
+        paddingHorizontal: 40,
     },
     border: {
         borderWidth: 1,
@@ -135,7 +135,7 @@ let styles = StyleSheet.create({
         fontSize: 12,
     },
     primaryCaption: {
-        color: 'black',
+        color: 'white',
     },
     secondaryCaption: {
         color: F8Colors.lightText,

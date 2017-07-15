@@ -9,3 +9,18 @@
     textAlign: 'center',
     color: '#34495e',
   },
+
+
+   /**
+     * ref: https://www.reddit.com/r/reactnative/comments/56ur4f/problem_with_background_image_parent_texticon/
+     * @note: problem with background image parent + text/icon children + opacity
+     * @returns {XML}
+     */
+
+
+<Image
+                    style={{
+                        flex: 1,
+                        borderRadius: 4
+                    }}
+                    source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}/>

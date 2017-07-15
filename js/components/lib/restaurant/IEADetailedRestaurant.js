@@ -33,11 +33,7 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Platform,
     Dimensions
 } from 'react-native'

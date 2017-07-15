@@ -6,16 +6,11 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Text,
     Platform,
     Dimensions
 } from 'react-native'
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 const {width, height} = Dimensions.get('window')
 
 const F8Colors = require('F8Colors')

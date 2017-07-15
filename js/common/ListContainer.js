@@ -36,8 +36,6 @@ import {
     ScrollView,
     StyleSheet,
     ListView,
-    Navigator,
-    StatusBar,
     Platform,
     ActivityIndicatorIOS,
     Dimensions

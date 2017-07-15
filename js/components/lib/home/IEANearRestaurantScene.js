@@ -34,15 +34,10 @@ import {
     TouchableOpacity,
     View,
     Image,
-    ScrollView,
     StyleSheet,
-    ListView,
-    Navigator,
-    StatusBar,
     Dimensions
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
-const {NavBarHeight, TotalNavHeight} = Navigator.NavigationBar.Styles.General
 
 let PureListView = require('../../../common/PureListView');
 

@@ -41,9 +41,9 @@ import {
     Dimensions
 } from 'react-native'
 
-let AppState = require('AppState');
-let F8Navigator = require('F8Navigator');
-let {
+const AppState = require('AppState')
+const F8Navigator = require('F8Navigator')
+const {
     loadConfig,
     // loadMaps,
     loadNotifications,
@@ -51,19 +51,20 @@ let {
     // loadFriendsSchedules,
     // loadSurveys,
     receivePushNotification,
-} = require('./actions');
-let {updateInstallation} = require('./actions/installation');
-let {connect} = require('react-redux');
+} = require('./actions')
+const {updateInstallation} = require('./actions/installation')
+const {connect} = require('react-redux')
 
 
-let LoginScreen = require('./login/LoginScreen')
+const LoginScreen = require('./components/lib/login/LoginScreen')
+const LoginModal = require('./components/lib/login/LoginModal')
 
-let {version} = require('./env.js');
+const {version} = require('./env.js')
 
 // Playground:
-let Playground = require('./playground/Playground');
-let MapViewScene = require('./playground/MapViewScene');
-let SectionsListViewScene = require('./playground/SectionsListViewScene');
+const Playground = require('./playground/Playground')
+const MapViewScene = require('./playground/MapViewScene')
+const SectionsListViewScene = require('./playground/SectionsListViewScene')
 
 const ReactNativeMapsApp = require('./vendor/react-native-maps/ReactNativeMapsApp')
 
@@ -75,7 +76,7 @@ class F8App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-             //playground: true,
+            //playground: true,
             playground: false,
         };
     }
@@ -142,6 +143,7 @@ class F8App extends Component {
 
         if (!this.props.isLoggedIn) {
             return <LoginScreen />
+            //return <LoginModal/>
         }
 
         return (
