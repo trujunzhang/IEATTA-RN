@@ -35,7 +35,7 @@ const {
     FORGOT_PASSWORD
 } = require('../../../../lib/constants').default
 
-const {logInWithPassword, timeout} = require('../actions');
+const {logInWithPassword, timeout} = require('../../../../actions')
 
 class AppLogin extends React.Component {
     props: {

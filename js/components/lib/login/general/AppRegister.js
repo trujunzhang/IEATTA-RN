@@ -35,10 +35,10 @@ const {
     LOGIN,
     REGISTER,
     FORGOT_PASSWORD
-} = require('../lib/constants').default
+} = require('../../../../lib/constants').default
 
 
-const {signUpWithPassword, timeout} = require('../actions');
+const {signUpWithPassword, timeout} = require('../../../../actions')
 
 class AppRegistry extends React.Component {
     async onButtonPress() {
