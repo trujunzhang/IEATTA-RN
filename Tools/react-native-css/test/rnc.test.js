@@ -40,9 +40,11 @@ font-weight: bold;
 
 const data = reactNativeCSS`
 .card {
-    border: 1px solid #e6e6e6;
-    border-radius: 4px;
-    background: white;
+    border: 1px solid;
+        border-color: #ccc;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    border-radius: 3px;
+        background: -webkit-linear-gradient(#fff, #f7f7f7);
 }
 
   `;

@@ -116,6 +116,11 @@ class LoginScreen extends React.Component {
                             flex: 2,
                             marginRight: 8
                         }}
+                        textStyle={{
+                            color: "#666",
+                            fontSize: 14,
+                            fontWeight: 'bold'
+                        }}
                         backgroundColors={["#fff", "#f7f7f7"]}
                         caption="Log In"
                         source="Modal"
