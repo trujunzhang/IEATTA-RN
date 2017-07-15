@@ -112,10 +112,20 @@ class LoginScreen extends React.Component {
                     alignItems: 'center'
                 }}>
                     <F8Button
-                        contentStyle={{
+                        contentStyle={[{
                             flex: 2,
-                            marginRight: 8
-                        }}
+                            marginRight: 8,
+                            borderRadius: 3,
+                        }, {
+                            borderLeftWidth: 1,
+                            borderLeftColor: "#ccc",
+                            borderRightWidth: 1,
+                            borderRightColor: "#ccc",
+                            borderTopWidth: 1,
+                            borderTopColor: "#ccc",
+                            borderBottomWidth: 1,
+                            borderBottomColor: "#ccc",
+                        }]}
                         textStyle={{
                             color: "#666",
                             fontSize: 14,
@@ -126,11 +136,26 @@ class LoginScreen extends React.Component {
                         source="Modal"
                     />
                     <F8Button
-                        contentStyle={{
+                        contentStyle={[{
                             flex: 2,
-                            marginLeft: 8
+                            marginRight: 8,
+                            borderRadius: 3,
+                        }, {
+                            borderLeftWidth: 1,
+                            borderLeftColor: "#8d0005",
+                            borderRightWidth: 1,
+                            borderRightColor: "#8d0005",
+                            borderTopWidth: 1,
+                            borderTopColor: "#8d0005",
+                            borderBottomWidth: 1,
+                            borderBottomColor: "#8d0005",
+                        }]}
+                        textStyle={{
+                            color: "white",
+                            fontSize: 14,
+                            fontWeight: 'bold'
                         }}
-                        backgroundColors={["#fff", "#f7f7f7"]}
+                        backgroundColors={["#d90007", "#c91400"]}
                         caption="Sign Up"
                         source="Modal"
                     />
