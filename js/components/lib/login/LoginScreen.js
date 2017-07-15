@@ -101,9 +101,39 @@ class LoginScreen extends React.Component {
         )
     }
 
+    logInViaEmail() {
+    }
+
     renderContent() {
         return (
             <Animated.View style={[styles.section, styles.last, this.fadeIn(2500, 20)]}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center'
+                }}>
+                    <F8Button
+                        contentStyle={{
+                            flex: 2,
+                            marginRight: 8
+                        }}
+                        backgroundColor="#ccc"
+                        caption="Log In"
+                        source="Modal"
+                    />
+                    <F8Button
+                        contentStyle={{
+                            flex: 2,
+                            marginLeft: 8
+                        }}
+                        caption="Sign Up"
+                        source="Modal"
+                    />
+                </View>
+                <F8Button
+                    type="secondary"
+                    caption="Not Now"
+                    source="Modal"
+                />
                 <Text style={styles.loginComment}>
                     Use Facebook to find your friends.
                 </Text>
