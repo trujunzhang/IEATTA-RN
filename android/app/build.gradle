@@ -89,7 +89,7 @@ def F8APP_RELEASE_KEY_PASSWORD= 'ieatta-app'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.ieatta"
@@ -105,11 +105,7 @@ android {
         release {
             // To sign the app with production keystore, add the following
             // to your ~/.gradle/gradle.properties:
-            //
-//             F8APP_RELEASE_STORE_FILE=<path>
-//             F8APP_RELEASE_KEY_ALIAS=<alias>
-//             F8APP_RELEASE_STORE_PASSWORD=<store-password>
-//             F8APP_RELEASE_KEY_PASSWORD=<key-password>
+
 
             // Note that Facebook login won't work unless you change
             // strings.xml/facebook_app_id and configure your own app
