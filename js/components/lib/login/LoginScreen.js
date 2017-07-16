@@ -35,7 +35,8 @@ import {
     StyleSheet,
     StatusBar,
     Platform,
-    Dimensions
+    Dimensions,
+    KeyboardAvoidingView
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
@@ -58,9 +59,12 @@ const {
     LOGIN_FORM_TYPE_REGISTER
 } = require('../../../lib/constants').default
 
+/**
+ * Ref: https://medium.freecodecamp.org/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580
+ */
 class LoginScreen extends React.Component {
     state = {
-        formType: LOGIN_FORM_TYPE_MAIN,
+        formType: LOGIN_FORM_TYPE_REGISTER,
         anim: new Animated.Value(0),
     }
 
@@ -72,47 +76,75 @@ class LoginScreen extends React.Component {
         Animated.timing(this.state.anim, {toValue: 3000, duration: 3000}).start();
     }
 
+    renderNotNow() {
+        return (
+            <TouchableOpacity
+                accessibilityLabel="Skip login"
+                accessibilityTraits="button"
+                style={styles.skip}
+                onPress={() => this.props.dispatch(skipLogin())}>
+                <Animated.Image
+                    style={this.fadeIn(2800)}
+                    source={require('./img/x.png')}
+                />
+            </TouchableOpacity>
+        )
+    }
+
+    renderLoginIcon() {
+        return (
+            <View style={[styles.section, {marginTop: 0}]}>
+                <Animated.Image
+                    style={[this.fadeIn(0), {borderRadius: 40}]}
+                    source={require('./img/devconf-logo.png')}
+                />
+            </View>
+        )
+    }
+
     render() {
         return (
             <Image
                 style={styles.container}
                 source={require('./img/login-background.png')}>
                 <StatusBar barStyle="default"/>
-                <TouchableOpacity
-                    accessibilityLabel="Skip login"
-                    accessibilityTraits="button"
-                    style={styles.skip}
-                    onPress={() => this.props.dispatch(skipLogin())}>
-                    <Animated.Image
-                        style={this.fadeIn(2800)}
-                        source={require('./img/x.png')}
-                    />
-                </TouchableOpacity>
-                <View style={styles.section}>
-                    <Animated.Image
-                        style={[this.fadeIn(0), {borderRadius: 40}]}
-                        source={require('./img/devconf-logo.png')}
-                    />
-                </View>
-                <View style={styles.section}>
-                    <Animated.Text style={[styles.h1, this.fadeIn(700, -20)]}>
-                        {'Eating Restaurant'}
-                    </Animated.Text>
-                    <Animated.Text style={[styles.h1, {marginTop: -4}, this.fadeIn(700, 20)]}>
-                        {'Tracker'}
-                    </Animated.Text>
-                    {/*<Animated.Text style={[styles.h2, this.fadeIn(1000, 10)]}>*/}
-                    {/*April 12 + 13 / Fort Mason Center*/}
-                    {/*</Animated.Text>*/}
-                    <Animated.Text style={[styles.h3, this.fadeIn(1200, 10)]}>
-                        {'VirtualBreak,LLC'}
-                    </Animated.Text>
-                </View>
+                <KeyboardAvoidingView
+                    style={styles.container}
+                    behavior="padding"
+                >
+                    {this.renderNotNow()}
+                    {this.renderLoginIcon()}
 
-                {this.renderContent()}
-
+                    {this.renderInform()}
+                    {this.renderContent()}
+                    <View style={{height: 60}}/>
+                </KeyboardAvoidingView>
             </Image>
         )
+    }
+
+    renderInform() {
+        const {formType} = this.state
+        switch (formType) {
+            case LOGIN_FORM_TYPE_MAIN:
+                return (
+                    <View style={styles.section}>
+                        <Animated.Text style={[styles.h1, this.fadeIn(700, -20)]}>
+                            {'Eating Restaurant'}
+                        </Animated.Text>
+                        <Animated.Text style={[styles.h1, {marginTop: -4}, this.fadeIn(700, 20)]}>
+                            {'Tracker'}
+                        </Animated.Text>
+                        {/*<Animated.Text style={[styles.h2, this.fadeIn(1000, 10)]}>*/}
+                        {/*April 12 + 13 / Fort Mason Center*/}
+                        {/*</Animated.Text>*/}
+                        <Animated.Text style={[styles.h3, this.fadeIn(1200, 10)]}>
+                            {'VirtualBreak,LLC'}
+                        </Animated.Text>
+                    </View>
+                )
+        }
+        return null
     }
 
     renderContent() {
@@ -224,7 +256,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'transparent',
-        padding: 26,
+        // padding: 26,
         // Image's source contains explicit size, but we want
         // it to prefer flex: 1
         width: undefined,
