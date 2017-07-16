@@ -62,9 +62,7 @@ const LoginModal = require('./components/lib/login/LoginModal')
 const {version} = require('./env.js')
 
 // Playground:
-const Playground = require('./playground/Playground')
-const MapViewScene = require('./playground/MapViewScene')
-const SectionsListViewScene = require('./playground/SectionsListViewScene')
+const Playground = require('./playground')
 
 const ReactNativeMapsApp = require('./vendor/react-native-maps/ReactNativeMapsApp')
 
@@ -76,8 +74,8 @@ class F8App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //playground: true,
-            playground: false,
+            playground: true,
+            // playground: false,
         };
     }
 
@@ -134,11 +132,10 @@ class F8App extends Component {
 
     render() {
         if (this.state.playground) {
-            // return <Playground/>
-            // return <MapViewScene/>
-            // return (<AppAdminNavigator />)
+            // return <Playground.Playground/>
+            // return <Playground.MapViewScene/>
+            return <Playground.SectionsListViewScene/>
             // return <ReactNativeMapsApp/>
-            return <SectionsListViewScene/>
         }
 
         if (!this.props.isLoggedIn) {

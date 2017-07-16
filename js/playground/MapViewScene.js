@@ -75,4 +75,4 @@ class MapViewScene extends Component {
     }
 }
 
-module.exports = MapViewScene;
+module.exports = MapViewScene
