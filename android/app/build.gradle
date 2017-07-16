@@ -96,6 +96,27 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            // To sign the app with production keystore, add the following
+            // to your ~/.gradle/gradle.properties:
+            //
+//             F8APP_RELEASE_STORE_FILE=<path>
+//             F8APP_RELEASE_KEY_ALIAS=<alias>
+//             F8APP_RELEASE_STORE_PASSWORD=<store-password>
+//             F8APP_RELEASE_KEY_PASSWORD=<key-password>
+
+            // Note that Facebook login won't work unless you change
+            // strings.xml/facebook_app_id and configure your own app
+
+            if (project.hasProperty("F8APP_RELEASE_STORE_FILE")) {
+                storeFile file(F8APP_RELEASE_STORE_FILE)
+                storePassword F8APP_RELEASE_STORE_PASSWORD
+                keyAlias F8APP_RELEASE_KEY_ALIAS
+                keyPassword F8APP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
     splits {
         abi {
             reset()
@@ -115,7 +136,7 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
