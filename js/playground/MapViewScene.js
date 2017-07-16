@@ -40,7 +40,7 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-let MapView = require('react-native-maps');
+const MapView = require('react-native-maps')
 
 class MapViewScene extends Component {
 
@@ -69,7 +69,6 @@ class MapViewScene extends Component {
                     region={this.state.region}
                     onRegionChange={this.onRegionChange.bind(this)}
                 >
-
                 </MapView>
             </View>
         );

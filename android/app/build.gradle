@@ -82,6 +82,11 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def F8APP_RELEASE_STORE_FILE= '../keystores/ieatta.jks'
+def F8APP_RELEASE_KEY_ALIAS= 'ieatta'
+def F8APP_RELEASE_STORE_PASSWORD= 'ieatta'
+def F8APP_RELEASE_KEY_PASSWORD= 'ieatta-app'
+
 android {
     compileSdkVersion 23
     buildToolsVersion '25.0.0'
@@ -109,12 +114,10 @@ android {
             // Note that Facebook login won't work unless you change
             // strings.xml/facebook_app_id and configure your own app
 
-            if (project.hasProperty("F8APP_RELEASE_STORE_FILE")) {
                 storeFile file(F8APP_RELEASE_STORE_FILE)
                 storePassword F8APP_RELEASE_STORE_PASSWORD
                 keyAlias F8APP_RELEASE_KEY_ALIAS
                 keyPassword F8APP_RELEASE_KEY_PASSWORD
-            }
         }
     }
     splits {
@@ -129,6 +132,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
