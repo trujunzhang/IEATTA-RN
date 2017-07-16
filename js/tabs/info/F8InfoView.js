@@ -49,7 +49,7 @@ function F8InfoView() {
   return (
     <ListContainer
       title="Information"
-      backgroundImage={require('./img/info-background.png')}
+      backgroundImage={require('../../common/parallax/info-background.png')}
       backgroundColor={'#47BFBF'}>
       <InfoList />
     </ListContainer>
