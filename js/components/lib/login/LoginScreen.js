@@ -45,11 +45,10 @@ const F8Colors = require('F8Colors')
 const {Text} = require('F8Text')
 
 const F8Button = require('F8Button')
-const LoginButton = require('./LoginButton')
 
 const {skipLogin} = require('../../../actions')
-const {connect} = require('react-redux')
 
+const LoginButton = require('./LoginButton')
 const AppLogin = require('./general/AppLogin')
 const AppRegister = require('./general/AppRegister')
 
@@ -310,4 +309,23 @@ const styles = StyleSheet.create({
     },
 });
 
-module.exports = connect()(LoginScreen)
+
+/**
+ * ## Imports
+ *
+ * Redux
+ */
+import {connect} from 'react-redux'
+
+import * as authActions from '../../../reducers/auth/authActions'
+import {bindActionCreators} from 'redux'
+
+function mapDispatchToProps(dispatch) {
+    // console.log("General Login List, dispatch: " + JSON.stringify(dispatch));
+    return {
+        actions: bindActionCreators(authActions, dispatch)
+    }
+}
+
+module.exports = connect(null, mapDispatchToProps)(LoginScreen)
+
