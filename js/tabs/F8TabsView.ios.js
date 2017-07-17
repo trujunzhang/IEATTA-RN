@@ -74,6 +74,8 @@ class F8TabsView extends React.Component {
         let scheduleIconSelected = this.props.day === 1
             ? require('./schedule/img/schedule-icon-1-active.png')
             : require('./schedule/img/schedule-icon-2-active.png');
+
+        debugger
         return (
             <TabBarIOS tintColor={F8Colors.darkText}>
                 <TabBarItemIOS

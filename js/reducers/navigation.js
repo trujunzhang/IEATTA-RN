@@ -50,20 +50,16 @@ const {
 //     ;
 
 export type Tab =
-    'houseback'
-    | 'box'
-    | 'list'
-    | 'manuser'
+    'main'
+    | 'info'
     ;
 
-export type Day = 1 | 2;
 
 type State = {
     tab: Tab;
-    day: Day;
 };
 
-const initialState: State = {tab: 'houseback', day: 1};
+const initialState: State = {tab: 'main'};
 
 function navigation(state: State = initialState, action: Action): State {
     if (action.type === 'SWITCH_TAB') {
