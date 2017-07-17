@@ -80,18 +80,18 @@ class LoginScreen extends React.Component {
         const {formType} = this.state
 
         switch (formType) {
-        default: 
+            default:
                 return this.renderWelcomeScrene()
             case LOGIN_FORM_TYPE_LOGIN:
                 return (
-                        <View style={{flex:1,paddingTop: 20}}>
+                    <View style={{flex: 1, paddingTop: 20}}>
                         <AppLogin toggleEvent={this.toggleForm.bind(this)}
                                   actions={this.props.actions}/>
                     </View>
                 )
             case LOGIN_FORM_TYPE_REGISTER:
                 return (
-                        <View style={{flex:1,paddingTop: 20}}>
+                    <View style={{flex: 1, paddingTop: 20}}>
                         <AppRegister toggleEvent={this.toggleForm.bind(this)}
                                      actions={this.props.actions}/>
                     </View>
