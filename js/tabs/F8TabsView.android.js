@@ -56,7 +56,7 @@ const MyScheduleView = require('./schedule/MyScheduleView')
 
 const {switchTab, logOutWithPrompt} = require('../actions')
 
-const IEANearRestaurantScene = require('../components/lib/home/IEANearRestaurantScene')
+const IEANearRestaurantScene = require('./home/IEANearRestaurantScene')
 const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
 const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
 

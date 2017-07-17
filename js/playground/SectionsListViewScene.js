@@ -52,8 +52,8 @@ const {
     MENU_ITEM_READ_REVIEWS
 } = require('../lib/constants').default
 
-const RestaurantItem = require('../components/lib/home/RestaurantItem')
-const RestaurantHomeListItem = require('../components/lib/home/RestaurantHomeListItem')
+const RestaurantItem = require('../tabs/home/RestaurantItem')
+const RestaurantHomeListItem = require('../tabs/home/RestaurantHomeListItem')
 
 // debugger
 
