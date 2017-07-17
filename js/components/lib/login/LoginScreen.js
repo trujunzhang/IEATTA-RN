@@ -188,7 +188,11 @@ class LoginScreen extends React.Component {
                         backgroundColors={["#fff", "#f7f7f7"]}
                         caption="Log In"
                         source="Modal"
-                        onPress={() => this.toggleForm(LOGIN_FORM_TYPE_LOGIN)}
+                        onPress={() => {
+                            this.props.actions.loginState()
+                            this.toggleForm(LOGIN_FORM_TYPE_LOGIN)
+                        }
+                        }
                     />
                     <F8Button
                         contentStyle={[{
@@ -213,7 +217,11 @@ class LoginScreen extends React.Component {
                         backgroundColors={["#d90007", "#c91400"]}
                         caption="Sign Up"
                         source="Modal"
-                        onPress={() => this.toggleForm(LOGIN_FORM_TYPE_REGISTER)}
+                        onPress={() => {
+                            this.props.actions.registerState()
+                            this.toggleForm(LOGIN_FORM_TYPE_REGISTER)
+                        }
+                        }
                     />
                 </View>
                 <F8Button
