@@ -120,7 +120,12 @@ class IEANearRestaurantScene extends Component {
 
     renderSectionHeader(sectionData, sectionTitle) {
         return (
-            <View style={{marginTop: 0, height: 36, marginBottom: 0, backgroundColor: 'yellow'}}>
+            <View style={{
+                marginTop: 14,
+                height: 36,
+                marginBottom: 4,
+                // backgroundColor: 'yellow'
+            }}>
                 <Text style={
                     {
                         height: 36,
