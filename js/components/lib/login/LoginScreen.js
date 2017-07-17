@@ -85,12 +85,20 @@ class LoginScreen extends React.Component {
                 content = this.renderWelcomeScrene()
                 break
             case LOGIN_FORM_TYPE_LOGIN:
-                content = (<AppLogin toggleEvent={this.toggleForm.bind(this)}
-                                     actions={this.props.actions}/>)
+                content = (
+                    <View style={{paddingTop: 20}}>
+                        <AppLogin toggleEvent={this.toggleForm.bind(this)}
+                                  actions={this.props.actions}/>
+                    </View>
+                )
                 break
             case LOGIN_FORM_TYPE_REGISTER:
-                content = (<AppRegister toggleEvent={this.toggleForm.bind(this)}
-                                        actions={this.props.actions}/>)
+                content = (
+                    <View style={{paddingTop: 20}}>
+                        <AppRegister toggleEvent={this.toggleForm.bind(this)}
+                                     actions={this.props.actions}/>
+                    </View>
+                )
                 break
         }
 
