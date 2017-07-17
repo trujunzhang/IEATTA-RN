@@ -35,7 +35,8 @@ import {
     View,
     Image,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    Platform
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
@@ -91,10 +92,16 @@ const foodSections =
 class IEANearRestaurantScene extends Component {
     _innerRef: ?PureListView;
 
+
+    static contextTypes = {
+        openDrawer: React.PropTypes.func
+    };
+
     constructor(props) {
         super(props);
 
         this._innerRef = null;
+        (this: any).handleShowMenu = this.handleShowMenu.bind(this);
 
         // this.state = {
         //     dataSource: dataSource.cloneWithRowsAndSections(foodSections)
@@ -147,12 +154,26 @@ class IEANearRestaurantScene extends Component {
         )
     }
 
+    handleShowMenu() {
+        this.context.openDrawer();
+    }
+
     render() {
+        let leftItem = null
+        if (Platform.OS === 'android') {
+            leftItem = {
+                title: 'Menu',
+                icon: require('../../common/img/hamburger.png'),
+                onPress: this.handleShowMenu
+            };
+        }
+
         return (
             <View style={{flex: 1}}>
                 <F8Header
                     style={{backgroundColor: F8Colors.primaryColor}}
                     foreground='dark'
+                    leftItem={leftItem}
                     title={"IEATTA"}
                     subTitle={"Eating Experience Tracker"}/>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>

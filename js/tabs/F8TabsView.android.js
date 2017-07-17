@@ -192,28 +192,25 @@ class F8TabsView extends React.Component {
 
     renderContent() {
         switch (this.props.tab) {
-            case 'schedule':
+            case 'mainxxx':
                 return (
                     <IEADetailedRestaurant
                         navigator={this.props.navigator}
                     />
                 );
 
-            case 'mapxxx':
+            case 'main':
                 return (
                     <IEANearRestaurantScene
                         navigator={this.props.navigator}
                         onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />
-                );
+                )
 
             case 'map':
                 return <IEADetailedEvent navigator={this.props.navigator}/>
 
-            case 'manuser':
-                return <F8NotificationsView navigator={this.props.navigator}/>;
-
-            case 'conversation':
+            case 'info':
                 return <F8InfoView navigator={this.props.navigator}/>;
         }
         throw new Error(`Unknown tab ${this.props.tab}`);
