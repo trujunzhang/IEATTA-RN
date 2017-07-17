@@ -78,16 +78,29 @@ class LoginScreen extends React.Component {
 
     render() {
         const {formType} = this.state
+        let content = this.renderWelcomeScrene()
         switch (formType) {
             case LOGIN_FORM_TYPE_MAIN:
-                return this.renderWelcomeScrene()
+                content = this.renderWelcomeScrene()
+                break
             case LOGIN_FORM_TYPE_LOGIN:
-                return (<AppLogin toggleEvent={this.toggleForm.bind(this)}
-                                  actions={this.props.actions}/>)
-            case LOGIN_FORM_TYPE_REGISTER:
-                return (<AppRegister toggleEvent={this.toggleForm.bind(this)}
+                content = (<AppLogin toggleEvent={this.toggleForm.bind(this)}
                                      actions={this.props.actions}/>)
+                break
+            case LOGIN_FORM_TYPE_REGISTER:
+                content = (<AppRegister toggleEvent={this.toggleForm.bind(this)}
+                                        actions={this.props.actions}/>)
+                break
         }
+
+        return (
+            <Image
+                style={styles.container}
+                source={require('./img/login-background.png')}>
+                <StatusBar barStyle="default"/>
+                {content}
+            </Image>
+        )
     }
 
     renderNotNow() {
@@ -118,18 +131,14 @@ class LoginScreen extends React.Component {
 
     renderWelcomeScrene() {
         return (
-            <Image
-                style={styles.container}
-                source={require('./img/login-background.png')}>
-                <StatusBar barStyle="default"/>
-
+            <View style={styles.container}>
                 {this.renderNotNow()}
                 {this.renderLoginIcon()}
 
                 {this.renderInform()}
                 {this.renderMainUI()}
                 <View style={{height: 60}}/>
-            </Image>
+            </View>
         )
     }
 
