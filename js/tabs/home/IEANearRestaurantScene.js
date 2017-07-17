@@ -107,9 +107,9 @@ class IEANearRestaurantScene extends Component {
                  highlightRowFunc: (sectionID: ?number | string, rowID: ?number | string) => void) => {
 
         if (sectionID === 'categories') {
-            return (<RestaurantHomeListItem item={item}/>)
+            return (<RestaurantHomeListItem key={`${sectionID}-${rowID}`} item={item}/>)
         }
-        return (<RestaurantItem item={item}/>)
+        return (<RestaurantItem key={`${sectionID}-${rowID}`} item={item}/>)
     }
 
     renderSectionHeader(sectionData, sectionTitle) {
@@ -154,9 +154,7 @@ class IEANearRestaurantScene extends Component {
                     style={{backgroundColor: F8Colors.primaryColor}}
                     foreground='dark'
                     title={"app"}>
-                    <Text style={{
-
-                    }}>{'djzhang'}</Text>
+                    <Text style={{}}>{'djzhang'}</Text>
                 </F8Header>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
                     <PureListView
