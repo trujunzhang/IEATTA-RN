@@ -64,7 +64,7 @@ const {
  */
 class LoginScreen extends React.Component {
     state = {
-        formType: LOGIN_FORM_TYPE_REGISTER,
+        formType: LOGIN_FORM_TYPE_MAIN,
         anim: new Animated.Value(0),
     }
 
@@ -74,6 +74,20 @@ class LoginScreen extends React.Component {
 
     componentDidMount() {
         Animated.timing(this.state.anim, {toValue: 3000, duration: 3000}).start();
+    }
+
+    render() {
+        const {formType} = this.state
+        switch (formType) {
+            case LOGIN_FORM_TYPE_MAIN:
+                return this.renderWelcomeScrene()
+            case LOGIN_FORM_TYPE_LOGIN:
+                return (<AppLogin toggleEvent={this.toggleForm.bind(this)}
+                                  actions={this.props.actions}/>)
+            case LOGIN_FORM_TYPE_REGISTER:
+                return (<AppRegister toggleEvent={this.toggleForm.bind(this)}
+                                     actions={this.props.actions}/>)
+        }
     }
 
     renderNotNow() {
@@ -102,65 +116,40 @@ class LoginScreen extends React.Component {
         )
     }
 
-    render() {
+    renderWelcomeScrene() {
         return (
             <Image
                 style={styles.container}
                 source={require('./img/login-background.png')}>
                 <StatusBar barStyle="default"/>
-                <KeyboardAvoidingView
-                    style={styles.container}
-                    behavior="padding"
-                >
-                    {this.renderNotNow()}
-                    {this.renderLoginIcon()}
 
-                    {this.renderInform()}
-                    {this.renderContent()}
-                    <View style={{height: 60}}/>
-                </KeyboardAvoidingView>
+                {this.renderNotNow()}
+                {this.renderLoginIcon()}
+
+                {this.renderInform()}
+                {this.renderMainUI()}
+                <View style={{height: 60}}/>
             </Image>
         )
     }
 
     renderInform() {
-        const {formType} = this.state
-        switch (formType) {
-            case LOGIN_FORM_TYPE_MAIN:
-                return (
-                    <View style={styles.section}>
-                        <Animated.Text style={[styles.h1, this.fadeIn(700, -20)]}>
-                            {'Eating Restaurant'}
-                        </Animated.Text>
-                        <Animated.Text style={[styles.h1, {marginTop: -4}, this.fadeIn(700, 20)]}>
-                            {'Tracker'}
-                        </Animated.Text>
-                        {/*<Animated.Text style={[styles.h2, this.fadeIn(1000, 10)]}>*/}
-                        {/*April 12 + 13 / Fort Mason Center*/}
-                        {/*</Animated.Text>*/}
-                        <Animated.Text style={[styles.h3, this.fadeIn(1200, 10)]}>
-                            {'VirtualBreak,LLC'}
-                        </Animated.Text>
-                    </View>
-                )
-        }
-        return null
-    }
-
-    renderContent() {
-        const {formType} = this.state
-        switch (formType) {
-            case LOGIN_FORM_TYPE_MAIN:
-                return this.renderMainUI()
-            case LOGIN_FORM_TYPE_LOGIN:
-                return (<AppLogin toggleEvent={this.toggleForm.bind(this)}
-                                  actions={this.props.actions}/>
-                )
-            case LOGIN_FORM_TYPE_REGISTER:
-                return (<AppRegister toggleEvent={this.toggleForm.bind(this)}
-                                     actions={this.props.actions}/>
-                )
-        }
+        return (
+            <View style={styles.section}>
+                <Animated.Text style={[styles.h1, this.fadeIn(700, -20)]}>
+                    {'Eating Restaurant'}
+                </Animated.Text>
+                <Animated.Text style={[styles.h1, {marginTop: -4}, this.fadeIn(700, 20)]}>
+                    {'Tracker'}
+                </Animated.Text>
+                {/*<Animated.Text style={[styles.h2, this.fadeIn(1000, 10)]}>*/}
+                {/*April 12 + 13 / Fort Mason Center*/}
+                {/*</Animated.Text>*/}
+                <Animated.Text style={[styles.h3, this.fadeIn(1200, 10)]}>
+                    {'VirtualBreak,LLC'}
+                </Animated.Text>
+            </View>
+        )
     }
 
     renderMainUI() {
