@@ -279,5 +279,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoginRender)
 module.exports = connect(null, mapDispatchToProps)(LoginRender)

@@ -78,37 +78,26 @@ class LoginScreen extends React.Component {
 
     render() {
         const {formType} = this.state
-        let content = this.renderWelcomeScrene()
+
         switch (formType) {
             case LOGIN_FORM_TYPE_MAIN:
-                content = this.renderWelcomeScrene()
-                break
+                return this.renderWelcomeScrene()
             case LOGIN_FORM_TYPE_LOGIN:
-                content = (
-                    <View style={{paddingTop: 20}}>
+                return (
+                        <View style={{flex:1,paddingTop: 20}}>
                         <AppLogin toggleEvent={this.toggleForm.bind(this)}
                                   actions={this.props.actions}/>
                     </View>
                 )
-                break
             case LOGIN_FORM_TYPE_REGISTER:
-                content = (
-                    <View style={{paddingTop: 20}}>
+                return (
+                        <View style={{flex:1,paddingTop: 20}}>
                         <AppRegister toggleEvent={this.toggleForm.bind(this)}
                                      actions={this.props.actions}/>
                     </View>
                 )
-                break
         }
 
-        return (
-            <Image
-                style={styles.container}
-                source={require('./img/login-background.png')}>
-                <StatusBar barStyle="default"/>
-                {content}
-            </Image>
-        )
     }
 
     renderNotNow() {
@@ -139,14 +128,17 @@ class LoginScreen extends React.Component {
 
     renderWelcomeScrene() {
         return (
-            <View style={styles.container}>
+            <Image
+                style={styles.container}
+                source={require('./img/login-background.png')}>
+                <StatusBar barStyle="default"/>
                 {this.renderNotNow()}
                 {this.renderLoginIcon()}
 
                 {this.renderInform()}
                 {this.renderMainUI()}
                 <View style={{height: 60}}/>
-            </View>
+            </Image>
         )
     }
 

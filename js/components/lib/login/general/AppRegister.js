@@ -96,7 +96,5 @@ function select(store) {
     };
 }
 
-
-export default connect(select)(AppRegistry)
 module.exports = connect(select)(AppRegistry);
 
