@@ -235,21 +235,21 @@ class ListContainer extends React.Component {
             return this.props.renderParallaxHeader()
         }
         return (
-                <View style={{
-                    flex:1,
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    paddingBottom: 80,
-                }}>
+            <View style={{
+                flex: 1,
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                paddingBottom: 80,
+            }}>
                 <Text style={{
                     color: 'white',
                     fontSize: 42,
                     fontWeight: 'bold',
                     alignItems: 'center'
                 }}>
-                {this.props.title}
-            </Text>
-                </View>
+                    {this.props.title}
+                </Text>
+            </View>
         );
     }
 

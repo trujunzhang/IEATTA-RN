@@ -39,7 +39,9 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-let PureListView = require('../../common/PureListView');
+const F8Colors = require('F8Colors')
+const F8Header = require('F8Header')
+const PureListView = require('../../common/PureListView')
 
 const {
     MENU_ITEM_ADD_A_RESTAURANT,
@@ -53,7 +55,7 @@ const RestaurantHomeListItem = require('./RestaurantHomeListItem')
 
 // debugger
 
-let foodSections =
+const foodSections =
     {
         "categories": [
             {
@@ -148,6 +150,14 @@ class IEANearRestaurantScene extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
+                <F8Header
+                    style={{backgroundColor: F8Colors.primaryColor}}
+                    foreground='dark'
+                    title={"app"}>
+                    <Text style={{
+
+                    }}>{'djzhang'}</Text>
+                </F8Header>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
                     <PureListView
                         ref={this.storeInnerRef.bind(this)}

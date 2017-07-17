@@ -131,10 +131,10 @@ class F8App extends Component {
 
     render() {
         if (this.state.playground) {
-            // return <Playground.Playground/>
+            return <Playground.Playground/>
             // return <Playground.MapViewScene/>
             //return <Playground.SectionsListViewScene/>
-            return <Playground.ReactNativeMapsApp/>
+            //return <Playground.ReactNativeMapsApp/>
         }
 
         if (!this.props.isLoggedIn) {
