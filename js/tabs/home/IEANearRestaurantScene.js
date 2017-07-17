@@ -58,7 +58,7 @@ const RestaurantHomeListItem = require('./RestaurantHomeListItem')
 
 const foodSections =
     {
-        "categories": [
+        "More": [
             {
                 title: "Add a Restaurant",
                 tag: MENU_ITEM_ADD_A_RESTAURANT,
@@ -113,18 +113,18 @@ class IEANearRestaurantScene extends Component {
                  rowID: number | string,
                  highlightRowFunc: (sectionID: ?number | string, rowID: ?number | string) => void) => {
 
-        if (sectionID === 'categories') {
+        if (sectionID === 'More') {
             return (<RestaurantHomeListItem key={`${sectionID}-${rowID}`} item={item}/>)
         }
         return (<RestaurantItem key={`${sectionID}-${rowID}`} item={item}/>)
     }
 
     renderSectionHeader(sectionData, sectionTitle) {
-        if (sectionTitle === 'categories') {
-            return (<View style={{height: 4}}/>)
-        }
+        // if (sectionTitle === 'categories') {
+        //     return (<View style={{height: 4}}/>)
+        // }
         return (
-            <View style={{marginTop: 25, height: 36}}>
+            <View style={{marginTop: 20, height: 36, marginBottom: 4}}>
                 <Text style={
                     {
                         height: 36,
@@ -169,7 +169,7 @@ class IEANearRestaurantScene extends Component {
         }
 
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, backgroundColor: F8Colors.controllerViewColor}}>
                 <F8Header
                     style={{backgroundColor: F8Colors.primaryColor}}
                     foreground='dark'
@@ -188,6 +188,10 @@ class IEANearRestaurantScene extends Component {
                 </View>
             </View>
         )
+    }
+
+    renderFooter() {
+        return (<View style={{height: 60}}/>)
     }
 
 

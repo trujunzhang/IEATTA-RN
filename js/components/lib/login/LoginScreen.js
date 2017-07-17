@@ -41,9 +41,9 @@ import {
 const {width, height} = Dimensions.get('window')
 
 const Animated = require('Animated')
-const F8Colors = require('F8Colors')
 const {Text} = require('F8Text')
 
+const F8Colors = require('F8Colors')
 const F8Button = require('F8Button')
 
 const {skipLogin} = require('../../../actions')
