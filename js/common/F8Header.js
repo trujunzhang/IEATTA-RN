@@ -126,15 +126,46 @@ class F8HeaderIOS extends React.Component {
     static height: number;
     props: Props;
 
+
+    renderContent() {
+        const {leftItem, title, subTitle, rightItem, foreground} = this.props;
+        const titleColor = foreground === 'dark' ? F8Colors.darkText : 'white';
+        const itemsColor = foreground === 'dark' ? F8Colors.lightText : 'white';
+
+        if (!!subTitle) {
+            return (
+                <View style={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+                    <Text style={[styles.titleText, {
+                        color: titleColor,
+                        fontSize: 18,
+                        marginTop: -8
+                    }]}>
+                        {title}
+                    </Text>
+                    <Text style={[styles.subTitleText, {color: titleColor}]}>
+                        {subTitle}
+                    </Text>
+                </View>
+            )
+        }
+
+        return (
+            <Text style={[styles.titleText, {color: titleColor}]}>
+                {title}
+            </Text>
+        )
+    }
+
     render() {
-        const {leftItem, title, rightItem, foreground} = this.props;
+        const {leftItem, title, subTitle, rightItem, foreground} = this.props;
         const titleColor = foreground === 'dark' ? F8Colors.darkText : 'white';
         const itemsColor = foreground === 'dark' ? F8Colors.lightText : 'white';
 
         const content = React.Children.count(this.props.children) === 0
-            ? <Text style={[styles.titleText, {color: titleColor}]}>
-                {title}
-            </Text>
+            ? (this.renderContent())
             : this.props.children;
         return (
             <View style={[styles.header, this.props.style]}>
@@ -217,6 +248,12 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20,
+    },
+    subTitleText: {
+        color: 'white',
+        fontWeight: '400',
+        fontSize: 12,
+        marginTop: 0
     },
     leftItem: {
         flex: 1,

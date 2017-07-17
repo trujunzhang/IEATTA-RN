@@ -153,9 +153,8 @@ class IEANearRestaurantScene extends Component {
                 <F8Header
                     style={{backgroundColor: F8Colors.primaryColor}}
                     foreground='dark'
-                    title={"app"}>
-                    <Text style={{}}>{'djzhang'}</Text>
-                </F8Header>
+                    title={"IEATTA"}
+                    subTitle={"Eating Experience Tracker"}/>
                 <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
                     <PureListView
                         ref={this.storeInnerRef.bind(this)}
