@@ -100,7 +100,7 @@ class IEADetailedRestaurant extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundImage={require('../../sample/348s.jpg')}
+                // backgroundImage={require('../../sample/348s.jpg')}
                 renderParallaxHeader={(e) => {
                     return (<RLRestaurantParallaxHeader item={item}/>)
                 }}
