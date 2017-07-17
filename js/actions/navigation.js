@@ -28,7 +28,8 @@ import type {Action} from './types';
 
 // type Tab = 'schedule' | 'my-schedule' | 'map' | 'notifications' | 'info';
 
-type Tab = 'houseback' | 'box' | 'list' | 'manuser' | 'conversation';
+// type Tab = 'houseback' | 'box' | 'list' | 'manuser' | 'conversation';
+type Tab = 'main' | 'info';
 
 module.exports = {
     switchTab: (tab: Tab): Action => ({

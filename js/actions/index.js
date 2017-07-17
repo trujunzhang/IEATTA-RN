@@ -33,11 +33,9 @@ const parseUserActions = require('./parseUsers').default
 const syncParseRealmActions = require('./syncParseRealm').default
 const parseActions = require('./parse')
 const navigationActions = require('./navigation');
-const scheduleActions = require('./schedule');
 const filterActions = require('./filter');
 const notificationActions = require('./notifications');
 const configActions = require('./config');
-const surveyActions = require('./surveys');
 const testActions = require('./test');
 const installationActions = require('./installation');
 const golbalActions = require('./global').default
@@ -50,11 +48,9 @@ module.exports = {
     ...parseSingleActions,
     ...parseUserActions,
     ...syncParseRealmActions,
-    ...scheduleActions,
     ...filterActions,
     ...notificationActions,
     ...configActions,
-    ...surveyActions,
     ...testActions,
     ...parseActions,
     ...navigationActions,

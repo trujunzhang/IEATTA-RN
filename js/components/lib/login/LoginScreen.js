@@ -80,7 +80,7 @@ class LoginScreen extends React.Component {
         const {formType} = this.state
 
         switch (formType) {
-            case LOGIN_FORM_TYPE_MAIN:
+        default: 
                 return this.renderWelcomeScrene()
             case LOGIN_FORM_TYPE_LOGIN:
                 return (

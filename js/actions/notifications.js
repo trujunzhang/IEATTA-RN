@@ -28,7 +28,7 @@ const Platform = require('Platform');
 const VibrationIOS = require('VibrationIOS');
 const {updateInstallation} = require('./installation');
 const {loadNotifications} = require('./parse');
-const {loadSurveys} = require('./surveys');
+// const {loadSurveys} = require('./surveys');
 const {switchTab} = require('./navigation');
 
 import type {Action, ThunkAction} from './types';
@@ -89,7 +89,7 @@ function receivePushNotification(notification: PushNotification): ThunkAction {
 
         if (foreground) {
             // dispatch(loadNotifications());
-            dispatch(loadSurveys());
+            // dispatch(loadSurveys());
 
             if (Platform.OS === 'ios') {
                 VibrationIOS.vibrate();
