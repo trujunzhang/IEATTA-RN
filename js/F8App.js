@@ -64,7 +64,6 @@ const {version} = require('./env.js')
 // Playground:
 const Playground = require('./playground')
 
-const ReactNativeMapsApp = require('./vendor/react-native-maps/ReactNativeMapsApp')
 
 const {syncBetweenParseAndRealm} = require('./actions')
 
@@ -132,10 +131,10 @@ class F8App extends Component {
 
     render() {
         if (this.state.playground) {
-             return <Playground.Playground/>
+            // return <Playground.Playground/>
             // return <Playground.MapViewScene/>
             //return <Playground.SectionsListViewScene/>
-            // return <ReactNativeMapsApp/>
+            return <Playground.ReactNativeMapsApp/>
         }
 
         if (!this.props.isLoggedIn) {

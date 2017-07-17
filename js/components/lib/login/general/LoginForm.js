@@ -33,7 +33,7 @@ const {
 /**
  *  The fantastic little form library
  */
-const t = require('../../../../vendor/tcomb-form-native')
+const t = require('../../../vendor/tcomb-form-native')
 let Form = t.form.Form
 
 
