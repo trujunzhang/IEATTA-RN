@@ -75,34 +75,23 @@ class F8TabsView extends React.Component {
             ? require('./schedule/img/schedule-icon-1-active.png')
             : require('./schedule/img/schedule-icon-2-active.png');
 
-        debugger
+        // debugger
         return (
             <TabBarIOS tintColor={F8Colors.darkText}>
                 <TabBarItemIOS
                     title="Schedule"
-                    selected={this.props.tab === 'schedule'}
-                    onPress={this.onTabSelect.bind(this, 'schedule')}
+                    selected={this.props.tab === 'main'}
+                    onPress={this.onTabSelect.bind(this, 'main')}
                     icon={scheduleIcon}
                     selectedIcon={scheduleIconSelected}>
-                    <IEADetailedRestaurant
-                        navigator={this.props.navigator}
-                    />
-                </TabBarItemIOS>
-                <TabBarItemIOS
-                    title="My F8"
-                    selected={this.props.tab === 'my-schedule'}
-                    onPress={this.onTabSelect.bind(this, 'my-schedule')}
-                    icon={require('./schedule/img/my-schedule-icon.png')}
-                    selectedIcon={require('./schedule/img/my-schedule-icon-active.png')}>
                     <IEANearRestaurantScene
                         navigator={this.props.navigator}
-                        onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />
                 </TabBarItemIOS>
                 <TabBarItemIOS
                     title="Maps"
-                    selected={this.props.tab === 'map'}
-                    onPress={this.onTabSelect.bind(this, 'map')}
+                    selected={this.props.tab === 'info'}
+                    onPress={this.onTabSelect.bind(this, 'info')}
                     icon={require('./maps/img/maps-icon.png')}
                     selectedIcon={require('./maps/img/maps-icon-active.png')}>
                     <IEADetailedEvent
