@@ -156,9 +156,9 @@ class F8TabsView extends React.Component {
                     {accountItem}
                 </Image>
                 <MenuItem
-                    title="Schedule"
-                    selected={this.props.tab === 'schedule'}
-                    onPress={this.onTabSelect.bind(this, 'schedule')}
+                    title="Restaurants"
+                    selected={this.props.tab === 'main'}
+                    onPress={this.onTabSelect.bind(this, 'main')}
                     icon={scheduleIcon}
                     selectedIcon={scheduleIconSelected}
                 />
@@ -192,18 +192,10 @@ class F8TabsView extends React.Component {
 
     renderContent() {
         switch (this.props.tab) {
-            case 'mainxxx':
-                return (
-                    <IEADetailedRestaurant
-                        navigator={this.props.navigator}
-                    />
-                );
-
             case 'main':
                 return (
                     <IEANearRestaurantScene
                         navigator={this.props.navigator}
-                        onJumpToSchedule={() => this.props.onTabSelect('schedule')}
                     />
                 )
 

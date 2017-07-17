@@ -1,4 +1,3 @@
-
 /**
  * Copyright 2016 Facebook, Inc.
  *
@@ -29,64 +28,66 @@ let React = require('React');
 let DrawerLayoutAndroid = require('DrawerLayoutAndroid');
 
 class F8DrawerLayout extends React.Component {
-  _drawer: ?DrawerLayoutAndroid;
+    _drawer: ?DrawerLayoutAndroid;
 
-  constructor(props: any, context: any) {
-    super(props, context);
+    constructor(props: any, context: any) {
+        super(props, context);
 
-    (this: any).openDrawer = this.openDrawer.bind(this);
-    (this: any).closeDrawer = this.closeDrawer.bind(this);
-    (this: any).onDrawerOpen = this.onDrawerOpen.bind(this);
-    (this: any).onDrawerClose = this.onDrawerClose.bind(this);
-    (this: any).handleBackButton = this.handleBackButton.bind(this);
-  }
+        (this: any).openDrawer = this.openDrawer.bind(this);
+        (this: any).closeDrawer = this.closeDrawer.bind(this);
+        (this: any).onDrawerOpen = this.onDrawerOpen.bind(this);
+        (this: any).onDrawerClose = this.onDrawerClose.bind(this);
+        (this: any).handleBackButton = this.handleBackButton.bind(this);
+    }
 
-  render() {
-    const {drawerPosition, ...props} = this.props;
-    const {Right, Left} = DrawerLayoutAndroid.positions;
-    return (
-      <DrawerLayoutAndroid
-        ref={(drawer) => { this._drawer = drawer; }}
-        {...props}
-        drawerPosition={drawerPosition === 'right' ? Right : Left}
-        onDrawerOpen={this.onDrawerOpen}
-        onDrawerClose={this.onDrawerClose}
-      />
-    );
-  }
+    render() {
+        const {drawerPosition, ...props} = this.props;
+        const {Right, Left} = DrawerLayoutAndroid.positions;
+        return (
+            <DrawerLayoutAndroid
+                ref={(drawer) => {
+                    this._drawer = drawer;
+                }}
+                {...props}
+                drawerPosition={drawerPosition === 'right' ? Right : Left}
+                onDrawerOpen={this.onDrawerOpen}
+                onDrawerClose={this.onDrawerClose}
+            />
+        );
+    }
 
-  componentWillUnmount() {
-    this.context.removeBackButtonListener(this.handleBackButton);
-    this._drawer = null;
-  }
+    componentWillUnmount() {
+        this.context.removeBackButtonListener(this.handleBackButton);
+        this._drawer = null;
+    }
 
-  handleBackButton(): boolean {
-    this.closeDrawer();
-    return true;
-  }
+    handleBackButton(): boolean {
+        this.closeDrawer();
+        return true;
+    }
 
-  onDrawerOpen() {
-    this.context.addBackButtonListener(this.handleBackButton);
-    this.props.onDrawerOpen && this.props.onDrawerOpen();
-  }
+    onDrawerOpen() {
+        this.context.addBackButtonListener(this.handleBackButton);
+        this.props.onDrawerOpen && this.props.onDrawerOpen();
+    }
 
-  onDrawerClose() {
-    this.context.removeBackButtonListener(this.handleBackButton);
-    this.props.onDrawerClose && this.props.onDrawerClose();
-  }
+    onDrawerClose() {
+        this.context.removeBackButtonListener(this.handleBackButton);
+        this.props.onDrawerClose && this.props.onDrawerClose();
+    }
 
-  closeDrawer() {
-    this._drawer && this._drawer.closeDrawer();
-  }
+    closeDrawer() {
+        this._drawer && this._drawer.closeDrawer();
+    }
 
-  openDrawer() {
-    this._drawer && this._drawer.openDrawer();
-  }
+    openDrawer() {
+        this._drawer && this._drawer.openDrawer();
+    }
 }
 
 F8DrawerLayout.contextTypes = {
-  addBackButtonListener: React.PropTypes.func,
-  removeBackButtonListener: React.PropTypes.func,
+    addBackButtonListener: React.PropTypes.func,
+    removeBackButtonListener: React.PropTypes.func,
 };
 
 module.exports = F8DrawerLayout;
