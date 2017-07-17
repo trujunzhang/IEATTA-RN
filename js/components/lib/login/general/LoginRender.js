@@ -54,7 +54,12 @@ I18n.translations = Translations
 const {
     LOGIN,
     REGISTER,
-    FORGOT_PASSWORD
+    FORGOT_PASSWORD,
+    // Form Type
+    LOGIN_FORM_TYPE_MAIN,
+    LOGIN_FORM_TYPE_LOGIN,
+    LOGIN_FORM_TYPE_REGISTER,
+    LOGIN_FORM_TYPE_FORGOTPASSWORD
 } = require('../../../../lib/constants').default
 
 /**
@@ -148,7 +153,7 @@ class LoginRender extends Component {
                 onPress={() => {
                     actions.forgotPasswordState()
                     // Actions.ForgotPassword()
-                    this.props.toggleEvent('forgotPassword')
+                    this.props.toggleEvent(LOGIN_FORM_TYPE_FORGOTPASSWORD)
                 }}>
                 <Text>{I18n.t('LoginRender.forgot_password')}</Text>
             </TouchableHighlight>
@@ -158,7 +163,7 @@ class LoginRender extends Component {
                 onPress={() => {
                     actions.loginState()
                     // Actions.Login()
-                    this.props.toggleEvent('signIn')
+                    this.props.toggleEvent(LOGIN_FORM_TYPE_LOGIN)
                 }}>
                 <Text>{I18n.t('LoginRender.already_have_account')}</Text>
             </TouchableHighlight>
@@ -168,7 +173,7 @@ class LoginRender extends Component {
                 onPress={() => {
                     actions.registerState()
                     // Actions.Register()
-                    this.props.toggleEvent('signUp')
+                    this.props.toggleEvent(LOGIN_FORM_TYPE_REGISTER)
                 }}>
                 <Text>{I18n.t('LoginRender.register')}</Text>
             </TouchableHighlight>

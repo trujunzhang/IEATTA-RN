@@ -56,7 +56,8 @@ const AppRegister = require('./general/AppRegister')
 const {
     LOGIN_FORM_TYPE_MAIN,
     LOGIN_FORM_TYPE_LOGIN,
-    LOGIN_FORM_TYPE_REGISTER
+    LOGIN_FORM_TYPE_REGISTER,
+    LOGIN_FORM_TYPE_FORGOTPASSWORD
 } = require('../../../lib/constants').default
 
 /**
