@@ -101,7 +101,6 @@ class IEANearRestaurantScene extends Component {
         super(props);
 
         this._innerRef = null;
-        (this: any).handleShowMenu = this.handleShowMenu.bind(this);
 
         // this.state = {
         //     dataSource: dataSource.cloneWithRowsAndSections(foodSections)
@@ -120,11 +119,8 @@ class IEANearRestaurantScene extends Component {
     }
 
     renderSectionHeader(sectionData, sectionTitle) {
-        // if (sectionTitle === 'categories') {
-        //     return (<View style={{height: 4}}/>)
-        // }
         return (
-            <View style={{marginTop: 20, height: 36, marginBottom: 4}}>
+            <View style={{marginTop: 0, height: 36, marginBottom: 0, backgroundColor: 'yellow'}}>
                 <Text style={
                     {
                         height: 36,
@@ -135,16 +131,10 @@ class IEANearRestaurantScene extends Component {
                         paddingLeft: 10,
                         paddingRight: 10,
                         marginBottom: 0,
-                        fontSize: 21,
+                        fontSize: 20,
                     }
                 }>{sectionTitle}</Text>
             </View>
-        )
-    }
-
-    renderFooter() {
-        return (
-            <View></View>
         )
     }
 
@@ -154,19 +144,14 @@ class IEANearRestaurantScene extends Component {
         )
     }
 
-    handleShowMenu() {
-        this.context.openDrawer();
-    }
-
     render() {
-        let leftItem = null
-        if (Platform.OS === 'android') {
-            leftItem = {
-                title: 'Menu',
-                icon: require('../../common/img/hamburger.png'),
-                onPress: this.handleShowMenu
-            };
-        }
+        let leftItem = (Platform.OS === 'android') ? {
+            title: 'Menu',
+            icon: require('../../common/img/hamburger.png'),
+            onPress: () => {
+                this.context.openDrawer()
+            }
+        } : null
 
         return (
             <View style={{flex: 1, backgroundColor: F8Colors.controllerViewColor}}>
@@ -176,16 +161,14 @@ class IEANearRestaurantScene extends Component {
                     leftItem={leftItem}
                     title={"IEATTA"}
                     subTitle={"Eating Experience Tracker"}/>
-                <View style={{backgroundColor: '#f5f5f5', flex: 1}}>
-                    <PureListView
-                        ref={this.storeInnerRef.bind(this)}
-                        data={foodSections}
-                        renderRow={this.renderRow.bind(this)}
-                        renderSectionHeader={this.renderSectionHeader.bind(this)}
-                        {...(this.props /* flow can't guarantee the shape of props */)}
-                        renderEmptyList={this.renderEmptyList.bind(this)}
-                    />
-                </View>
+                <PureListView
+                    ref={this.storeInnerRef.bind(this)}
+                    data={foodSections}
+                    renderRow={this.renderRow.bind(this)}
+                    renderSectionHeader={this.renderSectionHeader.bind(this)}
+                    {...(this.props /* flow can't guarantee the shape of props */)}
+                    renderEmptyList={this.renderEmptyList.bind(this)}
+                />
             </View>
         )
     }
