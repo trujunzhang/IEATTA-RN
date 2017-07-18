@@ -50,7 +50,6 @@ Records.getRealmData = function (parseObject, object) {
         case PARSE_RECORDS:
             return {}
         case PARSE_EVENTS:
-            debugger
             return {
                 objectId: object.id,
                 displayName: object.displayName,
@@ -59,7 +58,12 @@ Records.getRealmData = function (parseObject, object) {
                 want: object.want
             }
         case PARSE_RECIPES:
-            return {}
+            return {
+                objectId: object.id,
+                displayName: object.displayName,
+                price: object.price
+            }
+
         case PARSE_PHOTOS:
             // debugger
             return {

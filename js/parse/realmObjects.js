@@ -85,9 +85,9 @@ class RecipeSchema extends Realm.Object {
 RecipeSchema.schema = {
     name: PARSE_RECIPES,
     properties: {
-        make: 'string',
-        model: 'string',
-        miles: {type: 'int', default: 0},
+        objectId: 'string',
+        displayName: 'string',
+        price: 'string',
     }
 }
 

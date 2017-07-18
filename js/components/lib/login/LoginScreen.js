@@ -233,6 +233,7 @@ class LoginScreen extends React.Component {
                     caption="Not Now"
                     source="Modal"
                     onPress={() => {
+                        debugger
                         this.props.dispatch(skipLogin())
                     }}
                 />
