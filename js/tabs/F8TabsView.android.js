@@ -42,7 +42,6 @@ import {
 } from 'react-native'
 
 
-const F8InfoView = require('F8InfoView')
 const F8Colors = require('F8Colors')
 const F8MapView = require('F8MapView')
 const F8NotificationsView = require('F8NotificationsView')
@@ -163,21 +162,6 @@ class F8TabsView extends React.Component {
                 />
                 {myF8Item}
                 <MenuItem
-                    title="Maps"
-                    selected={this.props.tab === 'map'}
-                    onPress={this.onTabSelect.bind(this, 'map')}
-                    icon={require('./maps/img/maps-icon.png')}
-                    selectedIcon={require('./maps/img/maps-icon-active.png')}
-                />
-                <MenuItem
-                    title="Notifications"
-                    selected={this.props.tab === 'notifications'}
-                    onPress={this.onTabSelect.bind(this, 'notifications')}
-                    badge={this.props.notificationsBadge}
-                    icon={require('./notifications/img/notifications-icon.png')}
-                    selectedIcon={require('./notifications/img/notifications-icon-active.png')}
-                />
-                <MenuItem
                     title="Info"
                     selected={this.props.tab === 'info'}
                     onPress={this.onTabSelect.bind(this, 'info')}
@@ -198,11 +182,8 @@ class F8TabsView extends React.Component {
                     />
                 )
 
-            case 'map':
-                return <IEADetailedEvent navigator={this.props.navigator}/>
-
             case 'info':
-                return <F8InfoView navigator={this.props.navigator}/>;
+                return <IEADetailedEvent navigator={this.props.navigator}/>
         }
         throw new Error(`Unknown tab ${this.props.tab}`);
     }

@@ -80,7 +80,7 @@ class F8App extends Component {
 
     scheduledTask() {
         // debugger
-        this.props.dispatch(syncBetweenParseAndRealm())
+        // this.props.dispatch(syncBetweenParseAndRealm())
     }
 
     componentDidMount() {
