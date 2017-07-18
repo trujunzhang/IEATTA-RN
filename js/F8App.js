@@ -79,8 +79,7 @@ class F8App extends Component {
     }
 
     scheduledTask() {
-        const {dispatch, user} = this.props
-        dispatch(syncBetweenParseAndRealm(user.lastRecordUpdatedAt))
+        this.props.dispatch(syncBetweenParseAndRealm())
     }
 
     componentDidMount() {

@@ -34,9 +34,9 @@ const {
     SET_SYNC_UPDATEDAT
 } = require('../lib/constants').default
 
-async function _syncBetweenParseAndRealm(lastRecordUpdatedAt: ? string): Promise<Array<Action>> {
+async function _syncBetweenParseAndRealm(): Promise<Array<Action>> {
 
-    const asyncParse = new AsyncParse(lastRecordUpdatedAt)
+    const asyncParse = new AsyncParse()
 
     await asyncParse.startScheduledTask()
 
@@ -50,9 +50,9 @@ async function _syncBetweenParseAndRealm(lastRecordUpdatedAt: ? string): Promise
     ])
 }
 
-function syncBetweenParseAndRealm(lastRecordUpdatedAt: ?string): ThunkAction {
+function syncBetweenParseAndRealm(): ThunkAction {
     return (dispatch) => {
-        const action = _syncBetweenParseAndRealm(lastRecordUpdatedAt)
+        const action = _syncBetweenParseAndRealm()
 
         // Loading friends schedules shouldn't block the login process
         action.then(

@@ -6,6 +6,8 @@ let {ParsePost, ParseUser} = require('../objects').default
 const PushToServer = require('./push_to_server').default
 const PullFromServer = require('./pull_from_server').default
 
+const {ConfigureService} = require('../realmApi').default
+
 const RECORDS_COUNT_PUSH = 20
 const RECORDS_COUNT_PULL = 20
 
@@ -32,8 +34,8 @@ const {
  *   @note: These records will be pull again next scheduled task.
  */
 export default class AsyncParse {
-    constructor(lastRecordUpdatedData) {
-        this.lastRecordUpdatedData = lastRecordUpdatedData
+    constructor() {
+        this.lastRecordUpdatedData = ConfigureService.getLastRecordUpdatedAt()
         this.mPushToServer = new PushToServer(RECORDS_COUNT_PUSH)
         this.mPullFromServer = new PullFromServer(RECORDS_COUNT_PULL, this.lastRecordUpdatedData)
     }
