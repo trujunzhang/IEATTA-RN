@@ -16,7 +16,7 @@ const {
 } = require('./constants').default
 
 const {
-    RecordSchema,
+    ConfigureSchema, RecordSchema,
     UserSchema, PeopleInEventSchema,
     RestaurantSchema, EventSchema, RecipeSchema,
     PhotoSchema, ReviewSchema
