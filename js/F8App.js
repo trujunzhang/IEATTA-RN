@@ -92,7 +92,7 @@ class F8App extends Component {
             // this will be executed every 10 minutes
             // even when app is the the background
             self.scheduledTask()
-        }, 100 * 60 * 1000)
+        }, 1 * 60 * 1000)
 
         // this.setState({intervalId: intervalId})
 

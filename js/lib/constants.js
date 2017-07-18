@@ -11,9 +11,10 @@ export default keyMirror({
     PARSE_CONFIGURE: null,
     PARSE_RECORDS: null,
     PARSE_RESTAURANTS: null,
+    PARSE_EVENTS: null,
+    PARSE_PEOPLE_IN_EVENTS: null,
     PARSE_USERS: null,
     PARSE_PHOTOS: null,
-    PARSE_EVENTS: null,
     PARSE_RECIPES: null,
     PARSE_REVIEWS: null,
 

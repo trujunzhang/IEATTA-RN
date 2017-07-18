@@ -79,6 +79,18 @@ EventSchema.schema = {
     }
 }
 
+
+class PeopleInEventSchema extends Realm.Object {
+}
+
+PeopleInEventSchema.schema = {
+    name: PARSE_RECIPES,
+    properties: {
+        objectId: 'string'
+    }
+}
+
+
 class RecipeSchema extends Realm.Object {
 }
 

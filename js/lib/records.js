@@ -12,17 +12,19 @@ const {
     PARSE_RECIPES,
     PARSE_PHOTOS,
     PARSE_REVIEWS,
+    PARSE_PEOPLE_IN_EVENTS
 } = require('./constants').default
 
-const {RecordSchema, UserSchema, RestaurantSchema, EventSchema, RecipeSchema, PhotoSchema, ReviewSchema} = require('../parse/realmObjects').default
+const {RecordSchema, UserSchema, RestaurantSchema, EventSchema, PeopleInEventSchema, RecipeSchema, PhotoSchema, ReviewSchema} = require('../parse/realmObjects').default
 
 const Records = {}
 
 Records.realmObjects = {
-    'restaurant': {parseObject: PARSE_RESTAURANTS, realmSchema: RestaurantSchema},
-    'user': {parseObject: PARSE_USERS, realmSchema: UserSchema},
     'record': {parseObject: PARSE_RECORDS, realmSchema: RecordSchema},
+    'restaurant': {parseObject: PARSE_RESTAURANTS, realmSchema: RestaurantSchema},
     'event': {parseObject: PARSE_EVENTS, realmSchema: EventSchema},
+    'peopleInEvent': {parseObject: PARSE_PEOPLE_IN_EVENTS, realmSchema: PeopleInEventSchema},
+    'user': {parseObject: PARSE_USERS, realmSchema: UserSchema},
     'recipe': {parseObject: PARSE_RECIPES, realmSchema: RecipeSchema},
     'photo': {parseObject: PARSE_PHOTOS, realmSchema: PhotoSchema},
     'review': {parseObject: PARSE_REVIEWS, realmSchema: ReviewSchema},
@@ -44,6 +46,10 @@ Records.getRealmData = function (parseObject, object) {
                 //photos: object.photos,
                 //reviews: object.reviews,
                 url: object.url
+            }
+        case PeopleInEventSchema:
+            return {
+                objectId: object.id
             }
         case PARSE_USERS:
             return {}

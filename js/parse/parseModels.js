@@ -37,6 +37,10 @@ export type User = {
     downvotedComments: Array<string>, // commentId array
 }
 
+export type PeopleInEvent = {
+    id: string;
+}
+
 export type Photo = {
     id: string;
     original: string;
@@ -85,6 +89,12 @@ export function fromParseFile(map: Object): File {
     return {
         name: map._name,
         url: map._url,
+    }
+}
+
+export function fromParsePeopleInEvent(map: Object): PeopleInEvent {
+    return {
+        id: map.id
     }
 }
 
