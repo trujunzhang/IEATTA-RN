@@ -26,15 +26,14 @@ const {
  *   @note: These records will be pull again next scheduled task.
  */
 export default class PullFromServer {
-    constructor(countPerTime, lastRecordUpdatedData) {
-        this.lastRecordUpdatedData = lastRecordUpdatedData
-        this.countPerTime = countPerTime
+    constructor() {
     }
 
-    async start() {
-        const recordsQuery = getRecordsParameters({lastUpdatedAt: this.lastRecordUpdatedData})
-        let results = await recordsQuery.limit(this.countPerTime).find()
+    async start(countPerTime, lastRecordUpdatedData) {
+        const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
+        let results = await recordsQuery.limit(countPerTime).find()
         let records = (results || []).map(fromParseRecord)
+        debugger
         records.map((record, index) => {
             writeParseRecord(record)
         })

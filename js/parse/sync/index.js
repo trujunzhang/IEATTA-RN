@@ -37,7 +37,6 @@ export default class AsyncParse {
     constructor() {
         this.lastRecordUpdatedData = ConfigureService.getLastRecordUpdatedAt()
         this.mPushToServer = new PushToServer(RECORDS_COUNT_PUSH)
-        this.mPullFromServer = new PullFromServer(RECORDS_COUNT_PULL, this.lastRecordUpdatedData)
     }
 
     getLastUpdatedAt() {
@@ -45,7 +44,7 @@ export default class AsyncParse {
     }
 
     async startScheduledTask() {
-        await this.mPullFromServer.start()
+        await new PullFromServer().start(RECORDS_COUNT_PULL, this.lastRecordUpdatedData)
         console.log("scheduled Task...")
     }
 }
