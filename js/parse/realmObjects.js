@@ -10,6 +10,7 @@ const {
     PARSE_USERS,
     PARSE_RECORDS,
     PARSE_EVENTS,
+    PARSE_PEOPLE_IN_EVENTS,
     PARSE_RECIPES,
     PARSE_PHOTOS,
     PARSE_REVIEWS,
@@ -84,7 +85,7 @@ class PeopleInEventSchema extends Realm.Object {
 }
 
 PeopleInEventSchema.schema = {
-    name: PARSE_RECIPES,
+    name: PARSE_PEOPLE_IN_EVENTS,
     properties: {
         objectId: 'string'
     }
