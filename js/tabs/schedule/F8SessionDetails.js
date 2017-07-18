@@ -316,7 +316,7 @@ function select(store, props) {
   const map = store.maps.find(({name}) => name === props.session.location);
 
   return {
-    isAddedToSchedule: !!store.schedule[props.session.id],
+    isAddedToSchedule: true,
     isLoggedIn: store.user.isLoggedIn,
     sharedSchedule: store.user.sharedSchedule,
     sessionURLTemplate: store.config.sessionURLTemplate,

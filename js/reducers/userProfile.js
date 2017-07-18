@@ -32,7 +32,7 @@ const {
   USERPROFILE_LOADED,
 } = require('../lib/constants').default
 
-const {User, fromParseUser} = require('./parseModels')
+const {User, fromParseUser} = require('../parse/parseModels')
 
 import type {Action} from '../actions/types'
 let slugify = require('slugify')

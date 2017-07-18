@@ -41,7 +41,7 @@ const {
 let slugify = require('slugify')
 const {updateInstallation} = require('./installation')
 
-const {fromParseUser} = require('../reducers/parseModels')
+const {fromParseUser} = require('../parse/parseModels')
 
 import type {Action, ThunkAction} from './types'
 

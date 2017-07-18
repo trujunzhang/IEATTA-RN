@@ -5,7 +5,7 @@ const {writeParseRecord, ConfigureService, RestaurantService} = require('../real
 
 const {getRecordsParameters} = require('../parseUtiles').default
 
-const {fromParseRecord} = require('../../reducers/parseModels')
+const {fromParseRecord} = require('../parseModels')
 /**
  * The states were interested in
  */

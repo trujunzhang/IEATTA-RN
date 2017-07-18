@@ -32,7 +32,7 @@ let {getRestaurantParameters, getQueryByType} = require('../parse/parseUtiles').
 
 import Posts from '../lib/posts'
 
-const {fromParseRestaurant} = require('../reducers/parseModels')
+const {fromParseRestaurant} = require('../parse/parseModels')
 
 /**
  * The states were interested in

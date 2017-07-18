@@ -31,7 +31,7 @@ let {ParseFolder, ParseUser} = require('../parse/objects').default
 let {getUsersParameters, getQueryByType} = require('../parse/parseUtiles').default
 
 
-const {fromParseUser} = require('../reducers/parseModels')
+const {fromParseUser} = require('../parse/parseModels')
 
 /**
  * The states were interested in

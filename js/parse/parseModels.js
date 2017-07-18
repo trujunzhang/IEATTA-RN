@@ -1,10 +1,6 @@
 let slugify = require('slugify')
 let _ = require('underscore')
 
-export type Cloudinary = {
-    name: string;
-    url: string;
-}
 
 export type Pointer = {
     id: string
@@ -125,7 +121,7 @@ export function fromParsePhoto(map: Object): Photo {
         original: !!map.get('original') ? fromParseFile(map.get('original')) : null,
         thumbnail: !!map.get('thumbnail') ? fromParseFile(map.get('thumbnail')) : null,
         photoType: map.get('photoType'),
-        // point
+        // point(2)
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
         recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
     };

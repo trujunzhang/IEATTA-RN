@@ -33,7 +33,6 @@ module.exports = combineReducers({
     appUsers: require('./appUsers'),
     sessions: require('./sessions'),
     user: require('./user'),
-    schedule: require('./schedule'),
     filter: require('./filter'),
     navigation: require('./navigation'),
     friendsSchedules: require('./friendsSchedules'),

@@ -52,7 +52,6 @@ const MenuItem = require('./MenuItem')
 const LoginButton = require('../components/lib/login/LoginButton')
 const ProfilePicture = require('../common/ProfilePicture')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
-const MyScheduleView = require('./schedule/MyScheduleView')
 
 const {switchTab, logOutWithPrompt} = require('../actions')
 

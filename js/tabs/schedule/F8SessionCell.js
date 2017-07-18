@@ -132,7 +132,7 @@ let styles = StyleSheet.create({
 
 function select(store, props) {
     return {
-        showTick: !!store.schedule[props.session.id],
+        showTick: true,
     };
 }
 
