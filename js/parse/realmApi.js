@@ -22,7 +22,7 @@ const {
 
 function writeParseRecord(record) {
     const object = record[record.recordType]
-    debugger
+    // debugger
     const {parseObject, realmSchema} = Records.realmObjects[record.recordType]
 
     if (repository.objects(parseObject).filtered('objectId == $0', object.id).length) return // Exist

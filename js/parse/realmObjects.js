@@ -131,7 +131,7 @@ ReviewSchema.schema = {
 export default new Realm({
     schema: [
         ConfigureSchema, RecordSchema,
-        UserSchema,
+        UserSchema, PeopleInEventSchema,
         RestaurantSchema, EventSchema, RecipeSchema,
         PhotoSchema, ReviewSchema
     ]
