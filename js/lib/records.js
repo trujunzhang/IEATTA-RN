@@ -50,7 +50,9 @@ Records.getRealmData = function (parseObject, object) {
         case PARSE_RECORDS:
             return {}
         case PARSE_EVENTS:
-            return {}
+            return {
+
+            }
         case PARSE_RECIPES:
             return {}
         case PARSE_PHOTOS:

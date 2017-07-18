@@ -69,9 +69,13 @@ class EventSchema extends Realm.Object {
 EventSchema.schema = {
     name: PARSE_EVENTS,
     properties: {
-        make: 'string',
-        model: 'string',
-        miles: {type: 'int', default: 0},
+        id: 'string',
+        displayName: 'string',
+        start: 'date',
+        end: 'date',
+        want: 'string'
+        // users: User;
+        // restaurant: Restaurant;
     }
 }
 
