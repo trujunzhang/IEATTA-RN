@@ -232,6 +232,9 @@ class LoginScreen extends React.Component {
                     type="secondary"
                     caption="Not Now"
                     source="Modal"
+                    onPress={() => {
+                        this.props.dispatch(skipLogin())
+                    }}
                 />
                 <Text style={styles.loginComment}>
                     Use Facebook to find your friends.

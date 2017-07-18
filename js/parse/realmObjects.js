@@ -71,8 +71,8 @@ EventSchema.schema = {
     properties: {
         objectId: 'string',
         displayName: 'string',
-        start: 'date',
-        end: 'date',
+        start: 'string',
+        end: 'string',
         want: 'string'
         // users: User;
         // restaurant: Restaurant;
