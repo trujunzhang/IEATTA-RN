@@ -9,6 +9,7 @@ const Records = require('../lib/records').default
  * The states were interested in
  */
 const {
+    PARSE_CONFIGURE,
     PARSE_RESTAURANTS,
     PARSE_USERS,
     PARSE_RECORDS,
@@ -28,11 +29,35 @@ function writeParseRecord(record) {
     repository.write(() => {
         repository.create(parseObject, Records.getRealmData(parseObject, object))
     })
-
 }
 
+const ConfigureService = {
+    getLastRecordUpdatedAt: function () {
+        let array = repository.objects(PARSE_CONFIGURE)
+        if (array.length) {
+            return array[0].lastRecordUpdatedAt
+        }
 
-let RestaurantService = {
+        return null
+    },
+
+    saveLastRecordUpdatedAt: function (recorderUpdatedAt) {
+        let array = repository.objects(PARSE_CONFIGURE)
+        if (array.length) {// update
+            repository.write(() => {
+                array[0].lastRecordUpdatedAt = recorderUpdatedAt;
+            })
+        } else {// new configure, then create it.
+            repository.write(() => {
+                repository.create(PARSE_RESTAURANTS, Records.getRealmData(PARSE_RESTAURANTS, item))
+            })
+        }
+
+        return null
+    }
+}
+
+const RestaurantService = {
     findAll: function (sortBy) {
         return repository.objects(PARSE_RESTAURANTS)
     },
@@ -56,5 +81,6 @@ let RestaurantService = {
 
 export default {
     writeParseRecord,
+    ConfigureService,
     RestaurantService,
 }
