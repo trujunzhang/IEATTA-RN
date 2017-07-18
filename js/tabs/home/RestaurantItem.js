@@ -114,13 +114,15 @@ class RestaurantItem extends Component {
     render() {
         const {item} = this.props
         return (
-            <View style={{
-                paddingLeft: 10,
-                marginRight: 10,
-                backgroundColor: "white",
-                width: width,
-                height: RestaurantRowHeight,
-            }}>
+            <View
+                key={item.id}
+                style={{
+                    paddingLeft: 10,
+                    marginRight: 10,
+                    backgroundColor: "white",
+                    width: width,
+                    height: RestaurantRowHeight,
+                }}>
                 <View style={{// .action-list .action
                     flex: 1,
                     marginLeft: -10,

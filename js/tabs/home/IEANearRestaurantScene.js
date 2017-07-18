@@ -81,10 +81,10 @@ const foodSections =
             }
         ],
         'Restaurants Nearby': [
-            {name: "Lettuce", category: "Vegetable"},
-            {name: "Lettuce", category: "Vegetable"},
-            {name: "Lettuce", category: "Vegetable"},
-            {name: "Potato", category: "Vegetable"}
+            {id: '001', name: "Lettuce", category: "Vegetable"},
+            {id: '002', name: "Lettuce", category: "Vegetable"},
+            {id: '003', name: "Lettuce", category: "Vegetable"},
+            {id: '004', name: "Potato", category: "Vegetable"}
         ]
     }
 
@@ -112,10 +112,12 @@ class IEANearRestaurantScene extends Component {
                  rowID: number | string,
                  highlightRowFunc: (sectionID: ?number | string, rowID: ?number | string) => void) => {
 
+        const key = `${sectionID}-${rowID}`.replace(' ', '-')
+        console.log("render row: ", key);
         if (sectionID === 'More') {
-            return (<RestaurantHomeListItem key={`${sectionID}-${rowID}`} item={item}/>)
+            return (<RestaurantHomeListItem key={key} item={item}/>)
         }
-        return (<RestaurantItem key={`${sectionID}-${rowID}`} item={item}/>)
+        return (<RestaurantItem key={key} item={item}/>)
     }
 
     renderSectionHeader(sectionData, sectionTitle) {

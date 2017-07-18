@@ -89,13 +89,15 @@ class RestaurantHomeListItem extends Component {
     render() {
         const {item} = this.props
         return (
-            <View style={{
-                backgroundColor: "white",
-                width: width,
-                height: CategoriesRowHeight,
-                flexDirection: 'row',
-                alignItems: 'center',
-            }}>
+            <View
+                key={item.tag}
+                style={{
+                    backgroundColor: "white",
+                    width: width,
+                    height: CategoriesRowHeight,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                }}>
                 <View style={{
                     width: width,
                     height: 22,
