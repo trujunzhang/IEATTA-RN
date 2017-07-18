@@ -14,10 +14,13 @@ export type Record = {
     id: string;
     recordType: string;
     recordId: string;
-    restaurant: restaurant;
-    photo: Photo;
     createdAt: date;
     updatedAt: date;
+    // Point
+    event: Event;
+    restaurant: Restaurant;
+    recipe: Recipe;
+    photo: Photo;
 }
 
 export type User = {
@@ -56,6 +59,7 @@ export type Recipe = {
     id: string;
     displayName: string;
     price: string;
+    // Point
     photos: Array<Photo>;
     restaurant: Restaurant;
     event: Event;
@@ -89,13 +93,14 @@ export function fromParseRecord(map: Object): Record {
         id: map.id,
         recordType: map.get('recordType'),
         recordId: map.get('recordId'),
+        // Date
+        createdAt: map.get('createdAt'),
+        updatedAt: map.get('updatedAt'),
         // Point
         event: !!map.get('event') ? fromParseEvent(map.get('event')) : null,
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
-        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null,
-        // Date
-        createdAt: map.get('createdAt'),
-        updatedAt: map.get('updatedAt')
+        recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
+        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null
     };
 }
 
