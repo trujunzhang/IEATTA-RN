@@ -1,7 +1,7 @@
 const Parse = require('parse/react-native')
 import moment from 'moment'
 
-const {writeParseRecord, RestaurantService} = require('../realmApi').default
+const {writeParseRecord, ConfigureService, RestaurantService} = require('../realmApi').default
 
 const {getRecordsParameters} = require('../parseUtiles').default
 
@@ -36,6 +36,7 @@ export default class PullFromServer {
         debugger
         records.map((record, index) => {
             writeParseRecord(record)
+            ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
         })
     }
 
