@@ -49,7 +49,10 @@ const ConfigureService = {
             })
         } else {// new configure, then create it.
             repository.write(() => {
-                repository.create(PARSE_RESTAURANTS, Records.getRealmData(PARSE_RESTAURANTS, item))
+                repository.create(PARSE_CONFIGURE, {
+                    objectId: 'c001',
+                    lastRecordUpdatedAt: recorderUpdatedAt
+                })
             })
         }
 
