@@ -124,9 +124,9 @@ export function fromParseUser(map: Object): User {
 export function fromParsePhoto(map: Object): Photo {
     return {
         id: map.id,
+        url: map.get('url'),
         original: !!map.get('original') ? fromParseFile(map.get('original')) : null,
         thumbnail: !!map.get('thumbnail') ? fromParseFile(map.get('thumbnail')) : null,
-        url: map.get('url'),
         photoType: map.get('photoType'),
         // point
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
