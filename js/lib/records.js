@@ -58,7 +58,6 @@ Records.getRealmData = function (parseObject, object) {
                 want: object.want
             }
         case PARSE_RECIPES:
-            debugger
             return {
                 objectId: object.id,
                 displayName: object.displayName,
