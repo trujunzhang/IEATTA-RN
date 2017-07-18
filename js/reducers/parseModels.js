@@ -59,13 +59,10 @@ export type Event = {
 export type Recipe = {
     id: string;
     displayName: string;
-    slug: string;
     price: string;
     photos: Array<Photo>;
     restaurant: Restaurant;
     event: Event;
-    user: User;
-    status: string;
 }
 
 export type Restaurant = {
@@ -137,12 +134,8 @@ export function fromParsePhoto(map: Object): Photo {
 export function fromParseRecipe(map: Object): Recipe {
     return {
         id: map.id,
-        name: map.get('name'),
-        description: map.get('description'),
-        slug: map.get('slug'),
-        status: map.get('status'),
-        visible: map.get('visible'),
-        posts: (map.get('posts') || []).map(fromParseRestaurant)
+        displayName: map.get('displayName'),
+        price: map.get('price')
     };
 }
 
@@ -167,7 +160,6 @@ export function fromParseRestaurant(map: Object): Restaurant {
         displayName: map.get('displayName'),
         address: map.get('address'),
         geoLocation: map.get('geoLocation'),
-        photos: (map.get('photos') || []).map(fromParsePhoto),
         reviews: (map.get('reviews') || []),
         updatedAt: map.get('updatedAt'),
         url: map.get('url'),
