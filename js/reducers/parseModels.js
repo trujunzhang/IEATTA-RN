@@ -10,6 +10,10 @@ export type Pointer = {
     id: string
 }
 
+export type File = {
+    url: string
+}
+
 export type Record = {
     id: string;
     recordType: string;
@@ -45,13 +49,11 @@ export type Photo = {
 export type Event = {
     id: string;
     displayName: string;
-    slug: string;
-    post: Post;
-    servers: Server;
-    users: User;
     start: date;
     end: date;
-    status: string;
+    want: string;
+    users: User;
+    restaurant: Restaurant;
 }
 
 export type Recipe = {
@@ -82,13 +84,23 @@ export function fromParsePointer(map: Object): Pointer {
     }
 }
 
+export function fromParseFile(map: Object): File {
+    return {
+        name: map._name,
+        url: map._url,
+    }
+}
+
 export function fromParseRecord(map: Object): Record {
     return {
         id: map.id,
         recordType: map.get('recordType'),
         recordId: map.get('recordId'),
+        // Point
+        event: !!map.get('event') ? fromParseEvent(map.get('event')) : null,
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
         photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null,
+        // Date
         createdAt: map.get('createdAt'),
         updatedAt: map.get('updatedAt')
     };
@@ -112,10 +124,13 @@ export function fromParseUser(map: Object): User {
 export function fromParsePhoto(map: Object): Photo {
     return {
         id: map.id,
-        original: map.get('original'),
-        thumbnail: map.get('thumbnail'),
+        original: !!map.get('original') ? fromParseFile(map.get('original')) : null,
+        thumbnail: !!map.get('thumbnail') ? fromParseFile(map.get('thumbnail')) : null,
         url: map.get('url'),
         photoType: map.get('photoType'),
+        // point
+        restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
+        recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
     };
 }
 
@@ -132,12 +147,19 @@ export function fromParseRecipe(map: Object): Recipe {
 }
 
 
-export function fromParseCloudinary(map: Object): Cloudinary {
+export function fromParseEvent(map: Object): Event {
     return {
-        name: map['name'],
-        url: map['url']
+        id: map.id,
+        displayName: map.get('displayName'),
+        slug: map.get('slug'),
+        start: map.get('start'),
+        end: map.get('end'),
+        want: map.get('want'),
+        restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
+        users: (map.get('users') || []).map(fromParseUser)
     };
 }
+
 
 export function fromParseRestaurant(map: Object): Restaurant {
     return {

@@ -23,7 +23,7 @@ export default class RecordsParameters {
         if (!!terms.lastUpdatedAt) { // related posts
             // debugger
             // this.query.notContainedIn('objectId', terms.related.id)
-            this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
+            // this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
         }
 
         return this
