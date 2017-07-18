@@ -69,7 +69,7 @@ class EventSchema extends Realm.Object {
 EventSchema.schema = {
     name: PARSE_EVENTS,
     properties: {
-        id: 'string',
+        objectId: 'string',
         displayName: 'string',
         start: 'date',
         end: 'date',

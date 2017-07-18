@@ -51,7 +51,11 @@ Records.getRealmData = function (parseObject, object) {
             return {}
         case PARSE_EVENTS:
             return {
-
+                objectId: object.id,
+                displayName: object.displayName,
+                start: object.start,
+                end: object.end,
+                want: object.want
             }
         case PARSE_RECIPES:
             return {}
