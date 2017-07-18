@@ -33,7 +33,8 @@ export default class PullFromServer {
         const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
         let results = await recordsQuery.limit(countPerTime).find()
         let records = (results || []).map(fromParseRecord)
-        debugger
+        // debugger
+
         records.map((record, index) => {
             writeParseRecord(record)
             ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
