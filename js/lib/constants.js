@@ -8,6 +8,7 @@ export default keyMirror({
     MENU_ITEM_READ_REVIEWS: null,
 
     // Parse Object
+    PARSE_CONFIGURE: null,
     PARSE_RECORDS: null,
     PARSE_RESTAURANTS: null,
     PARSE_USERS: null,

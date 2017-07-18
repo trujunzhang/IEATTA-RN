@@ -5,6 +5,7 @@ const Realm = require('realm')
  * The states were interested in
  */
 const {
+    PARSE_CONFIGURE,
     PARSE_RESTAURANTS,
     PARSE_USERS,
     PARSE_RECORDS,
@@ -14,6 +15,16 @@ const {
     PARSE_REVIEWS,
 } = require('../lib/constants').default
 
+
+class ConfigureSchema extends Realm.Object {
+}
+ConfigureSchema.schema = {
+    name: PARSE_CONFIGURE,
+    properties: {
+        objectId: 'string',
+        lastRecordUpdatedAt: 'date'
+    }
+}
 
 class RecordSchema extends Realm.Object {
 }
@@ -101,7 +112,14 @@ ReviewSchema.schema = {
 }
 
 
-export default new Realm({schema: [RecordSchema, UserSchema, RestaurantSchema, EventSchema, RecipeSchema, PhotoSchema, ReviewSchema]})
+export default new Realm({
+    schema: [
+        ConfigureSchema, RecordSchema,
+        UserSchema,
+        RestaurantSchema, EventSchema, RecipeSchema,
+        PhotoSchema, ReviewSchema
+    ]
+})
 
 
 
