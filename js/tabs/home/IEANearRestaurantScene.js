@@ -80,12 +80,12 @@ const foodSections =
                 icon: "M21 6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6zm-5.88 10.428l-3.16-1.938-3.05 2.01.59-3.457L7 10.596l3.457-.505L11.96 6.5l1.582 3.59 3.458.506-2.5 2.447.62 3.385z"
             }
         ],
-        'Restaurants Nearby': [
-            {id: '001', name: "Lettuce", category: "Vegetable"},
-            {id: '002', name: "Lettuce", category: "Vegetable"},
-            {id: '003', name: "Lettuce", category: "Vegetable"},
-            {id: '004', name: "Potato", category: "Vegetable"}
-        ]
+        // 'Restaurants Nearby': [
+        //     {id: '001', name: "Lettuce", category: "Vegetable"},
+        //     {id: '002', name: "Lettuce", category: "Vegetable"},
+        //     {id: '003', name: "Lettuce", category: "Vegetable"},
+        //     {id: '004', name: "Potato", category: "Vegetable"}
+        // ]
     }
 
 
@@ -113,7 +113,7 @@ class IEANearRestaurantScene extends Component {
                  highlightRowFunc: (sectionID: ?number | string, rowID: ?number | string) => void) => {
 
         const key = `${sectionID}-${rowID}`.replace(' ', '-')
-        console.log("render row: ", key);
+        // console.log("render row: ", key);
         if (sectionID === 'More') {
             return (<RestaurantHomeListItem key={key} item={item}/>)
         }
@@ -123,13 +123,12 @@ class IEANearRestaurantScene extends Component {
     renderSectionHeader(sectionData, sectionTitle) {
         return (
             <View
-                key={}
                 style={{
-                marginTop: 14,
-                height: 36,
-                marginBottom: 4,
-                // backgroundColor: 'yellow'
-            }}>
+                    marginTop: 14,
+                    height: 36,
+                    marginBottom: 4,
+                    // backgroundColor: 'yellow'
+                }}>
                 <Text style={
                     {
                         height: 36,
