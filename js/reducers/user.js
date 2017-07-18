@@ -76,6 +76,7 @@ function user(state: State = initialState, action: Action): State {
         return nextState
     }
     if (action.type === SKIPPED_LOGIN) {
+        debugger
         const nextState = Object.assign({}, state, {
             isLoggedIn: false,
             hasSkippedLogin: true,
