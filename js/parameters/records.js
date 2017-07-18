@@ -15,7 +15,7 @@ const {
 
 export default class RecordsParameters {
     constructor(query: Parse.Query) {
-        this.query = query
+        this.query = query.ascending("updatedAt")
     }
 
     addParameters(terms: Any) {
@@ -23,7 +23,7 @@ export default class RecordsParameters {
         if (!!terms.lastUpdatedAt) { // related posts
             // debugger
             // this.query.notContainedIn('objectId', terms.related.id)
-            // this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
+            this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
         }
 
         return this
