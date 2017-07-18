@@ -88,11 +88,11 @@ class F8App extends Component {
 
         self.scheduledTask()
         // Start a timer that runs continuous after X milliseconds
-        // const intervalId = BackgroundTimer.setInterval(() => {
-        //     // this will be executed every 10 minutes
-        //     // even when app is the the background
-        //     // self.scheduledTask()
-        // }, 100 * 60 * 1000)
+        const intervalId = BackgroundTimer.setInterval(() => {
+            // this will be executed every 10 minutes
+            // even when app is the the background
+            self.scheduledTask()
+        }, 100 * 60 * 1000)
 
         // this.setState({intervalId: intervalId})
 
@@ -103,9 +103,6 @@ class F8App extends Component {
         // this.props.dispatch(loadMaps());
         this.props.dispatch(loadConfig());
         // this.props.dispatch(loadSessions());
-        // this.props.dispatch(loadFriendsSchedules());
-        // this.props.dispatch(loadSurveys());
-
         // updateInstallation({version});
 
         // this.props.dispatch(receivePushNotification({
