@@ -16,6 +16,8 @@ export type Record = {
     recordId: string;
     restaurant: restaurant;
     photo: Photo;
+    createdAt: date;
+    updatedAt: date;
 }
 
 export type User = {
@@ -47,11 +49,10 @@ export type Event = {
     post: Post;
     servers: Server;
     users: User;
-    start: string;
-    end: string;
+    start: date;
+    end: date;
     status: string;
 }
-
 
 export type Recipe = {
     id: string;
@@ -82,12 +83,15 @@ export function fromParsePointer(map: Object): Pointer {
 }
 
 export function fromParseRecord(map: Object): Record {
+    debugger
     return {
         id: map.id,
         recordType: map.get('recordType'),
         recordId: map.get('recordId'),
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
-        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null
+        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null,
+        createdAt: map.get('createdAt'),
+        updatedAt: map.get('updatedAt')
     };
 }
 
