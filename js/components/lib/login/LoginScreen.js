@@ -105,7 +105,9 @@ class LoginScreen extends React.Component {
             <TouchableOpacity
                 accessibilityLabel="Skip login"
                 accessibilityTraits="button"
-                style={[styles.skip, {backgroundColor: 'red'}]}
+                style={[styles.skip, {
+                    // backgroundColor: 'red'
+                }]}
                 onPress={(e) => {
                     this.props.dispatch(skipLogin())
                 }}>
