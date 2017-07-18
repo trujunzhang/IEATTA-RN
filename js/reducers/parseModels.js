@@ -44,7 +44,7 @@ export type Photo = {
 
 export type Event = {
     id: string;
-    displayname: string;
+    displayName: string;
     slug: string;
     post: Post;
     servers: Server;
@@ -56,7 +56,7 @@ export type Event = {
 
 export type Recipe = {
     id: string;
-    displayname: string;
+    displayName: string;
     slug: string;
     price: string;
     photos: Array<Photo>;
@@ -83,7 +83,6 @@ export function fromParsePointer(map: Object): Pointer {
 }
 
 export function fromParseRecord(map: Object): Record {
-    debugger
     return {
         id: map.id,
         recordType: map.get('recordType'),
