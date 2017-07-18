@@ -90,7 +90,6 @@ class RestaurantHomeListItem extends Component {
         const {item} = this.props
         return (
             <View
-                key={item.tag}
                 style={{
                     backgroundColor: "white",
                     width: width,
