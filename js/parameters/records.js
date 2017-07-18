@@ -20,12 +20,11 @@ export default class RecordsParameters {
 
     addParameters(terms: Any) {
 
-        if (terms.lastUpdatedAt) { // related posts
-            debugger
+        if (!!terms.lastUpdatedAt) { // related posts
+            // debugger
             // this.query.notContainedIn('objectId', terms.related.id)
-            // this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
+            this.query.greaterThan('updatedAt', terms.lastUpdatedAt)
         }
-
 
         return this
     }

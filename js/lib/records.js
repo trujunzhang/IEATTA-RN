@@ -54,6 +54,7 @@ Records.getRealmData = function (parseObject, object) {
         case PARSE_RECIPES:
             return {}
         case PARSE_PHOTOS:
+            debugger
             return {
                 objectId: object.id,
                 photoType: object.photoType,
