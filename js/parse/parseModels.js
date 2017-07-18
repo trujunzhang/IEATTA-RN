@@ -110,7 +110,8 @@ export function fromParseRecord(map: Object): Record {
         event: !!map.get('event') ? fromParseEvent(map.get('event')) : null,
         restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
         recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
-        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null
+        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null,
+        peopleInEvent: !!map.get('peopleInEvent') ? fromParsePeopleInEvent(map.get('peopleInEvent')) : null
     };
 }
 
