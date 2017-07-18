@@ -22,6 +22,8 @@
   Native filesystem access for react-native
   [https://github.com/itinance/react-native-fs]
 
+* react-native-snap-carousel
+  [https://www.npmjs.com/package/react-native-snap-carousel]
 
 * Debug Tools
 ** reactotron
