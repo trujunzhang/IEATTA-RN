@@ -17,8 +17,6 @@ import {
 
 const RNFS = require('react-native-fs');
 
-const spec = require('./test/rnfs.spec.js');
-
 const downloadUrl = 'http://lorempixel.com/400/200/';
 const downloadLargeUrl = 'http://ipv4.download.thinkbroadband.com/100MB.zip';
 const downloadRedirectUrl = 'http://buz.co/rnfs/download-redirect.php';
@@ -29,17 +27,18 @@ const downloadHeaderPath = RNFS.DocumentDirectoryPath + '/headers.json';
 
 let jobId = -1;
 
-const RNFSApp = React.createClass({
-    getInitialState: function () {
-        return {
+class RNFSApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             output: 'Doc folder: ' + RNFS.DocumentDirectoryPath,
             imagePath: {
                 uri: ''
             }
-        };
-    },
+        }
+    }
 
-    mochaTest: function () {
+    mochaTest() {
         const tests = [];
         let beforeEachCallback;
         let log = '';
@@ -66,7 +65,6 @@ const RNFSApp = React.createClass({
             this.setState({output: log});
         };
 
-        spec(describe, beforeEach, it, RNFS);
 
         let currentTest = Promise.resolve();
 
@@ -85,9 +83,9 @@ const RNFSApp = React.createClass({
                 fail(test.name, err);
             }
         });
-    },
+    }
 
-    downloadFileTest: function (background, url) {
+    downloadFileTest(background, url) {
         if (jobId !== -1) {
             this.setState({output: 'A download is already in progress'});
         }
@@ -130,17 +128,17 @@ const RNFSApp = React.createClass({
 
             jobId = -1;
         });
-    },
+    }
 
-    stopDownloadTest: function () {
+    stopDownloadTest() {
         if (jobId !== -1) {
             RNFS.stopDownload(jobId);
         } else {
             this.setState({output: 'There is no download to stop'});
         }
-    },
+    }
 
-    uploadFileTest: function () {
+    uploadFileTest() {
         const uploadSrc = `${RNFS.DocumentDirectoryPath}/upload.txt`;
 
         RNFS.writeFile(uploadSrc, 'Some stuff to upload', 'utf8').then(() => {
@@ -174,9 +172,9 @@ const RNFSApp = React.createClass({
                 this.setState({output: 'Upload successful'});
             });
         }).catch(err => this.showError(err));
-    },
+    }
 
-    downloadHeaderTest: function () {
+    downloadHeaderTest() {
         const headers = {
             'foo': 'Hello',
             'bar': 'World'
@@ -193,20 +191,20 @@ const RNFSApp = React.createClass({
 
             this.setState({output: 'Headers downloaded successfully'});
         }).catch(err => this.showError(err));
-    },
+    }
 
-    assert: function (name, val, exp) {
+    assert(name, val, exp) {
         if (exp !== val) throw new Error(name + ': "' + String(val) + '" should be "' + String(exp) + '"');
         this.setState({output: name});
-    },
+    }
 
-    getFSInfoTest: function () {
+    getFSInfoTest() {
         return RNFS.getFSInfo().then(info => {
             this.setState({output: JSON.stringify(info)});
         });
-    },
+    }
 
-    appendTest: function () {
+    appendTest() {
         const f1 = RNFS.DocumentDirectoryPath + '/f1';
         const f2 = RNFS.DocumentDirectoryPath + '/f2';
 
@@ -233,13 +231,13 @@ const RNFSApp = React.createClass({
         }).then(() => {
             this.assert('Tests Passed', true, true);
         }).catch(err => this.showError(err));
-    },
+    }
 
-    showError: function (err) {
+    showError(err) {
         this.setState({output: `ERROR: Code: ${err.code} Message: ${err.message}`});
-    },
+    }
 
-    render: function () {
+    render() {
         return (
             <View style={styles.container} collapsable={false}>
                 <View style={styles.panes}>
@@ -302,7 +300,7 @@ const RNFSApp = React.createClass({
             </View>
         );
     }
-});
+}
 
 const styles = StyleSheet.create({
     container: {
