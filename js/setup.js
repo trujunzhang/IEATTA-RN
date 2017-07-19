@@ -35,17 +35,18 @@ I18n.fallbacks = true
 import Translations from './lib/Translations'
 I18n.translations = Translations
 
-let F8App = require('F8App');
-// let FacebookSDK = require('./FacebookSDK');
-let Parse = require('parse/react-native');
-let React = require('React');
-let Relay = require('react-relay');
+const F8App = require('F8App')
+// const FacebookSDK = require('./FacebookSDK')
+const Parse = require('parse/react-native')
+const React = require('React')
+const Relay = require('react-relay')
 
-let {Provider} = require('react-redux');
-let configureStore = require('./store/configureStore');
+const {Provider} = require('react-redux')
+const configureStore = require('./store/configureStore')
 
-let {serverURL} = require('./env');
+const {serverURL} = require('./env')
 
+const {configureImageFolder} = require('./parse/fsApi')
 
 function setup(): ReactClass<{}> {
     console.disableYellowBox = true;
@@ -53,6 +54,7 @@ function setup(): ReactClass<{}> {
     Parse.initialize('YJ60VCiTAD01YOA3LJtHQlhaLjxiHSsv4mkxKvVM', '3S9VZj8y9g0Tj1WS64dl19eDJrEVpvckG7uhcXIi', '87rxX8J0JwaaPSBxY9DdKJEqWXByqE7sShRsX4vg')
     Parse.serverURL = 'https://parseapi.back4app.com/'
 
+    configureImageFolder()
 
     // FacebookSDK.init();
     // Parse.FacebookUtils.init();
@@ -62,8 +64,7 @@ function setup(): ReactClass<{}> {
             retryDelays: [5000, 10000],
         })
     );
-
-
+    
     class Root extends React.Component {
         state: {
             isLoading: boolean;

@@ -21,7 +21,7 @@ const {
     PARSE_REVIEWS,
 } = require('../lib/constants').default
 
-export function setupImageFolder() {
+export function configureImageFolder() {
     const originalFold = RNFS.PicturesDirectoryPath + '/original'
     const thumbnailFold = RNFS.PicturesDirectoryPath + '/original'
 

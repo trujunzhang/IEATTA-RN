@@ -64,7 +64,6 @@ const {version} = require('./env.js')
 // Playground:
 const Playground = require('./playground')
 
-
 const {syncBetweenParseAndRealm} = require('./actions')
 
 import BackgroundTimer from 'react-native-background-timer'
