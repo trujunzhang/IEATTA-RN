@@ -47,6 +47,7 @@ export default class PullFromServer {
                     thumbnailUrl: photo.thumbnail.url
                 }
                 new ParsePhotoAccess().downloadPhotoImages(cachePhoto)
+                debugger
             }
             ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
         })

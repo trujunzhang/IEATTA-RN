@@ -14,6 +14,8 @@ const {
 } = require('../../lib/constants').default
 
 const {getLocalImagePath} = require('../fsApi')
+const RNFS = require('react-native-fs')
+
 /**
  * How to sync the data between the local and the server parse.
  *   @note: Because if the objects had been saved, it's updatedData will be changed.
@@ -38,13 +40,11 @@ export default class ParsePhotoAccess {
         const downloadDest = getLocalImagePath(id, 'orginal')
 
         const ret = RNFS.downloadFile({
-            fromUrl: url,
-            toFile: downloadDest,
-            begin,
-            progress,
-            background,
-            progressDivider
-        });
+            fromUrl: originalUrl,
+            toFile: downloadDest
+        })
+
+        debugger
     }
 
 }
