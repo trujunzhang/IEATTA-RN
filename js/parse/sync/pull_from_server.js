@@ -13,7 +13,7 @@ const {
     PARSE_RECORDS
 } = require('../../lib/constants').default
 
-const ParsePhotoAccess = require('./parsePhotoAccess').default
+const {downloadOriginalPhotoImages} = require('./parsePhotoAccess')
 
 /**
  * How to sync the data between the local and the server parse.
@@ -46,7 +46,7 @@ export default class PullFromServer {
                     originalUrl: photo.original.url,
                     thumbnailUrl: photo.thumbnail.url
                 }
-                new ParsePhotoAccess().downloadPhotoImages(cachePhoto)
+                downloadOriginalPhotoImages(cachePhoto)
                 debugger
             }
             ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)

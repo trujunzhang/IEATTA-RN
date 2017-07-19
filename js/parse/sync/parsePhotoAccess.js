@@ -11,32 +11,15 @@ const {
 const {getLocalImagePath} = require('../fsApi')
 const RNFS = require('react-native-fs')
 
-export default class ParsePhotoAccess {
-    constructor() {
-    }
-
-    async downloadPhotoImages(cachePhoto) {
-        const {id, originalUrl, thumbnailUrl} = cachePhoto
-
-        // Random file name needed to force refresh...
-        // const downloadDest = `${RNFS.DocumentDirectoryPath}/${((Math.random() * 1000) | 0)}.jpg`;
-        const downloadDest = getLocalImagePath(id, 'orginal')
-
+export function downloadOriginalPhotoImages(cachePhoto) {
+    // const {id, originalUrl, thumbnailUrl} = cachePhoto
+    RNFS.downloadFile({
+        fromUrl: cachePhoto.originalUrl,
+        toFile: getLocalImagePath(id, 'orginal'),
+        background: false
+    }).promise.then(res => {
         debugger
-        const ret = RNFS.downloadFile({
-            fromUrl: originalUrl,
-            toFile: downloadDest,
-            background: false
-        })
-
-        debugger
-
-        return ret.promise.then(res => {
-            debugger
-        }).catch(err => {
-        });
-    }
-
+    }).catch(err => {
+    });
 }
-
 
