@@ -50,7 +50,7 @@ const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
 
 const {switchTab} = require('../actions')
 
-import type {Tab, Day} from '../reducers/navigation'
+import type {Tab} from '../reducers/navigation'
 
 
 class F8TabsView extends React.Component {
@@ -67,14 +67,6 @@ class F8TabsView extends React.Component {
     }
 
     render() {
-        let scheduleIcon = this.props.day === 1
-            ? require('./schedule/img/schedule-icon-1.png')
-            : require('./schedule/img/schedule-icon-2.png');
-        let scheduleIconSelected = this.props.day === 1
-            ? require('./schedule/img/schedule-icon-1-active.png')
-            : require('./schedule/img/schedule-icon-2-active.png');
-
-        // debugger
         return (
             <TabBarIOS tintColor={F8Colors.darkText}>
                 <Icon.TabBarItem
