@@ -29,6 +29,12 @@ export default class ParsePhotoAccess {
         })
 
         debugger
+
+        ret.promise.then(res => {
+        }).catch(err => {
+        });
+
+        debugger
     }
 
 }

@@ -82,8 +82,6 @@ class RNFSApp extends Component {
             jobId = -1;
         }).catch(err => {
             this.showError(err)
-
-            jobId = -1;
         });
     }
 
