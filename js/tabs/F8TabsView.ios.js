@@ -36,8 +36,11 @@ import {
     View,
     Image,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    TabBarIOS
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const F8Colors = require('F8Colors')
 
@@ -45,18 +48,14 @@ const IEANearRestaurantScene = require('./home/IEANearRestaurantScene')
 const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
 const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
 
-const TabBarIOS = require('TabBarIOS')
-const TabBarItemIOS = require('TabBarItemIOS')
-
 const {switchTab} = require('../actions')
-const {connect} = require('react-redux')
 
 import type {Tab, Day} from '../reducers/navigation'
+
 
 class F8TabsView extends React.Component {
     props: {
         tab: Tab;
-        day: Day;
         onTabSelect: (tab: Tab) => void;
         navigator: Navigator;
     };
@@ -78,31 +77,33 @@ class F8TabsView extends React.Component {
         // debugger
         return (
             <TabBarIOS tintColor={F8Colors.darkText}>
-                <TabBarItemIOS
+                <Icon.TabBarItem
                     title="Schedule"
+                    iconName="ios-home-outline"
                     selected={this.props.tab === 'main'}
                     onPress={this.onTabSelect.bind(this, 'main')}
-                    icon={scheduleIcon}
-                    selectedIcon={scheduleIconSelected}>
+                    selectedIconName="ios-home">
                     <IEANearRestaurantScene
                         navigator={this.props.navigator}
                     />
-                </TabBarItemIOS>
-                <TabBarItemIOS
-                    title="Maps"
+                </Icon.TabBarItem>
+                <Icon.TabBarItem
+                    title="Home"
+                    iconName="ios-home-outline"
                     selected={this.props.tab === 'info'}
                     onPress={this.onTabSelect.bind(this, 'info')}
-                    icon={require('./maps/img/maps-icon.png')}
-                    selectedIcon={require('./maps/img/maps-icon-active.png')}>
+                    selectedIconName="ios-home">
                     <IEADetailedEvent
                         navigator={this.props.navigator}
                     />
-                </TabBarItemIOS>
+                </Icon.TabBarItem>
             </TabBarIOS>
         )
     }
 
 }
+
+const {connect} = require('react-redux')
 
 function select(store) {
     return {
