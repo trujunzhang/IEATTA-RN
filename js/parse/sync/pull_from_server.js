@@ -37,6 +37,9 @@ export default class PullFromServer {
 
         records.map((record, index) => {
             writeParseRecord(record)
+            if (record.recordType === "photo") {
+                debugger
+            }
             ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
         })
     }
