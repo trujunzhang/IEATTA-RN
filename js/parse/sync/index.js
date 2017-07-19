@@ -4,7 +4,7 @@ import moment from 'moment'
 let {ParsePost, ParseUser} = require('../objects').default
 
 const PushToServer = require('./push_to_server').default
-const PullFromServer = require('./pull_from_server').default
+const {pullFromServer} = require('./pull_from_server')
 
 const {ConfigureService} = require('../realmApi').default
 
@@ -44,7 +44,7 @@ export default class AsyncParse {
     }
 
     async startScheduledTask() {
-        await new PullFromServer().start(RECORDS_COUNT_PULL, this.lastRecordUpdatedData)
+        await pullFromServer(RECORDS_COUNT_PULL, this.lastRecordUpdatedData)
         console.log("scheduled Task...")
     }
 }

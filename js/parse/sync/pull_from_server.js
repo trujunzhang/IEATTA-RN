@@ -27,32 +27,28 @@ const {downloadOriginalPhotoImages} = require('./parsePhotoAccess')
  *   Push the records saved in the local database.
  *   @note: These records will be pull again next scheduled task.
  */
-export default class PullFromServer {
-    constructor() {
-    }
 
-    async start(countPerTime, lastRecordUpdatedData) {
-        const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
-        let results = await recordsQuery.limit(countPerTime).find()
-        let records = (results || []).map(fromParseRecord)
-        // debugger
+export async function pullFromServer(countPerTime, lastRecordUpdatedData) {
+    const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
+    let results = await recordsQuery.limit(countPerTime).find()
+    let records = (results || []).map(fromParseRecord)
+    // debugger
 
-        records.map((record, index) => {
-            writeParseRecord(record)
-            if (record.recordType === "photo") {
-                const photo = record.photo;
-                const cachePhoto = {
-                    id: photo.id,
-                    originalUrl: photo.original.url,
-                    thumbnailUrl: photo.thumbnail.url
-                }
-                downloadOriginalPhotoImages(cachePhoto)
-                debugger
+    records.map((record, index) => {
+        writeParseRecord(record)
+        if (record.recordType === "photo") {
+            const photo = record.photo;
+            const cachePhoto = {
+                id: photo.id,
+                originalUrl: photo.original.url,
+                thumbnailUrl: photo.thumbnail.url
             }
-            ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
-        })
-    }
-
+            downloadOriginalPhotoImages(cachePhoto)
+            debugger
+        }
+        ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
+    })
 }
+
 
 
