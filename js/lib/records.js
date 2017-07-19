@@ -53,7 +53,7 @@ Records.getRealmData = function (parseObject, object) {
                 url: object.url
             }
         case PARSE_PEOPLE_IN_EVENTS:
-            debugger
+            // debugger
             return {
                 objectId: object.id
             }
