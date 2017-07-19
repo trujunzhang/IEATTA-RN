@@ -21,6 +21,14 @@ const {
     PARSE_REVIEWS,
 } = require('../lib/constants').default
 
+export function setupImageFolder() {
+    const originalFold = RNFS.PicturesDirectoryPath + '/original'
+    const thumbnailFold = RNFS.PicturesDirectoryPath + '/original'
+
+    RNFS.mkdir(originalFold)
+        .mkdir(thumbnailFold)
+        .then()
+}
 
 export function getLocalImagePath(id, type) {
     return `${RNFS.DocumentDirectoryPath}/${id}_${type}.jpg`;

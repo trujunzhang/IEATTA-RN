@@ -26,17 +26,15 @@ export default class ParsePhotoAccess {
         const ret = RNFS.downloadFile({
             fromUrl: originalUrl,
             toFile: downloadDest,
-            background: true
+            background: false
         })
 
         debugger
 
-        ret.promise.then(res => {
+        return ret.promise.then(res => {
             debugger
         }).catch(err => {
         });
-
-        debugger
     }
 
 }
