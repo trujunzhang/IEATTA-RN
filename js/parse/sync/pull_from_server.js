@@ -38,6 +38,12 @@ export default class PullFromServer {
         records.map((record, index) => {
             writeParseRecord(record)
             if (record.recordType === "photo") {
+                const photo = record.photo;
+                const cachePhoto = {
+                    id: photo.id,
+                    originalUrl: photo.original.url,
+                    thumbnailUrl: photo.thumbnail.url
+                }
                 debugger
             }
             ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
