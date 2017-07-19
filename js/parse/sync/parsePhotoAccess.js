@@ -11,13 +11,16 @@ const {
 const {getLocalImagePath} = require('../fsApi')
 const RNFS = require('react-native-fs')
 
-export function downloadOriginalPhotoImages(cachePhoto) {
+export async function downloadOriginalPhotoImages(cachePhoto) {
     // const {id, originalUrl, thumbnailUrl} = cachePhoto
-    RNFS.downloadFile({
+
+    const res = RNFS.downloadFile({
         fromUrl: cachePhoto.originalUrl,
         toFile: getLocalImagePath(id, 'orginal'),
         background: false
-    }).promise.then(res => {
+    })
+
+    await res.promise.then(res => {
         debugger
     }).catch(err => {
     });
