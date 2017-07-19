@@ -39,7 +39,7 @@ class RNFSApp extends Component {
         }
     }
 
-    downloadFileTest(background, url) {
+    downloadFileTest(background, url, localFileName) {
         if (jobId !== -1) {
             this.setState({output: 'A download is already in progress'});
         }
@@ -59,7 +59,8 @@ class RNFSApp extends Component {
         this.setState({imagePath: {uri: ''}});
 
         // Random file name needed to force refresh...
-        const downloadDest = `${RNFS.DocumentDirectoryPath}/${((Math.random() * 1000) | 0)}.jpg`;
+        // const downloadDest = `${RNFS.DocumentDirectoryPath}/${((Math.random() * 1000) | 0)}.jpg`;
+        const downloadDest = `${RNFS.DocumentDirectoryPath}/${localFileName}.jpg`;
 
         const ret = RNFS.downloadFile({
             fromUrl: url,
@@ -167,22 +168,24 @@ class RNFSApp extends Component {
                                 <Text style={styles.text}>Mocha Test</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, false, downloadUrl) }>
+                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, false, downloadUrl, 'step1') }>
                             <View style={styles.button}>
                                 <Text style={styles.text}>DL File</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, true, downloadUrl) }>
+                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, true, downloadUrl, 'step1') }>
                             <View style={styles.button}>
                                 <Text style={styles.text}>DL File (BG) </Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, false, downloadRedirectUrl) }>
+                        <TouchableHighlight
+                            onPress={this.downloadFileTest.bind(this, false, downloadRedirectUrl, 'step2') }>
                             <View style={styles.button}>
                                 <Text style={styles.text}>DL File (302) </Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this.downloadFileTest.bind(this, false, downloadLargeUrl) }>
+                        <TouchableHighlight
+                            onPress={this.downloadFileTest.bind(this, false, downloadLargeUrl, 'step3') }>
                             <View style={styles.button}>
                                 <Text style={styles.text}>DL File (Big) </Text>
                             </View>
