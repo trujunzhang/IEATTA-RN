@@ -43,11 +43,10 @@ import {
 
 
 const F8Colors = require('F8Colors')
-const F8MapView = require('F8MapView')
-const F8NotificationsView = require('F8NotificationsView')
 const F8DrawerLayout = require('F8DrawerLayout')
 const {Text} = require('F8Text')
 const MenuItem = require('./MenuItem')
+
 const LoginButton = require('../components/lib/login/LoginButton')
 const ProfilePicture = require('../common/ProfilePicture')
 const GeneralScheduleView = require('./schedule/GeneralScheduleView')
@@ -122,8 +121,8 @@ class F8TabsView extends React.Component {
             myF8Item = (
                 <MenuItem
                     title="My F8"
-                    selected={this.props.tab === 'my-schedule'}
-                    onPress={this.onTabSelect.bind(this, 'my-schedule')}
+                    selected={this.props.tab === 'main'}
+                    onPress={this.onTabSelect.bind(this, 'main')}
                     icon={require('./schedule/img/my-schedule-icon.png')}
                     selectedIcon={require('./schedule/img/my-schedule-icon-active.png')}
                 />
@@ -165,8 +164,6 @@ class F8TabsView extends React.Component {
                     title="Info"
                     selected={this.props.tab === 'info'}
                     onPress={this.onTabSelect.bind(this, 'info')}
-                    icon={require('./info/img/info-icon.png')}
-                    selectedIcon={require('./info/img/info-icon-active.png')}
                 />
                 {loginItem}
             </View>
@@ -224,7 +221,7 @@ function actions(dispatch) {
     };
 }
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
     drawer: {
         flex: 1,
         backgroundColor: 'white',
