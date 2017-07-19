@@ -39,8 +39,6 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-const F8SessionCell = require('F8SessionCell')
-const EmptySchedule = require('../../schedule/EmptySchedule')
 const PureListView = require('../../../common/PureListView')
 const PhotoGrid = require('../../../common/PhotoGrid').default
 
@@ -136,10 +134,7 @@ class RestaurantPhotoHorizonView extends React.Component {
 
     renderEmptyList(): ?ReactElement {
         return (
-            <EmptySchedule
-                title={`No sessions on day match the filter`}
-                text="Check the schedule for the other day or remove the filter."
-            />
+            <View/>
         );
     }
 
