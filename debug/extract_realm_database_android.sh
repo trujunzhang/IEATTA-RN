@@ -14,5 +14,6 @@ else
 		exit
 	"
 	${ADB_PATH}/adb pull "/sdcard/${DB_NAME}" "${DESTINATION_PATH}"
+	open ${DESTINATION_PATH}${DB_NAME}
 	echo "Database exported to ${DESTINATION_PATH}${DB_NAME}"
 fi
