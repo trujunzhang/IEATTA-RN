@@ -46,13 +46,11 @@ import {
 const Platform = require('Platform');
 const BackAndroid = require('BackAndroid');
 const F8TabsView = require('F8TabsView');
-// const FriendsScheduleView = require('./tabs/schedule/FriendsScheduleView');
 const FilterScreen = require('./filter/FilterScreen');
 const LoginModal = require('./components/lib/login/LoginModal');
 const SessionsCarousel = require('./tabs/schedule/SessionsCarousel');
 const SharingSettingsModal = require('./tabs/schedule/SharingSettingsModal');
 const SharingSettingsScreen = require('./tabs/schedule/SharingSettingsScreen');
-const ThirdPartyNotices = require('./tabs/info/ThirdPartyNotices');
 const RatingScreen = require('./rating/RatingScreen');
 
 const {switchTab} = require('./actions');
@@ -174,9 +172,7 @@ let F8Navigator = React.createClass({
         if (route.rate) {
             return <RatingScreen navigator={navigator} surveys={route.surveys}/>;
         }
-        if (route.notices) {
-            return <ThirdPartyNotices navigator={navigator}/>;
-        }
+
         return <F8TabsView navigator={navigator}/>;
     },
 });
