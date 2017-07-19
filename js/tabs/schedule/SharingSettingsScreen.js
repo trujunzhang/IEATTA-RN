@@ -84,7 +84,7 @@ class SharingSettingsScreen extends React.Component {
                         onPress: () => this.props.navigator.pop(),
                     }}
                     rightItem={{
-                        icon: require('./img/logout.png'),
+                        icon: require('./images/logout.png'),
                         title: 'Logout',
                         onPress: () => this.props.dispatch(logOutWithPrompt()),
                     }}

@@ -52,7 +52,7 @@ class SharingSettingsCommon extends React.Component {
     );
     return (
       <View style={[styles.container, this.props.style]}>
-        <Image style={styles.image} source={require('./img/sharing-nux.png')}>
+        <Image style={styles.image} source={require('./images/sharing-nux.png')}>
           {title}
         </Image>
         <View style={styles.content}>

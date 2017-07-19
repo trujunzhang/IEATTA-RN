@@ -43,7 +43,7 @@ let Navigator = require('Navigator');
 let SessionsSectionHeader = require('./SessionsSectionHeader');
 let InviteFriendsButton = require('./InviteFriendsButton');
 let PureListView = require('../../common/PureListView');
-let FriendCell = require('./FriendCell');
+let FriendCell = require('../FriendCell');
 
 type Friend = any;
 
@@ -102,7 +102,7 @@ class FriendsListView extends React.Component {
     renderEmptyList(): ?ReactElement {
         return (
             <EmptySchedule
-                image={require('./img/no-friends-found.png')}
+                image={require('./images/no-friends-found.png')}
                 text={'Friends using the F8 app\nwill appear here.'}>
                 <InviteFriendsButton />
             </EmptySchedule>

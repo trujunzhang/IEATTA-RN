@@ -17,7 +17,7 @@ const F8Colors = require('F8Colors')
 const F8Button = require('F8Button')
 
 import LinearGradient from 'react-native-linear-gradient'
-const IEAStarIcon = require('../../../../common/IEAStarIcon').default
+const IEAStarIcon = require('../../../common/IEAStarIcon').default
 
 import Svg, {
     G,

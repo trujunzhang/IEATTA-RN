@@ -39,12 +39,12 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-const F8SessionCell = require('F8SessionCell')
-const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
-let PureListView = require('../../../../common/PureListView')
+const EventCell = require('EventCell')
+const EmptySchedule = require('../../schedule/EmptySchedule')
+let PureListView = require('../../../common/PureListView')
 
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
-const RLEventListViewHeaderView = require('./RLEventListViewHeaderView')
+const RLRestaurantListViewHeaderView = require('./RLRestaurantListViewHeaderView')
 
 type Props = {
     day: number;
@@ -112,7 +112,7 @@ class EventsListView extends React.Component {
 
     renderRow(session: any, day: number) {
         return (
-            <F8SessionCell
+            <EventCell
                 onPress={() => this.openSession(session, day)}
                 session={session}
             />
@@ -124,12 +124,12 @@ class EventsListView extends React.Component {
             <StaticContainer>
                 <View style={{
                     flex: 1,
-                    marginTop: 120,
+                    marginTop: 200
                 }}>
-                    <RLEventListViewHeaderView item={this.props.item}/>
+                    <RLRestaurantListViewHeaderView/>
                 </View>
             </StaticContainer>
-        );
+        )
     }
 
     renderEmptyList(): ?ReactElement {

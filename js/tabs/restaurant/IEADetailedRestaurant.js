@@ -38,20 +38,19 @@ import {
     Dimensions
 } from 'react-native'
 
-const ListContainer = require('../../../common/ListContainer')
+const ListContainer = require('../../common/ListContainer')
 
-const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
-const FilterHeader = require('../../../tabs/schedule/FilterHeader')
-const FilterSessions = require('../../../tabs/schedule/filterSessions')
+const EmptySchedule = require('../schedule/EmptySchedule')
+const FilterHeader = require('../schedule/FilterHeader')
+const FilterSessions = require('../schedule/filterSessions')
 const F8DrawerLayout = require('F8DrawerLayout')
-const FilterScreen = require('../../../filter/FilterScreen')
+const FilterScreen = require('../../filter/FilterScreen')
 
-const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
-const PeopleInEventListView = require('./layout/PeopleInEventListView')
+const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
 
-const F8Colors = require('F8Colors')
+const EventsListView = require('./layout/EventsListView')
 
-import type {Session} from '../../../reducers/sessions'
+import type {Session} from '../../reducers/sessions'
 
 // TODO: Move from reselect to memoize?
 const {createSelector} = require('reselect')
@@ -70,7 +69,7 @@ type Props = {
     logOut: () => void;
 };
 
-class IEADetailedEvent extends React.Component {
+class IEADetailedRestaurant extends React.Component {
     props: Props;
     _drawer: ?F8DrawerLayout;
 
@@ -87,16 +86,13 @@ class IEADetailedEvent extends React.Component {
             onPress: this.openFilterScreen,
         };
 
-
-        // let sessions = this.props.sessions;
-        let sessions = [{
-            title: "wanghao"
-        }];
+        const filterHeader = Object.keys(this.props.filter).length > 0
+            ? <FilterHeader />
+            : null;
 
         const item = {
-            displayName: "Boba Princess' VIP Affair",
-            restaurantName: "Carl's Jr",
-            address: "Carl's Jr., 708 S Broadway, Los Angeles, CA 90014, USA"
+            displayName: 'Jiangnan Cuisine',
+            address: '3420 Balboa St, San Francisco'
         }
         const events = []
 
@@ -104,13 +100,15 @@ class IEADetailedEvent extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                backgroundColor={F8Colors.controllerViewColor}
-                selectedSectionColor="#51CDDA"
+                // backgroundImage={require('../../sample/348s.jpg')}
                 renderParallaxHeader={(e) => {
-                    return (<RLEventParallaxHeader item={item}/>)
-                }}>
-                <PeopleInEventListView
-                    item={item}
+                    return (<RLRestaurantParallaxHeader item={item}/>)
+                }}
+                backgroundColor="#5597B8"
+                selectedSectionColor="#51CDDA"
+                stickyHeader={filterHeader}
+                rightItem={filterItem}>
+                <EventsListView
                     events={events}
                     navigator={this.props.navigator}
                 />
@@ -130,7 +128,7 @@ class IEADetailedEvent extends React.Component {
                 renderNavigationView={this.renderNavigationView}>
                 {content}
             </F8DrawerLayout>
-        )
+        );
     }
 
     renderNavigationView() {
@@ -157,4 +155,4 @@ function select(store) {
     };
 }
 
-module.exports = connect(select)(IEADetailedEvent);
+module.exports = connect(select)(IEADetailedRestaurant);

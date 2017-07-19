@@ -128,7 +128,7 @@ class AddToScheduleButton extends React.Component {
           <View style={{flex: 1}}>
             <View style={styles.content} collapsable={false}>
               <Animated.Image
-                source={this.props.addedImageSource || require('./img/added.png')}
+                source={this.props.addedImageSource || require('./images/added.png')}
                 style={[styles.icon, addedOpacityImage]}
               />
               <Animated.Text style={[styles.caption, addedOpacity]}>
@@ -137,7 +137,7 @@ class AddToScheduleButton extends React.Component {
             </View>
             <View style={styles.content}>
               <Animated.Image
-                source={require('./img/add.png')}
+                source={require('./images/add.png')}
                 style={[styles.icon, addOpacityImage]}
               />
               <Animated.Text style={[styles.caption, addOpacity]}>

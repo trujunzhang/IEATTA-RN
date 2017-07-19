@@ -123,7 +123,7 @@ class SessionsCarusel extends React.Component {
     if (Platform.OS === 'android') {
       rightItem = {
         title: 'Share',
-        icon: require('./img/share.png'),
+        icon: require('./images/share.png'),
         onPress: this.shareCurrentSession,
       };
     }

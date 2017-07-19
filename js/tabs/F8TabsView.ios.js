@@ -45,8 +45,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 const F8Colors = require('F8Colors')
 
 const IEANearRestaurantScene = require('./home/IEANearRestaurantScene')
-const IEADetailedRestaurant = require('../components/lib/restaurant/IEADetailedRestaurant')
-const IEADetailedEvent = require('../components/lib/event/IEADetailedEvent')
+const IEADetailedRestaurant = require('./restaurant/IEADetailedRestaurant')
+const IEADetailedEvent = require('./event/IEADetailedEvent')
 
 const {switchTab} = require('../actions')
 

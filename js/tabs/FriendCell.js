@@ -31,9 +31,9 @@ let StyleSheet = require('StyleSheet');
 let { Text } = require('F8Text');
 let TouchableHighlight = require('TouchableHighlight');
 let View = require('View');
-let ProfilePicture = require('../../common/ProfilePicture');
+let ProfilePicture = require('../common/ProfilePicture');
 
-import type {FriendsSchedule} from '../../reducers/friendsSchedules';
+import type {FriendsSchedule} from '../reducers/friendsSchedules';
 
 class FriendCell extends React.Component {
   props: {
@@ -45,7 +45,7 @@ class FriendCell extends React.Component {
     const {friend} = this.props;
     const hasSchedule = friend.schedule && Object.keys(friend.schedule).length > 0;
     const auxView = hasSchedule
-      ? <Image source={require('../../common/img/disclosure.png')} />
+      ? <Image source={require('../common/img/disclosure.png')} />
       : <Text style={styles.private}>PRIVATE</Text>;
 
     const cell = (

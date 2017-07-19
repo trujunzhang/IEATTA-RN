@@ -135,12 +135,12 @@ let F8SessionDetails = React.createClass({
             accessibilityTraits="button"
             onPress={this.props.onShare}
             style={styles.shareButton}>
-            <Image source={require('./img/share.png')} />
+            <Image source={require('./images/share.png')} />
           </TouchableOpacity>
         </ScrollView>
         <View style={styles.actions}>
           <AddToScheduleButton
-            addedImageSource={isReactTalk ? require('./img/added-react.png') : null}
+            addedImageSource={isReactTalk ? require('./images/added-react.png') : null}
             isAdded={this.props.isAddedToSchedule}
             onPress={this.toggleAdded}
           />

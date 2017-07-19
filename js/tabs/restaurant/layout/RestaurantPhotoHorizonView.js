@@ -40,9 +40,9 @@ import {
 const {width, height} = Dimensions.get('window')
 
 const F8SessionCell = require('F8SessionCell')
-const EmptySchedule = require('../../../../tabs/schedule/EmptySchedule')
-const PureListView = require('../../../../common/PureListView')
-const PhotoGrid = require('../../../../common/PhotoGrid').default
+const EmptySchedule = require('../../schedule/EmptySchedule')
+const PureListView = require('../../../common/PureListView')
+const PhotoGrid = require('../../../common/PhotoGrid').default
 
 type Props = {
     day: number;

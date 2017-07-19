@@ -38,19 +38,20 @@ import {
     Dimensions
 } from 'react-native'
 
-const ListContainer = require('../../../common/ListContainer')
+const ListContainer = require('../../common/ListContainer')
 
-const EmptySchedule = require('../../../tabs/schedule/EmptySchedule')
-const FilterHeader = require('../../../tabs/schedule/FilterHeader')
-const FilterSessions = require('../../../tabs/schedule/filterSessions')
+const EmptySchedule = require('../schedule/EmptySchedule')
+const FilterHeader = require('../schedule/FilterHeader')
+const FilterSessions = require('../schedule/filterSessions')
 const F8DrawerLayout = require('F8DrawerLayout')
-const FilterScreen = require('../../../filter/FilterScreen')
+const FilterScreen = require('../../filter/FilterScreen')
 
-const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
+const RLEventParallaxHeader = require('./layout/RLEventParallaxHeader')
+const PeopleInEventListView = require('./layout/PeopleInEventListView')
 
-const EventsListView = require('./layout/EventsListView')
+const F8Colors = require('F8Colors')
 
-import type {Session} from '../../../reducers/sessions'
+import type {Session} from '../../reducers/sessions'
 
 // TODO: Move from reselect to memoize?
 const {createSelector} = require('reselect')
@@ -69,7 +70,7 @@ type Props = {
     logOut: () => void;
 };
 
-class IEADetailedRestaurant extends React.Component {
+class IEADetailedEvent extends React.Component {
     props: Props;
     _drawer: ?F8DrawerLayout;
 
@@ -86,13 +87,16 @@ class IEADetailedRestaurant extends React.Component {
             onPress: this.openFilterScreen,
         };
 
-        const filterHeader = Object.keys(this.props.filter).length > 0
-            ? <FilterHeader />
-            : null;
+
+        // let sessions = this.props.sessions;
+        let sessions = [{
+            title: "wanghao"
+        }];
 
         const item = {
-            displayName: 'Jiangnan Cuisine',
-            address: '3420 Balboa St, San Francisco'
+            displayName: "Boba Princess' VIP Affair",
+            restaurantName: "Carl's Jr",
+            address: "Carl's Jr., 708 S Broadway, Los Angeles, CA 90014, USA"
         }
         const events = []
 
@@ -100,15 +104,13 @@ class IEADetailedRestaurant extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                // backgroundImage={require('../../sample/348s.jpg')}
-                renderParallaxHeader={(e) => {
-                    return (<RLRestaurantParallaxHeader item={item}/>)
-                }}
-                backgroundColor="#5597B8"
+                backgroundColor={F8Colors.controllerViewColor}
                 selectedSectionColor="#51CDDA"
-                stickyHeader={filterHeader}
-                rightItem={filterItem}>
-                <EventsListView
+                renderParallaxHeader={(e) => {
+                    return (<RLEventParallaxHeader item={item}/>)
+                }}>
+                <PeopleInEventListView
+                    item={item}
                     events={events}
                     navigator={this.props.navigator}
                 />
@@ -128,7 +130,7 @@ class IEADetailedRestaurant extends React.Component {
                 renderNavigationView={this.renderNavigationView}>
                 {content}
             </F8DrawerLayout>
-        );
+        )
     }
 
     renderNavigationView() {
@@ -155,4 +157,4 @@ function select(store) {
     };
 }
 
-module.exports = connect(select)(IEADetailedRestaurant);
+module.exports = connect(select)(IEADetailedEvent);
