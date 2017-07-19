@@ -40,7 +40,7 @@ import {
 const {width, height} = Dimensions.get('window')
 
 const PeopleInEventCell = require('./PeopleInEventCell')
-const EmptySchedule = require('../../schedule/EmptySchedule')
+const EmptyPeopleInEvent = require('./EmptyPeopleInEvent')
 let PureListView = require('../../../common/PureListView')
 
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
@@ -134,7 +134,7 @@ class EventsListView extends React.Component {
 
     renderEmptyList(): ?ReactElement {
         return (
-            <EmptySchedule
+            <EmptyPeopleInEvent
                 title={`No sessions on day match the filter`}
                 text="Check the schedule for the other day or remove the filter."
             />
