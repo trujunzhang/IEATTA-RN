@@ -20,7 +20,6 @@ const RNFS = require('react-native-fs');
 const downloadUrl = 'http://lorempixel.com/400/200/';
 const downloadLargeUrl = 'http://ipv4.download.thinkbroadband.com/100MB.zip';
 const downloadRedirectUrl = 'http://buz.co/rnfs/download-redirect.php';
-const uploadUrl1 = 'http://buz.co/rnfs/upload-tester.php';
 
 const downloadHeaderUrl = 'http://buz.co/rnfs/download-tester.php';
 const downloadHeaderPath = RNFS.DocumentDirectoryPath + '/headers.json';
@@ -138,42 +137,6 @@ class RNFSApp extends Component {
         }
     }
 
-    uploadFileTest() {
-        const uploadSrc = `${RNFS.DocumentDirectoryPath}/upload.txt`;
-
-        RNFS.writeFile(uploadSrc, 'Some stuff to upload', 'utf8').then(() => {
-            const progress1 = data => {
-                const text = JSON.stringify(data);
-                this.setState({output: text});
-            };
-
-            const begin1 = res => {
-                jobId = res.jobId;
-            };
-
-            const options = {
-                toUrl: uploadUrl1,
-                files: [{name: 'myfile', filename: 'upload.txt', filepath: uploadSrc, filetype: 'text/plain'}],
-                beginCallback: begin1,
-                progressCallback: progress1
-            };
-
-            const ret = RNFS.uploadFiles(options)
-
-            jobId = ret.jobId;
-
-            return ret.promise.then(res => {
-                const response = JSON.parse(res.body);
-
-                this.assert('Upload should have name', response.myfile.name, 'upload.txt');
-                this.assert('Upload should have type', response.myfile.type, 'text/plain');
-                this.assert('Upload should have size', response.myfile.size, 20);
-
-                this.setState({output: 'Upload successful'});
-            });
-        }).catch(err => this.showError(err));
-    }
-
     downloadHeaderTest() {
         const headers = {
             'foo': 'Hello',
@@ -275,7 +238,7 @@ class RNFSApp extends Component {
                                 <Text style={styles.text}>Stop Download</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight onPress={this.uploadFileTest}>
+                        <TouchableHighlight >
                             <View style={styles.button}>
                                 <Text style={styles.text}>Upload File</Text>
                             </View>
