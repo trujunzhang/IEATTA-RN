@@ -40,9 +40,6 @@ import {
 
 const ListContainer = require('../../common/ListContainer')
 
-const EmptySchedule = require('../schedule/EmptySchedule')
-const FilterHeader = require('../schedule/FilterHeader')
-const FilterSessions = require('../schedule/filterSessions')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../filter/FilterScreen')
 
@@ -58,7 +55,6 @@ const {createSelector} = require('reselect')
 const data = createSelector(
     (store) => store.sessions,
     (store) => store.filter,
-    (sessions, filter) => FilterSessions.byTopics(sessions, filter),
 );
 
 type Props = {
@@ -86,9 +82,6 @@ class IEADetailedRestaurant extends React.Component {
             onPress: this.openFilterScreen,
         };
 
-        const filterHeader = Object.keys(this.props.filter).length > 0
-            ? <FilterHeader />
-            : null;
 
         const item = {
             displayName: 'Jiangnan Cuisine',
@@ -106,7 +99,6 @@ class IEADetailedRestaurant extends React.Component {
                 }}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA"
-                stickyHeader={filterHeader}
                 rightItem={filterItem}>
                 <EventsListView
                     events={events}

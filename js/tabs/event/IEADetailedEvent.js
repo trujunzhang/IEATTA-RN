@@ -40,9 +40,6 @@ import {
 
 const ListContainer = require('../../common/ListContainer')
 
-const EmptySchedule = require('../schedule/EmptySchedule')
-const FilterHeader = require('../schedule/FilterHeader')
-const FilterSessions = require('../schedule/filterSessions')
 const F8DrawerLayout = require('F8DrawerLayout')
 const FilterScreen = require('../../filter/FilterScreen')
 
