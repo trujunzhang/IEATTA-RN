@@ -1,7 +1,7 @@
 const Parse = require('parse/react-native')
 import moment from 'moment'
 
-let {ParsePost, ParseFolder, ParseUser} = require('../parse/objects').default
+let {ParsePost, ParseFolder, ParseUser} = require('../objects').default
 
 /**
  * The states were interested in
@@ -11,7 +11,7 @@ const {
   USERPROFILE_TYPE_DOWNVOTE,
   USERPROFILE_TYPE_SUBMITTED_POSTS,
   USERPROFILE_TYPE_FOLDER_LIST
-} = require('../lib/constants').default
+} = require('../../lib/constants').default
 
 export default class UsersParameters {
   constructor(query: Parse.Query) {

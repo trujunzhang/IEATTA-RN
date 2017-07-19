@@ -1,6 +1,6 @@
 const Parse = require('parse/react-native')
 
-let Parameters = require('../parameters').default
+let Parameters = require('./parameters').default
 
 let {ParsePost, ParseRecord, ParseUser} = require('./objects').default
 
