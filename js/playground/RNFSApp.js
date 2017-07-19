@@ -294,4 +294,4 @@ const styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('ReactNativeFSTest', () => RNFSApp);
+module.exports = RNFSApp
