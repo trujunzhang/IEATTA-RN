@@ -1,9 +1,9 @@
 #!/bin/sh
 mkdir /tmp/ieatta-db
-ADB_PATH="/Users/medyo/Library/Android/sdk/platform-tools"
+ADB_PATH="/Users/djzhang/Library/Android/sdk/platform-tools"
 PACKAGE_NAME="com.ieatta"
 DB_NAME="default.realm"
-DESTINATION_PATH="/tmp/ieatta-db"
+DESTINATION_PATH="/tmp/ieatta-db/"
 NOT_PRESENT="List of devices attached"
 ADB_FOUND=`${ADB_PATH}/adb devices | tail -2 | head -1 | cut -f 1 | sed 's/ *$//g'`
 if [[ ${ADB_FOUND} == ${NOT_PRESENT} ]]; then
