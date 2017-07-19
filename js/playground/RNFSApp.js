@@ -85,6 +85,7 @@ class RNFSApp extends Component {
     }
 
     downloadFileTest(background, url) {
+        debugger
         if (jobId !== -1) {
             this.setState({output: 'A download is already in progress'});
         }
