@@ -37,55 +37,7 @@ class RNFSApp extends Component {
         }
     }
 
-    mochaTest() {
-        const tests = [];
-        let beforeEachCallback;
-        let log = '';
-
-        const describe = (name, callback) => {
-            callback();
-        };
-
-        const beforeEach = (callback) => {
-            beforeEachCallback = callback;
-        };
-
-        const it = (name, callback) => {
-            tests.push({name, callback});
-        };
-
-        const fail = (name, err) => {
-            console.warn(name, err.message);
-        };
-
-        const pass = (name) => {
-            console.log(name);
-            log += `${name}\n`;
-            this.setState({output: log});
-        };
-
-
-        let currentTest = Promise.resolve();
-
-        tests.forEach((test) => {
-            try {
-                currentTest = currentTest.then(() => {
-                    return beforeEachCallback().then(() => {
-                        return test.callback();
-                    }).then(() => {
-                        pass(test.name);
-                    }).catch(err => {
-                        fail(test.name, err);
-                    });
-                });
-            } catch (err) {
-                fail(test.name, err);
-            }
-        });
-    }
-
     downloadFileTest(background, url) {
-        debugger
         if (jobId !== -1) {
             this.setState({output: 'A download is already in progress'});
         }
@@ -119,11 +71,13 @@ class RNFSApp extends Component {
         jobId = ret.jobId;
 
         ret.promise.then(res => {
+            debugger
             this.setState({output: JSON.stringify(res)});
             this.setState({imagePath: {uri: 'file://' + downloadDest}});
 
             jobId = -1;
         }).catch(err => {
+            debugger
             this.showError(err)
 
             jobId = -1;
@@ -206,7 +160,7 @@ class RNFSApp extends Component {
             <View style={styles.container} collapsable={false}>
                 <View style={styles.panes}>
                     <View style={styles.leftPane}>
-                        <TouchableHighlight onPress={this.mochaTest}>
+                        <TouchableHighlight >
                             <View style={styles.button}>
                                 <Text style={styles.text}>Mocha Test</Text>
                             </View>
@@ -269,6 +223,7 @@ class RNFSApp extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 40,
         backgroundColor: '#F5FCFF',
     },
     panes: {
