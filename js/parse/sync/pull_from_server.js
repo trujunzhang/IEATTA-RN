@@ -13,7 +13,7 @@ const {
     PARSE_RECORDS
 } = require('../../lib/constants').default
 
-const ParsePhotoAccess = require('./parsePhotoAccess')
+const ParsePhotoAccess = require('./parsePhotoAccess').default
 
 /**
  * How to sync the data between the local and the server parse.
