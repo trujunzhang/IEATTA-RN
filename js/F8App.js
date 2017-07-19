@@ -73,14 +73,14 @@ class F8App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // playground: true,
-            playground: false,
+            playground: true,
+            // playground: false,
         };
     }
 
     scheduledTask() {
         // debugger
-         this.props.dispatch(syncBetweenParseAndRealm())
+        this.props.dispatch(syncBetweenParseAndRealm())
     }
 
     componentDidMount() {
@@ -128,7 +128,8 @@ class F8App extends Component {
 
     render() {
         if (this.state.playground) {
-            return <Playground.Playground/>
+            // return <Playground.Playground/>
+            return <Playground.RNFSApp/>
             // return <Playground.MapViewScene/>
             //return <Playground.SectionsListViewScene/>
             //return <Playground.ReactNativeMapsApp/>
