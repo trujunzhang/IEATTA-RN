@@ -22,14 +22,16 @@ const {
 } = require('../lib/constants').default
 
 export function configureImageFolder() {
-    const originalFold = RNFS.PicturesDirectoryPath + '/original'
-    const thumbnailFold = RNFS.PicturesDirectoryPath + '/original'
+    const originalFold = `${RNFS.DocumentDirectoryPath}/original`
+    const thumbnailFold = `${RNFS.DocumentDirectoryPath}/thumbail`
+
+    console.log(originalFold)
+    console.log(thumbnailFold)
 
     RNFS.mkdir(originalFold)
-        .mkdir(thumbnailFold)
-        .then()
+    RNFS.mkdir(thumbnailFold)
 }
 
 export function getLocalImagePath(id, type) {
-    return `${RNFS.DocumentDirectoryPath}/${id}_${type}.jpg`;
+    return `${RNFS.DocumentDirectoryPath}/${type}/${id}_${type}.jpg`;
 }

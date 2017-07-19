@@ -64,7 +64,7 @@ function setup(): ReactClass<{}> {
             retryDelays: [5000, 10000],
         })
     );
-    
+
     class Root extends React.Component {
         state: {
             isLoading: boolean;
