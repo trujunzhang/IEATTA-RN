@@ -1,5 +1,5 @@
 import Telescope from '../components/lib/config';
-let _ = require('underscore');
+const _ = require('underscore');
 
 Telescope.settings = {
     collection: {}

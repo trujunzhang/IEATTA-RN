@@ -1,4 +1,4 @@
-let _ = require('underscore')
+const _ = require('underscore')
 
 function adjustNewQuery(router, newQuery) {
   const query = _.clone(router.location.query)

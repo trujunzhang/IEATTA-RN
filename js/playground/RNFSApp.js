@@ -15,14 +15,16 @@ import {
     Image
 } from 'react-native';
 
-const RNFS = require('react-native-fs');
+const md5 = require('blueimp-md5')
 
-const downloadUrl = 'http://lorempixel.com/400/200/';
-const downloadLargeUrl = 'http://ipv4.download.thinkbroadband.com/100MB.zip';
-const downloadRedirectUrl = 'http://buz.co/rnfs/download-redirect.php';
+const RNFS = require('react-native-fs')
 
-const downloadHeaderUrl = 'http://buz.co/rnfs/download-tester.php';
-const downloadHeaderPath = RNFS.DocumentDirectoryPath + '/headers.json';
+const downloadUrl = 'http://lorempixel.com/400/200/'
+const downloadLargeUrl = 'http://ipv4.download.thinkbroadband.com/100MB.zip'
+const downloadRedirectUrl = 'http://buz.co/rnfs/download-redirect.php'
+
+const downloadHeaderUrl = 'http://buz.co/rnfs/download-tester.php'
+const downloadHeaderPath = RNFS.DocumentDirectoryPath + '/headers.json'
 
 let jobId = -1;
 
@@ -70,14 +72,14 @@ class RNFSApp extends Component {
 
         jobId = ret.jobId;
 
+        debugger
+
         ret.promise.then(res => {
-            debugger
             this.setState({output: JSON.stringify(res)});
             this.setState({imagePath: {uri: 'file://' + downloadDest}});
 
             jobId = -1;
         }).catch(err => {
-            debugger
             this.showError(err)
 
             jobId = -1;

@@ -1,5 +1,5 @@
 let slugify = require('slugify')
-let _ = require('underscore')
+const _ = require('underscore')
 
 
 export type Pointer = {

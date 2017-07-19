@@ -25,37 +25,37 @@
 
 let {convertToObject} = require('../../lib/utils')
 
-let _ = require('underscore')
+const _ = require('underscore')
 
 function byListId(listContainerTasks: Any, listId: string, limit: int) {
 
-  let taskObject = convertToObject(listContainerTasks)
+    let taskObject = convertToObject(listContainerTasks)
 
-  let task = taskObject[listId]
+    let task = taskObject[listId]
 
-  if (!!task) {
-    return task
-  }
+    if (!!task) {
+        return task
+    }
 
-  return {
-    id: listId,
-    ready: false,
-    totalCount: 0,
-    limit: limit,
-    firstPagination: true,
-    pageIndex: 1,
-    results: []
-  }
+    return {
+        id: listId,
+        ready: false,
+        totalCount: 0,
+        limit: limit,
+        firstPagination: true,
+        pageIndex: 1,
+        results: []
+    }
 }
 
 function generateMarkers(listContainerTasks: Any, listId: string) {
-  let taskObject = convertToObject(listContainerTasks)
+    let taskObject = convertToObject(listContainerTasks)
 
-  let task = (taskObject[listId] || {})
+    let task = (taskObject[listId] || {})
 
     return (task.results || []).map((item, index) => {
         return {lat: item.geoLocation.latitude, lng: item.geoLocation.longitude}
-  })
+    })
 }
 
 export default  {byListId, generateMarkers}
