@@ -56,7 +56,6 @@ const {createSelector} = require('reselect')
 const data = createSelector(
     (store) => store.sessions,
     (store) => store.filter,
-    (sessions, filter) => FilterSessions.byTopics(sessions, filter),
 );
 
 type Props = {
