@@ -48,9 +48,6 @@ const BackAndroid = require('BackAndroid');
 const F8TabsView = require('F8TabsView');
 const FilterScreen = require('./filter/FilterScreen');
 const LoginModal = require('./components/lib/login/LoginModal');
-const SessionsCarousel = require('./tabs/schedule/SessionsCarousel');
-const SharingSettingsModal = require('./tabs/schedule/SharingSettingsModal');
-const SharingSettingsScreen = require('./tabs/schedule/SharingSettingsScreen');
 const RatingScreen = require('./rating/RatingScreen');
 
 const {switchTab} = require('./actions');
@@ -124,35 +121,11 @@ let F8Navigator = React.createClass({
     },
 
     renderScene: function (route, navigator) {
-        if (route.allSessions) {
-            return (
-                <SessionsCarousel
-                    {...route}
-                    navigator={navigator}
-                />
-            );
-        }
-        if (route.session) {
-            return (
-                <SessionsCarousel
-                    session={route.session}
-                    navigator={navigator}
-                />
-            );
-        }
         if (route.filter) {
             return (
                 <FilterScreen navigator={navigator}/>
             );
         }
-        // if (route.friend) {
-        //     return (
-        //         <FriendsScheduleView
-        //             friend={route.friend}
-        //             navigator={navigator}
-        //         />
-        //     );
-        // }
         if (route.login) {
             return (
                 <LoginModal
@@ -160,14 +133,6 @@ let F8Navigator = React.createClass({
                     onLogin={route.callback}
                 />
             );
-        }
-        if (route.share) {
-            return (
-                <SharingSettingsModal navigator={navigator}/>
-            );
-        }
-        if (route.shareSettings) {
-            return <SharingSettingsScreen navigator={navigator}/>;
         }
         if (route.rate) {
             return <RatingScreen navigator={navigator} surveys={route.surveys}/>;

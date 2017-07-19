@@ -39,7 +39,7 @@ import {
 } from 'react-native'
 const {width, height} = Dimensions.get('window')
 
-const F8SessionCell = require('F8SessionCell')
+const PeopleInEventCell = require('./PeopleInEventCell')
 const EmptySchedule = require('../../schedule/EmptySchedule')
 let PureListView = require('../../../common/PureListView')
 
@@ -112,7 +112,7 @@ class EventsListView extends React.Component {
 
     renderRow(session: any, day: number) {
         return (
-            <F8SessionCell
+            <PeopleInEventCell
                 onPress={() => this.openSession(session, day)}
                 session={session}
             />

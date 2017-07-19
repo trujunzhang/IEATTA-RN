@@ -19,27 +19,33 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE
  *
- * @providesModule F8SessionCell
+ * @providesModule PeopleInEventCell
  * @flow
  */
 
 'use strict';
 
+
+/**
+ * The components needed from React
+ */
+import React, {Component} from 'react'
+import {
+    TouchableOpacity,
+    View,
+    Image,
+    StyleSheet,
+    Platform,
+    Dimensions
+} from 'react-native'
+
 let F8Colors = require('F8Colors');
-let Image = require('Image');
-let React = require('React');
-let StyleSheet = require('StyleSheet');
 let {Text} = require('F8Text');
 let F8Touchable = require('F8Touchable');
-let View = require('View');
-let formatDuration = require('./formatDuration');
-let formatTime = require('./formatTime');
 
-let {connect} = require('react-redux');
+import type {Session} from '../../../reducers/sessions';
 
-import type {Session} from '../../reducers/sessions';
-
-class F8SessionCell extends React.Component {
+class PeopleInEventCell extends React.Component {
     props: {
         session: Session;
         showTick: boolean;
@@ -53,7 +59,7 @@ class F8SessionCell extends React.Component {
         let tick;
         if (this.props.showTick) {
             tick =
-                <Image style={styles.added} source={require('./images/added-cell.png')}/>;
+                <Image style={styles.added} source={require('../../images/added-cell.png')}/>;
         }
         let time = "31/05/2017";
         // if (this.props.showStartEndTime) {
@@ -92,7 +98,7 @@ class F8SessionCell extends React.Component {
 }
 
 
-let styles = StyleSheet.create({
+const styles = StyleSheet.create({
     cell: {
         paddingVertical: 15,
         paddingLeft: 17,
@@ -130,10 +136,14 @@ let styles = StyleSheet.create({
     },
 });
 
+
+let {connect} = require('react-redux');
+
+
 function select(store, props) {
     return {
         showTick: true,
     };
 }
 
-module.exports = connect(select)(F8SessionCell);
+module.exports = connect(select)(PeopleInEventCell);
