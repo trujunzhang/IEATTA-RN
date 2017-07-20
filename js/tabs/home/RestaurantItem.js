@@ -63,6 +63,7 @@ class RestaurantItem extends Component {
     renderLeft() {
         const {item} = this.props
         const imageSource = getLocalImageUri(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
+        debugger
         return (
             <View style={{
                 marginRight: 10,
@@ -73,7 +74,7 @@ class RestaurantItem extends Component {
                     flex: 1,
                     borderRadius: 4
                 }}
-                       source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}/>
+                       source={imageSource}/>
             </View>
         )
     }

@@ -25,13 +25,16 @@ export function getLocalImagePath(id, type) {
     return `${RNFS.DocumentDirectoryPath}/${type}/${id}.jpg`;
 }
 
-export function getLocalImageUri(id, type) {
+export async function getLocalImageUri(id, type) {
     const path = `${RNFS.DocumentDirectoryPath}/${type}/${id}.jpg`;
 
-    debugger
-    const exist = RNFS.exists(path)
+    // debugger
+    let exist = false;
+    await RNFS.exists(path).then((isExist) => {
+        exist = isExist;
+    })
 
-    debugger
+    // debugger
     if (exist) {
         return {uri: 'file://' + path};
     }
