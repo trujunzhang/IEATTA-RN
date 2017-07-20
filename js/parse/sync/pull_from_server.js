@@ -33,10 +33,12 @@ const RNFS = require('react-native-fs')
 
 export async function saveRecord(record, index) {
     if (record.recordType === "photo") {
-        if (!!record.photo.original.url) {
+        let photo = record.photo;
+        debugger
+        if (!!photo.original.url) {
             await RNFS.downloadFile({
-                fromUrl: record.photo.original.url,
-                toFile: getLocalImagePath(record.photo.id, PARSE_ORIGINAL_IMAGES)
+                fromUrl: photo.original.url,
+                toFile: getLocalImagePath(photo.id, PARSE_ORIGINAL_IMAGES)
             }).promise.then(() => {
 
             }).catch(err => {
@@ -45,10 +47,10 @@ export async function saveRecord(record, index) {
         } else {
             debugger
         }
-        if (!!record.photo.thumbnail.url) {
+        if (!!photo.thumbnail.url) {
             await RNFS.downloadFile({
-                fromUrl: record.photo.thumbnail.url,
-                toFile: getLocalImagePath(record.photo.id, PARSE_THUMBNAIL_IMAGES)
+                fromUrl: photo.thumbnail.url,
+                toFile: getLocalImagePath(photo.id, PARSE_THUMBNAIL_IMAGES)
             }).promise.then(() => {
             }).catch(err => {
                 debugger
