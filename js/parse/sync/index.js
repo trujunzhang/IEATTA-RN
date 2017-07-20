@@ -8,8 +8,8 @@ const {pullFromServer} = require('./pull_from_server')
 
 const {ConfigureService} = require('../realmApi').default
 
-const RECORDS_COUNT_PUSH = 5
-const RECORDS_COUNT_PULL = 5
+const RECORDS_COUNT_PUSH = 15
+const RECORDS_COUNT_PULL = 15
 
 /**
  * The states were interested in

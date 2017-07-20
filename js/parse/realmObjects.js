@@ -59,7 +59,10 @@ RestaurantSchema.schema = {
         objectId: 'string',
         displayName: 'string',
         address: 'string',
-        url: 'string',
+        latitude: 'double',
+        longitude: 'double',
+        geoHash: 'string',
+        updatedAt: 'string'
         // photos: {type: 'list', objectType: PARSE_PHOTOS},
     }
 }

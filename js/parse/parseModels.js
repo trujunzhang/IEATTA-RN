@@ -165,17 +165,15 @@ export function fromParseEvent(map: Object): Event {
     };
 }
 
-
 export function fromParseRestaurant(map: Object): Restaurant {
     return {
         id: map.id,
         displayName: map.get('displayName'),
         address: map.get('address'),
         geoLocation: map.get('geoLocation'),
-        reviews: (map.get('reviews') || []),
         updatedAt: map.get('updatedAt'),
-        url: map.get('url'),
-        status: map.get('status') || 2,
+        // Pointer
+        reviews: (map.get('reviews') || []),
     };
 }
 
