@@ -32,21 +32,32 @@ const RNFS = require('react-native-fs')
 
 
 export async function saveRecord(record, index) {
-    writeParseRecord(record)
     if (record.recordType === "photo") {
-        await RNFS.downloadFile({
-            fromUrl: record.photo.original.url,
-            toFile: getLocalImagePath(record.photo.id, PARSE_ORIGINAL_IMAGES)
-        }).promise.then().catch(err => {
+        if (!!record.photo.original.url) {
+            await RNFS.downloadFile({
+                fromUrl: record.photo.original.url,
+                toFile: getLocalImagePath(record.photo.id, PARSE_ORIGINAL_IMAGES)
+            }).promise.then(() => {
+
+            }).catch(err => {
+                debugger
+            })
+        } else {
             debugger
-        })
-        await RNFS.downloadFile({
-            fromUrl: record.photo.thumbnail.url,
-            toFile: getLocalImagePath(record.photo.id, PARSE_THUMBNAIL_IMAGES)
-        }).promise.then().catch(err => {
+        }
+        if (!!record.photo.thumbnail.url) {
+            await RNFS.downloadFile({
+                fromUrl: record.photo.thumbnail.url,
+                toFile: getLocalImagePath(record.photo.id, PARSE_THUMBNAIL_IMAGES)
+            }).promise.then(() => {
+            }).catch(err => {
+                debugger
+            })
+        } else {
             debugger
-        })
+        }
     }
+    writeParseRecord(record)
     ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
 }
 

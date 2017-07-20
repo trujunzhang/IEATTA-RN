@@ -54,7 +54,7 @@ const {
 const RestaurantItem = require('./RestaurantItem')
 const RestaurantHomeListItem = require('./RestaurantHomeListItem')
 
-const {queryNearRestaurant} = require('./actions')
+const {queryNearRestaurant} = require('../../actions')
 
 const TOP_MENUS = [
     {
