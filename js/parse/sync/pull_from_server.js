@@ -64,10 +64,8 @@ export async function saveRecord(record, index) {
  */
 async function getMoviesFromApi() {
     try {
-        debugger
         let response = await fetch('https://facebook.github.io/react-native/movies.json');
         let responseJson = await response.json();
-        debugger
         return responseJson.movies;
     } catch (error) {
         console.error(error);
@@ -78,7 +76,7 @@ export async function pullFromServer(countPerTime, lastRecordUpdatedData) {
     const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
     let results = await recordsQuery.limit(countPerTime).find()
     let records = (results || []).map(fromParseRecord)
-    // debugger
+    debugger
 
     for (let i = 0; i < records.length; i++) {
         await saveRecord(records[i], i)
