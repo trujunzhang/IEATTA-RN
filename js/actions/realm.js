@@ -44,7 +44,7 @@ function queryNearRestaurant(): ThunkAction {
     return (dispatch) => {
 
         const results = RestaurantService.findAll()
-        // debugger
+        debugger
 
         return dispatch({
             type: QUERY_NEAR_RESTAURANTS,

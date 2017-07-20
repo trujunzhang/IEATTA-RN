@@ -95,7 +95,7 @@ class FilterScreen extends React.Component {
             <TopicItem
                 key={topic}
                 topic={topic}
-                color={F8Colors.colorForTopic((this.props.topics||[]).length, ii)}
+                color={F8Colors.colorForTopic((this.props.topics || []).length, ii)}
                 isChecked={this.state.selectedTopics[topic]}
                 onToggle={this.toggleTopic.bind(this, topic)}
             />
@@ -187,8 +187,6 @@ function select(store) {
     return {
         isLoggedIn: store.user.isLoggedIn,
         friendsSchedules: store.friendsSchedules,
-        topics: [],
-        selectedTopics: store.filter,
     };
 }
 

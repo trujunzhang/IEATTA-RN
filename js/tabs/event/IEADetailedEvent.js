@@ -55,7 +55,6 @@ const {createSelector} = require('reselect')
 
 const data = createSelector(
     (store) => store.sessions,
-    (store) => store.filter,
 );
 
 type Props = {
@@ -148,8 +147,6 @@ const {connect} = require('react-redux')
 function select(store) {
     return {
         day: store.navigation.day,
-        filter: store.filter,
-        sessions: data(store),
     };
 }
 
