@@ -221,7 +221,7 @@ const {connect} = require('react-redux')
 function select(store) {
     return {
         restaurants: store.restaurants
-    };
+    }
 }
 
 module.exports = connect(select)(IEANearRestaurantScene)
