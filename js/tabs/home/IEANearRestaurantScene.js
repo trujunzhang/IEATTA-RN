@@ -109,7 +109,7 @@ class IEANearRestaurantScene extends Component {
                 MENU_SECTIONS_MORE: TOP_MENUS,
                 MENU_SECTIONS_RESTAURANT: []
             },
-            sectionTitle: {
+            sectionTitles: {
                 MENU_SECTIONS_MORE: 'More',
                 MENU_SECTIONS_RESTAURANT: 'Restaurants Nearby'
             }
@@ -140,7 +140,8 @@ class IEANearRestaurantScene extends Component {
         return (<RestaurantItem key={key} item={item}/>)
     }
 
-    renderSectionHeader(sectionData, sectionTitle) {
+    renderSectionHeader(sectionData, sectionId) {
+        const {sectionTitles} = this.state
         return (
             <View
                 style={{
@@ -161,7 +162,7 @@ class IEANearRestaurantScene extends Component {
                         marginBottom: 0,
                         fontSize: 20,
                     }
-                }>{sectionTitle}</Text>
+                }>{sectionTitles[sectionId]}</Text>
             </View>
         )
     }
@@ -180,8 +181,6 @@ class IEANearRestaurantScene extends Component {
                 this.context.openDrawer()
             }
         } : null
-
-        debugger
 
         return (
             <View style={{flex: 1, backgroundColor: F8Colors.controllerViewColor}}>
