@@ -122,7 +122,7 @@ class IEANearRestaurantScene extends Component {
                 MENU_SECTIONS_MORE: TOP_MENUS,
                 MENU_SECTIONS_RESTAURANT: nextProps.restaurants
             }
-        });
+        })
     }
 
     componentDidMount() {

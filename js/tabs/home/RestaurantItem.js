@@ -57,12 +57,11 @@ class RestaurantItem extends Component {
                 width: 60,
                 height: 60
             }}>
-                <Image
-                    style={{
-                        flex: 1,
-                        borderRadius: 4
-                    }}
-                    source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}/>
+                <Image style={{
+                    flex: 1,
+                    borderRadius: 4
+                }}
+                       source={{url: 'https://s3-media4.fl.yelpcdn.com/bphoto/oBdw4OSzt2CpuOnpOGw4Ow/60s.jpg'}}/>
             </View>
         )
     }
@@ -85,10 +84,12 @@ class RestaurantItem extends Component {
     }
 
     renderRight() {
-        const item = {
-            displayName: 'Jiangnan Cuisine',
-            address: '3420 Balboa St, San Francisco'
-        }
+        const {item} = this.props
+        // debugger
+        // const itemx = {
+        //     displayName: 'Jiangnan Cuisine',
+        //     address: '3420 Balboa St, San Francisco'
+        // }
         return (
             <View style={{
                 flex: 1,
