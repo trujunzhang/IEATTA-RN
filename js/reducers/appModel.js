@@ -34,11 +34,14 @@ const {
     QUERY_NEAR_RESTAURANTS,
 } = require('../lib/constants').default
 
-function restaurants(state: State = [], action: Action): State {
+function appModel(state: State = [], action: Action): State {
     if (action.type === QUERY_NEAR_RESTAURANTS) {
-        return action.payload;
+        const nextState = Object.assign({}, state, {
+            restaurants: action.payload
+        })
+        return nextState
     }
     return state;
 }
 
-module.exports = restaurants;
+module.exports = appModel;

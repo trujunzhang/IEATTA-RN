@@ -120,7 +120,7 @@ class IEANearRestaurantScene extends Component {
         this.setState({
             sections: {
                 MENU_SECTIONS_MORE: TOP_MENUS,
-                MENU_SECTIONS_RESTAURANT: nextProps.restaurants
+                MENU_SECTIONS_RESTAURANT: nextProps.appModel.restaurants
             }
         })
     }
@@ -220,7 +220,7 @@ const {connect} = require('react-redux')
 
 function select(store) {
     return {
-        restaurants: store.restaurants
+        appModel: store.appModel
     }
 }
 

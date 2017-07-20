@@ -31,7 +31,7 @@ module.exports = combineReducers({
     notifications: require('./notifications'),
     maps: require('./maps'),
     user: require('./user'),
-    restaurants: require('./restaurants'),
+    appModel: require('./appModel'),
     navigation: require('./navigation'),
     auth: require('./auth/authReducer'),
 });
