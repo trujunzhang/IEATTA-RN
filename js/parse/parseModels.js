@@ -107,12 +107,12 @@ export function fromParseRecord(map: Object): Record {
         createdAt: map.get('createdAt'),
         updatedAt: map.get('updatedAt'),
         // Point
-        event: !!map.get('event') ? fromParseEvent(map.get('event')) : null,
-        restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
-        recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
-        photo: !!map.get('photo') ? fromParsePhoto(map.get('photo')) : null,
-        peopleInEvent: !!map.get('peopleInEvent') ? fromParsePeopleInEvent(map.get('peopleInEvent')) : null
-    };
+        event: map.get('event') && fromParseEvent(map.get('event')),
+        restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
+        recipe: map.get('recipe') && fromParseRecipe(map.get('recipe')),
+        photo: map.get('photo') && fromParsePhoto(map.get('photo')),
+        peopleInEvent: map.get('peopleInEvent') && fromParsePeopleInEvent(map.get('peopleInEvent'))
+    }
 }
 
 export function fromParseUser(map: Object): User {
