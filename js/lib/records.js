@@ -44,17 +44,14 @@ Records.realmObjects = {
 Records.getRealmData = function (parseObject, object) {
     switch (parseObject) {
         case PARSE_RESTAURANTS:
-            const _geoHash = encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude)
-            debugger
             return {
                 objectId: object.id,
                 displayName: object.displayName,
                 address: object.address,
                 latitude: object.geoLocation.latitude,
                 longitude: object.geoLocation.longitude,
-                geoHash: _geoHash,
+                geoHash: encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude),
                 updatedAt: object.updatedAt
-                // geoLocation: object.geoLocation,
                 //photos: object.photos,
                 //reviews: object.reviews,
             }
