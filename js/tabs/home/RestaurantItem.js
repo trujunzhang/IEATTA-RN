@@ -41,7 +41,7 @@ const {width, height} = Dimensions.get('window')
 const RestaurantRowHeight = 84
 const RestaurantAvatorWidth = 80
 
-const {getLocalImageUri} = require('../../parse/fsApi')
+const {getLocalImagePath} = require('../../parse/fsApi')
 
 const IEAStarIcon = require('../../common/IEAStarIcon').default
 
@@ -62,7 +62,8 @@ class RestaurantItem extends Component {
 
     renderLeft() {
         const {item} = this.props,
-            {imageUri} = item
+            {localPhotoStatus} = item
+        const imageUri = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
         // debugger
         return (
             <View style={{
