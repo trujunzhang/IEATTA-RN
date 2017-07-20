@@ -147,7 +147,7 @@ export function fromParseRecipe(map: Object): Recipe {
         id: map.id,
         displayName: map.get('displayName'),
         price: map.get('price')
-    };
+    }
 }
 
 
@@ -161,7 +161,16 @@ export function fromParseEvent(map: Object): Event {
         want: map.get('want'),
         restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
         users: (map.get('users') || []).map(fromParseUser)
-    };
+    }
+}
+
+function _get_default_image_for_restaurant(map) {
+    const photos = map.get('photos')
+
+    if (photos.length > 0) {
+        return photos[0].id
+    }
+    return null
 }
 
 export function fromParseRestaurant(map: Object): Restaurant {
@@ -171,9 +180,11 @@ export function fromParseRestaurant(map: Object): Restaurant {
         address: map.get('address'),
         geoLocation: map.get('geoLocation'),
         updatedAt: map.get('updatedAt'),
+        // Photos
+        listPhotoId: _get_default_image_for_restaurant(map),
         // Pointer
-        reviews: (map.get('reviews') || []),
-    };
+        reviews: (map.get('reviews') || [])
+    }
 }
 
 

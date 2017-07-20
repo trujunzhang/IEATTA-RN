@@ -47,11 +47,15 @@ Records.getRealmData = function (parseObject, object) {
             return {
                 objectId: object.id,
                 displayName: object.displayName,
+                // Location
                 address: object.address,
                 latitude: object.geoLocation.latitude,
                 longitude: object.geoLocation.longitude,
                 geoHash: encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude),
-                updatedAt: object.updatedAt
+                // Updated Date
+                updatedAt: object.updatedAt,
+                // Photos
+                listPhotoId: object.listPhotoId
                 //photos: object.photos,
                 //reviews: object.reviews,
             }

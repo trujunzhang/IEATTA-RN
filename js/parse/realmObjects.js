@@ -58,12 +58,15 @@ RestaurantSchema.schema = {
     properties: {
         objectId: 'string',
         displayName: 'string',
+        // Location
         address: 'string',
         latitude: 'double',
         longitude: 'double',
         geoHash: 'string',
-        updatedAt: 'string'
-        // photos: {type: 'list', objectType: PARSE_PHOTOS},
+        // Updated Date
+        updatedAt: 'string',
+        // Photos
+        listPhotoId: 'string'
     }
 }
 
