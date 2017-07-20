@@ -93,16 +93,18 @@ class ParallaxBackground extends React.Component {
     }
 
     renderBackgroundImage(): ?ReactElement {
-        const {backgroundImage, minHeight, maxHeight, offset} = this.props;
+        const {backgroundImage, minHeight, maxHeight, offset} = this.props,
+            {isLocal, path, width} = backgroundImage
         if (!backgroundImage) {
             return null;
         }
-
-        const source = resolveAssetSource(backgroundImage);
-        if (!source) {
-            return null;
-        }
-        const {width} = source;
+        // debugger
+        // const source = resolveAssetSource(path)
+        // if (!source) {
+        //     return null;
+        // }
+        debugger
+        // const {width} = source;
         const translateX = this.state.shift.interpolate({
             inputRange: [0, 1],
             outputRange: [0, SCREEN_WIDTH - width],
@@ -126,7 +128,7 @@ class ParallaxBackground extends React.Component {
         const bgStyle = {opacity: 0.55}
         return (
             <Animated.Image
-                source={backgroundImage}
+                source={{uri: `file://${path}`}}
                 style={[transforms, bgStyle]}
             />
         );

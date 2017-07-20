@@ -63,7 +63,7 @@ class RestaurantItem extends Component {
     renderLeft() {
         const {item} = this.props,
             {localPhotoStatus} = item
-        const imageUri = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
+        const localImagePath = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
         // debugger
         return (
             <View style={{
@@ -75,7 +75,7 @@ class RestaurantItem extends Component {
                     flex: 1,
                     borderRadius: 4
                 }}
-                       source={{uri: `file://${imageUri}`}}/>
+                       source={{uri: `file://${localImagePath}`}}/>
             </View>
         )
     }

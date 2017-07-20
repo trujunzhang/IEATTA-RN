@@ -87,7 +87,7 @@ class IEADetailedRestaurant extends React.Component {
     render() {
         const {item} = this.props,
             {localPhotoStatus} = item
-        const imageUri = getLocalImagePath(item.listPhotoId, PARSE_ORIGINAL_IMAGES)
+        const localImagePath = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
 
         const events = []
 
@@ -95,7 +95,7 @@ class IEADetailedRestaurant extends React.Component {
             <ListContainer
                 item={item}
                 title={item.displayName}
-                // backgroundImage={require('../../sample/348s.jpg')}
+                backgroundImage={{isLocal: true, path: localImagePath, width: 348}}
                 renderParallaxHeader={(e) => {
                     return (<RLRestaurantParallaxHeader item={item}/>)
                 }}
