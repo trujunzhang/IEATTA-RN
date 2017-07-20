@@ -150,18 +150,22 @@ class IEANearRestaurantScene extends Component {
                     marginBottom: 4,
                     // backgroundColor: 'yellow'
                 }}>
-                <Text style={
+                <Text style={[
                     {
                         height: 36,
                         fontWeight: "normal",
                         color: "#666",
+                        fontSize: 20
+                    }, {
                         paddingTop: 5,
                         paddingBottom: 5,
                         paddingLeft: 10,
-                        paddingRight: 10,
-                        marginBottom: 0,
-                        fontSize: 20,
+                        paddingRight: 10
+                    },
+                    {
+                        marginBottom: 0
                     }
+                ]
                 }>{sectionTitles[sectionId]}</Text>
             </View>
         )
