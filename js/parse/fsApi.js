@@ -1,24 +1,11 @@
 'use strict'
 
-const repository = require('../parse/realmObjects').default
-console.log(repository.path)
-
-const Records = require('../lib/records').default
-
 const RNFS = require('react-native-fs')
 
 /**
  * The states were interested in
  */
 const {
-    PARSE_CONFIGURE,
-    PARSE_RESTAURANTS,
-    PARSE_USERS,
-    PARSE_RECORDS,
-    PARSE_EVENTS,
-    PARSE_RECIPES,
-    PARSE_PHOTOS,
-    PARSE_REVIEWS,
     PARSE_ORIGINAL_IMAGES,
     PARSE_THUMBNAIL_IMAGES
 } = require('../lib/constants').default

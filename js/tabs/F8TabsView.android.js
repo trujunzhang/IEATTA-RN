@@ -49,7 +49,6 @@ const MenuItem = require('./MenuItem')
 
 const LoginButton = require('../components/lib/login/LoginButton')
 const ProfilePicture = require('../common/ProfilePicture')
-const GeneralScheduleView = require('./schedule/GeneralScheduleView')
 
 const {switchTab, logOutWithPrompt} = require('../actions')
 
@@ -98,12 +97,6 @@ class F8TabsView extends React.Component {
     }
 
     renderNavigationView() {
-        let scheduleIcon = this.props.day === 1
-            ? require('./schedule/images/schedule-icon-1.png')
-            : require('./schedule/images/schedule-icon-2.png');
-        let scheduleIconSelected = this.props.day === 1
-            ? require('./schedule/images/schedule-icon-1-active.png')
-            : require('./schedule/images/schedule-icon-2-active.png');
         let accountItem, myF8Item, loginItem;
 
         if (this.props.user.isLoggedIn) {
@@ -123,8 +116,6 @@ class F8TabsView extends React.Component {
                     title="My F8"
                     selected={this.props.tab === 'main'}
                     onPress={this.onTabSelect.bind(this, 'main')}
-                    icon={require('./schedule/images/my-schedule-icon.png')}
-                    selectedIcon={require('./schedule/images/my-schedule-icon-active.png')}
                 />
             );
         } else {
@@ -156,8 +147,6 @@ class F8TabsView extends React.Component {
                     title="Restaurants"
                     selected={this.props.tab === 'main'}
                     onPress={this.onTabSelect.bind(this, 'main')}
-                    icon={scheduleIcon}
-                    selectedIcon={scheduleIconSelected}
                 />
                 {myF8Item}
                 <MenuItem
