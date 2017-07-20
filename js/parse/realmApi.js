@@ -73,6 +73,14 @@ const RestaurantService = {
         })
     },
 
+    updateImageUri: function (item, imageUri, callback) {
+        if (!callback) return;
+        repository.write(() => {
+            callback();
+            item.imageUri = imageUri;
+        })
+    },
+
     update: function (todo, callback) {
         if (!callback) return;
         repository.write(() => {
