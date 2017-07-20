@@ -46,7 +46,6 @@ const {Text} = require('F8Text')
 const F8Colors = require('F8Colors')
 const F8Button = require('F8Button')
 
-const {skipLogin} = require('../../../actions')
 
 const LoginButton = require('./LoginButton')
 const AppLogin = require('./general/AppLogin')
@@ -109,7 +108,7 @@ class LoginScreen extends React.Component {
                     // backgroundColor: 'red'
                 }]}
                 onPress={(e) => {
-                    this.props.dispatch(skipLogin())
+                    this.props.notNowPress()
                 }}>
                 <Animated.Image
                     style={this.fadeIn(2800)}
@@ -233,8 +232,7 @@ class LoginScreen extends React.Component {
                     caption="Not Now"
                     source="Modal"
                     onPress={() => {
-                        debugger
-                        this.props.dispatch(skipLogin())
+                        this.props.notNowPress()
                     }}
                 />
                 <Text style={styles.loginComment}>
@@ -325,13 +323,16 @@ const styles = StyleSheet.create({
  */
 import {connect} from 'react-redux'
 
+const {skipLogin} = require('../../../actions')
+
 import * as authActions from '../../../reducers/auth/authActions'
 import {bindActionCreators} from 'redux'
 
 function mapDispatchToProps(dispatch) {
     // console.log("General Login List, dispatch: " + JSON.stringify(dispatch));
     return {
-        actions: bindActionCreators(authActions, dispatch)
+        actions: bindActionCreators(authActions, dispatch),
+        notNowPress: () => dispatch(skipLogin())
     }
 }
 
