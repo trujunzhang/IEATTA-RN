@@ -169,6 +169,8 @@ class IEANearRestaurantScene extends Component {
             }
         } : null
 
+        debugger
+
         return (
             <View style={{flex: 1, backgroundColor: F8Colors.controllerViewColor}}>
                 <F8Header
