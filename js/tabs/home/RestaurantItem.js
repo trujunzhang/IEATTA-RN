@@ -63,7 +63,7 @@ class RestaurantItem extends Component {
     renderLeft() {
         const {item} = this.props,
             {imageUri} = item
-        debugger
+        // debugger
         return (
             <View style={{
                 marginRight: 10,
@@ -74,7 +74,7 @@ class RestaurantItem extends Component {
                     flex: 1,
                     borderRadius: 4
                 }}
-                       source={imageUri}/>
+                       source={{uri: `file://${imageUri}`}}/>
             </View>
         )
     }
