@@ -90,7 +90,6 @@ class PureListView extends React.Component {
             dataSource: _dataSource
         };
 
-
         (this: any).renderHeader = this.renderHeader.bind(this);
         (this: any).renderFooter = this.renderFooter.bind(this);
         (this: any).onContentSizeChange = this.onContentSizeChange.bind(this);
