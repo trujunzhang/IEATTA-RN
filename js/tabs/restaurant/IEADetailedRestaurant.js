@@ -47,7 +47,17 @@ const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader'
 
 const EventsListView = require('./layout/EventsListView')
 
-import type {Session} from '../../reducers/sessions'
+const {getLocalImagePath} = require('../../parse/fsApi')
+const {Event} = require('../../parse/parseModels')
+
+
+/**
+ * The states were interested in
+ */
+const {
+    PARSE_ORIGINAL_IMAGES,
+    PARSE_THUMBNAIL_IMAGES
+} = require('../../lib/constants').default
 
 // TODO: Move from reselect to memoize?
 const {createSelector} = require('reselect')
@@ -58,8 +68,7 @@ const data = createSelector(
 
 type Props = {
     filter: any;
-    day: number;
-    sessions: Array<Session>;
+    events: Array<Event>;
     navigator: Navigator;
     logOut: () => void;
 };
@@ -76,16 +85,10 @@ class IEADetailedRestaurant extends React.Component {
     }
 
     render() {
-        const filterItem = {
-            title: 'Filter',
-            onPress: this.openFilterScreen,
-        };
+        const {item} = this.props,
+            {localPhotoStatus} = item
+        const imageUri = getLocalImagePath(item.listPhotoId, PARSE_ORIGINAL_IMAGES)
 
-
-        const item = {
-            displayName: 'Jiangnan Cuisine',
-            address: '3420 Balboa St, San Francisco'
-        }
         const events = []
 
         const content = (
@@ -97,8 +100,7 @@ class IEADetailedRestaurant extends React.Component {
                     return (<RLRestaurantParallaxHeader item={item}/>)
                 }}
                 backgroundColor="#5597B8"
-                selectedSectionColor="#51CDDA"
-                rightItem={filterItem}>
+                selectedSectionColor="#51CDDA">
                 <EventsListView
                     events={events}
                     navigator={this.props.navigator}

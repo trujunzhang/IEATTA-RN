@@ -102,7 +102,7 @@ class RelayLoading extends React.Component {
                 environment={Relay.Store}
                 render={({props}) => this.renderChild(child, props)}
             />
-        );
+        )
     }
 
     renderChild(child, props) {

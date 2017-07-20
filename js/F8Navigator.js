@@ -142,9 +142,8 @@ let F8Navigator = React.createClass({
         if (route.rate) {
             return <RatingScreen navigator={navigator} surveys={route.surveys}/>;
         }
-// debugger
         if (route.restaurant) {
-            return <IEADetailedRestaurant navigator={navigator}/>
+            return <IEADetailedRestaurant navigator={navigator} item={route.restaurant}/>
         }
 
         return <F8TabsView navigator={navigator}/>;

@@ -99,11 +99,6 @@ class RestaurantItem extends Component {
 
     renderRight() {
         const {item} = this.props
-        // debugger
-        // const itemx = {
-        //     displayName: 'Jiangnan Cuisine',
-        //     address: '3420 Balboa St, San Francisco'
-        // }
         return (
             <View style={{
                 flex: 1,
@@ -153,11 +148,8 @@ class RestaurantItem extends Component {
     }
 
     onPress() {
-        // debugger
         const restaurant = this.props.item
         this.props.navigator.push({restaurant});
-
-        // debugger
     }
 
     render() {
