@@ -29,8 +29,7 @@ export type User = {
     loginType: string,
     email: string,
     slug: string,
-    defaultFolderId: string,
-    folders: Array<Folder>,
+
     upvotedPosts: Array<string>, // PostId array
     downvotedPosts: Array<string>, // PostId array
     upvotedComments: Array<string>, // commentId array
@@ -127,20 +126,20 @@ export function fromParseUser(map: Object): User {
         downvotedPosts: _.pluck((map.get('downvotedPosts') || []).map(fromParsePointer), 'id'),
         upvotedComments: _.pluck((map.get('upvotedComments') || []).map(fromParsePointer), 'id'),
         downvotedComments: _.pluck((map.get('downvotedComments') || []).map(fromParsePointer), 'id')
-    };
+    }
 }
 
 export function fromParsePhoto(map: Object): Photo {
     return {
         id: map.id,
         url: map.get('url'),
-        original: !!map.get('original') ? fromParseFile(map.get('original')) : null,
-        thumbnail: !!map.get('thumbnail') ? fromParseFile(map.get('thumbnail')) : null,
+        original: map.get('original') && fromParseFile(map.get('original')),
+        thumbnail: map.get('thumbnail') && fromParseFile(map.get('thumbnail')),
         photoType: map.get('photoType'),
         // point(2)
-        restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
-        recipe: !!map.get('recipe') ? fromParseRecipe(map.get('recipe')) : null,
-    };
+        // restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
+        // recipe: map.get('recipe') && fromParseRecipe(map.get('recipe'))
+    }
 }
 
 export function fromParseRecipe(map: Object): Recipe {
@@ -160,7 +159,7 @@ export function fromParseEvent(map: Object): Event {
         start: map.get('start'),
         end: map.get('end'),
         want: map.get('want'),
-        restaurant: !!map.get('restaurant') ? fromParseRestaurant(map.get('restaurant')) : null,
+        restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
         users: (map.get('users') || []).map(fromParseUser)
     };
 }
