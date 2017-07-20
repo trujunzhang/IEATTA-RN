@@ -27,16 +27,16 @@
 import type {Action} from '../actions/types';
 
 
+/**
+ * ## Auth actions
+ */
+const {
+    QUERY_NEAR_RESTAURANTS,
+} = require('../lib/constants').default
+
 function restaurants(state: State = [], action: Action): State {
-    if (action.type === 'LOADED_SURVEYS') {
-        return action.list;
-    }
-    if (action.type === 'SUBMITTED_SURVEY_ANSWERS') {
-        const submittedSurveyId = action.id;
-        return state.filter((survey) => survey.id !== submittedSurveyId);
-    }
-    if (action.type === 'LOGGED_OUT') {
-        return [];
+    if (action.type === QUERY_NEAR_RESTAURANTS) {
+        return action.payload;
     }
     return state;
 }
