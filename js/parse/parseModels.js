@@ -165,8 +165,9 @@ export function fromParseEvent(map: Object): Event {
 }
 
 function _get_default_image_for_restaurant(map) {
-    const photos = map.get('photos')
+    const photos = map.get('photos')||[]
 
+    // debugger
     if (photos.length > 0) {
         return photos[0].id
     }

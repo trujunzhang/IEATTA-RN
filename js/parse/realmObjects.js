@@ -64,7 +64,7 @@ RestaurantSchema.schema = {
         longitude: 'double',
         geoHash: 'string',
         // Updated Date
-        updatedAt: 'string',
+        updatedAt: 'date',
         // Photos
         listPhotoId: 'string'
     }
