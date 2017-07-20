@@ -31,7 +31,7 @@
 import React, {Component} from 'react'
 import {
     Text,
-    TouchableOpacity,
+    TouchableHighlight,
     View,
     Image,
     StyleSheet,
@@ -126,7 +126,7 @@ class RestaurantItem extends Component {
         )
     }
 
-    render() {
+    renderCell() {
         const {item} = this.props
         return (
             <View
@@ -149,6 +149,18 @@ class RestaurantItem extends Component {
                     {this.renderRight()}
                 </View>
             </View>
+        )
+    }
+
+    onPress() {
+        debugger
+    }
+
+    render() {
+        return (
+            <TouchableHighlight underlayColor="#3C5EAE" onPress={this.onPress.bind(this)}>
+                {this.renderCell()}
+            </TouchableHighlight>
         )
     }
 
