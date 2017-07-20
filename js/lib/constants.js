@@ -1,13 +1,17 @@
 import keyMirror from 'key-mirror'
 
 export default keyMirror({
-    QUERY_NEAR_RESTAURANTS:null,
+    QUERY_NEAR_RESTAURANTS: null,
 
     // Parse local Images folders
     PARSE_ORIGINAL_IMAGES: null,
     PARSE_THUMBNAIL_IMAGES: null,
 
+
     // Home menu items
+    MENU_SECTIONS_MORE: null,
+    MENU_SECTIONS_RESTAURANT: null,
+    // Home More Menus
     MENU_ITEM_ADD_A_RESTAURANT: null,
     MENU_ITEM_SEARCH_RESTAURANTS: null,
     MENU_ITEM_MANAGE_FRIENDS: null,

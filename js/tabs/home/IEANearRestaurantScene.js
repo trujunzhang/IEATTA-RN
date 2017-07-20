@@ -48,7 +48,9 @@ const {
     MENU_ITEM_ADD_A_RESTAURANT,
     MENU_ITEM_SEARCH_RESTAURANTS,
     MENU_ITEM_MANAGE_FRIENDS,
-    MENU_ITEM_READ_REVIEWS
+    MENU_ITEM_READ_REVIEWS,
+    MENU_SECTIONS_MORE,
+    MENU_SECTIONS_RESTAURANT,
 } = require('../../lib/constants').default
 
 const RestaurantItem = require('./RestaurantItem')
@@ -93,7 +95,6 @@ const foodSections =
 class IEANearRestaurantScene extends Component {
     _innerRef: ?PureListView;
 
-
     static contextTypes = {
         openDrawer: React.PropTypes.func
     };
@@ -105,10 +106,21 @@ class IEANearRestaurantScene extends Component {
 
         this.state = {
             sections: {
-                "More": TOP_MENUS,
-                "Restaurants Nearby": []
+                MENU_SECTIONS_MORE: TOP_MENUS,
+                MENU_SECTIONS_RESTAURANT: []
+            },
+            sectionTitle: {
+                MENU_SECTIONS_MORE: 'More',
+                MENU_SECTIONS_RESTAURANT: 'Restaurants Nearby'
             }
         }
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        let sections = this.state.sections;
+
+        sections[MENU_SECTIONS_RESTAURANT] = nextProps.restaurants;
+        this.setState({sections: sections});
     }
 
     componentDidMount() {
