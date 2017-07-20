@@ -70,7 +70,7 @@ export async function pullFromServer(countPerTime, lastRecordUpdatedData) {
     const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
     let results = await recordsQuery.limit(countPerTime).find()
     let records = (results || []).map(fromParseRecord)
-    debugger
+    // debugger
 
     for (let i = 0; i < records.length; i++) {
         await saveRecord(records[i], i)
