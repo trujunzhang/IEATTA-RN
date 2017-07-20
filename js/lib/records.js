@@ -1,6 +1,5 @@
 const _ = require('underscore')
 
-
 /**
  * The states were interested in
  */
@@ -14,6 +13,8 @@ const {
     PARSE_REVIEWS,
     PARSE_PEOPLE_IN_EVENTS
 } = require('./constants').default
+
+const {encodeGeoHash} = require('../components/vendor/GeoHash')
 
 const {
     ConfigureSchema, RecordSchema,
@@ -50,7 +51,7 @@ Records.getRealmData = function (parseObject, object) {
                 address: object.address,
                 latitude: object.geoLocation.latitude,
                 longitude: object.geoLocation.longitude,
-                geoHash: '123',
+                geoHash: encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude),
                 updatedAt: object.updatedAt
                 // geoLocation: object.geoLocation,
                 //photos: object.photos,
