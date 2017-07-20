@@ -193,7 +193,6 @@ class IEANearRestaurantScene extends Component {
         return (<View style={{height: 60}}/>)
     }
 
-
     storeInnerRef(ref: ?PureListView) {
         this._innerRef = ref;
     }
@@ -201,5 +200,11 @@ class IEANearRestaurantScene extends Component {
 
 const {connect} = require('react-redux')
 
-module.exports = connect()(IEANearRestaurantScene)
+function select(store) {
+    return {
+        restaurants: store.restaurants
+    };
+}
+
+module.exports = connect(select)(IEANearRestaurantScene)
 
