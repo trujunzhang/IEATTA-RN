@@ -134,7 +134,7 @@ class IEANearRestaurantScene extends Component {
 
         const key = `${sectionID}-${rowID}`.replace(' ', '-')
         // console.log("render row: ", key);
-        if (sectionID === 'More') {
+        if (sectionID === MENU_SECTIONS_MORE) {
             return (<RestaurantHomeListItem key={key} item={item}/>)
         }
         return (<RestaurantItem key={key} item={item}/>)
