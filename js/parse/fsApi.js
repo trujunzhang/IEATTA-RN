@@ -36,7 +36,7 @@ export async function getLocalImageUri(id, type) {
 
     // debugger
     if (exist) {
-        return {uri: 'file://' + path};
+        return 'file://' + path;
     }
-    return null;
+    return '';
 }

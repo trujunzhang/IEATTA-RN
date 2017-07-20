@@ -66,15 +66,15 @@ async function _logInWithPassword(username: string, password: string): Promise<A
 
 function logInWithPassword(username: string, password: string): ThunkAction {
     return (dispatch) => {
-        const login = _logInWithPassword(username, password);
+        const action = _logInWithPassword(username, password);
 
         // Loading friends schedules shouldn't block the login process
-        login.then(
+        action.then(
             ([result]) => {
                 dispatch(result);
             }
         );
-        return login;
+        return action;
     };
 }
 
@@ -103,15 +103,15 @@ async function _signUpWithPassword(username: string, email: string, password: st
 
 function signUpWithPassword(username: string, email: string, password: string): ThunkAction {
     return (dispatch) => {
-        const login = _signUpWithPassword(username, email, password)
+        const action = _signUpWithPassword(username, email, password)
 
         // Loading friends schedules shouldn't block the login process
-        login.then(
+        action.then(
             ([result]) => {
                 dispatch(result)
             }
         )
-        return login
+        return action
     }
 }
 

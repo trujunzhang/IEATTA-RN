@@ -28,28 +28,49 @@ const Parse = require('parse/react-native');
 const logError = require('logError');
 const InteractionManager = require('InteractionManager');
 
-import type {ThunkAction} from './types';
+import type {Action, ThunkAction} from './types'
 
 const {RestaurantService} = require('../parse/realmApi').default
+const {getLocalImageUri} = require('../parse/fsApi')
 
 /**
  * The states were interested in
  */
 const {
-    QUERY_NEAR_RESTAURANTS
+    QUERY_NEAR_RESTAURANTS,
+    PARSE_ORIGINAL_IMAGES,
+    PARSE_THUMBNAIL_IMAGES
 } = require('../lib/constants').default
 
 
+async function _queryNearRestaurant(): Promise<Array<Action>> {
+
+    const results = RestaurantService.findAll()
+    for (let i = 0; i < results.length; i++) {
+        const imageUri = await getLocalImageUri(results[i].listPhotoId, PARSE_THUMBNAIL_IMAGES)
+        results[i].imageUri = imageUri
+    }
+
+    const action = {
+        type: QUERY_NEAR_RESTAURANTS,
+        payload: results
+    }
+    return Promise.all([
+        Promise.resolve(action)
+    ])
+}
+
 function queryNearRestaurant(): ThunkAction {
     return (dispatch) => {
+        const action = _queryNearRestaurant()
 
-        const results = RestaurantService.findAll()
-        // debugger
-
-        return dispatch({
-            type: QUERY_NEAR_RESTAURANTS,
-            payload: results
-        })
+        // Loading friends schedules shouldn't block the login process
+        action.then(
+            ([result]) => {
+                dispatch(result)
+            }
+        )
+        return action
     }
 }
 
