@@ -24,28 +24,8 @@
 
 'use strict';
 
-const loginActions = require('./login').default
-const loginCommonActions = require('./loginCommon').default
-const facebookLoginActions = require('./facebookLogin').default
-const syncParseRealmActions = require('./syncParseRealm').default
-const navigationActions = require('./navigation');
-const filterActions = require('./filter');
-const notificationActions = require('./notifications');
-const configActions = require('./config');
-const testActions = require('./test');
-const installationActions = require('./installation');
-const golbalActions = require('./global').default
+const Parse = require('parse/react-native');
+const logError = require('logError');
+const InteractionManager = require('InteractionManager');
 
-module.exports = {
-    ...loginActions,
-    ...loginCommonActions,
-    ...facebookLoginActions,
-    ...syncParseRealmActions,
-    ...filterActions,
-    ...notificationActions,
-    ...configActions,
-    ...testActions,
-    ...navigationActions,
-    ...installationActions,
-    ...golbalActions
-};
+import type {ThunkAction} from './types';
