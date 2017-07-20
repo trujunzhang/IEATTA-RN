@@ -47,12 +47,12 @@ async function _queryNearRestaurant(): Promise<Array<Action>> {
 
     const results = RestaurantService.findAll()
     for (let i = 0; i < results.length; i++) {
-        if (results[i].imageUri !== '') {
+        if (results[i].localPhotoStatus === true) {
             continue
         }
         const imageUri = await getLocalImageUri(results[i].listPhotoId, PARSE_THUMBNAIL_IMAGES)
         if (imageUri !== '') {
-            RestaurantService.updateImageUri(results[i], imageUri, function () {
+            RestaurantService.updateImageUri(results[i], true, function () {
             })
         }
     }

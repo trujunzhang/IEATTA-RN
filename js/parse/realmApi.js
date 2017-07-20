@@ -73,11 +73,11 @@ const RestaurantService = {
         })
     },
 
-    updateImageUri: function (item, imageUri, callback) {
+    updateImageUri: function (item, localPhotoStatus, callback) {
         if (!callback) return;
         repository.write(() => {
             callback();
-            item.imageUri = imageUri;
+            item.localPhotoStatus = localPhotoStatus;
         })
     },
 

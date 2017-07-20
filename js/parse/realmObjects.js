@@ -67,7 +67,7 @@ RestaurantSchema.schema = {
         updatedAt: 'date',
         // Photos
         listPhotoId: 'string',
-        imageUri: 'string'
+        localPhotoStatus: 'bool'
     }
 }
 

@@ -56,7 +56,7 @@ Records.getRealmData = function (parseObject, object) {
                 updatedAt: object.updatedAt,
                 // Photos
                 listPhotoId: object.listPhotoId,
-                imageUri: ''
+                localPhotoStatus: false
 
                 //photos: object.photos,
                 //reviews: object.reviews,
