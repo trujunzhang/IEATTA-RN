@@ -118,7 +118,7 @@ class IEANearRestaurantScene extends Component {
 
     componentWillReceiveProps(nextProps: Props) {
         let sections = this.state.sections;
-
+        console.log("received Restaurants", nextProps.restaurants.length);
         sections[MENU_SECTIONS_RESTAURANT] = nextProps.restaurants;
         this.setState({sections: sections});
     }
