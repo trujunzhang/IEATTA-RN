@@ -54,6 +54,8 @@ const {
 const RestaurantItem = require('./RestaurantItem')
 const RestaurantHomeListItem = require('./RestaurantHomeListItem')
 
+const {queryNearRestaurant} = require('./actions')
+
 const TOP_MENUS = [
     {
         title: "Add a Restaurant",
@@ -110,7 +112,7 @@ class IEANearRestaurantScene extends Component {
     }
 
     componentDidMount() {
-
+        this.props.dispatch(queryNearRestaurant())
     }
 
     renderRow = (item: Object,

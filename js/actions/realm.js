@@ -29,3 +29,28 @@ const logError = require('logError');
 const InteractionManager = require('InteractionManager');
 
 import type {ThunkAction} from './types';
+
+const {RestaurantService} = require('../parse/realmApi').default
+
+/**
+ * The states were interested in
+ */
+const {
+    QUERY_NEAR_RESTAURANTS
+} = require('../lib/constants').default
+
+
+function queryNearRestaurant(): ThunkAction {
+    return (dispatch) => {
+
+        const results = RestaurantService.findAll()
+        debugger
+
+        return dispatch({
+            type: QUERY_NEAR_RESTAURANTS,
+            payload: results
+        })
+    }
+}
+
+export default {queryNearRestaurant}

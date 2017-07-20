@@ -1,6 +1,8 @@
 import keyMirror from 'key-mirror'
 
 export default keyMirror({
+    QUERY_NEAR_RESTAURANTS:null,
+
     // Parse local Images folders
     PARSE_ORIGINAL_IMAGES: null,
     PARSE_THUMBNAIL_IMAGES: null,

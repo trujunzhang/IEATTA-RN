@@ -34,7 +34,8 @@ const notificationActions = require('./notifications');
 const configActions = require('./config');
 const testActions = require('./test');
 const installationActions = require('./installation');
-const golbalActions = require('./global').default
+const globalActions = require('./global').default
+const realmActions = require('./realm').default
 
 module.exports = {
     ...loginActions,
@@ -47,5 +48,6 @@ module.exports = {
     ...testActions,
     ...navigationActions,
     ...installationActions,
-    ...golbalActions
+    ...globalActions,
+    ...realmActions
 };
