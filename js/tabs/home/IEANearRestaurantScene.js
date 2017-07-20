@@ -146,8 +146,8 @@ class IEANearRestaurantScene extends Component {
             <View
                 style={{
                     marginTop: 14,
-                    height: 36,
                     marginBottom: 4,
+                    height: 36,
                     // backgroundColor: 'yellow'
                 }}>
                 <Text style={[
@@ -161,8 +161,7 @@ class IEANearRestaurantScene extends Component {
                         paddingBottom: 5,
                         paddingLeft: 10,
                         paddingRight: 10
-                    },
-                    {
+                    }, {
                         marginBottom: 0
                     }
                 ]
