@@ -169,9 +169,9 @@ function _get_default_image_for_restaurant(map) {
 
     // debugger
     if (photos.length > 0) {
-        return photos[0].id
+        return photos[0].id;
     }
-    return ''
+    return '';
 }
 
 export function fromParseRestaurant(map: Object): Restaurant {
