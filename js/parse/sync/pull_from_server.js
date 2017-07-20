@@ -10,11 +10,13 @@ const {fromParseRecord} = require('../parseModels')
  * The states were interested in
  */
 const {
+    PARSE_ORIGINAL_IMAGES,
+    PARSE_THUMBNAIL_IMAGES,
     PARSE_RECORDS
 } = require('../../lib/constants').default
 
-const {downloadOriginalPhotoImages} = require('./parsePhotoAccess')
-
+const {getLocalImagePath} = require('../fsApi')
+const RNFS = require('react-native-fs')
 /**
  * How to sync the data between the local and the server parse.
  *   @note: Because if the objects had been saved, it's updatedData will be changed.
@@ -28,26 +30,51 @@ const {downloadOriginalPhotoImages} = require('./parsePhotoAccess')
  *   @note: These records will be pull again next scheduled task.
  */
 
+
+export async function saveRecord(record, index) {
+    writeParseRecord(record)
+    if (record.recordType === "photo") {
+        await RNFS.downloadFile({
+            fromUrl: record.photo.original.url,
+            toFile: getLocalImagePath(record.photo.id, PARSE_ORIGINAL_IMAGES)
+        }).promise.then().catch(err => {
+            debugger
+        })
+        await RNFS.downloadFile({
+            fromUrl: record.photo.thumbnail.url,
+            toFile: getLocalImagePath(record.photo.id, PARSE_THUMBNAIL_IMAGES)
+        }).promise.then().catch(err => {
+            debugger
+        })
+    }
+    ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
+}
+
+/**
+ * Thist method just used for test.
+ * @returns {Promise.<*>}
+ */
+async function getMoviesFromApi() {
+    try {
+        debugger
+        let response = await fetch('https://facebook.github.io/react-native/movies.json');
+        let responseJson = await response.json();
+        debugger
+        return responseJson.movies;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function pullFromServer(countPerTime, lastRecordUpdatedData) {
     const recordsQuery = getRecordsParameters({lastUpdatedAt: lastRecordUpdatedData})
     let results = await recordsQuery.limit(countPerTime).find()
     let records = (results || []).map(fromParseRecord)
-    // debugger
+    debugger
 
-    records.map((record, index) => {
-        writeParseRecord(record)
-        if (record.recordType === "photo") {
-            const photo = record.photo;
-            const cachePhoto = {
-                id: photo.id,
-                originalUrl: photo.original.url,
-                thumbnailUrl: photo.thumbnail.url
-            }
-            downloadOriginalPhotoImages(cachePhoto)
-            debugger
-        }
-        ConfigureService.saveLastRecordUpdatedAt(record.updatedAt)
-    })
+    for (let i = 0; i < records.length; i++) {
+        await saveRecord(records[i], i)
+    }
 }
 
 

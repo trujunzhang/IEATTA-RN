@@ -1,6 +1,10 @@
 import keyMirror from 'key-mirror'
 
 export default keyMirror({
+    // Parse local Images folders
+    PARSE_ORIGINAL_IMAGES: null,
+    PARSE_THUMBNAIL_IMAGES: null,
+
     // Home menu items
     MENU_ITEM_ADD_A_RESTAURANT: null,
     MENU_ITEM_SEARCH_RESTAURANTS: null,
