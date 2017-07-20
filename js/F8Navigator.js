@@ -52,6 +52,11 @@ const RatingScreen = require('./rating/RatingScreen');
 
 const {switchTab} = require('./actions');
 
+const IEANearRestaurantScene = require('./tabs/home/IEANearRestaurantScene')
+const IEADetailedRestaurant = require('./tabs/restaurant/IEADetailedRestaurant')
+const IEADetailedEvent = require('./tabs/event/IEADetailedEvent')
+
+
 let F8Navigator = React.createClass({
     _handlers: ([]: Array<() => boolean>),
 
@@ -136,6 +141,10 @@ let F8Navigator = React.createClass({
         }
         if (route.rate) {
             return <RatingScreen navigator={navigator} surveys={route.surveys}/>;
+        }
+// debugger
+        if (route.restaurant) {
+            return <IEADetailedRestaurant navigator={navigator}/>
         }
 
         return <F8TabsView navigator={navigator}/>;

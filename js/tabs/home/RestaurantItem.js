@@ -153,7 +153,11 @@ class RestaurantItem extends Component {
     }
 
     onPress() {
-        debugger
+        // debugger
+        const restaurant = this.props.item
+        this.props.navigator.push({restaurant});
+
+        // debugger
     }
 
     render() {
