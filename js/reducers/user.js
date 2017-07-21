@@ -47,7 +47,6 @@ export type State = {
     slug: ?string;
     email: ?string;
     loginType: ?string;
-    lastRecordUpdatedAt: ? Date;
 }
 
 const emptyUser = {
@@ -61,8 +60,7 @@ const emptyUser = {
 const initialState = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...emptyUser,
-    lastRecordUpdatedAt: null
+    ...emptyUser
 }
 
 function user(state: State = initialState, action: Action): State {
@@ -76,7 +74,6 @@ function user(state: State = initialState, action: Action): State {
         return nextState
     }
     if (action.type === SKIPPED_LOGIN) {
-        debugger
         const nextState = Object.assign({}, state, {
             isLoggedIn: false,
             hasSkippedLogin: true,
@@ -93,10 +90,7 @@ function user(state: State = initialState, action: Action): State {
     }
     if (action.type === SET_SYNC_UPDATEDAT) {
         // debugger
-        const updatedAt = action.payload
-        const nextState = Object.assign({}, state, {
-            lastRecordUpdatedAt: updatedAt
-        })
+        const nextState = Object.assign({}, state, {})
         return nextState
     }
 

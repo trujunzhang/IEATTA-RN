@@ -56,26 +56,22 @@ const loggedUser = {
 const initialTestState = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...emptyUser,
-    lastRecordUpdatedAt: null
+    ...emptyUser
 }
 const initialTestStateWithUser = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...loggedUser,
-    lastRecordUpdatedAt: null
+    ...loggedUser
 }
 const initialTestStateWithSyncDate = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...emptyUser,
-    lastRecordUpdatedAt: '2017-07-05T04:30:30.406Z'
+    ...emptyUser
 }
 const initialTestStateWithSyncDateAndUser = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...loggedUser,
-    lastRecordUpdatedAt: '2017-07-05T04:30:30.406Z'
+    ...loggedUser
 }
 
 describe('user reducer', () => {
@@ -93,8 +89,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: false,
-            ...emptyUser,
-            lastRecordUpdatedAt: '2017-07-01T04:30:30.306Z'
+            ...emptyUser
         })
     })
 
@@ -104,8 +99,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: false,
-            ...loggedUser,
-            lastRecordUpdatedAt: '2017-07-01T04:30:30.306Z'
+            ...loggedUser
         })
     })
 
@@ -115,8 +109,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: false,
-            ...loggedUser,
-            lastRecordUpdatedAt: '2017-07-01T04:30:30.306Z'
+            ...loggedUser
         })
     })
 
@@ -129,8 +122,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: false,
-            ...emptyUser,
-            lastRecordUpdatedAt: null
+            ...emptyUser
         })
     })
 
@@ -140,8 +132,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: false,
-            ...emptyUser,
-            lastRecordUpdatedAt: '2017-07-05T04:30:30.406Z'
+            ...emptyUser
         })
     })
 
@@ -154,8 +145,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: true,
-            ...emptyUser,
-            lastRecordUpdatedAt: null
+            ...emptyUser
         })
     })
 
@@ -165,8 +155,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: false,
             hasSkippedLogin: true,
-            ...emptyUser,
-            lastRecordUpdatedAt: '2017-07-05T04:30:30.406Z'
+            ...emptyUser
         })
     })
 
