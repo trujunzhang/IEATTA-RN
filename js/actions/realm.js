@@ -83,7 +83,7 @@ function queryNearRestaurant(): ThunkAction {
 
 
 async function _queryEventsForRestaurant(restaurantId: string): Promise<Array<Action>> {
-    const results = EventService.findAll()
+    const results = EventService.findAll().filtered('restaurantId = "' + restaurantId + '"');
 
     const action = {
         type: QUERY_EVENTS_FOR_RESTAURANT,
@@ -113,7 +113,7 @@ function queryEventsForRestaurant(restaurantId: string): ThunkAction {
 
 
 async function _queryPhotosForRestaurant(restaurantId: string): Promise<Array<Action>> {
-    const results = PhotoService.findAll()
+    const results = PhotoService.findAll().filtered('restaurantId = "' + restaurantId + '"');
 
     const action = {
         type: QUERY_PHOTOS_FOR_RESTAURANT,
