@@ -42,6 +42,13 @@ function appModel(state: State = [], action: Action): State {
         })
         return nextState
     }
+    if (action.type === QUERY_EVENTS_FOR_RESTAURANT) {
+        const nextState = Object.assign({}, state, {
+            events: action.payload
+        })
+        return nextState
+    }
+
     return state;
 }
 

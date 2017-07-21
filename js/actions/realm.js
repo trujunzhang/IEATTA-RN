@@ -82,14 +82,14 @@ function queryNearRestaurant(): ThunkAction {
 
 
 async function _queryEventsForRestaurant(restaurantId: string): Promise<Array<Action>> {
-
     const results = EventService.findAll()
-
-    debugger
 
     const action = {
         type: QUERY_EVENTS_FOR_RESTAURANT,
-        payload: results
+        payload: {
+            restaurantId: restaurantId,
+            events: results
+        }
     }
     return Promise.all([
         Promise.resolve(action)
