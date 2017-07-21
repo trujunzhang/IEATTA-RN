@@ -25,13 +25,20 @@
 
 'use strict';
 
-const Animated = require('Animated')
+import React, {Component} from 'react';
+
+import {
+    StyleSheet,
+    Text,
+    Animated,
+    Image,
+    Easing,
+    View,
+    TouchableWithoutFeedback,
+    Dimensions
+} from 'react-native';
+
 const resolveAssetSource = require('resolveAssetSource')
-const React = require('React')
-const StyleSheet = require('StyleSheet')
-const View = require('View')
-const Image = require('Image')
-const Dimensions = require('Dimensions')
 
 // TODO: Remove this magic numbers
 const HEIGHT = Dimensions.get('window').height > 600
@@ -103,7 +110,7 @@ class ParallaxBackground extends React.Component {
         // if (!source) {
         //     return null;
         // }
-        debugger
+        // debugger
         // const {width} = source;
         const translateX = this.state.shift.interpolate({
             inputRange: [0, 1],
@@ -125,7 +132,7 @@ class ParallaxBackground extends React.Component {
             extrapolateRight: 'clamp'
         });
         const transforms = {transform: [{translateX}, {translateY}, {scale}]}
-        const bgStyle = {opacity: 0.55}
+        const bgStyle = {opacity: 0.55, flex: 1}
         return (
             <Animated.Image
                 source={{uri: `file://${path}`}}
