@@ -106,7 +106,7 @@ class ParallaxBackground extends React.Component {
             return null;
         }
         // debugger
-        // const source = resolveAssetSource(path)
+        // const source = resolveAssetSource(`file://${path}`)
         // if (!source) {
         //     return null;
         // }
@@ -138,7 +138,7 @@ class ParallaxBackground extends React.Component {
                 source={{uri: `file://${path}`}}
                 style={[transforms, bgStyle]}
             />
-        );
+        )
     }
 
     renderContent(): ?ReactElement {
