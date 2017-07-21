@@ -76,7 +76,8 @@ Records.getRealmData = function (parseObject, object) {
                 displayName: object.displayName,
                 start: object.start,
                 end: object.end,
-                want: object.want
+                want: object.want,
+                restaurantId: object.restaurantId
             }
         case PARSE_RECIPES:
             return {
