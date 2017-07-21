@@ -45,7 +45,7 @@ const FilterScreen = require('../../filter/FilterScreen')
 
 const RLRestaurantParallaxHeader = require('./layout/RLRestaurantParallaxHeader')
 
-const EventsListView = require('./layout/EventsListView')
+const DetailedRestaurantListView = require('./layout/DetailedRestaurantListView')
 
 const {getLocalImagePath} = require('../../parse/fsApi')
 const {Event} = require('../../parse/parseModels')
@@ -136,7 +136,7 @@ class IEADetailedRestaurant extends React.Component {
                 leftItem={leftItem}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA">
-                <EventsListView
+                <DetailedRestaurantListView
                     events={events}
                     navigator={this.props.navigator}
                 />

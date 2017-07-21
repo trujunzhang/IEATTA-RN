@@ -57,7 +57,7 @@ type State = {
     todaySessions: Array;
 };
 
-class EventsListView extends React.Component {
+class DetailedRestaurantListView extends React.Component {
     props: Props;
     state: State;
     _innerRef: ?PureListView;
@@ -162,4 +162,4 @@ class EventsListView extends React.Component {
     }
 }
 
-module.exports = EventsListView
+module.exports = DetailedRestaurantListView
