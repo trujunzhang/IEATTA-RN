@@ -168,8 +168,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: true,
             hasSkippedLogin: false,
-            ...loggedUser,
-            lastRecordUpdatedAt: null,
+            ...loggedUser
         })
     })
 
@@ -179,8 +178,7 @@ describe('user reducer', () => {
         ).toEqual({
             isLoggedIn: true,
             hasSkippedLogin: false,
-            ...loggedUser,
-            lastRecordUpdatedAt: '2017-07-05T04:30:30.406Z'
+            ...loggedUser
         })
     })
 
