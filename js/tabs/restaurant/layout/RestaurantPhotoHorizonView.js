@@ -42,15 +42,23 @@ const {width, height} = Dimensions.get('window')
 const PureListView = require('../../../common/PureListView')
 const PhotoGrid = require('../../../common/PhotoGrid').default
 
+const {queryPhotosForRestaurant} = require('../../../actions')
+
+const {getLocalImagePath} = require('../../../parse/fsApi')
+
+const {
+    PARSE_ORIGINAL_IMAGES,
+    PARSE_THUMBNAIL_IMAGES
+} = require('../../../lib/constants').default
+
 type Props = {
-    day: number;
-    sessions: Array;
+    photos: Array;
     navigator: Navigator;
     renderEmptyList?: (day: number) => ReactElement;
 };
 
 type State = {
-    todaySessions: Array;
+    photos: Array;
 };
 
 class RestaurantPhotoHorizonView extends React.Component {
@@ -61,23 +69,33 @@ class RestaurantPhotoHorizonView extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
-            todaySessions: []
+            photos: []
         };
 
         this._innerRef = null;
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.sessions !== this.props.sessions ||
-            nextProps.day !== this.props.day) {
-            this.setState({
-                todaySessions: []
-            });
+        if (nextProps.appModel && nextProps.appModel.photos) {
+            // debugger
+            if (nextProps.appModel.photos.restaurantId && nextProps.appModel.photos.restaurantId === this.props.item.objectId) {
+                this.setState({
+                    photos: nextProps.appModel.photos.results || []
+                })
+            }
         }
     }
 
+
+    componentDidMount() {
+        this.props.dispatch(queryPhotosForRestaurant(this.props.item.objectId))
+    }
+
     render() {
-        const photos = [
+        const {photos} = this.state,
+            localImagePath = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
+
+        const photosxxx = [
             {'title': 'section1', id: '1'},
             {'title': 'section2', id: '2'},
             {'title': 'section3', id: '3'},
@@ -112,8 +130,7 @@ class RestaurantPhotoHorizonView extends React.Component {
                     borderRadius: 4,
                     marginRight: 6
                 }}
-                // source={require('../../../sample/ms.jpg')}
-            />
+                source={{uri: `file://${localImagePath}`}}/>
         )
     }
 
@@ -121,14 +138,6 @@ class RestaurantPhotoHorizonView extends React.Component {
         return (
             <View/>
         );
-    }
-
-    openSession(session: any, day: number) {
-        this.props.navigator.push({
-            day,
-            session,
-            allSessions: this.state.todaySessions,
-        });
     }
 
     storeInnerRef(ref: ?PureListView) {
@@ -144,4 +153,14 @@ class RestaurantPhotoHorizonView extends React.Component {
     }
 }
 
-module.exports = RestaurantPhotoHorizonView
+
+const {connect} = require('react-redux')
+
+function select(store) {
+    return {
+        appModel: store.appModel
+    };
+}
+
+module.exports = connect(select)(RestaurantPhotoHorizonView)
+

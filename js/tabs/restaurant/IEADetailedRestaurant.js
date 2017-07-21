@@ -63,15 +63,6 @@ const {
 const {createSelector} = require('reselect')
 
 
-const {
-    MENU_ITEM_ADD_A_RESTAURANT,
-    MENU_ITEM_SEARCH_RESTAURANTS,
-    MENU_ITEM_MANAGE_FRIENDS,
-    MENU_ITEM_READ_REVIEWS,
-    MENU_SECTIONS_MORE,
-    MENU_SECTIONS_EVENTS,
-} = require('../../lib/constants').default
-
 const data = createSelector(
     (store) => store.events,
 );

@@ -47,10 +47,9 @@ const StaticContainer = require('react-native/Libraries/Components/StaticContain
 const RLRestaurantListViewHeaderView = require('./RLRestaurantListViewHeaderView')
 
 const {queryEventsForRestaurant} = require('../../../actions')
-const {Event} = require('../../../parse/parseModels')
 
 type Props = {
-    events: Array<Event>;
+    events: Array;
     navigator: Navigator;
     renderEmptyList?: (day: number) => ReactElement;
 };
@@ -172,5 +171,5 @@ function select(store) {
     };
 }
 
-module.exports = connect(select)(DetailedRestaurantListView);
+module.exports = connect(select)(DetailedRestaurantListView)
 
