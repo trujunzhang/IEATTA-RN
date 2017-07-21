@@ -85,15 +85,16 @@ function setup(): ReactClass<{}> {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     let initialPosition = JSON.stringify(position)
-                    debugger
+                    // debugger
                     this.setState({initialPosition})
                 },
-                (error) => alert(error.message),
+                (error) => {
+                    // alert(error.message)
+                },
                 {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
             )
             this.watchID = navigator.geolocation.watchPosition((position) => {
                 let lastPosition = JSON.stringify(position)
-                debugger
                 this.setState({lastPosition})
             })
         }
