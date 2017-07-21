@@ -50,7 +50,7 @@ const {
     MENU_ITEM_MANAGE_FRIENDS,
     MENU_ITEM_READ_REVIEWS,
     MENU_SECTIONS_MORE,
-    MENU_SECTIONS_RESTAURANT,
+    MENU_SECTIONS_RESTAURANTS,
 } = require('../../lib/constants').default
 
 const RestaurantItem = require('./RestaurantItem')
@@ -95,11 +95,11 @@ class IEANearRestaurantScene extends Component {
         this.state = {
             sections: {
                 MENU_SECTIONS_MORE: TOP_MENUS,
-                MENU_SECTIONS_RESTAURANT: []
+                MENU_SECTIONS_RESTAURANTS: []
             },
             sectionTitles: {
                 MENU_SECTIONS_MORE: 'More',
-                MENU_SECTIONS_RESTAURANT: 'Restaurants Nearby'
+                MENU_SECTIONS_RESTAURANTS: 'Restaurants Nearby'
             }
         }
     }
@@ -108,7 +108,7 @@ class IEANearRestaurantScene extends Component {
         this.setState({
             sections: {
                 MENU_SECTIONS_MORE: TOP_MENUS,
-                MENU_SECTIONS_RESTAURANT: nextProps.appModel.restaurants
+                MENU_SECTIONS_RESTAURANTS: nextProps.appModel.restaurants
             }
         })
     }

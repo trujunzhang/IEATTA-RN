@@ -81,7 +81,7 @@ function queryNearRestaurant(): ThunkAction {
 }
 
 
-async function _queryEventsForRestaurant(): Promise<Array<Action>> {
+async function _queryEventsForRestaurant(restaurantId: string): Promise<Array<Action>> {
 
     const results = EventService.findAll()
 
@@ -96,9 +96,9 @@ async function _queryEventsForRestaurant(): Promise<Array<Action>> {
     ])
 }
 
-function queryEventsForRestaurant(): ThunkAction {
+function queryEventsForRestaurant(restaurantId: string): ThunkAction {
     return (dispatch) => {
-        const action = _queryEventsForRestaurant()
+        const action = _queryEventsForRestaurant(restaurantId)
 
         // Loading friends schedules shouldn't block the login process
         action.then(

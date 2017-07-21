@@ -11,7 +11,8 @@ export default keyMirror({
 
     // Home menu items
     MENU_SECTIONS_MORE: null,
-    MENU_SECTIONS_RESTAURANT: null,
+    MENU_SECTIONS_RESTAURANTS: null,
+    MENU_SECTIONS_EVENTS: null,
     // Home More Menus
     MENU_ITEM_ADD_A_RESTAURANT: null,
     MENU_ITEM_SEARCH_RESTAURANTS: null,

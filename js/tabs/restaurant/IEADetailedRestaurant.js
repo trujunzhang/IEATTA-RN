@@ -63,6 +63,16 @@ const {
 // TODO: Move from reselect to memoize?
 const {createSelector} = require('reselect')
 
+
+const {
+    MENU_ITEM_ADD_A_RESTAURANT,
+    MENU_ITEM_SEARCH_RESTAURANTS,
+    MENU_ITEM_MANAGE_FRIENDS,
+    MENU_ITEM_READ_REVIEWS,
+    MENU_SECTIONS_MORE,
+    MENU_SECTIONS_EVENTS,
+} = require('../../lib/constants').default
+
 const data = createSelector(
     (store) => store.events,
 );
@@ -83,6 +93,19 @@ class IEADetailedRestaurant extends React.Component {
 
         (this: any).openFilterScreen = this.openFilterScreen.bind(this);
         (this: any).renderNavigationView = this.renderNavigationView.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        this.setState({
+            sections: {
+                MENU_SECTIONS_MORE: TOP_MENUS,
+                MENU_SECTIONS_EVENTS: nextProps.appModel.restaurants
+            }
+        })
+    }
+
+    componentDidMount() {
+        this.props.dispatch(queryEventsForRestaurant(this.props.item.objectId))
     }
 
     render() {
