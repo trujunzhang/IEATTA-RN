@@ -45,26 +45,26 @@ Records.getRealmData = function (parseObject, object) {
     switch (parseObject) {
         case PARSE_RESTAURANTS:
             return {
+                // Basic Fields
                 objectId: object.id,
+                updatedAt: object.updatedAt,
+                // Attributes
                 displayName: object.displayName,
                 // Location
                 address: object.address,
                 latitude: object.geoLocation.latitude,
                 longitude: object.geoLocation.longitude,
                 geoHash: encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude),
-                // Updated Date
-                updatedAt: object.updatedAt,
                 // Photos
                 listPhotoId: object.listPhotoId,
                 localPhotoStatus: false
-
-                //photos: object.photos,
-                //reviews: object.reviews,
             }
         case PARSE_PEOPLE_IN_EVENTS:
-            // debugger
             return {
-                objectId: object.id
+                // Basic Fields
+                objectId: object.id,
+                updatedAt: object.updatedAt,
+                // Attributes
             }
         case PARSE_USERS:
             return {}
@@ -72,7 +72,10 @@ Records.getRealmData = function (parseObject, object) {
             return {}
         case PARSE_EVENTS:
             return {
+                // Basic Fields
                 objectId: object.id,
+                updatedAt: object.updatedAt,
+                // Attributes
                 displayName: object.displayName,
                 start: object.start,
                 end: object.end,
@@ -82,24 +85,32 @@ Records.getRealmData = function (parseObject, object) {
             }
         case PARSE_RECIPES:
             return {
+                // Basic Fields
                 objectId: object.id,
+                updatedAt: object.updatedAt,
+                // Attributes
                 displayName: object.displayName,
                 price: object.price
             }
-
         case PARSE_PHOTOS:
             // debugger
             return {
+                // Basic Fields
                 objectId: object.id,
-                photoType: object.photoType,
-                // Updated Date
                 updatedAt: object.updatedAt,
+                // Attributes
+                photoType: object.photoType,
                 // Pointer
                 restaurantId: object.restaurantId,
                 recipeId: object.recipeId
             }
         case PARSE_REVIEWS:
-            return {}
+            return {
+                // Basic Fields
+                objectId: object.id,
+                updatedAt: object.updatedAt,
+                // Attributes
+            }
     }
 }
 
