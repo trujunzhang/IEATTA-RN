@@ -44,6 +44,8 @@ const Relay = require('react-relay')
 const {Provider} = require('react-redux')
 const configureStore = require('./store/configureStore')
 
+const {updateLastLocation} = require('./actions')
+
 const {serverURL} = require('./env')
 
 const {configureImageFolder} = require('./parse/fsApi')
@@ -97,13 +99,15 @@ function setup(): ReactClass<{}> {
                 let lastPosition = JSON.stringify(position)
                 console.log("last position: " + lastPosition);
                 this.setState({lastPosition})
+                if (!!this.state.store) {
+                    this.state.store.dispatch(updateLastLocation(position))
+                }
             })
         }
 
         componentWillUnMount() {
             navigator.geolocation.clearWatch(this.watchID)
         }
-
 
         render() {
             if (this.state.isLoading) {
