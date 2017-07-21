@@ -63,7 +63,7 @@ const {
 const {createSelector} = require('reselect')
 
 const data = createSelector(
-    (store) => store.sessions,
+    (store) => store.events,
 );
 
 type Props = {
@@ -149,9 +149,7 @@ class IEADetailedRestaurant extends React.Component {
 const {connect} = require('react-redux')
 
 function select(store) {
-    return {
-        day: store.navigation.day,
-    };
+    return {};
 }
 
 module.exports = connect(select)(IEADetailedRestaurant);
