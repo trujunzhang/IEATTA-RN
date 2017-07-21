@@ -93,7 +93,7 @@ Records.getRealmData = function (parseObject, object) {
                 price: object.price
             }
         case PARSE_PHOTOS:
-            debugger
+            // debugger
             return {
                 // Basic Fields
                 objectId: object.id,
