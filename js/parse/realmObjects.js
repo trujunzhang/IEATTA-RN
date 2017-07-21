@@ -32,7 +32,11 @@ class RecordSchema extends Realm.Object {
 RecordSchema.schema = {
     name: PARSE_RECORDS,
     properties: {
+        // Basic Fields
         objectId: 'string',
+        createdAt: 'date',
+        updatedAt: 'date',
+        // Attributes
         recordType: 'string',
         recordId: 'string'
     }
@@ -44,6 +48,10 @@ class UserSchema extends Realm.Object {
 UserSchema.schema = {
     name: PARSE_USERS,
     properties: {
+        // Basic Fields
+        objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         loginType: 'string',
         displayName: 'string',
         email: 'string'
@@ -56,15 +64,17 @@ class RestaurantSchema extends Realm.Object {
 RestaurantSchema.schema = {
     name: PARSE_RESTAURANTS,
     properties: {
+        // Basic Fields
         objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         displayName: 'string',
         // Location
         address: 'string',
         latitude: 'double',
         longitude: 'double',
         geoHash: 'string',
-        // Updated Date
-        updatedAt: 'date',
+
         // Photos
         listPhotoId: 'string',
         localPhotoStatus: 'bool'
@@ -77,11 +87,15 @@ class EventSchema extends Realm.Object {
 EventSchema.schema = {
     name: PARSE_EVENTS,
     properties: {
+        // Basic Fields
         objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         displayName: 'string',
         start: 'string',
         end: 'string',
         want: 'string',
+        // Pointer
         restaurantId: 'string'
     }
 }
@@ -93,7 +107,10 @@ class PeopleInEventSchema extends Realm.Object {
 PeopleInEventSchema.schema = {
     name: PARSE_PEOPLE_IN_EVENTS,
     properties: {
-        objectId: 'string'
+        // Basic Fields
+        objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
     }
 }
 
@@ -104,7 +121,10 @@ class RecipeSchema extends Realm.Object {
 RecipeSchema.schema = {
     name: PARSE_RECIPES,
     properties: {
+        // Basic Fields
         objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         displayName: 'string',
         price: 'string',
     }
@@ -116,9 +136,14 @@ class PhotoSchema extends Realm.Object {
 PhotoSchema.schema = {
     name: PARSE_PHOTOS,
     properties: {
+        // Basic Fields
         objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         photoType: 'string',
-        url: 'string'
+        // Pointer
+        restaurantId: 'string',
+        recipeId: 'string'
     }
 }
 
@@ -128,9 +153,11 @@ class ReviewSchema extends Realm.Object {
 ReviewSchema.schema = {
     name: PARSE_REVIEWS,
     properties: {
+        // Basic Fields
+        objectId: 'string',
+        updatedAt: 'date',
+        // Attributes
         make: 'string',
-        model: 'string',
-        miles: {type: 'int', default: 0},
     }
 }
 

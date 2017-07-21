@@ -77,6 +77,7 @@ Records.getRealmData = function (parseObject, object) {
                 start: object.start,
                 end: object.end,
                 want: object.want,
+                // Pointer
                 restaurantId: object.restaurantId
             }
         case PARSE_RECIPES:
@@ -91,7 +92,11 @@ Records.getRealmData = function (parseObject, object) {
             return {
                 objectId: object.id,
                 photoType: object.photoType,
-                url: object.url
+                // Updated Date
+                updatedAt: object.updatedAt,
+                // Pointer
+                restaurantId: object.restaurantId,
+                recipeId: object.recipeId
             }
         case PARSE_REVIEWS:
             return {}

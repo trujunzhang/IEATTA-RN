@@ -136,8 +136,8 @@ export function fromParsePhoto(map: Object): Photo {
         thumbnail: map.get('thumbnail') && fromParseFile(map.get('thumbnail')),
         photoType: map.get('photoType'),
         // point(2)
-        // restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
-        // recipe: map.get('recipe') && fromParseRecipe(map.get('recipe'))
+        restaurantId: map.get('restaurant') && map.get('restaurant').id,
+        recipeId: map.get('recipe') && map.get('recipe').id
     }
 }
 
