@@ -38,6 +38,7 @@ const {
     LOGGED_OUT,
     SKIPPED_LOGIN,
     SET_SHARING,
+    UPDATE_LAST_LOCATION
 } = require('../lib/constants').default
 
 import type {Action, ThunkAction} from './types'
@@ -45,6 +46,14 @@ import type {Action, ThunkAction} from './types'
 function skipLogin(): Action {
     return {
         type: SKIPPED_LOGIN,
+    }
+}
+
+
+function updateLastLocation(position): Action {
+    return {
+        type: UPDATE_LAST_LOCATION,
+        payload: position
     }
 }
 
@@ -65,5 +74,5 @@ function logOut(): ThunkAction {
 
 
 export default {
-    skipLogin, logOut,
+    skipLogin, logOut, updateLastLocation
 }
