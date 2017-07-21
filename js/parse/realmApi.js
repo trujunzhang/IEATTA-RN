@@ -61,6 +61,27 @@ const ConfigureService = {
     }
 }
 
+const EventService = {
+    findAll: function (sortBy) {
+        return repository.objects(PARSE_EVENTS)
+    },
+
+    save: function (item) {
+        if (repository.objects(PARSE_EVENTS).filtered('objectId == $0', item.id).length) return;
+        repository.write(() => {
+            repository.create(PARSE_EVENTS, Records.getRealmData(PARSE_EVENTS, item))
+        })
+    },
+
+    update: function (item, callback) {
+        if (!callback) return;
+        repository.write(() => {
+            callback();
+            item.updatedAt = new Date();
+        })
+    }
+}
+
 const RestaurantService = {
     findAll: function (sortBy) {
         return repository.objects(PARSE_RESTAURANTS)
@@ -81,11 +102,11 @@ const RestaurantService = {
         })
     },
 
-    update: function (todo, callback) {
+    update: function (item, callback) {
         if (!callback) return;
         repository.write(() => {
             callback();
-            todo.updatedAt = new Date();
+            item.updatedAt = new Date();
         })
     }
 }
@@ -95,4 +116,5 @@ export default {
     writeParseRecord,
     ConfigureService,
     RestaurantService,
+    EventService,
 }

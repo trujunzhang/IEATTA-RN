@@ -32,6 +32,7 @@ import type {Action} from '../actions/types';
  */
 const {
     QUERY_NEAR_RESTAURANTS,
+    QUERY_EVENTS_FOR_RESTAURANT
 } = require('../lib/constants').default
 
 function appModel(state: State = [], action: Action): State {

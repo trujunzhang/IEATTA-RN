@@ -2,6 +2,7 @@ import keyMirror from 'key-mirror'
 
 export default keyMirror({
     QUERY_NEAR_RESTAURANTS: null,
+    QUERY_EVENTS_FOR_RESTAURANT: null,
 
     // Parse local Images folders
     PARSE_ORIGINAL_IMAGES: null,
