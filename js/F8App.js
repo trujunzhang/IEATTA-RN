@@ -72,8 +72,8 @@ class F8App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // playground: true,
-            playground: false,
+            playground: true,
+            // playground: false,
         };
     }
 
@@ -128,7 +128,8 @@ class F8App extends Component {
     render() {
         if (this.state.playground) {
             // return <Playground.Playground/>
-            return <Playground.RNFSApp/>
+            // return <Playground.RNFSApp/>
+            return <Playground.FBLogin/>
             // return <Playground.MapViewScene/>
             //return <Playground.SectionsListViewScene/>
             //return <Playground.ReactNativeMapsApp/>

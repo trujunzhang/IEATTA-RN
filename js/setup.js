@@ -91,7 +91,7 @@ function setup(): ReactClass<{}> {
                     this.setState({initialPosition})
                 },
                 (error) => {
-                    // alert(error.message)
+                     alert(error.message)
                 },
                 {enableHighAccuracy: true, timeout: 40 * 1000, maximumAge: 1 * 1000}
             )
