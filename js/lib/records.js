@@ -63,7 +63,7 @@ Records.getRealmData = function (parseObject, object) {
             return {
                 // Basic Fields
                 objectId: object.id,
-                updatedAt: object.updatedAt,
+                // updatedAt: object.updatedAt,
                 // Attributes
             }
         case PARSE_USERS:
