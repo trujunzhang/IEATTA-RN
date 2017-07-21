@@ -49,7 +49,6 @@ function skipLogin(): Action {
     }
 }
 
-
 function updateLastLocation(position): Action {
     debugger
     return {
