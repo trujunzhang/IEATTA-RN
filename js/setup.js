@@ -76,8 +76,32 @@ function setup(): ReactClass<{}> {
             this.state = {
                 isLoading: true,
                 store: configureStore(() => this.setState({isLoading: false})),
+                initialPosition: 'unknown',
+                lastPosition: 'unknown',
             };
         }
+
+        componentDidMount() {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    let initialPosition = JSON.stringify(position)
+                    debugger
+                    this.setState({initialPosition})
+                },
+                (error) => alert(error.message),
+                {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+            )
+            this.watchID = navigator.geolocation.watchPosition((position) => {
+                let lastPosition = JSON.stringify(position)
+                debugger
+                this.setState({lastPosition})
+            })
+        }
+
+        componentWillUnMount() {
+            navigator.geolocation.clearWatch(this.watchID)
+        }
+
 
         render() {
             if (this.state.isLoading) {
