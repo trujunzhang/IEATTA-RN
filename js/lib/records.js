@@ -56,7 +56,7 @@ Records.getRealmData = function (parseObject, object) {
                 longitude: object.geoLocation.longitude,
                 geoHash: encodeGeoHash(object.geoLocation.latitude, object.geoLocation.longitude),
                 // Photos
-                listPhotoId: object.listPhotoId,
+                listPhotoId: object.listPhotoId || '',
                 localPhotoStatus: false
             }
         case PARSE_PEOPLE_IN_EVENTS:
@@ -81,7 +81,7 @@ Records.getRealmData = function (parseObject, object) {
                 end: object.end,
                 want: object.want,
                 // Pointer
-                restaurantId: object.restaurantId
+                restaurantId: object.restaurantId || ''
             }
         case PARSE_RECIPES:
             return {
@@ -93,7 +93,7 @@ Records.getRealmData = function (parseObject, object) {
                 price: object.price
             }
         case PARSE_PHOTOS:
-            // debugger
+            debugger
             return {
                 // Basic Fields
                 objectId: object.id,
@@ -101,8 +101,8 @@ Records.getRealmData = function (parseObject, object) {
                 // Attributes
                 photoType: object.photoType,
                 // Pointer
-                restaurantId: object.restaurantId,
-                recipeId: object.recipeId
+                restaurantId: object.restaurantId || '',
+                recipeId: object.recipeId || ''
             }
         case PARSE_REVIEWS:
             return {

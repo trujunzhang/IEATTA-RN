@@ -41,11 +41,17 @@ export type PeopleInEvent = {
 }
 
 export type Photo = {
+    // Basic Fields
     id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    // Attributes
     original: string;
     thumbnail: string;
-    url: string;
     photoType: string;
+    // Pointer
+    restaurantId: string;
+    recipeId: string;
 }
 
 export type Event = {
