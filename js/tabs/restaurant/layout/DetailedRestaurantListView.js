@@ -135,8 +135,8 @@ class DetailedRestaurantListView extends React.Component {
     renderEmptyList(): ?ReactElement {
         return (
             <EmptyEvent
-                title={`No sessions on day match the filter`}
-                text="Check the schedule for the other day or remove the filter."
+                title={`No events on the restaurant`}
+                text="Chick the add icon to add an event."
             />
         );
     }
