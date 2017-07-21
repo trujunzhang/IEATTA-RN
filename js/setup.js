@@ -27,7 +27,7 @@
 /**
  * ### Translations
  */
-let I18n = require('react-native-i18n')
+const I18n = require('react-native-i18n')
 
 // Support fallbacks so en-US & en-BR both use en
 I18n.fallbacks = true
