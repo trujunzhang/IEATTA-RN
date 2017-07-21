@@ -46,6 +46,7 @@ const SectionHeader = require('../../../common/SectionHeader')
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
 const RLRestaurantListViewHeaderView = require('./RLRestaurantListViewHeaderView')
 
+const {queryEventsForRestaurant} = require('../../../actions')
 const {Event} = require('../../../parse/parseModels')
 
 type Props = {
@@ -66,6 +67,29 @@ class DetailedRestaurantListView extends React.Component {
     constructor(props: Props) {
         super(props);
         this._innerRef = null;
+
+        this.state = {
+            sections: {
+                MENU_SECTIONS_EVENTS: []
+            }
+        }
+    }
+
+
+    componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.appModel && nextProps.appModel.events) {
+            if (nextProps.appModel.events.restaurantId && nextProps.appModel.events.restaurantId === this.props.item.objectId) {
+                this.setState({
+                    sections: {
+                        MENU_SECTIONS_EVENTS: nextProps.appModel.events.results || []
+                    }
+                })
+            }
+        }
+    }
+
+    componentDidMount() {
+        this.props.dispatch(queryEventsForRestaurant(this.props.item.objectId))
     }
 
 
@@ -76,21 +100,10 @@ class DetailedRestaurantListView extends React.Component {
     }
 
     render() {
-        const todaySessions = [
-            {'title': 'section1'},
-            {'title': 'section2'},
-            {'title': 'section3'},
-            {'title': 'section4'},
-            {'title': 'section5'},
-            {'title': 'section6'},
-            {'title': 'section7'},
-            {'title': 'section8'}
-        ]
-
         return (
             <PureListView
                 ref={this.storeInnerRef.bind(this)}
-                data={todaySessions}
+                data={this.state.sections}
                 renderTopHeader={this.renderTopHeaderView.bind(this)}
                 renderRow={this.renderRow.bind(this)}
                 renderSectionHeader={this.renderSectionHeader.bind(this)}
@@ -153,4 +166,14 @@ class DetailedRestaurantListView extends React.Component {
     }
 }
 
-module.exports = DetailedRestaurantListView
+
+const {connect} = require('react-redux')
+
+function select(store) {
+    return {
+        appModel: store.appModel
+    };
+}
+
+module.exports = connect(select)(DetailedRestaurantListView);
+

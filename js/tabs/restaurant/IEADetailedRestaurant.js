@@ -50,7 +50,6 @@ const DetailedRestaurantListView = require('./layout/DetailedRestaurantListView'
 const {getLocalImagePath} = require('../../parse/fsApi')
 const {Event} = require('../../parse/parseModels')
 
-const {queryEventsForRestaurant} = require('../../actions')
 
 /**
  * The states were interested in
@@ -95,28 +94,10 @@ class IEADetailedRestaurant extends React.Component {
         (this: any).renderNavigationView = this.renderNavigationView.bind(this);
     }
 
-    componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.appModel && nextProps.appModel.events) {
-            if (nextProps.appModel.events.restaurantId && nextProps.appModel.events.restaurantId === this.props.item.objectId) {
-                this.setState({
-                    sections: {
-                        MENU_SECTIONS_EVENTS: nextProps.appModel.events.results || []
-                    }
-                })
-            }
-        }
-    }
-
-    componentDidMount() {
-        this.props.dispatch(queryEventsForRestaurant(this.props.item.objectId))
-    }
-
     render() {
         const {item} = this.props,
             {localPhotoStatus} = item
         const localImagePath = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
-
-        const events = []
 
         const leftItem = {
             icon: require('../../common/img/back_white.png'),
@@ -136,12 +117,9 @@ class IEADetailedRestaurant extends React.Component {
                 leftItem={leftItem}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA">
-                <DetailedRestaurantListView
-                    events={events}
-                    navigator={this.props.navigator}
-                />
+                <DetailedRestaurantListView item={item} navigator={this.props.navigator}/>
             </ListContainer>
-        );
+        )
 
         if (Platform.OS === 'ios') {
             return content;
@@ -173,12 +151,4 @@ class IEADetailedRestaurant extends React.Component {
     }
 }
 
-const {connect} = require('react-redux')
-
-function select(store) {
-    return {
-        appModel: store.appModel
-    };
-}
-
-module.exports = connect(select)(IEADetailedRestaurant);
+module.exports = IEADetailedRestaurant;
