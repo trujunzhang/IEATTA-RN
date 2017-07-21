@@ -50,6 +50,7 @@ const EventsListView = require('./layout/EventsListView')
 const {getLocalImagePath} = require('../../parse/fsApi')
 const {Event} = require('../../parse/parseModels')
 
+const {queryEventsForRestaurant} = require('../../actions')
 
 /**
  * The states were interested in
@@ -149,7 +150,9 @@ class IEADetailedRestaurant extends React.Component {
 const {connect} = require('react-redux')
 
 function select(store) {
-    return {};
+    return {
+        appModel: store.appModel
+    };
 }
 
 module.exports = connect(select)(IEADetailedRestaurant);

@@ -85,6 +85,8 @@ async function _queryEventsForRestaurant(): Promise<Array<Action>> {
 
     const results = EventService.findAll()
 
+    debugger
+
     const action = {
         type: QUERY_EVENTS_FOR_RESTAURANT,
         payload: results
