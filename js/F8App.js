@@ -72,9 +72,9 @@ class F8App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            playground: true,
-            // playground: false,
-        };
+            // playground: true,
+            playground: false,
+        }
     }
 
     scheduledTask() {
@@ -129,9 +129,9 @@ class F8App extends Component {
         if (this.state.playground) {
             // return <Playground.Playground/>
             // return <Playground.RNFSApp/>
-            return <Playground.FBLogin/>
+            // return <Playground.FBLogin/>
             // return <Playground.MapViewScene/>
-            //return <Playground.SectionsListViewScene/>
+            return <Playground.SectionsListViewScene/>
             //return <Playground.ReactNativeMapsApp/>
         }
 
