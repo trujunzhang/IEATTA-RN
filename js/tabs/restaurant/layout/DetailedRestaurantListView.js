@@ -37,7 +37,6 @@ import {
     Platform,
     Dimensions
 } from 'react-native'
-const {width, height} = Dimensions.get('window')
 
 const EventCell = require('./EventCell')
 const EmptyEvent = require('./EmptyEvent')
