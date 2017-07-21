@@ -92,8 +92,7 @@ class RestaurantPhotoHorizonView extends React.Component {
     }
 
     render() {
-        const {photos} = this.state,
-            localImagePath = getLocalImagePath(item.listPhotoId, PARSE_THUMBNAIL_IMAGES)
+        const {photos} = this.state;
 
         const photosxxx = [
             {'title': 'section1', id: '1'},
@@ -121,9 +120,11 @@ class RestaurantPhotoHorizonView extends React.Component {
     }
 
     renderRow(photo: any) {
+        const localImagePath = getLocalImagePath(photo.objectId, PARSE_THUMBNAIL_IMAGES)
+        // debugger
         return (
             <Image
-                key={photo.id}
+                key={photo.objectId}
                 style={{
                     width: 100,
                     height: 100,

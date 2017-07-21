@@ -37,7 +37,11 @@ export type User = {
 }
 
 export type PeopleInEvent = {
+    // Basic Fields
     id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    // Attributes
 }
 
 export type Photo = {
@@ -55,16 +59,25 @@ export type Photo = {
 }
 
 export type Event = {
+    // Basic Fields
     id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    // Attributes
     displayName: string;
     start: string;
     end: string;
     want: string;
+    // Pointer
     restaurantId: string;
 }
 
 export type Recipe = {
+    // Basic Fields
     id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    // Attributes
     displayName: string;
     price: string;
     // Point
@@ -79,9 +92,7 @@ export type Restaurant = {
     createdAt: Date;
     updatedAt: Date;
     // Attributes
-    url: string;
     displayName: string;
-    slug: string;
     thumbnailUrl: string;
     reviews: Array,
 };
@@ -101,7 +112,11 @@ export function fromParseFile(map: Object): File {
 
 export function fromParsePeopleInEvent(map: Object): PeopleInEvent {
     return {
-        id: map.id
+        // Basic Fields
+        id: map.id,
+        createdAt: map.get('createdAt'),
+        updatedAt: map.get('updatedAt'),
+        // Attributes
     }
 }
 
