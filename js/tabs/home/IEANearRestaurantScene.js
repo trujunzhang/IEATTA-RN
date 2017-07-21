@@ -179,6 +179,8 @@ class IEANearRestaurantScene extends Component {
     }
 
     render() {
+        console.log(JSON.stringify(this.props.user))
+
         let leftItem = (Platform.OS === 'android') ? {
             title: 'Menu',
             icon: require('../../common/img/hamburger.png'),
@@ -220,7 +222,8 @@ const {connect} = require('react-redux')
 
 function select(store) {
     return {
-        appModel: store.appModel
+        appModel: store.appModel,
+        user: store.user,
     }
 }
 

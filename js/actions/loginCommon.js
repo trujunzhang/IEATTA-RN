@@ -50,7 +50,7 @@ function skipLogin(): Action {
 }
 
 function updateLastLocation(position): Action {
-    debugger
+    // debugger
     return {
         type: UPDATE_LAST_LOCATION,
         payload: position

@@ -93,7 +93,7 @@ function setup(): ReactClass<{}> {
                 (error) => {
                     // alert(error.message)
                 },
-                {enableHighAccuracy: true, timeout: 20 * 1000, maximumAge: 1 * 1000}
+                {enableHighAccuracy: true, timeout: 40 * 1000, maximumAge: 1 * 1000}
             )
             this.watchID = navigator.geolocation.watchPosition((position) => {
                 let lastPosition = JSON.stringify(position)
