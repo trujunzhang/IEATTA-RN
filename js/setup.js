@@ -95,6 +95,7 @@ function setup(): ReactClass<{}> {
             )
             this.watchID = navigator.geolocation.watchPosition((position) => {
                 let lastPosition = JSON.stringify(position)
+                console.log("last position: " + lastPosition);
                 this.setState({lastPosition})
             })
         }
