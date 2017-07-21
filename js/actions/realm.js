@@ -29,7 +29,7 @@ const InteractionManager = require('InteractionManager');
 
 import type {Action, ThunkAction} from './types'
 
-const {RestaurantService, EventService} = require('../parse/realmApi').default
+const {RestaurantService, EventService, PhotoService} = require('../parse/realmApi').default
 const {getLocalImageUri} = require('../parse/fsApi')
 
 /**
@@ -38,6 +38,7 @@ const {getLocalImageUri} = require('../parse/fsApi')
 const {
     QUERY_NEAR_RESTAURANTS,
     QUERY_EVENTS_FOR_RESTAURANT,
+    QUERY_PHOTOS_FOR_RESTAURANT,
     PARSE_ORIGINAL_IMAGES,
     PARSE_THUMBNAIL_IMAGES
 } = require('../lib/constants').default
@@ -110,7 +111,38 @@ function queryEventsForRestaurant(restaurantId: string): ThunkAction {
     }
 }
 
+
+async function _queryPhotosForRestaurant(restaurantId: string): Promise<Array<Action>> {
+    const results = PhotoService.findAll()
+
+    const action = {
+        type: QUERY_PHOTOS_FOR_RESTAURANT,
+        payload: {
+            restaurantId: restaurantId,
+            results: results
+        }
+    }
+    return Promise.all([
+        Promise.resolve(action)
+    ])
+}
+
+function queryPhotosForRestaurant(restaurantId: string): ThunkAction {
+    return (dispatch) => {
+        const action = _queryPhotosForRestaurant(restaurantId)
+
+        // Loading friends schedules shouldn't block the login process
+        action.then(
+            ([result]) => {
+                dispatch(result)
+            }
+        )
+        return action
+    }
+}
+
 export default {
     queryNearRestaurant,
     queryEventsForRestaurant,
+    queryPhotosForRestaurant,
 }

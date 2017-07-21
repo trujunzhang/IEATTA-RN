@@ -32,7 +32,8 @@ import type {Action} from '../actions/types';
  */
 const {
     QUERY_NEAR_RESTAURANTS,
-    QUERY_EVENTS_FOR_RESTAURANT
+    QUERY_EVENTS_FOR_RESTAURANT,
+    QUERY_PHOTOS_FOR_RESTAURANT
 } = require('../lib/constants').default
 
 function appModel(state: State = [], action: Action): State {
@@ -48,6 +49,13 @@ function appModel(state: State = [], action: Action): State {
         })
         return nextState
     }
+    if (action.type === QUERY_PHOTOS_FOR_RESTAURANT) {
+        const nextState = Object.assign({}, state, {
+            photos: action.payload
+        })
+        return nextState
+    }
+
 
     return state;
 }
