@@ -68,6 +68,7 @@ export default keyMirror({
     LOGGED_OUT: null,
     SKIPPED_LOGIN: null,
     SET_SYNC_UPDATEDAT: null,
+    UPDATE_LAST_LOCATION: null,
     SET_SHARING: null,
     RESET_NUXES: null,
 

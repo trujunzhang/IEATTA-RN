@@ -36,6 +36,7 @@ const {
     SKIPPED_LOGIN,
     SET_SYNC_UPDATEDAT,
     SET_SHARING,
+    UPDATE_LAST_LOCATION
 } = require('../lib/constants').default
 
 
@@ -47,6 +48,7 @@ export type State = {
     slug: ?string;
     email: ?string;
     loginType: ?string;
+    lastPosition: ?object;
 }
 
 const emptyUser = {
@@ -60,7 +62,8 @@ const emptyUser = {
 const initialState = {
     isLoggedIn: false,
     hasSkippedLogin: false,
-    ...emptyUser
+    ...emptyUser,
+    lastPosition: null
 }
 
 function user(state: State = initialState, action: Action): State {
@@ -93,6 +96,14 @@ function user(state: State = initialState, action: Action): State {
         const nextState = Object.assign({}, state, {})
         return nextState
     }
+    if (action.type === UPDATE_LAST_LOCATION) {
+        const _position = action.payload
+        const nextState = Object.assign({}, state, {
+            lastPosition: _position
+        })
+        return nextState
+    }
+
 
     return state;
 }
