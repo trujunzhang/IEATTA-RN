@@ -40,20 +40,22 @@ import {
 
 const EventCell = require('./EventCell')
 const EmptyEvent = require('./EmptyEvent')
-let PureListView = require('../../../common/PureListView')
+const PureListView = require('../../../common/PureListView')
+const SectionHeader = require('../../../common/SectionHeader')
 
 const StaticContainer = require('react-native/Libraries/Components/StaticContainer')
 const RLRestaurantListViewHeaderView = require('./RLRestaurantListViewHeaderView')
 
+const {Event} = require('../../../parse/parseModels')
+
 type Props = {
-    day: number;
-    sessions: Array<Session>;
+    events: Array<Event>;
     navigator: Navigator;
     renderEmptyList?: (day: number) => ReactElement;
 };
 
 type State = {
-    todaySessions: Array;
+    events: Array;
 };
 
 class DetailedRestaurantListView extends React.Component {
@@ -63,24 +65,14 @@ class DetailedRestaurantListView extends React.Component {
 
     constructor(props: Props) {
         super(props);
-        this.state = {
-            todaySessions: []
-        };
-
         this._innerRef = null;
     }
 
-    componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.sessions !== this.props.sessions ||
-            nextProps.day !== this.props.day) {
-            this.setState({
-                todaySessions: []
-            });
-        }
-    }
 
-    renderSectionHeader() {
-        return <View/>
+    renderSectionHeader(sectionData, sectionId) {
+        return (
+            <SectionHeader sectionType={sectionId}/>
+        )
     }
 
     render() {

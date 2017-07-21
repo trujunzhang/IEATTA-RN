@@ -43,6 +43,7 @@ const {width, height} = Dimensions.get('window')
 const F8Colors = require('F8Colors')
 const F8Header = require('F8Header')
 const PureListView = require('../../common/PureListView')
+const SectionHeader = require('../../common/SectionHeader')
 
 const {
     MENU_ITEM_ADD_A_RESTAURANT,
@@ -96,10 +97,6 @@ class IEANearRestaurantScene extends Component {
             sections: {
                 MENU_SECTIONS_MORE: TOP_MENUS,
                 MENU_SECTIONS_RESTAURANTS: []
-            },
-            sectionTitles: {
-                MENU_SECTIONS_MORE: 'More',
-                MENU_SECTIONS_RESTAURANTS: 'Restaurants Nearby'
             }
         }
     }
@@ -131,32 +128,8 @@ class IEANearRestaurantScene extends Component {
     }
 
     renderSectionHeader(sectionData, sectionId) {
-        const {sectionTitles} = this.state
         return (
-            <View
-                style={{
-                    marginTop: 14,
-                    marginBottom: 4,
-                    height: 36,
-                    // backgroundColor: 'yellow'
-                }}>
-                <Text style={[
-                    {
-                        height: 36,
-                        fontWeight: "normal",
-                        color: "#666",
-                        fontSize: 20
-                    }, {
-                        paddingTop: 5,
-                        paddingBottom: 5,
-                        paddingLeft: 10,
-                        paddingRight: 10
-                    }, {
-                        marginBottom: 0
-                    }
-                ]
-                }>{sectionTitles[sectionId]}</Text>
-            </View>
+            <SectionHeader sectionType={sectionId}/>
         )
     }
 
