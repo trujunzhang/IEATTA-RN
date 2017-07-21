@@ -54,8 +54,7 @@ export type Event = {
     start: string;
     end: string;
     want: string;
-    users: User;
-    restaurant: Restaurant;
+    restaurantId: string;
 }
 
 export type Recipe = {
@@ -159,13 +158,12 @@ export function fromParseEvent(map: Object): Event {
         start: map.get('start'),
         end: map.get('end'),
         want: map.get('want'),
-        restaurant: map.get('restaurant') && fromParseRestaurant(map.get('restaurant')),
-        users: (map.get('users') || []).map(fromParseUser)
+        restaurantId: map.get('restaurant') && map.get('restaurant').id
     }
 }
 
 function _get_default_image_for_restaurant(map) {
-    const photos = map.get('photos')||[]
+    const photos = map.get('photos') || []
 
     // debugger
     if (photos.length > 0) {
