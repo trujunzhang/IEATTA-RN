@@ -91,6 +91,13 @@ class IEADetailedRestaurant extends React.Component {
 
         const events = []
 
+        const leftItem = {
+            icon: require('../../common/img/back_white.png'),
+            onPress: () => {
+                this.props.navigator.pop()
+            }
+        }
+
         const content = (
             <ListContainer
                 item={item}
@@ -99,6 +106,7 @@ class IEADetailedRestaurant extends React.Component {
                 renderParallaxHeader={(e) => {
                     return (<RLRestaurantParallaxHeader item={item}/>)
                 }}
+                leftItem={leftItem}
                 backgroundColor="#5597B8"
                 selectedSectionColor="#51CDDA">
                 <EventsListView
