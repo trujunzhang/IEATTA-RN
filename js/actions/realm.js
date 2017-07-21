@@ -88,7 +88,7 @@ async function _queryEventsForRestaurant(restaurantId: string): Promise<Array<Ac
         type: QUERY_EVENTS_FOR_RESTAURANT,
         payload: {
             restaurantId: restaurantId,
-            events: results
+            results: results
         }
     }
     return Promise.all([

@@ -96,12 +96,15 @@ class IEADetailedRestaurant extends React.Component {
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        this.setState({
-            sections: {
-                MENU_SECTIONS_MORE: TOP_MENUS,
-                MENU_SECTIONS_EVENTS: nextProps.appModel.restaurants
+        if (nextProps.appModel && nextProps.appModel.events) {
+            if (nextProps.appModel.events.restaurantId && nextProps.appModel.events.restaurantId === this.props.item.objectId) {
+                this.setState({
+                    sections: {
+                        MENU_SECTIONS_EVENTS: nextProps.appModel.events.results || []
+                    }
+                })
             }
-        })
+        }
     }
 
     componentDidMount() {
