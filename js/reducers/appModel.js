@@ -56,7 +56,6 @@ function appModel(state: State = [], action: Action): State {
         return nextState
     }
 
-
     return state;
 }
 
