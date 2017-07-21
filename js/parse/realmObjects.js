@@ -81,9 +81,8 @@ EventSchema.schema = {
         displayName: 'string',
         start: 'string',
         end: 'string',
-        want: 'string'
-        // users: User;
-        // restaurant: Restaurant;
+        want: 'string',
+        restaurantId: 'string'
     }
 }
 
